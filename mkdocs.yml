@@ -69,6 +69,7 @@ plugins:
             ADE — l'algorithme: EDA — the algorithm
             Calibration empirique: Empirical calibration
             Changements de régime: Regime changes
+            Corpus étendu: Extended corpus
             Mémorandum de régulation: Regulatory memorandum
             Réserves: Caveats
             Audit critique et limites: Critical audit and limitations
@@ -120,6 +121,7 @@ nav:
       - ADE — l'algorithme: ade.md
       - Calibration empirique: calibration.md
       - Changements de régime: regimes.md
+      - Corpus étendu: corpus-etendu.md
       - Mémorandum de régulation: memorandum.md
   - Réserves:
       - Audit critique et limites: limites.md
@@ -137,3 +139,4 @@ nav:
       - 08 — Modèle à agents: notebooks/08_abm_compas_politique.ipynb
       - 09 — Calibration: notebooks/09_calibration_visibilite.ipynb
       - 10 — Changement de régime: notebooks/10_changement_de_regime.ipynb
+      - 11 — Corpus étendu: notebooks/11_corpus_etendu.ipynb

@@ -1,0 +1,2767 @@
+{
+ "sources": [
+  {
+   "category": "Category:Conspiracy theories",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Disinformation",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Misinformation",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Fake news",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Hoaxes",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Political scandals",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Corruption",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Propaganda",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Moral panic",
+   "register": "accusation",
+   "depth": 1
+  },
+  {
+   "category": "Category:Space probes",
+   "register": "discovery",
+   "depth": 1
+  },
+  {
+   "category": "Category:Space missions",
+   "register": "discovery",
+   "depth": 1
+  },
+  {
+   "category": "Category:Physics experiments",
+   "register": "discovery",
+   "depth": 1
+  },
+  {
+   "category": "Category:Astronomical surveys",
+   "register": "discovery",
+   "depth": 1
+  },
+  {
+   "category": "Category:Exoplanets",
+   "register": "discovery",
+   "depth": 1
+  },
+  {
+   "category": "Category:Nobel laureates in Physics",
+   "register": "discovery",
+   "depth": 0
+  },
+  {
+   "category": "Category:Nobel laureates in Chemistry",
+   "register": "discovery",
+   "depth": 0
+  },
+  {
+   "category": "Category:Nobel laureates in Physiology or Medicine",
+   "register": "discovery",
+   "depth": 0
+  }
+ ],
+ "report": {
+  "per_category": {
+   "Category:Conspiracy theories": 142,
+   "Category:Disinformation": 306,
+   "Category:Misinformation": 172,
+   "Category:Fake news": 226,
+   "Category:Hoaxes": 813,
+   "Category:Political scandals": 529,
+   "Category:Corruption": 853,
+   "Category:Propaganda": 422,
+   "Category:Moral panic": 135,
+   "Category:Space probes": 214,
+   "Category:Space missions": 303,
+   "Category:Physics experiments": 447,
+   "Category:Astronomical surveys": 3695,
+   "Category:Exoplanets": 1161,
+   "Category:Nobel laureates in Physics": 229,
+   "Category:Nobel laureates in Chemistry": 199,
+   "Category:Nobel laureates in Physiology or Medicine": 232
+  },
+  "overlap_discarded": [],
+  "available": {
+   "accusation": 3126,
+   "discovery": 6322
+  },
+  "substantial": {
+   "accusation": 1935,
+   "discovery": 2705
+  },
+  "kept": {
+   "accusation": 220,
+   "discovery": 220
+  },
+  "per_register_cap": 220,
+  "min_article_bytes": 10000
+ },
+ "entries": [
+  {
+   "project": "en.wikipedia",
+   "article": "1858_Bradford_sweets_poisoning",
+   "label": "1858 Bradford sweets poisoning",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "1937_Liechtenstein_spy_affair",
+   "label": "1937 Liechtenstein spy affair",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "1987_Lieyu_massacre",
+   "label": "1987 Lieyu massacre",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "2006_Georgian%E2%80%93Russian_espionage_controversy",
+   "label": "2006 Georgian–Russian espionage controversy",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "2025_NBA_illegal_gambling_prosecution",
+   "label": "2025 NBA illegal gambling prosecution",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Accountability",
+   "label": "Accountability",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Acquired_homosexuality",
+   "label": "Acquired homosexuality",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Ad_hominem",
+   "label": "Ad hominem",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Adagio_in_G_minor",
+   "label": "Adagio in G minor",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Adeeb_files",
+   "label": "Adeeb files",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Agartala_Conspiracy_Case",
+   "label": "Agartala Conspiracy Case",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Al-Masdar_News",
+   "label": "Al-Masdar News",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Alan_Keyes",
+   "label": "Alan Keyes",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Anti-gender_movement",
+   "label": "Anti-gender movement",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Arrest_of_Robert_Seacat",
+   "label": "Arrest of Robert Seacat",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Assassination_of_Orlando_Letelier",
+   "label": "Assassination of Orlando Letelier",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Astroturfing",
+   "label": "Astroturfing",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Asylum_seekers_with_apathetic_refugee_children",
+   "label": "Asylum seekers with apathetic refugee children",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Ballymurphy_massacre",
+   "label": "Ballymurphy massacre",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bank_Secrecy_Act",
+   "label": "Bank Secrecy Act",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Beatrice_Sparks",
+   "label": "Beatrice Sparks",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bidzina_Ivanishvili",
+   "label": "Bidzina Ivanishvili",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Big_Five_cartel",
+   "label": "Big Five cartel",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Big_lie",
+   "label": "Big lie",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Black_Legend",
+   "label": "Black Legend",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Black_Ribbons",
+   "label": "Black Ribbons",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Blacklist_(employment)",
+   "label": "Blacklist (employment)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Blacksmith_token",
+   "label": "Blacksmith token",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bob_Fitzsimmons_vs._Tom_Sharkey",
+   "label": "Bob Fitzsimmons vs. Tom Sharkey",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bodo_League_massacre",
+   "label": "Bodo League massacre",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Branding_national_myths_and_symbols",
+   "label": "Branding national myths and symbols",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bridge_and_tunnel",
+   "label": "Bridge and tunnel",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bumper_sticker",
+   "label": "Bumper sticker",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "COVID-19_misinformation",
+   "label": "COVID-19 misinformation",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Capture_of_the_Tuapse",
+   "label": "Capture of the Tuapse",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Carlos_Bandeirense_Mirand%C3%B3polis_hoax",
+   "label": "Carlos Bandeirense Mirandópolis hoax",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Chemetco",
+   "label": "Chemetco",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "China_Cables",
+   "label": "China Cables",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Civil_service_reform_in_developing_countries",
+   "label": "Civil service reform in developing countries",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Clientelism",
+   "label": "Clientelism",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Confederation_Liberty_and_Independence",
+   "label": "Confederation Liberty and Independence",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Conformity_Gate",
+   "label": "Conformity Gate",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Controversies_surrounding_the_Royal_Canadian_Mounted_Police",
+   "label": "Controversies surrounding the Royal Canadian Mounted Police",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Afghanistan",
+   "label": "Corruption in Afghanistan",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Angola",
+   "label": "Corruption in Angola",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Bangladesh",
+   "label": "Corruption in Bangladesh",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Botswana",
+   "label": "Corruption in Botswana",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Chad",
+   "label": "Corruption in Chad",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Cuba",
+   "label": "Corruption in Cuba",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Haiti",
+   "label": "Corruption in Haiti",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Hungary",
+   "label": "Corruption in Hungary",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Mexico",
+   "label": "Corruption in Mexico",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Nicaragua",
+   "label": "Corruption in Nicaragua",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Poland",
+   "label": "Corruption in Poland",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Romania",
+   "label": "Corruption in Romania",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Sudan",
+   "label": "Corruption in Sudan",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_Taiwan",
+   "label": "Corruption in Taiwan",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_the_Democratic_Republic_of_the_Congo",
+   "label": "Corruption in the Democratic Republic of the Congo",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Corruption_in_the_United_States",
+   "label": "Corruption in the United States",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Coverage_of_the_Hillsborough_disaster_by_The_Sun",
+   "label": "Coverage of the Hillsborough disaster by The Sun",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Danske_Bank_money_laundering_scandal",
+   "label": "Danske Bank money laundering scandal",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Deepfake",
+   "label": "Deepfake",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Defence_Honours_and_Awards_scandal",
+   "label": "Defence Honours and Awards scandal",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Derek_Ridgewell",
+   "label": "Derek Ridgewell",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Diepreye_Alamieyeseigha",
+   "label": "Diepreye Alamieyeseigha",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Dipak_K._Das",
+   "label": "Dipak K. Das",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Disappearance_of_Sherlyn_Cadapan_and_Karen_Empe%C3%B1o",
+   "label": "Disappearance of Sherlyn Cadapan and Karen Empeño",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Disinformation_research",
+   "label": "Disinformation research",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Distributed_Denial_of_Secrets",
+   "label": "Distributed Denial of Secrets",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Dresden_left-wing_extremism_trial",
+   "label": "Dresden left-wing extremism trial",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Dubai_Papers",
+   "label": "Dubai Papers",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Electoral_bonds",
+   "label": "Electoral bonds",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Enfield_poltergeist",
+   "label": "Enfield poltergeist",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Eugen_Grigore_case",
+   "label": "Eugen Grigore case",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Fake_Accounts",
+   "label": "Fake Accounts",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Fake_news_websites_in_the_United_States",
+   "label": "Fake news websites in the United States",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "False_titles_of_nobility",
+   "label": "False titles of nobility",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Fixer_(person)",
+   "label": "Fixer (person)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Forgery",
+   "label": "Forgery",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Frank_Farian",
+   "label": "Frank Farian",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gang_stalking",
+   "label": "Gang stalking",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gay_Nazis_myth",
+   "label": "Gay Nazis myth",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gay_agenda",
+   "label": "Gay agenda",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Genocost",
+   "label": "Genocost",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Giri_Bandhu_Tea_Estate_Corruption",
+   "label": "Giri Bandhu Tea Estate Corruption",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Glenanne_gang",
+   "label": "Glenanne gang",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "GraceLand",
+   "label": "GraceLand",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Granma_(newspaper)",
+   "label": "Granma (newspaper)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gulargate",
+   "label": "Gulargate",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Herbert_Kickl",
+   "label": "Herbert Kickl",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Highgate_Vampire",
+   "label": "Highgate Vampire",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Hipster_(1940s_subculture)",
+   "label": "Hipster (1940s subculture)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Hodag",
+   "label": "Hodag",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Hover_Lab",
+   "label": "Hover Lab",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Hsieh_Ping-cheng_espionage_case",
+   "label": "Hsieh Ping-cheng espionage case",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Illuminati_(game)",
+   "label": "Illuminati (game)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Information_laundering",
+   "label": "Information laundering",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Intellectual",
+   "label": "Intellectual",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Iranian_diplomat_terror_plot_trial",
+   "label": "Iranian diplomat terror plot trial",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Irish_Section_110_Special_Purpose_Vehicle",
+   "label": "Irish Section 110 Special Purpose Vehicle",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Jackalope",
+   "label": "Jackalope",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "James_Ashby",
+   "label": "James Ashby",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "John_O'Donnell_(political_journalist)",
+   "label": "John O'Donnell (political journalist)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Jonathan_(tortoise)",
+   "label": "Jonathan (tortoise)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Joshua_Schulte",
+   "label": "Joshua Schulte",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Judenz%C3%A4hlung",
+   "label": "Judenzählung",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Junk_science",
+   "label": "Junk science",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Khuman_royal_necklace_incident",
+   "label": "Khuman royal necklace incident",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Killing_of_Nahida_and_Samar_Anton",
+   "label": "Killing of Nahida and Samar Anton",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Kinderhook_plates",
+   "label": "Kinderhook plates",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Korean_Central_News_Agency",
+   "label": "Korean Central News Agency",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Krishna_Mandir,_Lahore",
+   "label": "Krishna Mandir, Lahore",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Lavon_Affair",
+   "label": "Lavon Affair",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Lawrence_E._King_Jr.",
+   "label": "Lawrence E. King Jr.",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Lil_Tay",
+   "label": "Lil Tay",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_cases_of_factitious_disorder_imposed_on_another",
+   "label": "List of cases of factitious disorder imposed on another",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_political_disinformation_website_campaigns",
+   "label": "List of political disinformation website campaigns",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Liz_Mullinar",
+   "label": "Liz Mullinar",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Lost_Cause_of_the_Confederacy",
+   "label": "Lost Cause of the Confederacy",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Lucky_Day_(Doctor_Who)",
+   "label": "Lucky Day (Doctor Who)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Luther_Blissett_(pseudonym)",
+   "label": "Luther Blissett (pseudonym)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "MMR_vaccine_and_autism",
+   "label": "MMR vaccine and autism",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mafia_state",
+   "label": "Mafia state",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mar%C3%ADa_Milagros_Charbonier",
+   "label": "María Milagros Charbonier",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Master_Detective_Archives%3A_Rain_Code",
+   "label": "Master Detective Archives: Rain Code",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mauritius_Leaks",
+   "label": "Mauritius Leaks",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Michio_Hoshino",
+   "label": "Michio Hoshino",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Million_Dollar_Extreme",
+   "label": "Million Dollar Extreme",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mina_Crandon",
+   "label": "Mina Crandon",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Misha%3A_A_M%C3%A9moire_of_the_Holocaust_Years",
+   "label": "Misha: A Mémoire of the Holocaust Years",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Moon_landing_conspiracy_theories_in_popular_culture",
+   "label": "Moon landing conspiracy theories in popular culture",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Moore's_Ford_lynchings",
+   "label": "Moore's Ford lynchings",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mossack_Fonseca",
+   "label": "Mossack Fonseca",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Nail_Men",
+   "label": "Nail Men",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Narada_sting_operation",
+   "label": "Narada sting operation",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Nat_Tate%3A_An_American_Artist_1928%E2%80%931960",
+   "label": "Nat Tate: An American Artist 1928–1960",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "National_Report",
+   "label": "National Report",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "National_Security_League",
+   "label": "National Security League",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Neo-Templarism",
+   "label": "Neo-Templarism",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "New_Eastern_Outlook",
+   "label": "New Eastern Outlook",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Niger_uranium_forgeries",
+   "label": "Niger uranium forgeries",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Nineteen_Eighty-Four",
+   "label": "Nineteen Eighty-Four",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "North_Korean_abductions_of_Japanese_citizens",
+   "label": "North Korean abductions of Japanese citizens",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Offshore_financial_centre",
+   "label": "Offshore financial centre",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "One_America_News_Network",
+   "label": "One America News Network",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Operation_Car_Wash",
+   "label": "Operation Car Wash",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Operation_Harvest_Festival",
+   "label": "Operation Harvest Festival",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Order_of_Saint_Lazarus_(statuted_1910)",
+   "label": "Order of Saint Lazarus (statuted 1910)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Order_of_the_Occult_Hand",
+   "label": "Order of the Occult Hand",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Panama_Papers_case",
+   "label": "Panama Papers case",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Paradise_Papers",
+   "label": "Paradise Papers",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Patent_encumbrance_of_large_automotive_NiMH_batteries",
+   "label": "Patent encumbrance of large automotive NiMH batteries",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Patricia_Smith_(poet)",
+   "label": "Patricia Smith (poet)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Patriotic_Front_(Bulgaria,_2014)",
+   "label": "Patriotic Front (Bulgaria, 2014)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Personal_life_of_Clint_Eastwood",
+   "label": "Personal life of Clint Eastwood",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Phases_of_Operation_Car_Wash",
+   "label": "Phases of Operation Car Wash",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Poisoned_candy_myths",
+   "label": "Poisoned candy myths",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Politainment",
+   "label": "Politainment",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Pope_Cyril_III_of_Alexandria",
+   "label": "Pope Cyril III of Alexandria",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Potjaman_Na_Pombejra",
+   "label": "Potjaman Na Pombejra",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Project_Azorian",
+   "label": "Project Azorian",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Propaganda",
+   "label": "Propaganda",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Psychological_warfare",
+   "label": "Psychological warfare",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "R_v_Huhne",
+   "label": "R v Huhne",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "R_v_Zundel",
+   "label": "R v Zundel",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Radio_Bart",
+   "label": "Radio Bart",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "ReAwaken_America_Tour",
+   "label": "ReAwaken America Tour",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Redemption_movement",
+   "label": "Redemption movement",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Reebok_insider_trading_case",
+   "label": "Reebok insider trading case",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Rhinogradentia",
+   "label": "Rhinogradentia",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Rhodanthe_(mythology)",
+   "label": "Rhodanthe (mythology)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Right-wing_antiglobalism",
+   "label": "Right-wing antiglobalism",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Rossiya_Segodnya",
+   "label": "Rossiya Segodnya",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "RuPaulmark_Channel",
+   "label": "RuPaulmark Channel",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Russian_2022_war_censorship_laws",
+   "label": "Russian 2022 war censorship laws",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Russian_spies_in_the_Russo-Ukrainian_war",
+   "label": "Russian spies in the Russo-Ukrainian war",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "R%C3%A9publique_(video_game)",
+   "label": "République (video game)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Satan_Wants_You",
+   "label": "Satan Wants You",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Scapegoating",
+   "label": "Scapegoating",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Sch%C3%B6n_scandal",
+   "label": "Schön scandal",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Scottish_Family_Party",
+   "label": "Scottish Family Party",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Seed_oil_misinformation",
+   "label": "Seed oil misinformation",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Sharjeel_Memon",
+   "label": "Sharjeel Memon",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Shauna_Taylor_case",
+   "label": "Shauna Taylor case",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Sikh_Reference_Library",
+   "label": "Sikh Reference Library",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Spin_(propaganda)",
+   "label": "Spin (propaganda)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Springfield_race_riot_of_1908",
+   "label": "Springfield race riot of 1908",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Stab-in-the-back_myth",
+   "label": "Stab-in-the-back myth",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "State_capture",
+   "label": "State capture",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Stephen_Glass",
+   "label": "Stephen Glass",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Stereotype_content_model",
+   "label": "Stereotype content model",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Stimulus-triggered_acquisition_of_pluripotency",
+   "label": "Stimulus-triggered acquisition of pluripotency",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Susurluk_scandal",
+   "label": "Susurluk scandal",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "TAKE_IT_DOWN_Act",
+   "label": "TAKE IT DOWN Act",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Take_Us_to_Your_Chief%3A_and_Other_Stories",
+   "label": "Take Us to Your Chief: and Other Stories",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Tax_evasion",
+   "label": "Tax evasion",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Thaksin_Shinawatra",
+   "label": "Thaksin Shinawatra",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "The_Capture_(TV_series)",
+   "label": "The Capture (TV series)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "The_Ditch_(website)",
+   "label": "The Ditch (website)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "The_KGB_and_Soviet_Disinformation",
+   "label": "The KGB and Soviet Disinformation",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "The_Masked_Marauders",
+   "label": "The Masked Marauders",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "The_Report_from_Iron_Mountain",
+   "label": "The Report from Iron Mountain",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Time_Cube",
+   "label": "Time Cube",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Transvestigation",
+   "label": "Transvestigation",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Trial_of_Jeffrey_Donaldson",
+   "label": "Trial of Jeffrey Donaldson",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Trial_of_Louis_XVI",
+   "label": "Trial of Louis XVI",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Trial_of_Slobodan_Milo%C5%A1evi%C4%87",
+   "label": "Trial of Slobodan Milošević",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Trials_and_allegations_involving_Silvio_Berlusconi",
+   "label": "Trials and allegations involving Silvio Berlusconi",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Tsargrad_TV",
+   "label": "Tsargrad TV",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "UK_undercover_policing_scandal",
+   "label": "UK undercover policing scandal",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Uber_Files",
+   "label": "Uber Files",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Velichie",
+   "label": "Velichie",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Victor_Klemperer",
+   "label": "Victor Klemperer",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Watch_Dogs_(video_game)",
+   "label": "Watch Dogs (video game)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Wealth_of_Adolf_Hitler",
+   "label": "Wealth of Adolf Hitler",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Widgery_Tribunal",
+   "label": "Widgery Tribunal",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Wilson_Edwards",
+   "label": "Wilson Edwards",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Yellow_Peril",
+   "label": "Yellow Peril",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "You_are_either_with_us,_or_against_us",
+   "label": "You are either with us, or against us",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Your_Honor_(Indian_TV_series)",
+   "label": "Your Honor (Indian TV series)",
+   "category": "accusation"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "111_Tauri",
+   "label": "111 Tauri",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "17_Cygni",
+   "label": "17 Cygni",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "19_Aquilae",
+   "label": "19 Aquilae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "2_Piscis_Austrini",
+   "label": "2 Piscis Austrini",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "21_Aquilae",
+   "label": "21 Aquilae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "2685_Masursky",
+   "label": "2685 Masursky",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "3_Piscis_Austrini",
+   "label": "3 Piscis Austrini",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "31_Cygni",
+   "label": "31 Cygni",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "32_Orionis",
+   "label": "32 Orionis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "3C_298",
+   "label": "3C 298",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "4_Centauri",
+   "label": "4 Centauri",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "42_Capricorni",
+   "label": "42 Capricorni",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "4587_Rees",
+   "label": "4587 Rees",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "4C_10.45",
+   "label": "4C 10.45",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "52_Sagittarii",
+   "label": "52 Sagittarii",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "55_Cancri_Ac",
+   "label": "55 Cancri Ac",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "55_Cancri_Ad",
+   "label": "55 Cancri Ad",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "56_Pegasi",
+   "label": "56 Pegasi",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "6189_V%C3%B6lk",
+   "label": "6189 Völk",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "73_Leonis",
+   "label": "73 Leonis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "79_Ceti",
+   "label": "79 Ceti",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "8_Andromedae",
+   "label": "8 Andromedae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "AB_Aurigae",
+   "label": "AB Aurigae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "ADS_1359",
+   "label": "ADS 1359",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "AG_Carinae",
+   "label": "AG Carinae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "AK_Scorpii",
+   "label": "AK Scorpii",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "ALPHA_experiment",
+   "label": "ALPHA experiment",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Advanced_Composition_Explorer",
+   "label": "Advanced Composition Explorer",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Afshar_experiment",
+   "label": "Afshar experiment",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Alnilam",
+   "label": "Alnilam",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Alpha_Caeli",
+   "label": "Alpha Caeli",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Alpha_Gruis",
+   "label": "Alpha Gruis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Alpha_Lyncis",
+   "label": "Alpha Lyncis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Altair",
+   "label": "Altair",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Antares",
+   "label": "Antares",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Apollo_12",
+   "label": "Apollo 12",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Arcturus",
+   "label": "Arcturus",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Avram_Hershko",
+   "label": "Avram Hershko",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Barnard's_Star",
+   "label": "Barnard's Star",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Beijing_Schmidt_CCD_Asteroid_Program",
+   "label": "Beijing Schmidt CCD Asteroid Program",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "BeppoSAX",
+   "label": "BeppoSAX",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Beta_Canis_Majoris",
+   "label": "Beta Canis Majoris",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Beta_Sculptoris",
+   "label": "Beta Sculptoris",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Bion_(satellite)",
+   "label": "Bion (satellite)",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Brian_Josephson",
+   "label": "Brian Josephson",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Brian_Kobilka",
+   "label": "Brian Kobilka",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "C._F._Powell",
+   "label": "C. F. Powell",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "CE_Antliae",
+   "label": "CE Antliae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Carl_Bosch",
+   "label": "Carl Bosch",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Compact_Muon_Solenoid",
+   "label": "Compact Muon Solenoid",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Cosmic_Background_Explorer",
+   "label": "Cosmic Background Explorer",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Cowan%E2%80%93Reines_neutrino_experiment",
+   "label": "Cowan–Reines neutrino experiment",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Cryogenic_Dark_Matter_Search",
+   "label": "Cryogenic Dark Matter Search",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "DR_Chamaeleontis",
+   "label": "DR Chamaeleontis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "DS_Tucanae",
+   "label": "DS Tucanae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "DY_Pegasi",
+   "label": "DY Pegasi",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "David_Baker_(biochemist)",
+   "label": "David Baker (biochemist)",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "David_Julius",
+   "label": "David Julius",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Delta_Cassiopeiae",
+   "label": "Delta Cassiopeiae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Disrupted_planet",
+   "label": "Disrupted planet",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Double_Asteroid_Redirection_Test",
+   "label": "Double Asteroid Redirection Test",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "EG_Andromedae",
+   "label": "EG Andromedae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "EW_Lacertae",
+   "label": "EW Lacertae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Eddy_current_brake",
+   "label": "Eddy current brake",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Elizabeth_Blackburn",
+   "label": "Elizabeth Blackburn",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Emilio_Segr%C3%A8",
+   "label": "Emilio Segrè",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Epsilon_Cygni",
+   "label": "Epsilon Cygni",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Epsilon_Draconis",
+   "label": "Epsilon Draconis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Epsilon_Geminorum",
+   "label": "Epsilon Geminorum",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Epsilon_Herculis",
+   "label": "Epsilon Herculis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Epsilon_Scorpii",
+   "label": "Epsilon Scorpii",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Far_Ultraviolet_Spectroscopic_Explorer",
+   "label": "Far Ultraviolet Spectroscopic Explorer",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Feynman_sprinkler",
+   "label": "Feynman sprinkler",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Fomalhaut",
+   "label": "Fomalhaut",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Francis_Crick",
+   "label": "Francis Crick",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "G_Scorpii",
+   "label": "G Scorpii",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "GJ_3470_b",
+   "label": "GJ 3470 b",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "GZ_Velorum",
+   "label": "GZ Velorum",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gamma_Corvi",
+   "label": "Gamma Corvi",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gamma_Equulei",
+   "label": "Gamma Equulei",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gamma_Piscis_Austrini",
+   "label": "Gamma Piscis Austrini",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gamma_Sextantis",
+   "label": "Gamma Sextantis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gamma_Trianguli_Australis",
+   "label": "Gamma Trianguli Australis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "George_Smith_(chemist)",
+   "label": "George Smith (chemist)",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gliese_282",
+   "label": "Gliese 282",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gliese_393",
+   "label": "Gliese 393",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gliese_777",
+   "label": "Gliese 777",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gliese_784",
+   "label": "Gliese 784",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Granat",
+   "label": "Granat",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Gregg_L._Semenza",
+   "label": "Gregg L. Semenza",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "GroundBIRD",
+   "label": "GroundBIRD",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_101917",
+   "label": "HD 101917",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_11007",
+   "label": "HD 11007",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_115404",
+   "label": "HD 115404",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_118285",
+   "label": "HD 118285",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_1461",
+   "label": "HD 1461",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_154972",
+   "label": "HD 154972",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_164595",
+   "label": "HD 164595",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_164712",
+   "label": "HD 164712",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_165185",
+   "label": "HD 165185",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_166",
+   "label": "HD 166",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_168592",
+   "label": "HD 168592",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_170773",
+   "label": "HD 170773",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_172555",
+   "label": "HD 172555",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_177565",
+   "label": "HD 177565",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_181327",
+   "label": "HD 181327",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_187086",
+   "label": "HD 187086",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_18742",
+   "label": "HD 18742",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_195479",
+   "label": "HD 195479",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_1976",
+   "label": "HD 1976",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_204018",
+   "label": "HD 204018",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_209458",
+   "label": "HD 209458",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_209458_b",
+   "label": "HD 209458 b",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_219134_b",
+   "label": "HD 219134 b",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_30080",
+   "label": "HD 30080",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_31529",
+   "label": "HD 31529",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_4391",
+   "label": "HD 4391",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_44120",
+   "label": "HD 44120",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_45184",
+   "label": "HD 45184",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_63433_d",
+   "label": "HD 63433 d",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HD_66920",
+   "label": "HD 66920",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HR_3562",
+   "label": "HR 3562",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HR_4796",
+   "label": "HR 4796",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "HS_0810%2B2554",
+   "label": "HS 0810+2554",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Halley's_Comet",
+   "label": "Halley's Comet",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Hans_Krebs_(biochemist)",
+   "label": "Hans Krebs (biochemist)",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Hayabusa",
+   "label": "Hayabusa",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Heteronuclear_single_quantum_coherence_spectroscopy",
+   "label": "Heteronuclear single quantum coherence spectroscopy",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "High_Energy_Astronomy_Observatory_1",
+   "label": "High Energy Astronomy Observatory 1",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "High-altitude_balloon",
+   "label": "High-altitude balloon",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Hopkins_Ultraviolet_Telescope",
+   "label": "Hopkins Ultraviolet Telescope",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Iota_Cassiopeiae",
+   "label": "Iota Cassiopeiae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "James_Rainwater",
+   "label": "James Rainwater",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Jens_Christian_Skou",
+   "label": "Jens Christian Skou",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "John_Bardeen",
+   "label": "John Bardeen",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "John_L._Hall",
+   "label": "John L. Hall",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "John_Sulston",
+   "label": "John Sulston",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Joseph_Hooton_Taylor_Jr.",
+   "label": "Joseph Hooton Taylor Jr.",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Joseph_L._Goldstein",
+   "label": "Joseph L. Goldstein",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Kelvin_equation",
+   "label": "Kelvin equation",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Kelvin_water_dropper",
+   "label": "Kelvin water dropper",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Kepler-11e",
+   "label": "Kepler-11e",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Kepler-737b",
+   "label": "Kepler-737b",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Klaus_Hasselmann",
+   "label": "Klaus Hasselmann",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Kurt_W%C3%BCthrich",
+   "label": "Kurt Wüthrich",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "L_168-9",
+   "label": "L 168-9",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Lambda_Bo%C3%B6tis",
+   "label": "Lambda Boötis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Lambda_Draconis",
+   "label": "Lambda Draconis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_Large_Hadron_Collider_experiments",
+   "label": "List of Large Hadron Collider experiments",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_Nobel_laureates_in_Physics",
+   "label": "List of Nobel laureates in Physics",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_cosmic_microwave_background_experiments",
+   "label": "List of cosmic microwave background experiments",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_directly_imaged_exoplanets",
+   "label": "List of directly imaged exoplanets",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_lunar_probes",
+   "label": "List of lunar probes",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_minor_planets_and_comets_visited_by_spacecraft",
+   "label": "List of minor planets and comets visited by spacecraft",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "List_of_nearest_exoplanets",
+   "label": "List of nearest exoplanets",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Louis_Ignarro",
+   "label": "Louis Ignarro",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Luc_Montagnier",
+   "label": "Luc Montagnier",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Luis_Walter_Alvarez",
+   "label": "Luis Walter Alvarez",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mars_sample-return_mission",
+   "label": "Mars sample-return mission",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Martin_Karplus",
+   "label": "Martin Karplus",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Martinus_J._G._Veltman",
+   "label": "Martinus J. G. Veltman",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Masatoshi_Koshiba",
+   "label": "Masatoshi Koshiba",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Measurements_of_neutrino_speed",
+   "label": "Measurements of neutrino speed",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Meissa",
+   "label": "Meissa",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Merope_(star)",
+   "label": "Merope (star)",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Moon_Diver_(spacecraft)",
+   "label": "Moon Diver (spacecraft)",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mu_Cassiopeiae",
+   "label": "Mu Cassiopeiae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Mu1_Bo%C3%B6tis",
+   "label": "Mu1 Boötis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "NA49_experiment",
+   "label": "NA49 experiment",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "NA63_experiment",
+   "label": "NA63 experiment",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "NU_Orionis",
+   "label": "NU Orionis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "NV_Puppis",
+   "label": "NV Puppis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Neutron_Star_Interior_Composition_Explorer",
+   "label": "Neutron Star Interior Composition Explorer",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Nu_Geminorum",
+   "label": "Nu Geminorum",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "OSIRIS-REx",
+   "label": "OSIRIS-REx",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Oil_drop_experiment",
+   "label": "Oil drop experiment",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Owen_Richardson",
+   "label": "Owen Richardson",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "P_Cygni",
+   "label": "P Cygni",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "P_Eridani",
+   "label": "P Eridani",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "PH1b",
+   "label": "PH1b",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Peter_Doherty_(immunologist)",
+   "label": "Peter Doherty (immunologist)",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Proplyd_114-426",
+   "label": "Proplyd 114-426",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Psi_Aquilae",
+   "label": "Psi Aquilae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "R._Paul_Butler",
+   "label": "R. Paul Butler",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Rainer_Weiss",
+   "label": "Rainer Weiss",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Robert_H._Grubbs",
+   "label": "Robert H. Grubbs",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Ross_154",
+   "label": "Ross 154",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "SNO%2B",
+   "label": "SNO+",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "STS-41-C",
+   "label": "STS-41-C",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Santiago_Ram%C3%B3n_y_Cajal",
+   "label": "Santiago Ramón y Cajal",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Sigma_Scorpii",
+   "label": "Sigma Scorpii",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Solar_Anomalous_and_Magnetospheric_Particle_Explorer",
+   "label": "Solar Anomalous and Magnetospheric Particle Explorer",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Solar_eclipse_of_May_29,_1919",
+   "label": "Solar eclipse of May 29, 1919",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "South_Pole_Telescope",
+   "label": "South Pole Telescope",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Subrahmanyan_Chandrasekhar",
+   "label": "Subrahmanyan Chandrasekhar",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Syukuro_Manabe",
+   "label": "Syukuro Manabe",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "T_Cygni",
+   "label": "T Cygni",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "TRAPPIST-1e",
+   "label": "TRAPPIST-1e",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Tau_Herculis",
+   "label": "Tau Herculis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Tau_Scorpii",
+   "label": "Tau Scorpii",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Tau1_Eridani",
+   "label": "Tau1 Eridani",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Telescope_Array_Project",
+   "label": "Telescope Array Project",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Theta_Ceti",
+   "label": "Theta Ceti",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Theta_Eridani",
+   "label": "Theta Eridani",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Torsten_Wiesel",
+   "label": "Torsten Wiesel",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Uncrewed_spaceflights_to_the_International_Space_Station",
+   "label": "Uncrewed spaceflights to the International Space Station",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "V509_Cassiopeiae",
+   "label": "V509 Cassiopeiae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "V520_Carinae",
+   "label": "V520 Carinae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "V718_Coronae_Australis",
+   "label": "V718 Coronae Australis",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Vega",
+   "label": "Vega",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Vera_C._Rubin_Observatory",
+   "label": "Vera C. Rubin Observatory",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Victor_Grignard",
+   "label": "Victor Grignard",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "WASP-13",
+   "label": "WASP-13",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "WASP-132",
+   "label": "WASP-132",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "WASP-15",
+   "label": "WASP-15",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "WASP-24",
+   "label": "WASP-24",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "XO-2",
+   "label": "XO-2",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Xi_Aquarii",
+   "label": "Xi Aquarii",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Zeta_Cassiopeiae",
+   "label": "Zeta Cassiopeiae",
+   "category": "discovery"
+  },
+  {
+   "project": "en.wikipedia",
+   "article": "Zeta_Eridani",
+   "label": "Zeta Eridani",
+   "category": "discovery"
+  }
+ ]
+}

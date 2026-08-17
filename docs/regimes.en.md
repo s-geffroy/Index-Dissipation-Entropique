@@ -11,6 +11,13 @@
     is **0.63**, whereas the relative uncertainty on $\gamma\alpha/\lambda$ already reaches
     77 % at 0.15. Parameters are **refused** rather than reported with an illusory error bar.
 
+!!! failure "Since disproved — the persistence gap does not replicate"
+    The ×9.2 versus ×2.9 gap reported below was tested on
+    [440 category-derived subjects](corpus-etendu.en.md): it becomes ×3.04 versus ×2.90,
+    $p = 0.53$. It was an **artefact of hand-selecting** the twenty-four subjects of this pilot
+    corpus, which contained the best-known conspiracy theories. The section is kept as written,
+    with this warning.
+
 !!! danger "And a theoretical limitation dominates both"
     The identifiability of $\gamma\alpha/\lambda$ from a regime change **depends on the
     assumed saturation form**. Under logistic saturation it does not exist: two parameter
@@ -163,6 +170,11 @@ the project had not yet measured:
 > **It is not the amplification rate that distinguishes emotional registers, it is how long
 > attention stays captured.**
 
+!!! failure "This conclusion is disproved"
+    Across [440 subjects](corpus-etendu.en.md) the gap becomes ×3.04 versus ×2.90
+    ($p = 0.53$). The wording above is kept on record: it illustrates what a hand-picked
+    selection of twenty-four subjects can suggest.
+
 ### Identification fails, and why
 
 None of the fourteen changes yields usable parameters.
@@ -189,11 +201,14 @@ or $\rho = 139$. Those figures had the appearance of results.
 the ratio measurable. It is neither measurable on installed regimes, nor independent of an
 assumption about the saturation form.
 
-By contrast, **two quantities are well measured and do distinguish the registers**: the date of
-the switch and the lift of the plateau. A regulatory framework anchored to those would be
-enforceable where a threshold on $\rho$ is not — and it would have the advantage of addressing
-what a regulator actually seeks to establish: not the speed of a flare-up, but **how long a
-false belief stays installed**.
+By contrast, **two quantities are well measured**: the date of the switch and the lift of the
+plateau. A regulatory framework anchored to those would be enforceable where a threshold on
+$\rho$ is not, and it would address what a regulator actually seeks to establish: not the speed
+of a flare-up, but **how long a false belief stays installed**.
+
+They do **not** distinguish emotional registers, however: verification on
+[440 subjects](corpus-etendu.en.md) established that. They are instruments of observation, not
+proof of a mechanism.
 
 ## Open leads
 

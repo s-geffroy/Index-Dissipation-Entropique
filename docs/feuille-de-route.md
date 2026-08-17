@@ -45,8 +45,9 @@ Les suites directes de cette mesure, par ordre d'importance :
   aux bonnes dates, QAnon et la désinformation sanitaire compris. Mais l'identification des
   paramètres échoue sur données réelles — la dispersion résiduelle y est quatre fois trop
   élevée — et une limite théorique la borne de toute façon : le rapport n'est pas
-  identifiable sous une saturation logistique. En revanche l'écart de **persistance** entre
-  registres émotionnels, ×9,2 contre ×2,9, est le premier écart mesuré du projet.
+  identifiable sous une saturation logistique. L'écart de **persistance** entre registres
+  émotionnels, ×9,2 contre ×2,9, y apparaissait comme le premier écart mesuré du projet —
+  mais il **ne s'est pas répliqué** à l'échelle (voir l'entrée suivante).
 * **Passer à une résolution infra-quotidienne.** Le motif de rejet dominant est la
   fenêtre trop courte : beaucoup d'épisodes montent en un ou deux jours. Wikimedia
   publie des séries horaires sur une profondeur limitée ; cela suffirait à rendre
@@ -55,9 +56,13 @@ Les suites directes de cette mesure, par ordre d'importance :
   qu'une exponentielle, ce qui produit un artefact de fenêtre sévère (corrélation de rang
   $-0{,}94$ entre durée de fenêtre et $\lambda$), aujourd'hui contourné par un horizon
   fixe. Une loi de puissance ou une somme de deux exponentielles le supprimerait.
-* **Étendre le corpus.** Dix-neuf épisodes ne permettent aucune inférence de classe. Un
-  corpus de plusieurs centaines de sujets, toujours pré-enregistré, rendrait la
-  comparaison entre registres émotionnels concluante — dans un sens ou dans l'autre.
+* **Étendre le corpus.** → **[fait](corpus-etendu.md)** : 440 sujets dérivés de dix-sept
+  catégories de Wikipédia, pour remplacer le choix des sujets par celui des catégories.
+  La réponse est venue, et elle est négative — l'écart de persistance du corpus pilote **ne
+  se réplique pas** (×3,04 contre ×2,90, $p = 0{,}53$), et l'écart de taux de basculement
+  s'explique par un déséquilibre d'audience d'un facteur 3,5. L'extension a aussi révélé un
+  défaut de son propre protocole : l'appartenance à une catégorie est un indicateur bruité du
+  registre.
 
 ### 1.2 Inférer les coefficients de Fokker-Planck directement
 
@@ -242,18 +247,18 @@ Ces points n'ont pas d'enjeu scientifique, mais ils conditionnent la relecture.
 
 ## Si une seule chose devait être faite
 
-**Étendre le corpus à la persistance.**
+**Annoter le registre à la main, en aveugle, sur le pool dérivé de catégories.**
 
-Les deux mesures menées ont convergé vers un constat inattendu : le paramètre que le
-mémorandum voulait plafonner, $\gamma\alpha/\lambda$, est le plus difficile à établir — vide
-en tant que critère de signe sur les pics, non identifiable sur les régimes installés, et
-dépendant d'une hypothèse de forme dans tous les cas.
+Trois mesures ont été menées, et elles convergent vers un constat sobre : **aucune différence
+entre registres émotionnels ne résiste à sa vérification.** Le taux d'amplification n'en
+montrait aucune ; l'écart de persistance du corpus pilote a disparu à l'échelle ; et l'écart de
+taux de basculement s'est révélé être un effet d'audience.
 
-Or une grandeur bien plus simple **se mesure**, et c'est la seule qui distingue les registres
-émotionnels : **l'élévation du palier**, ×9,2 pour les contenus d'accusation contre ×2,9 pour
-les annonces de découverte. Elle est aujourd'hui à $p = 0{,}08$ sur quatorze observations.
+Mais le corpus étendu a son propre défaut, et il va dans le sens du résultat nul : un
+étiquetage par catégorie est bruité, et un bruit d'étiquetage attire tout écart vers zéro. Le
+résultat obtenu est donc compatible avec l'absence d'effet **comme** avec un effet dilué, et
+ces données ne permettent pas de choisir.
 
-Un corpus de plusieurs centaines de sujets, toujours pré-enregistré, trancherait — et
-donnerait au mémorandum un indicateur opposable, adossé à ce qu'un régulateur cherche
-réellement à constater : non la vitesse d'un emballement, mais **la durée pendant laquelle une
-fausse croyance reste installée**.
+Deux cents sujets du pool, annotés à la main **sans voir leurs séries**, trancheraient. C'est
+un travail d'annotation et non de calcul, et c'est le seul point du projet où quelques heures
+de travail humain valent mieux que n'importe quel raffinement de méthode.

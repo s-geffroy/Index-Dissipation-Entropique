@@ -103,6 +103,36 @@ class TestCache:
     def test_absent_series_returns_none(self, tmp_path: Path) -> None:
         assert load_cached("en.wikipedia", "Inexistant", cache_dir=tmp_path) is None
 
+    def test_compressed_by_default(self, series: PageviewSeries, tmp_path: Path) -> None:
+        """Le corpus étendu compte plusieurs centaines de séries : la compression divise
+        par cinq le poids qu'elles occupent dans le dépôt."""
+        path = save_cached(series, cache_dir=tmp_path)
+
+        assert path.suffix == ".gz"
+
+    def test_uncompressed_form_is_still_readable(
+        self, series: PageviewSeries, tmp_path: Path
+    ) -> None:
+        """Les séries du corpus pilote, écrites avant la compression, restent lisibles."""
+        save_cached(series, cache_dir=tmp_path, compress=False)
+        restored = load_cached(series.project, series.article, cache_dir=tmp_path)
+
+        assert restored is not None
+        assert np.array_equal(restored.views, series.views, equal_nan=True)
+
+    def test_compression_shrinks_the_payload(self, tmp_path: Path) -> None:
+        long_series = PageviewSeries(
+            project="en.wikipedia",
+            article="Long",
+            start=date(2015, 7, 1),
+            views=np.tile(np.arange(100.0, 200.0), 40),
+        )
+
+        compressed = save_cached(long_series, cache_dir=tmp_path)
+        plain = save_cached(long_series, cache_dir=tmp_path, compress=False)
+
+        assert compressed.stat().st_size < 0.5 * plain.stat().st_size
+
     def test_missing_cache_refuses_to_reach_the_network_silently(self, tmp_path: Path) -> None:
         """Sans autorisation explicite, un cache incomplet doit échouer de façon lisible."""
         with pytest.raises(FileNotFoundError, match="fetch_pageviews"):
@@ -155,10 +185,11 @@ class TestCorpus:
         missing = [
             entry.label
             for entry in CORPUS
-            if not (CACHE_DIRECTORY / entry.project / f"{entry.article}.json").exists()
+            if load_cached(entry.project, entry.article) is None
         ]
 
         assert missing == []
+        assert CACHE_DIRECTORY.exists()
 
     def test_cached_series_cover_the_declared_window(self) -> None:
         for entry in CORPUS:

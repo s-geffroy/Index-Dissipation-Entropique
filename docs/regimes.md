@@ -12,6 +12,13 @@
     $\gamma\alpha/\lambda$ atteint déjà 77 % à 0,15. Les paramètres sont **refusés** plutôt
     que rapportés avec une barre d'erreur illusoire.
 
+!!! failure "Résultat infirmé depuis — l'écart de persistance ne se réplique pas"
+    L'écart ×9,2 contre ×2,9 rapporté plus bas a été mis à l'épreuve sur
+    [440 sujets dérivés de catégories](corpus-etendu.md) : il devient ×3,04 contre ×2,90,
+    $p = 0{,}53$. C'était un **artefact de la sélection manuelle** des vingt-quatre sujets de
+    ce corpus pilote, qui contenait les théories du complot les plus connues. La section
+    correspondante est conservée telle quelle, avec cet avertissement.
+
 !!! danger "Et une limite théorique domine les deux"
     L'identifiabilité de $\gamma\alpha/\lambda$ sur un changement de régime **dépend de la
     forme supposée de la saturation**. Sous saturation logistique, elle n'existe pas : deux
@@ -170,6 +177,11 @@ grandeur que le projet n'avait pas encore mesurée :
 > **Ce n'est pas le taux d'amplification qui distingue les registres émotionnels, c'est la
 > durée pendant laquelle l'attention reste captée.**
 
+!!! failure "Cette conclusion est infirmée"
+    Sur [440 sujets](corpus-etendu.md), l'écart devient ×3,04 contre ×2,90 ($p = 0{,}53$). La
+    formulation ci-dessus est conservée pour mémoire : elle illustre ce qu'une sélection
+    manuelle de vingt-quatre sujets peut faire croire.
+
 ### L'identification échoue, et pourquoi
 
 Zéro des quatorze changements ne livre de paramètres exploitables.
@@ -197,11 +209,15 @@ La [recommandation 2](memorandum.md) plafonnait $\gamma\alpha/\lambda$. Cette fo
 supposait le rapport mesurable. Il ne l'est ni sur les régimes installés, ni indépendamment
 d'une hypothèse de forme de saturation.
 
-En revanche, **deux grandeurs se mesurent bien et distinguent les registres** : la date du
-basculement et l'élévation du palier. Un cadre réglementaire adossé à celles-ci serait
-opposable, là où un seuil sur $\rho$ ne l'est pas — et il aurait l'avantage de porter sur ce
-que le régulateur cherche réellement à constater : non la vitesse d'un emballement, mais la
-**durée pendant laquelle une fausse croyance reste installée**.
+En revanche, **deux grandeurs se mesurent bien** : la date du basculement et l'élévation du
+palier. Un cadre réglementaire adossé à celles-ci serait opposable, là où un seuil sur $\rho$
+ne l'est pas — et il porterait sur ce que le régulateur cherche réellement à constater : non la
+vitesse d'un emballement, mais la **durée pendant laquelle une fausse croyance reste
+installée**.
+
+Elles **ne distinguent pas** les registres émotionnels pour autant : la vérification sur
+[440 sujets](corpus-etendu.md) l'a établi. Ce sont des instruments de constat, non la preuve
+d'un mécanisme.
 
 ## Pistes ouvertes
 

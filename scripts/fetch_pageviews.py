@@ -20,6 +20,7 @@ import time
 
 import numpy as np
 
+from ide.catalogue import load_catalogue
 from ide.corpus import CORPUS, CORPUS_END, CORPUS_START
 from ide.pageviews import fetch_pageviews, load_cached, save_cached
 
@@ -36,13 +37,24 @@ def main() -> int:
         action="store_true",
         help="retélécharge les séries déjà présentes dans le cache",
     )
+    parser.add_argument(
+        "--catalogue",
+        action="store_true",
+        help="collecte le corpus étendu de data/catalogue.json au lieu du corpus pilote",
+    )
     arguments = parser.parse_args()
+
+    if arguments.catalogue:
+        subjects, _ = load_catalogue()
+        print(f"Corpus étendu : {len(subjects)} sujets\n")
+    else:
+        subjects = list(CORPUS)
+        print(f"Corpus pilote : {len(subjects)} sujets\n")
 
     fetched, skipped, failed = 0, 0, []
 
-    for entry in CORPUS:
+    for entry in subjects:
         if not arguments.force and load_cached(entry.project, entry.article) is not None:
-            print(f"  déjà en cache  {entry.project}/{entry.article}")
             skipped += 1
             continue
 
@@ -63,10 +75,7 @@ def main() -> int:
 
             save_cached(series)
             observed = int((~np.isnan(series.views)).sum())
-            print(
-                f"  téléchargé     {entry.project}/{entry.article} "
-                f"— {observed} jours observés"
-            )
+            print(f"  {fetched + 1:4d}  {entry.label[:44]:44s} {observed:5d} jours")
             fetched += 1
             break
 

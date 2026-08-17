@@ -35,6 +35,7 @@ from ide.calibration import (
     fit_exponential_rate,
     scan_series,
 )
+from ide.catalogue import CategorySource, load_catalogue
 from ide.entropy import (
     entropic_dissipation_index,
     shannon_entropy,
@@ -71,6 +72,7 @@ __all__ = [
     "ExponentialFit",
     "FokkerPlanckSolver",
     "IsingModel",
+    "CategorySource",
     "RegimeCriteria",
     "RegimeReport",
     "RegimeShift",
@@ -88,6 +90,7 @@ __all__ = [
     "fit_exponential_rate",
     "fit_saturated_growth",
     "hysteresis_loop",
+    "load_catalogue",
     "onsager_critical_temperature",
     "scan_regime_shifts",
     "scan_series",

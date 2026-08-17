@@ -115,16 +115,21 @@ régulateur ne doit pas le présenter comme démontré.
   théorique s'y ajoute : sous une saturation logistique, $\gamma\alpha/\lambda$ n'est pas
   identifiable, quelle que soit la qualité des données.
 
-!!! tip "Un indicateur de remplacement, lui, se mesure"
+!!! tip "Un indicateur de remplacement, lui, se mesure — mais ne prouve rien"
     La détection de changement de régime livre deux grandeurs robustes que le rapport
-    d'amplification n'offre pas : **la date du basculement** et **l'élévation du palier**. Et
-    c'est la seconde, non le rapport, qui distingue les registres émotionnels — ×9,2 pour les
-    contenus d'accusation contre ×2,9 pour les annonces de découverte.
+    d'amplification n'offre pas : **la date du basculement** et **l'élévation du palier**.
+    Elles se mesurent sur données publiques, sans hypothèse de forme, et portent sur ce qu'un
+    régulateur cherche réellement à constater : non la vitesse d'un emballement, mais la durée
+    pendant laquelle une fausse croyance reste installée.
 
-    Un seuil réglementaire adossé à la persistance serait donc opposable là où un plafond sur
-    $\rho$ ne l'est pas, et il porterait sur ce que le régulateur cherche réellement à
-    constater : non la vitesse d'un emballement, mais la durée pendant laquelle une fausse
-    croyance reste installée. → [Changements de régime](regimes.md)
+    **Elles ne discriminent pas les registres émotionnels pour autant.** Une première mesure
+    sur vingt-quatre sujets suggérait un écart de ×9,2 contre ×2,9 ; la vérification sur
+    [440 sujets dérivés de catégories](corpus-etendu.md) l'a réduit à ×3,04 contre ×2,90
+    ($p = 0{,}53$), et a montré que l'écart de taux de basculement était un effet d'audience.
+
+    Un régulateur peut donc s'en servir pour **constater** un basculement durable, non pour
+    établir qu'une catégorie de contenus en produit davantage.
+    → [Changements de régime](regimes.md) · [Corpus étendu](corpus-etendu.md)
 
 ### 3. Brider la portée des super-diffuseurs en cas d'anomalie cinétique
 

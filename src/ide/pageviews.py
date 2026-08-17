@@ -36,6 +36,7 @@ l'API, qui répète ses métadonnées à chaque jour.
 
 from __future__ import annotations
 
+import gzip
 import json
 from dataclasses import dataclass
 from datetime import date, timedelta
@@ -144,9 +145,32 @@ def _slug(project: str, article: str, cache_dir: Path | None = None) -> Path:
     return root / project / f"{article}.json"
 
 
-def save_cached(series: PageviewSeries, cache_dir: Path | None = None) -> Path:
-    """Enregistre une série dans le cache et renvoie le chemin du fichier."""
-    destination = _slug(series.project, series.article, cache_dir)
+def _candidates(project: str, article: str, cache_dir: Path | None = None) -> tuple[Path, Path]:
+    """Chemins compressé et non compressé d'une série, dans cet ordre de préférence.
+
+    Le corpus étendu compte plusieurs centaines de séries quotidiennes sur onze ans : non
+    compressées, elles pèseraient une dizaine de mégaoctets dans le dépôt pour un contenu
+    presque entièrement redondant. La compression ramène cela à quelques mégaoctets, tout en
+    restant lisible avec la bibliothèque standard.
+    """
+    plain = _slug(project, article, cache_dir)
+
+    return plain.with_suffix(".json.gz"), plain
+
+
+def save_cached(
+    series: PageviewSeries, cache_dir: Path | None = None, compress: bool = True
+) -> Path:
+    """Enregistre une série dans le cache et renvoie le chemin du fichier.
+
+    Args:
+        series: série à enregistrer.
+        cache_dir: emplacement du cache.
+        compress: écrit un fichier ``.json.gz``. La forme non compressée reste disponible
+            pour inspecter une série à la main.
+    """
+    compressed, plain = _candidates(series.project, series.article, cache_dir)
+    destination = compressed if compress else plain
     destination.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "project": series.project,
@@ -155,7 +179,12 @@ def save_cached(series: PageviewSeries, cache_dir: Path | None = None) -> Path:
         "start": series.start.isoformat(),
         "views": [None if np.isnan(value) else int(value) for value in series.views],
     }
-    destination.write_text(json.dumps(payload, separators=(",", ":")) + "\n")
+    encoded = json.dumps(payload, separators=(",", ":")) + "\n"
+    if compress:
+        with gzip.open(destination, "wt", encoding="utf-8") as handle:
+            handle.write(encoded)
+    else:
+        destination.write_text(encoded)
 
     return destination
 
@@ -164,12 +193,15 @@ def load_cached(
     project: str, article: str, cache_dir: Path | None = None
 ) -> PageviewSeries | None:
     """Charge une série depuis le cache, ou renvoie ``None`` si elle n'y figure pas."""
-    source = _slug(project, article, cache_dir)
+    compressed, plain = _candidates(project, article, cache_dir)
 
-    if not source.exists():
+    if compressed.exists():
+        with gzip.open(compressed, "rt", encoding="utf-8") as handle:
+            payload = json.loads(handle.read())
+    elif plain.exists():
+        payload = json.loads(plain.read_text())
+    else:
         return None
-
-    payload = json.loads(source.read_text())
     views = np.array(
         [np.nan if value is None else float(value) for value in payload["views"]],
         dtype=float,

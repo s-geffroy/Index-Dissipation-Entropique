@@ -6,7 +6,7 @@ thermodynamique de l'opinion publique.**
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Index-Dissipation-Entropique/)
-[![Tests : 324](https://img.shields.io/badge/tests-324-brightgreen.svg)](tests/)
+[![Tests : 364](https://img.shields.io/badge/tests-352-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Index-Dissipation-Entropique/)**
 · [English](https://s-geffroy.github.io/Index-Dissipation-Entropique/en/)
@@ -35,11 +35,13 @@ Trois résultats, chacun adossé à du code exécutable :
   dissiper. La **[mesure sur données publiques](docs/calibration.md)** situe le rapport entre
   **1,5 et 12** sur 19 épisodes d'attention — et montre du même coup que vérifier le *signe*
   de ce critère n'apprend rien, ce qui a obligé à réécrire une recommandation du mémorandum.
-- **Ce qui distingue les registres émotionnels, c'est la persistance.** La
-  **[détection de changement de régime](docs/regimes.md)** retrouve 14 basculements datés —
-  QAnon en mars 2020, l'affaire Benalla le 20 juillet 2018 — et mesure le seul écart du projet
-  entre contenus d'accusation et annonces de découverte : une élévation durable de **×9,2
-  contre ×2,9**.
+- **Les basculements durables se datent, mais ne distinguent pas les registres.** La
+  **[détection de changement de régime](docs/regimes.md)** retrouve des basculements datés —
+  QAnon en mars 2020, l'affaire Benalla le 20 juillet 2018. Un écart de persistance entre
+  registres émotionnels y semblait acquis (×9,2 contre ×2,9) ; la vérification sur
+  **[440 sujets](docs/corpus-etendu.md)** l'a ramené à ×3,04 contre ×2,90 ($p = 0{,}53$).
+  C'était un artefact de sélection manuelle, et **aucune différence entre registres ne résiste
+  à sa vérification.**
 
 Le travail en dérive deux instruments :
 
@@ -72,9 +74,9 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 324 tests, dont les exemples de docstrings
+docker compose run --rm test          # 352 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
-docker compose run --rm notebooks     # régénère les 10 figures de la note
+docker compose run --rm notebooks     # régénère les 11 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
 docker compose up site                # documentation   → http://localhost:8000
 docker compose run --rm latex         # compile paper/*.tex en PDF
@@ -95,13 +97,15 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── ade.py          score de recommandation entropique, recuit
 ├── calibration.py  identification de γα et λ sur des pics d'attention
 ├── regime.py       détection de changement de régime et identification associée
-├── pageviews.py    accès à l'API Wikimedia, cache versionné
+├── pageviews.py    accès à l'API Wikimedia, cache versionné et compressé
+├── catalogue.py    corpus étendu dérivé de catégories Wikipédia
 ├── corpus.py       corpus pré-enregistré de calibration
 └── abm/            modèle à agents « compas politique »
 
-tests/              324 tests — validation physique, numérique et statistique
-notebooks/          01 à 10, un par bloc théorique, exécutables
-data/pageviews/     24 séries de consultation, versionnées pour la reproductibilité
+tests/              352 tests — validation physique, numérique et statistique
+notebooks/          01 à 11, un par bloc théorique, exécutables
+data/pageviews/     464 séries de consultation, versionnées pour la reproductibilité
+data/catalogue.json manifeste pré-enregistré du corpus étendu (440 sujets)
 scripts/            collecte des données (seul point d'accès réseau du dépôt)
 paper/              note de synthèse LaTeX (FR + EN) et figures générées
 docs/               documentation du site, bilingue
@@ -123,6 +127,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 | taux d'une exponentielle de synthèse retrouvés à $10^{-9}$ | condition minimale pour que la calibration empirique signifie quelque chose |
 | un changement de régime synthétique n'est **pas** détecté par la méthode par pic | fige dans un test la limite qui a motivé la seconde méthode |
 | deux jeux de paramètres de rapports 5,0 et 1,7 donnent la **même** trajectoire | démontre une non-identifiabilité structurelle, et non un défaut numérique |
+| les deux registres du corpus étendu ont des effectifs **exactement** égaux | l'équilibre vient d'une troncature, il doit donc être exact |
+| un temps d'oubli plus long que la fenêtre d'ajustement est **refusé** | sans quoi un ajustement excellent produit un rapport de 5431 |
 | reproductibilité à la graine du modèle à agents | condition minimale pour qu'un chiffre du dépôt soit citable |
 
 ## Contenu du dépôt
@@ -132,8 +138,9 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 - [`docs/calibration.md`](docs/calibration.md) — **la mesure de $\gamma\alpha/\lambda$** sur
   données publiques, ses trois enseignements et ses réserves.
 - [`docs/regimes.md`](docs/regimes.md) — **les désinformations qui s'installent** : 14
-  basculements datés, pourquoi le rapport n'y est pas identifiable, et le premier écart mesuré
-  entre registres émotionnels.
+  basculements datés, et pourquoi le rapport n'y est pas identifiable.
+- [`docs/corpus-etendu.md`](docs/corpus-etendu.md) — **la réplication sur 440 sujets** :
+  comment un corpus dérivé de catégories a infirmé le résultat du corpus pilote.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

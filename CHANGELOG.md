@@ -7,6 +7,49 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — corpus étendu et réplication
+
+Met à l'épreuve, sur 440 sujets, le seul écart entre registres émotionnels que le projet
+avait mesuré. Détail : [`docs/corpus-etendu.md`](docs/corpus-etendu.md).
+
+- **`ide.catalogue`** — construction d'un corpus depuis dix-sept catégories de Wikipédia
+  déclarées à l'avance, avec classes disjointes, filtre de substance et échantillonnage
+  déterministe par empreinte de titre. Remplace le choix des *sujets* par celui des
+  *catégories* : à trois cents titres, une sélection manuelle ne se relit plus.
+- **`scripts/build_catalogue.py`** et le manifeste versionné `data/catalogue.json`.
+- **Cache compressé** — `ide.pageviews` écrit désormais des fichiers `.json.gz`, ce qui
+  ramène 440 séries quotidiennes sur onze ans de dix mégaoctets à trois.
+- **`notebooks/11_corpus_etendu.ipynb`** et 40 tests supplémentaires.
+
+### Résultats — le résultat du corpus pilote est infirmé
+
+- **L'écart de persistance ne se réplique pas.** ×9,2 contre ×2,9 ($p = 0{,}08$) sur
+  quatorze sujets choisis à la main devient **×3,04 contre ×2,90** ($p = 0{,}53$) sur 440
+  sujets dérivés de catégories. Le corpus pilote contenait les théories du complot les plus
+  connues — c'est précisément ce qu'une sélection manuelle produit.
+- **L'écart de taux de basculement est un effet d'audience.** Les sujets d'accusation
+  basculent trois fois plus souvent (8,6 % contre 2,7 %, $p = 0{,}014$), mais ils sont aussi
+  trois fois et demie plus consultés ($p = 5\times10^{-14}$). À trafic comparable, le rapport
+  de cotes tombe de 3,4 à 1,38 ($p = 0{,}63$) ; sur 173 paires appariées, McNemar donne
+  $p = 0{,}18$.
+- **Le nouveau protocole a son propre défaut.** L'appartenance à une catégorie est un
+  indicateur bruité du registre — « Lil Tay » est dans une catégorie de canulars, mais son
+  audience est celle d'une célébrité. Un bruit d'étiquetage attire tout écart vers zéro : le
+  résultat nul est compatible avec l'absence d'effet **comme** avec un effet dilué.
+- **Bilan :** aucune différence entre registres émotionnels ne résiste à sa vérification, ni
+  par le taux d'amplification, ni par la persistance. Le mécanisme de la charge émotionnelle
+  reste sans appui empirique.
+
+### Modifié
+
+- **Contrôle d'observabilité ajouté à `ide.regime`.** Le temps d'oubli doit tenir dans la
+  fenêtre ajustée. Sans lui, deux transitions presque en marche d'escalier du corpus étendu
+  produisaient des rapports de 697 et 5431 — soit des mémoires collectives de plusieurs
+  années — avec une dispersion résiduelle excellente.
+- **Affirmations corrigées** dans `docs/regimes.md`, le mémorandum et les pages d'accueil :
+  l'écart de persistance y était présenté comme le premier écart mesuré du projet. Les
+  sections concernées sont conservées, avec l'avertissement qui les infirme.
+
 ### Ajouté — détection de changement de régime
 
 Traite l'angle mort de la calibration par pic : les désinformations qui ne flambent pas mais

@@ -51,9 +51,12 @@ Direct follow-ups, in order of importance:
   a severe window artefact (rank correlation $-0.94$ between window length and $\lambda$),
   currently worked around with a fixed horizon. A power law or a sum of two exponentials
   would remove it.
-* **Extend the corpus.** Nineteen episodes support no class-level inference. A corpus of
-  several hundred subjects, still pre-registered, would make the comparison between emotional
-  registers conclusive — one way or the other.
+* **Extend the corpus.** → **[done](corpus-etendu.en.md)**: 440 subjects derived from
+  seventeen Wikipedia categories, replacing the choice of subjects by the choice of categories.
+  The answer came, and it is negative — the pilot's persistence gap **does not replicate**
+  (×3.04 versus ×2.90, $p = 0.53$), and the switching-rate gap is explained by a ×3.5 audience
+  imbalance. The extension also revealed a flaw in its own protocol: category membership is a
+  noisy proxy for the register.
 
 ### 1.2 Infer the Fokker-Planck coefficients directly
 
@@ -215,16 +218,18 @@ threshold — connecting the work to an established literature rather than an ad
 
 ## If only one thing were done
 
-**Extend the corpus to persistence.**
+**Annotate the register by hand, blind, on the category-derived pool.**
 
-Both measurements converged on an unexpected finding: the parameter the memorandum wanted to
-cap, $\gamma\alpha/\lambda$, is the hardest to establish — empty as a sign criterion on
-peaks, unidentifiable on installed regimes, and dependent on a form assumption in every case.
+Three measurements have been made, and they converge on a sober finding: **no difference
+between emotional registers survives verification.** The amplification rate showed none; the
+pilot's persistence gap vanished at scale; and the switching-rate gap turned out to be an
+audience effect.
 
-Yet a far simpler quantity **does** measure, and it is the only one distinguishing emotional
-registers: **the lift of the plateau**, ×9.2 for accusation content against ×2.9 for discovery
-announcements. It currently sits at $p = 0.08$ across fourteen observations.
+But the extended corpus has a flaw of its own, and it points in the direction of the null
+result: category labelling is noisy, and label noise attracts any gap towards zero. The result
+obtained is therefore consistent with the absence of an effect **as much as** with a diluted
+one, and these data cannot choose between them.
 
-A corpus of several hundred pre-registered subjects would settle it — and would give the
-memorandum an enforceable indicator anchored to what a regulator actually seeks to establish:
-not the speed of a flare-up, but **how long a false belief stays installed**.
+Two hundred subjects from the pool, annotated by hand **without seeing their series**, would
+settle it. That is annotation work, not computation — and it is the one point in the project
+where a few hours of human labour beat any refinement of method.

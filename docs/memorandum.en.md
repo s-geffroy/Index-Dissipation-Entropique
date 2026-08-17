@@ -110,16 +110,20 @@ regulator must not present it as demonstrated.
   theoretical limitation compounds this: under logistic saturation, $\gamma\alpha/\lambda$ is
   unidentifiable regardless of data quality.
 
-!!! tip "A replacement indicator does measure"
+!!! tip "A replacement indicator does measure — but proves nothing"
     Regime-change detection yields two robust quantities the amplification ratio does not:
-    **the date of the switch** and **the lift of the plateau**. And it is the latter, not the
-    ratio, that distinguishes emotional registers — ×9.2 for accusation content against ×2.9
-    for discovery announcements.
+    **the date of the switch** and **the lift of the plateau**. They are measurable on public
+    data, without a form assumption, and they address what a regulator actually seeks to
+    establish: not the speed of a flare-up, but how long a false belief stays installed.
 
-    A regulatory threshold anchored to persistence would therefore be enforceable where a cap
-    on $\rho$ is not, and it would address what a regulator actually seeks to establish: not
-    the speed of a flare-up, but how long a false belief stays installed.
-    → [Regime changes](regimes.en.md)
+    **They do not discriminate between emotional registers, however.** A first measurement on
+    twenty-four subjects suggested a ×9.2 versus ×2.9 gap; verification on
+    [440 category-derived subjects](corpus-etendu.en.md) reduced it to ×3.04 versus ×2.90
+    ($p = 0.53$), and showed the switching-rate gap to be an audience effect.
+
+    A regulator can therefore use it to **observe** a durable switch, not to establish that a
+    category of content produces more of them.
+    → [Regime changes](regimes.en.md) · [Extended corpus](corpus-etendu.en.md)
 
 ### 3. Throttle super-spreader reach on kinetic anomaly
 

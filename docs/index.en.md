@@ -48,11 +48,12 @@ of dissipating it. [Measurement on public data](calibration.en.md) places the ra
 *sign* of this criterion tells you nothing, which forced a memorandum recommendation to be
 rewritten. → [Resonance](theorie/resonance.md) · [Calibration](calibration.en.md)
 
-**What distinguishes emotional registers is persistence.** [Regime-change
-detection](regimes.en.md) recovers 14 dated switches — QAnon in March 2020, the Benalla affair
-on 20 July 2018 — and measures the project's only gap between accusation content and discovery
-announcements: a durable lift of **×9.2 versus ×2.9**. It is therefore not the speed of the
-flare-up that separates the two registers, but how long attention stays captured.
+**Durable switches can be dated, but they do not distinguish registers.** [Regime-change
+detection](regimes.en.md) recovers dated switches — QAnon in March 2020, the Benalla affair on
+20 July 2018. A persistence gap between accusation content and discovery announcements seemed
+established there, ×9.2 versus ×2.9; verification across [440 subjects](corpus-etendu.en.md)
+reduced it to ×3.04 versus ×2.90 ($p = 0.53$). It was a hand-selection artefact.
+→ [Extended corpus](corpus-etendu.en.md)
 
 ## What the work proposes
 
@@ -85,7 +86,7 @@ the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The ten notebooks are executable and produce every figure in the paper. Each stands
+The eleven notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -100,6 +101,7 @@ on its own.
 | [08 — Agent model](notebooks/08_abm_compas_politique.ipynb) | the filter bubble seen from the individual |
 | [09 — Calibration](notebooks/09_calibration_visibilite.ipynb) | $\gamma\alpha/\lambda$ measured across 19 public attention episodes |
 | [10 — Regime change](notebooks/10_changement_de_regime.ipynb) | 14 dated switches, and why the ratio is unidentifiable there |
+| [11 — Extended corpus](notebooks/11_corpus_etendu.ipynb) | 440 category-derived subjects: the persistence gap does not replicate |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 

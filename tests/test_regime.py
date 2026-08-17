@@ -206,6 +206,28 @@ class TestIdentification:
 
         assert not fit_saturated_growth(noisy).is_usable
 
+    def test_an_unmeasurable_forgetting_time_is_refused(self) -> None:
+        """Un λ minuscule décrit une mémoire de plusieurs années : la fenêtre ne le voit pas.
+
+        Une transition presque en marche d'escalier n'expose pas le coude qui porte
+        l'information sur λ. L'ajustement épouse alors parfaitement la courbe — dispersion
+        résiduelle excellente — tout en produisant un rapport arbitrairement grand. Sur le
+        corpus étendu, deux cas ont ainsi atteint 697 et 5431.
+        """
+        grid = np.arange(0.0, 120.0)
+        step_like = _integrate(2.0, 0.002, 3_000.0, 1_000.0, grid, "quadratic")
+        fit = fit_saturated_growth(step_like)
+
+        assert fit.scatter < 0.05, "l'ajustement épouse bien la courbe"
+        assert not fit.is_observable
+        assert not fit.is_usable
+
+    def test_a_measurable_forgetting_time_is_accepted(self) -> None:
+        fit = fit_saturated_growth(transition(ratio=5.0, damping=0.2))
+
+        assert fit.is_observable
+        assert fit.is_usable
+
     @pytest.mark.parametrize(
         ("series", "baseline"),
         [

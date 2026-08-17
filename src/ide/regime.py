@@ -376,8 +376,24 @@ class SaturatedFit:
         return float(self.saturation * (1.0 - 1.0 / self.ratio))
 
     @property
+    def is_observable(self) -> bool:
+        """Vrai si le temps d'oubli :math:`1/\\lambda` tient dans la fenêtre ajustée.
+
+        Un :math:`\\lambda` très petit décrit une mémoire collective de plusieurs années :
+        sur une fenêtre de quelques mois, une telle décroissance est indiscernable d'une
+        absence de décroissance, et le rapport :math:`\\gamma\\alpha/\\lambda` s'envole sans
+        que rien ne le contraigne.
+
+        Le contrôle est nécessaire en pratique : sur le corpus étendu, deux transitions
+        presque en marche d'escalier ont produit des rapports de 697 et 5431 avec une
+        dispersion résiduelle excellente — l'ajustement épousait la courbe, mais le coude
+        qui porte l'information sur :math:`\\lambda` était absent des données.
+        """
+        return self.damping * self.n_points >= 1.0
+
+    @property
     def is_usable(self) -> bool:
-        """Vrai si l'ajustement est exploitable : convergé, cohérent, peu dispersé."""
+        """Vrai si l'ajustement est exploitable : convergé, cohérent, peu dispersé, observable."""
         return (
             self.converged
             and self.amplification > 0.0
@@ -385,6 +401,7 @@ class SaturatedFit:
             and self.saturation > 0.0
             and self.ratio > 1.0
             and self.scatter <= _MAX_SCATTER
+            and self.is_observable
         )
 
 

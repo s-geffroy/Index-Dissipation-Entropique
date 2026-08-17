@@ -49,12 +49,12 @@ lieu de la dissiper. La [mesure sur données publiques](calibration.md) situe le
 ce critère n'apprend rien, ce qui a obligé à réécrire une recommandation du mémorandum.
 → [Résonance](theorie/resonance.md) · [Calibration](calibration.md)
 
-**Ce qui distingue les registres émotionnels, c'est la persistance.** La détection de
-[changement de régime](regimes.md) retrouve 14 basculements datés — QAnon en mars 2020,
-l'affaire Benalla le 20 juillet 2018 — et mesure le seul écart du projet entre contenus
-d'accusation et annonces de découverte : une élévation durable de **×9,2 contre ×2,9**. Ce
-n'est donc pas la vitesse de l'emballement qui sépare les deux registres, mais la durée
-pendant laquelle l'attention reste captée.
+**Les basculements durables se datent, mais ne distinguent pas les registres.** La détection
+de [changement de régime](regimes.md) retrouve des basculements datés — QAnon en mars 2020,
+l'affaire Benalla le 20 juillet 2018. Un écart de persistance entre contenus d'accusation et
+annonces de découverte y semblait acquis, ×9,2 contre ×2,9 ; la vérification sur
+[440 sujets](corpus-etendu.md) l'a ramené à ×3,04 contre ×2,90 ($p = 0{,}53$). C'était un
+artefact de sélection manuelle. → [Corpus étendu](corpus-etendu.md)
 
 ## Ce que le travail propose
 
@@ -88,7 +88,7 @@ faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment 
 
 ## Explorer
 
-Les dix notebooks sont exécutables et produisent l'intégralité des figures de la
+Les onze notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -103,6 +103,7 @@ note. Chacun se lit indépendamment.
 | [08 — Modèle à agents](notebooks/08_abm_compas_politique.ipynb) | la bulle de filtres vue depuis l'individu |
 | [09 — Calibration](notebooks/09_calibration_visibilite.ipynb) | $\gamma\alpha/\lambda$ mesuré sur 19 épisodes d'attention publics |
 | [10 — Changement de régime](notebooks/10_changement_de_regime.ipynb) | 14 basculements datés, et pourquoi le rapport n'y est pas identifiable |
+| [11 — Corpus étendu](notebooks/11_corpus_etendu.ipynb) | 440 sujets dérivés de catégories : l'écart de persistance ne se réplique pas |
 
 ## Reproduire
 
