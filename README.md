@@ -6,7 +6,7 @@ thermodynamique de l'opinion publique.**
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Index-Dissipation-Entropique/)
-[![Tests : 266](https://img.shields.io/badge/tests-266-brightgreen.svg)](tests/)
+[![Tests : 324](https://img.shields.io/badge/tests-324-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Index-Dissipation-Entropique/)**
 · [English](https://s-geffroy.github.io/Index-Dissipation-Entropique/en/)
@@ -35,6 +35,11 @@ Trois résultats, chacun adossé à du code exécutable :
   dissiper. La **[mesure sur données publiques](docs/calibration.md)** situe le rapport entre
   **1,5 et 12** sur 19 épisodes d'attention — et montre du même coup que vérifier le *signe*
   de ce critère n'apprend rien, ce qui a obligé à réécrire une recommandation du mémorandum.
+- **Ce qui distingue les registres émotionnels, c'est la persistance.** La
+  **[détection de changement de régime](docs/regimes.md)** retrouve 14 basculements datés —
+  QAnon en mars 2020, l'affaire Benalla le 20 juillet 2018 — et mesure le seul écart du projet
+  entre contenus d'accusation et annonces de découverte : une élévation durable de **×9,2
+  contre ×2,9**.
 
 Le travail en dérive deux instruments :
 
@@ -67,9 +72,9 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 266 tests, dont les exemples de docstrings
+docker compose run --rm test          # 324 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
-docker compose run --rm notebooks     # régénère les 9 figures de la note
+docker compose run --rm notebooks     # régénère les 10 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
 docker compose up site                # documentation   → http://localhost:8000
 docker compose run --rm latex         # compile paper/*.tex en PDF
@@ -88,13 +93,14 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── fokker_planck.py  énergie libre de champ moyen, solveur en volumes finis
 ├── resonance.py    oscillateur à amortissement négatif saturé
 ├── ade.py          score de recommandation entropique, recuit
-├── calibration.py  identification de γα et λ sur des séries d'attention
+├── calibration.py  identification de γα et λ sur des pics d'attention
+├── regime.py       détection de changement de régime et identification associée
 ├── pageviews.py    accès à l'API Wikimedia, cache versionné
 ├── corpus.py       corpus pré-enregistré de calibration
 └── abm/            modèle à agents « compas politique »
 
-tests/              266 tests — validation physique, numérique et statistique
-notebooks/          01 à 09, un par bloc théorique, exécutables
+tests/              324 tests — validation physique, numérique et statistique
+notebooks/          01 à 10, un par bloc théorique, exécutables
 data/pageviews/     24 séries de consultation, versionnées pour la reproductibilité
 scripts/            collecte des données (seul point d'accès réseau du dépôt)
 paper/              note de synthèse LaTeX (FR + EN) et figures générées
@@ -115,7 +121,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 | aire du cycle d'hystérésis strictement positive sous $T_c$, nulle au-dessus | validation numérique de la persistance des croyances |
 | à $\mu = 0$, l'ADE est identique à un filtre d'engagement | garantit que la proposition est un ajout paramétré, pas une refonte |
 | taux d'une exponentielle de synthèse retrouvés à $10^{-9}$ | condition minimale pour que la calibration empirique signifie quelque chose |
-| un changement de régime synthétique n'est **pas** détecté | fige dans un test la limite la plus lourde de la calibration |
+| un changement de régime synthétique n'est **pas** détecté par la méthode par pic | fige dans un test la limite qui a motivé la seconde méthode |
+| deux jeux de paramètres de rapports 5,0 et 1,7 donnent la **même** trajectoire | démontre une non-identifiabilité structurelle, et non un défaut numérique |
 | reproductibilité à la graine du modèle à agents | condition minimale pour qu'un chiffre du dépôt soit citable |
 
 ## Contenu du dépôt
@@ -124,6 +131,9 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   limites qui subsistent.
 - [`docs/calibration.md`](docs/calibration.md) — **la mesure de $\gamma\alpha/\lambda$** sur
   données publiques, ses trois enseignements et ses réserves.
+- [`docs/regimes.md`](docs/regimes.md) — **les désinformations qui s'installent** : 14
+  basculements datés, pourquoi le rapport n'y est pas identifiable, et le premier écart mesuré
+  entre registres émotionnels.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

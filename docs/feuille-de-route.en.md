@@ -38,12 +38,12 @@ and no regulatory threshold is calibratable.
 
 Direct follow-ups, in order of importance:
 
-* **Detect regime changes, not peaks.** This is the heaviest limitation of the current
-  measurement: the archetypal cases — QAnon, health disinformation, vaccine hesitancy — do
-  not produce a spike but a **durable shift** in attention level, which prominence-based
-  detection cannot see. This needs change-point methods (CUSUM, Bayesian segmentation) and an
-  adapted identification: in an installed regime $\gamma\alpha \approx \lambda$ at
-  equilibrium, and it is the *transition* that must be fitted.
+* **Detect regime changes, not peaks.** → **[done](regimes.en.md)**, with a two-part
+  result: detection works and covers the blind spot — 14 changes on the right dates, QAnon and
+  health disinformation included — but parameter identification fails on real data, and a
+  theoretical limitation bounds it regardless (the ratio is unidentifiable under logistic
+  saturation). The **persistence** gap between emotional registers, ×9.2 versus ×2.9, is the
+  project's first.
 * **Move to sub-daily resolution.** The dominant rejection reason is too short a window: many
   episodes rise in one or two days. Wikimedia publishes hourly series over a limited depth,
   which would suffice to identify what cannot be identified here.
@@ -215,13 +215,16 @@ threshold — connecting the work to an established literature rather than an ad
 
 ## If only one thing were done
 
-**Detect regime changes, not peaks** (§1.1, first follow-up).
+**Extend the corpus to persistence.**
 
-The original §1.1 is done: $\gamma\alpha/\lambda$ is measured, and that measurement
-corrected a regulatory recommendation that would otherwise have been inapplicable. But it
-revealed a limitation graver than the one it lifted: **the method cannot see disinformation
-that installs itself.** QAnon, health disinformation, vaccine hesitancy — the cases that
-motivate the entire work — are invisible to peak-based detection.
+Both measurements converged on an unexpected finding: the parameter the memorandum wanted to
+cap, $\gamma\alpha/\lambda$, is the hardest to establish — empty as a sign criterion on
+peaks, unidentifiable on installed regimes, and dependent on a form assumption in every case.
 
-A model of polarisation that can only measure passing flare-ups does not reach its object.
-That is where the next step lies.
+Yet a far simpler quantity **does** measure, and it is the only one distinguishing emotional
+registers: **the lift of the plateau**, ×9.2 for accusation content against ×2.9 for discovery
+announcements. It currently sits at $p = 0.08$ across fourteen observations.
+
+A corpus of several hundred pre-registered subjects would settle it — and would give the
+memorandum an enforceable indicator anchored to what a regulator actually seeks to establish:
+not the speed of a flare-up, but **how long a false belief stays installed**.

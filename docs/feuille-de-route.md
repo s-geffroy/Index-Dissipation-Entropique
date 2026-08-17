@@ -40,13 +40,13 @@ cohérent mais flottant, et aucun seuil réglementaire n'est calibrable.
 
 Les suites directes de cette mesure, par ordre d'importance :
 
-* **Détecter des changements de régime, pas des pics.** C'est la limite la plus lourde de
-  la mesure actuelle : les cas archétypaux — QAnon, désinformation sanitaire, hésitation
-  vaccinale — ne produisent pas un pic mais un **déplacement durable** du niveau
-  d'attention, que la détection par proéminence ne voit pas. Il faut une méthode de
-  détection de rupture (CUSUM, segmentation bayésienne), et une identification adaptée :
-  dans un régime installé, $\gamma\alpha \approx \lambda$ à l'équilibre, et c'est la
-  *transition* qu'il faut ajuster.
+* **Détecter des changements de régime, pas des pics.** → **[fait](regimes.md)**, avec un
+  résultat en deux temps. La détection fonctionne et couvre l'angle mort : 14 changements
+  aux bonnes dates, QAnon et la désinformation sanitaire compris. Mais l'identification des
+  paramètres échoue sur données réelles — la dispersion résiduelle y est quatre fois trop
+  élevée — et une limite théorique la borne de toute façon : le rapport n'est pas
+  identifiable sous une saturation logistique. En revanche l'écart de **persistance** entre
+  registres émotionnels, ×9,2 contre ×2,9, est le premier écart mesuré du projet.
 * **Passer à une résolution infra-quotidienne.** Le motif de rejet dominant est la
   fenêtre trop courte : beaucoup d'épisodes montent en un ou deux jours. Wikimedia
   publie des séries horaires sur une profondeur limitée ; cela suffirait à rendre
@@ -242,13 +242,18 @@ Ces points n'ont pas d'enjeu scientifique, mais ils conditionnent la relecture.
 
 ## Si une seule chose devait être faite
 
-**Détecter des changements de régime, et non des pics** (§1.1, première suite).
+**Étendre le corpus à la persistance.**
 
-Le §1.1 initial est fait : $\gamma\alpha/\lambda$ est mesuré, et cette mesure a corrigé une
-recommandation réglementaire qui, sans elle, aurait été inapplicable. Mais elle a révélé une
-limite plus grave qu'elle n'en a levé : **la méthode ne voit pas les désinformations qui
-s'installent.** QAnon, la désinformation sanitaire, l'hésitation vaccinale — les cas qui
-motivent tout le travail — sont invisibles à une détection par pic.
+Les deux mesures menées ont convergé vers un constat inattendu : le paramètre que le
+mémorandum voulait plafonner, $\gamma\alpha/\lambda$, est le plus difficile à établir — vide
+en tant que critère de signe sur les pics, non identifiable sur les régimes installés, et
+dépendant d'une hypothèse de forme dans tous les cas.
 
-Un modèle de la polarisation qui ne peut mesurer que les emballements passagers n'atteint pas
-son objet. C'est là que se joue la suite.
+Or une grandeur bien plus simple **se mesure**, et c'est la seule qui distingue les registres
+émotionnels : **l'élévation du palier**, ×9,2 pour les contenus d'accusation contre ×2,9 pour
+les annonces de découverte. Elle est aujourd'hui à $p = 0{,}08$ sur quatorze observations.
+
+Un corpus de plusieurs centaines de sujets, toujours pré-enregistré, trancherait — et
+donnerait au mémorandum un indicateur opposable, adossé à ce qu'un régulateur cherche
+réellement à constater : non la vitesse d'un emballement, mais **la durée pendant laquelle une
+fausse croyance reste installée**.

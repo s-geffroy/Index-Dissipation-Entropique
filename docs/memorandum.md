@@ -14,14 +14,16 @@ recommandations chiffrées.
 ## Préambule : ce que ce mémorandum peut et ne peut pas prétendre
 
 Le raisonnement qui le sous-tend est formalisé et vérifié numériquement
-([modèles](theorie/fokker-planck.md), [tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)),
-Un seul de ses paramètres est aujourd'hui **calibré sur données réelles** — le rapport
-$\gamma\alpha/\lambda$, [mesuré](calibration.md) sur des séries d'attention publiques ; les
-autres ne le sont pas. Ce mémorandum propose donc un *cadre métrologique* et des *grandeurs
-à mesurer*, pas des seuils prêts à être inscrits dans un texte.
+([modèles](theorie/fokker-planck.md), [tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)).
+Une seule de ses grandeurs a fait l'objet d'une mesure sur données réelles — le rapport
+$\gamma\alpha/\lambda$, [estimé](calibration.md) sur des séries d'attention publiques ; les
+autres paramètres ne sont pas calibrés. Ce mémorandum propose donc un *cadre métrologique* et
+des *grandeurs à mesurer*, pas des seuils prêts à être inscrits dans un texte.
 
-Cette unique calibration a d'ailleurs conduit à **réécrire la recommandation 2** : c'est un
-argument pour mesurer avant de légiférer, non pour tenir le cadre pour acquis.
+Cette tentative de mesure a d'ailleurs conduit à **réécrire deux fois la recommandation 2**,
+puis à conclure que la grandeur qu'elle visait n'est pas celle qu'un régulateur peut
+constater. C'est un argument pour mesurer avant de légiférer, non pour tenir le cadre pour
+acquis.
 
 Une seconde réserve doit être posée d'emblée. Le fil de travail d'origine concluait que
 « la régulation cesse d'être une censure arbitraire pour devenir une ingénierie de la
@@ -108,8 +110,21 @@ régulateur ne doit pas le présenter comme démontré.
   d'estimation doit être normalisé en même temps que le seuil.
 * La mesure disponible porte sur un **gain d'écosystème**, non sur le $\gamma$ interne d'une
   plateforme. Y accéder demande l'article 40 du DSA.
-* La méthode d'estimation actuelle est **aveugle aux régimes installés** — précisément les
-  cas de désinformation durable. Elle ne couvre que les épisodes en pic.
+* La méthode par pic est **aveugle aux régimes installés**. Une seconde méthode les
+  [détecte bien](regimes.md), mais **n'identifie pas** le rapport sur ces cas — et une limite
+  théorique s'y ajoute : sous une saturation logistique, $\gamma\alpha/\lambda$ n'est pas
+  identifiable, quelle que soit la qualité des données.
+
+!!! tip "Un indicateur de remplacement, lui, se mesure"
+    La détection de changement de régime livre deux grandeurs robustes que le rapport
+    d'amplification n'offre pas : **la date du basculement** et **l'élévation du palier**. Et
+    c'est la seconde, non le rapport, qui distingue les registres émotionnels — ×9,2 pour les
+    contenus d'accusation contre ×2,9 pour les annonces de découverte.
+
+    Un seuil réglementaire adossé à la persistance serait donc opposable là où un plafond sur
+    $\rho$ ne l'est pas, et il porterait sur ce que le régulateur cherche réellement à
+    constater : non la vitesse d'un emballement, mais la durée pendant laquelle une fausse
+    croyance reste installée. → [Changements de régime](regimes.md)
 
 ### 3. Brider la portée des super-diffuseurs en cas d'anomalie cinétique
 
@@ -203,7 +218,9 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | calibration de $J$ et $T$ sur données réelles | aucune procédure proposée |
 | valeur normative de $\rho_{\max}$ | la mesure décrit, elle ne prescrit pas |
 | estimation du $\gamma$ **interne** d'une plateforme | demande l'accès article 40 du DSA |
-| couverture des régimes de désinformation **installés** | la méthode actuelle ne voit que les pics |
+| détection des régimes de désinformation **installés** | **fait** — [14 changements datés](regimes.md), QAnon et désinformation sanitaire compris |
+| identification de $\rho$ sur les régimes installés | échoue : dispersion réelle quatre fois trop élevée, et non identifiable sous saturation logistique |
+| calibration de l'indicateur de **persistance** | mesuré à ×9,2 contre ×2,9 entre registres, $p = 0{,}08$ — à confirmer sur un corpus étendu |
 | protocole d'audit préservant la vie privée | aucune conception |
 | définition normative du catalogue de points de vue $k$ | choix politique non tranché |
 | résistance de l'index au *gaming* | non étudiée |

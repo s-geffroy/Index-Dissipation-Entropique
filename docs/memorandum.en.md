@@ -15,12 +15,13 @@ algorithmic resonance of false information
 The underlying reasoning is formalised and numerically verified
 ([models](theorie/fokker-planck.md),
 [tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)). Exactly
-one of its parameters is now **calibrated on real data** — the ratio $\gamma\alpha/\lambda$,
-[measured](calibration.en.md) on public attention series; the others are not. It therefore
-proposes a *metrological framework* and *quantities to measure*, not thresholds ready to be
-written into law.
+one of its quantities has been measured on real data — the ratio $\gamma\alpha/\lambda$,
+[estimated](calibration.en.md) on public attention series; the other parameters are not
+calibrated. It therefore proposes a *metrological framework* and *quantities to measure*, not
+thresholds ready to be written into law.
 
-That single calibration in fact forced **recommendation 2 to be rewritten**: an argument for
+That attempt at measurement in fact forced **recommendation 2 to be rewritten twice**, and then
+to conclude that the quantity it targeted is not one a regulator can establish. An argument for
 measuring before legislating, not for taking the framework as settled.
 
 A second reservation must be stated at the outset. The original thread concluded that
@@ -104,8 +105,21 @@ regulator must not present it as demonstrated.
   protocol must be standardised alongside the threshold.
 * The available measurement concerns an **ecosystem gain**, not a platform's internal
   $\gamma$. Reaching the latter requires DSA Article 40 access.
-* The current estimation method is **blind to installed regimes** — precisely the durable
-  disinformation cases. It covers only spike-shaped episodes.
+* The peak method is **blind to installed regimes**. A second method
+  [detects them well](regimes.en.md) but **does not identify** the ratio on those cases — and a
+  theoretical limitation compounds this: under logistic saturation, $\gamma\alpha/\lambda$ is
+  unidentifiable regardless of data quality.
+
+!!! tip "A replacement indicator does measure"
+    Regime-change detection yields two robust quantities the amplification ratio does not:
+    **the date of the switch** and **the lift of the plateau**. And it is the latter, not the
+    ratio, that distinguishes emotional registers — ×9.2 for accusation content against ×2.9
+    for discovery announcements.
+
+    A regulatory threshold anchored to persistence would therefore be enforceable where a cap
+    on $\rho$ is not, and it would address what a regulator actually seeks to establish: not
+    the speed of a flare-up, but how long a false belief stays installed.
+    → [Regime changes](regimes.en.md)
 
 ### 3. Throttle super-spreader reach on kinetic anomaly
 
@@ -192,7 +206,9 @@ informational space, independently of the content of any single message.
 | calibration of $J$ and $T$ on real data | no procedure proposed |
 | normative value of $\rho_{\max}$ | the measurement describes, it does not prescribe |
 | estimating a platform's **internal** $\gamma$ | requires DSA Article 40 access |
-| coverage of **installed** disinformation regimes | the current method sees only spikes |
+| detection of **installed** disinformation regimes | **done** — [14 dated changes](regimes.en.md), QAnon and health disinformation included |
+| identification of $\rho$ on installed regimes | fails: real scatter four times too high, and unidentifiable under logistic saturation |
+| calibration of the **persistence** indicator | measured at ×9.2 versus ×2.9 across registers, $p = 0.08$ — to be confirmed on an extended corpus |
 | privacy-preserving audit protocol | not designed |
 | normative definition of the viewpoint catalogue $k$ | political choice unresolved |
 | resistance of the index to gaming | not studied |

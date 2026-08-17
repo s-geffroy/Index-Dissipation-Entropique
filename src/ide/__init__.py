@@ -48,6 +48,16 @@ from ide.fokker_planck import (
     stationary_distribution,
 )
 from ide.ising import IsingModel, hysteresis_loop, onsager_critical_temperature
+from ide.regime import (
+    RegimeCriteria,
+    RegimeReport,
+    RegimeShift,
+    SaturatedFit,
+    detect_change_points,
+    fit_saturated_growth,
+    scan_regime_shifts,
+    weekly_adjust,
+)
 from ide.resonance import ResonanceParameters, simulate_resonance
 from ide.voter import VoterModel, consensus_time_scaling
 
@@ -61,23 +71,31 @@ __all__ = [
     "ExponentialFit",
     "FokkerPlanckSolver",
     "IsingModel",
+    "RegimeCriteria",
+    "RegimeReport",
+    "RegimeShift",
     "ResonanceParameters",
+    "SaturatedFit",
     "VoterModel",
     "annealing_coefficient",
     "consensus_time_scaling",
+    "detect_change_points",
     "detect_episodes",
     "diffusion_term",
     "drift_term",
     "entropic_dissipation_index",
     "entropic_score",
     "fit_exponential_rate",
+    "fit_saturated_growth",
     "hysteresis_loop",
     "onsager_critical_temperature",
+    "scan_regime_shifts",
     "scan_series",
     "shannon_entropy",
     "shannon_entropy_from_counts",
     "simulate_resonance",
     "stationary_distribution",
     "von_neumann_entropy",
+    "weekly_adjust",
     "__version__",
 ]

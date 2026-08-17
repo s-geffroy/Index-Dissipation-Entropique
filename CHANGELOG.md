@@ -7,6 +7,53 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — détection de changement de régime
+
+Traite l'angle mort de la calibration par pic : les désinformations qui ne flambent pas mais
+s'installent. Détail et réserves : [`docs/regimes.md`](docs/regimes.md).
+
+- **`ide.regime`** — segmentation binaire sur les logarithmes pour détecter les ruptures de
+  niveau, localisation séparée du décollage de la transition, déduplication des escaliers de
+  ruptures, correction de la périodicité hebdomadaire, et identification de
+  $\gamma\alpha$, $\lambda$, $W_{\text{sat}}$ par ajustement de trajectoire.
+- **`notebooks/10_changement_de_regime.ipynb`** et 58 tests supplémentaires (324 au total).
+
+### Résultats — deux réussites à ne pas confondre
+
+- **La détection fonctionne, et couvre l'angle mort.** 14 changements de régime sur le
+  corpus, aux bonnes dates sans qu'aucune date ne lui soit fournie : affaire Benalla le
+  20 juillet 2018, révélations Pegasus en juillet 2021, annonce de LIGO en février 2016,
+  bascule QAnon en mars 2020. Et surtout dans les sujets que la méthode par pic manquait —
+  QAnon, désinformation Covid-19, hésitation vaccinale.
+- **L'identification échoue sur données réelles.** Zéro des 14 livre des paramètres
+  exploitables : la dispersion résiduelle médiane est de 0,63, alors que l'incertitude
+  relative sur le rapport atteint déjà 77 % à 0,15. La récupération est pourtant exacte sur
+  trajectoire de synthèse, y compris pour $\rho = 40$ — c'est une inadéquation entre un
+  modèle à trois paramètres et le bruit réel, non un défaut d'implémentation.
+- **Une limite théorique domine les deux.** Sous saturation logistique, l'équation se réduit
+  à une logistique à deux paramètres de forme : $\gamma\alpha/\lambda$ y est **structurellement
+  non identifiable**, et deux triplets de rapports 5,0 et 1,7 produisent la même courbe.
+  L'identifiabilité du rapport n'est donc pas une propriété des données mais une hypothèse
+  sur la forme de la saturation.
+- **Premier écart mesuré entre registres émotionnels.** L'élévation durable du palier vaut
+  ×9,2 pour les contenus d'accusation contre ×2,9 pour les annonces de découverte
+  ($p = 0{,}08$, n = 14). Ce n'est pas le taux d'amplification qui sépare les registres,
+  c'est la durée pendant laquelle l'attention reste captée.
+
+### Modifié
+
+- **Recommandation 2 du mémorandum, à nouveau amendée.** Le plafond sur
+  $\gamma\alpha/\lambda$ supposait le rapport mesurable ; il ne l'est ni sur les régimes
+  installés, ni indépendamment d'une hypothèse de forme. Un indicateur de remplacement est
+  proposé — date du basculement et élévation du palier — qui se mesure, distingue les
+  registres, et porte sur ce qu'un régulateur cherche réellement à constater.
+- **Table de correction de biais supprimée.** Une première version du module publiait une
+  sous-estimation de 20 % à 10 % de bruit. Cette table était fausse : elle venait d'un
+  prototype dont l'initialisation, un lissage aux bords corrompus, dégradait l'ajustement
+  bien plus que le bruit. Corriger l'initialisation a supprimé le biais qu'il fallait
+  soi-disant corriger. Elle est remplacée par une table de **précision**, mesurée sur la
+  chaîne complète et non sur un ajustement isolé.
+
 ### Ajouté — calibration empirique de γα/λ
 
 Première mesure d'un paramètre du modèle sur des données réelles. Détail et réserves :
