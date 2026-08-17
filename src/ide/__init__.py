@@ -14,11 +14,27 @@ Les autres modules fournissent les modèles de physique statistique qui fondent
 l'index : :mod:`ide.ising`, :mod:`ide.voter`, :mod:`ide.fokker_planck`,
 :mod:`ide.resonance`, et le modèle à agents :mod:`ide.abm`.
 
-Tous les modules sont purs (aucune entrée-sortie) et prennent une graine
-explicite lorsqu'ils sont stochastiques, afin de rester testables.
+Tous les modules réexportés ici sont purs (aucune entrée-sortie) et prennent une
+graine explicite lorsqu'ils sont stochastiques, afin de rester testables.
+
+Trois modules ne sont **pas** réexportés, et c'est délibéré :
+
+* :mod:`ide.pageviews` et :mod:`ide.corpus` accèdent au disque et, sur demande
+  explicite, au réseau — les importer ici mêlerait les entrées-sorties au noyau ;
+* :mod:`ide.plotting` dépend de ``matplotlib``, dépendance facultative que le
+  noyau doit pouvoir ignorer.
 """
 
 from ide.ade import EntropicScorer, annealing_coefficient, entropic_score
+from ide.calibration import (
+    AttentionEpisode,
+    DetectionReport,
+    EpisodeCriteria,
+    ExponentialFit,
+    detect_episodes,
+    fit_exponential_rate,
+    scan_series,
+)
 from ide.entropy import (
     entropic_dissipation_index,
     shannon_entropy,
@@ -38,19 +54,26 @@ from ide.voter import VoterModel, consensus_time_scaling
 __version__ = "0.1.0"
 
 __all__ = [
+    "AttentionEpisode",
+    "DetectionReport",
     "EntropicScorer",
+    "EpisodeCriteria",
+    "ExponentialFit",
     "FokkerPlanckSolver",
     "IsingModel",
     "ResonanceParameters",
     "VoterModel",
     "annealing_coefficient",
     "consensus_time_scaling",
+    "detect_episodes",
     "diffusion_term",
     "drift_term",
     "entropic_dissipation_index",
     "entropic_score",
+    "fit_exponential_rate",
     "hysteresis_loop",
     "onsager_critical_temperature",
+    "scan_series",
     "shannon_entropy",
     "shannon_entropy_from_counts",
     "simulate_resonance",

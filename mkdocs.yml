@@ -67,6 +67,7 @@ plugins:
             Instruments: Instruments
             IDE — l'index: EDI — the index
             ADE — l'algorithme: EDA — the algorithm
+            Calibration empirique: Empirical calibration
             Mémorandum de régulation: Regulatory memorandum
             Réserves: Caveats
             Audit critique et limites: Critical audit and limitations
@@ -116,6 +117,7 @@ nav:
   - Instruments:
       - IDE — l'index: ide.md
       - ADE — l'algorithme: ade.md
+      - Calibration empirique: calibration.md
       - Mémorandum de régulation: memorandum.md
   - Réserves:
       - Audit critique et limites: limites.md
@@ -131,3 +133,4 @@ nav:
       - 06 — Résonance: notebooks/06_resonance_larsen.ipynb
       - 07 — ADE: notebooks/07_ade_filtre_entropique.ipynb
       - 08 — Modèle à agents: notebooks/08_abm_compas_politique.ipynb
+      - 09 — Calibration: notebooks/09_calibration_visibilite.ipynb

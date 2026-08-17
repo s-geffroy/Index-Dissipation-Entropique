@@ -7,7 +7,7 @@ journée, par accumulation d'analogies. Cette méthode produit des intuitions ju
 et des raccourcis qui ne tiennent pas. Publier le fil tel quel exposerait
 l'ensemble à être écarté sur un détail, alors que l'intuition de départ mérite mieux.
 
-Chaque point ci-dessous suit la même structure : ce que le fil affirmait, pourquoi
+Quinze points sont documentés. Chacun suit la même structure : ce que le fil affirmait, pourquoi
 c'est un problème, et la formulation retenue. Les corrections sont **traçables** :
 chacune est implémentée dans `src/`, vérifiée dans `tests/`, et illustrée dans un
 notebook.
@@ -358,6 +358,40 @@ et réimplémenté proprement dans `ide.abm`.
 
 ---
 
+## F. Correction issue de la mesure
+
+Ce point n'a pas été trouvé par relecture du fil mais par **confrontation aux données**. Il
+est ajouté après coup, ce qui est la façon normale dont un audit doit vivre.
+
+### 15. Le critère $\gamma\alpha > \lambda$ n'est pas un test, c'est une définition
+
+**Le fil, et le mémorandum qui en découlait.** « Interdire les configurations algorithmiques
+où le taux d'amplification d'un contenu dépasse son taux d'amortissement naturel :
+$\gamma\alpha > \lambda$. »
+
+**Le problème, révélé par la [calibration](calibration.md).** Le rapport
+$\gamma\alpha/\lambda$ dépasse 1 dans les 19 épisodes d'attention mesurés, sous les quatre
+estimateurs testés. Ce n'est pas une propriété inquiétante de l'écosystème : c'est une
+**tautologie de la procédure d'estimation**. Un épisode d'attention observable a
+nécessairement connu une phase de croissance, donc $r_{\text{up}} > 0$, donc
+$\gamma\alpha > \lambda$.
+
+Autrement dit, la recommandation demandait à un régulateur de vérifier une condition qui est
+vraie de tout contenu ayant percé. Elle était **inapplicable**, et rien dans le raisonnement
+théorique ne le signalait.
+
+**Retenu.** Un **plafond sur le rapport**, $\gamma\alpha/\lambda \leq \rho_{\max}$. La
+grandeur réglementaire est la marge au-dessus du seuil, pas son franchissement. La mesure
+fournit une référence descriptive — médiane de 2,5 à 4,2 selon l'estimateur — dont un
+$\rho_{\max}$ normatif peut se discuter.
+
+**Ce que cet épisode enseigne sur la méthode.** Une erreur de ce type ne se voit pas par
+relecture : elle ne devient visible qu'en essayant de mesurer. C'est l'argument le plus
+concret en faveur de la calibration empirique — non pour confirmer le modèle, mais pour
+découvrir où ses recommandations ne veulent rien dire.
+
+---
+
 ## Ce que le modèle ne peut pas faire
 
 Ces limites ne sont pas des corrections en attente. Ce sont les frontières du
@@ -371,9 +405,15 @@ mécanique statistique. Le travail établit qu'un formalisme emprunté à la phy
 **reproduit** certains comportements observés — transition brusque, persistance
 après démenti, amplification sélective. C'est une hypothèse structurelle, féconde
 parce qu'elle produit des quantités mesurables. Ce n'est pas une loi de la nature
-sociale, et les paramètres $J$, $T$, $\gamma$, $\alpha$ n'ont pour l'instant aucune
-procédure de calibration empirique. **C'est la principale faiblesse du travail** :
-le formalisme est cohérent, son ancrage dans des données réelles reste à faire.
+sociale.
+
+Un seul de ses paramètres est aujourd'hui calibré sur données réelles : le rapport
+$\gamma\alpha/\lambda$ ([calibration](calibration.md)). Et cette calibration, loin de
+conforter le modèle, a montré qu'une de ses recommandations réglementaires ne voulait rien
+dire (point 15) et que l'un de ses mécanismes n'était pas étayé par les données. **$J$, $T$,
+$\gamma$ et $\alpha$ pris séparément restent sans procédure d'estimation** : le formalisme
+est cohérent, son ancrage empirique n'est qu'entamé. C'est toujours la principale faiblesse
+du travail.
 
 ### Les individus ne sont pas des spins
 

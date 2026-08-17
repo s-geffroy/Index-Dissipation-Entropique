@@ -41,11 +41,13 @@ médiatique ne ramène pas l'opinion à la neutralité : le conformisme de group
 le relais et maintient la croyance. C'est une **hystérésis**, mesurable, et elle
 explique pourquoi le *debunking* passif échoue. → [Température sociale](theorie/temperature.md)
 
-**L'amplification a un seuil net.** Quand le gain algorithmique d'une plateforme
-dépasse le taux d'oubli naturel d'un contenu ($\gamma\alpha > \lambda$),
-l'amortissement effectif devient négatif : le système accumule l'énergie qu'on lui
-injecte au lieu de la dissiper. C'est un effet Larsen informationnel, et c'est une
-inégalité **auditable**. → [Résonance](theorie/resonance.md)
+**L'amplification a un seuil net — et l'écosystème est au-dessus.** Quand le gain
+algorithmique dépasse le taux d'oubli naturel d'un contenu ($\gamma\alpha > \lambda$),
+l'amortissement effectif devient négatif : le système accumule l'énergie qu'on lui injecte au
+lieu de la dissiper. La [mesure sur données publiques](calibration.md) situe le rapport entre
+**1,5 et 12** sur 19 épisodes d'attention — et montre du même coup que vérifier le *signe* de
+ce critère n'apprend rien, ce qui a obligé à réécrire une recommandation du mémorandum.
+→ [Résonance](theorie/resonance.md) · [Calibration](calibration.md)
 
 ## Ce que le travail propose
 
@@ -54,6 +56,9 @@ inégalité **auditable**. → [Résonance](theorie/resonance.md)
 | **[IDE](ide.md)** | *Index de Dissipation Entropique* — une métrique de la diversité informationnelle d'un fil, dans $[0, 1]$, mesurable sans accès au code de la plateforme | le régulateur |
 | **[ADE](ade.md)** | *Algorithme de Dissipation Entropique* — un filtre de recommandation qui optimise cet index au lieu de l'engagement brut | la plateforme |
 
+Un seul paramètre du modèle est aujourd'hui **calibré sur données réelles** :
+→ [Calibration empirique](calibration.md).
+
 Le [mémorandum de régulation](memorandum.md) traduit ces deux objets en
 recommandations pour l'ARCOM et la Commission européenne, dans le cadre du *Digital
 Services Act*.
@@ -61,21 +66,22 @@ Services Act*.
 ## Ce que le travail ne prétend pas
 
 L'[**audit critique**](limites.md) est la page qu'il faut lire avant les autres. Il
-recense quatorze corrections apportées au raisonnement d'origine — dont trois qui
-invalidaient une formule — et énumère les limites qui subsistent, y compris celles
-qui touchent à l'usage réglementaire de l'index : l'IDE est manipulable, sa
-discrétisation en points de vue est un choix politique, et un seuil imposé sur sa
-valeur est une intervention sur le débat public, non une simple mesure technique.
+recense **quinze corrections** apportées au raisonnement d'origine — dont cinq qui
+invalidaient une formule, et une découverte en tentant de mesurer — et énumère les limites
+qui subsistent, y compris celles qui touchent à l'usage réglementaire de l'index : l'IDE est
+manipulable, sa discrétisation en points de vue est un choix politique, et un seuil imposé sur
+sa valeur est une intervention sur le débat public, non une simple mesure technique.
 
-Rien ici ne démontre que les opinions humaines *obéissent* à une mécanique
-statistique. Le travail établit qu'un formalisme emprunté à la physique **reproduit**
-certains comportements observés, et en tire des quantités mesurables. Les paramètres
-n'ont pour l'instant aucune procédure de calibration empirique : c'est la principale
-faiblesse du travail, et elle est assumée.
+Rien ici ne démontre que les opinions humaines *obéissent* à une mécanique statistique. Le
+travail établit qu'un formalisme emprunté à la physique **reproduit** certains comportements
+observés, et en tire des quantités mesurables. Un seul de ses paramètres est aujourd'hui
+calibré sur données réelles — et cette calibration a montré qu'une de ses recommandations
+réglementaires ne voulait rien dire. L'ancrage empirique n'est qu'entamé : c'est la principale
+faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment y remédier.
 
 ## Explorer
 
-Les huit notebooks sont exécutables et produisent l'intégralité des figures de la
+Les neuf notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -88,6 +94,7 @@ note. Chacun se lit indépendamment.
 | [06 — Résonance](notebooks/06_resonance_larsen.ipynb) | le seuil $\gamma\alpha > \lambda$ et le cycle limite de l'attention |
 | [07 — ADE](notebooks/07_ade_filtre_entropique.ipynb) | un fil gelé qui se réouvre sous l'effet du recuit |
 | [08 — Modèle à agents](notebooks/08_abm_compas_politique.ipynb) | la bulle de filtres vue depuis l'individu |
+| [09 — Calibration](notebooks/09_calibration_visibilite.ipynb) | $\gamma\alpha/\lambda$ mesuré sur 19 épisodes d'attention publics |
 
 ## Reproduire
 
@@ -97,7 +104,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 203 tests
+docker compose run --rm test          # 266 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

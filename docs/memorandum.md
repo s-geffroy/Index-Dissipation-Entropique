@@ -15,9 +15,13 @@ recommandations chiffrées.
 
 Le raisonnement qui le sous-tend est formalisé et vérifié numériquement
 ([modèles](theorie/fokker-planck.md), [tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)),
-mais ses paramètres n'ont **aucune calibration empirique**. Il propose donc un *cadre
-métrologique* et des *grandeurs à mesurer*, pas des seuils prêts à être inscrits dans
-un texte.
+Un seul de ses paramètres est aujourd'hui **calibré sur données réelles** — le rapport
+$\gamma\alpha/\lambda$, [mesuré](calibration.md) sur des séries d'attention publiques ; les
+autres ne le sont pas. Ce mémorandum propose donc un *cadre métrologique* et des *grandeurs
+à mesurer*, pas des seuils prêts à être inscrits dans un texte.
+
+Cette unique calibration a d'ailleurs conduit à **réécrire la recommandation 2** : c'est un
+argument pour mesurer avant de légiférer, non pour tenir le cadre pour acquis.
 
 Une seconde réserve doit être posée d'emblée. Le fil de travail d'origine concluait que
 « la régulation cesse d'être une censure arbitraire pour devenir une ingénierie de la
@@ -63,27 +67,49 @@ inapplicable et contre-productif.
 d'étiquette peut satisfaire un seuil sans diversifier l'argument. Une norme technique
 crédible doit prévoir un contrôle qualitatif d'échantillon en complément de la mesure.
 
-### 2. Auditer les coefficients d'amortissement cinétique
+### 2. Plafonner le rapport d'amplification sur amortissement
 
-**Mesure.** Interdire les configurations algorithmiques où le taux d'amplification d'un
-contenu dépasse son taux d'amortissement naturel :
+!!! warning "Recommandation révisée après mesure"
+    Cette recommandation était initialement formulée comme l'interdiction des
+    configurations où $\gamma\alpha > \lambda$. La [calibration empirique](calibration.md)
+    montre que cette formulation est **inapplicable** : le rapport dépasse 1 dans les
+    19 épisodes mesurés, sous tous les estimateurs. C'est logique — un épisode
+    d'attention observable a nécessairement connu une phase de croissance. Vérifier le
+    signe n'apprend rien.
 
-$$\gamma\alpha > \lambda \quad \text{(configuration interdite)}$$
+**Mesure.** Imposer un **plafond** au rapport entre le taux d'amplification d'un contenu et
+son taux d'amortissement naturel :
 
-**Fondement.** Au-delà de ce seuil, l'amortissement effectif de la boucle de
-rétroaction devient négatif : le système accumule l'énergie au lieu de la dissiper.
-C'est l'effet Larsen informationnel, et le seuil est net
-([notebook 06](notebooks/06_resonance_larsen.ipynb)).
+$$\frac{\gamma\alpha}{\lambda} \leq \rho_{\max}$$
 
-**Pourquoi cette recommandation est la plus solide.** Elle ne suppose aucune intention
-malveillante à démontrer. À gain uniforme, un contenu plus émotionnel franchit le
-seuil qu'un contenu factuel ne franchit pas : le biais est **mécanique**. Un audit de
-$\gamma$ est donc plus pertinent — et plus opposable — qu'un audit d'intentions
-éditoriales.
+**Fondement.** Au-delà de $\gamma\alpha = \lambda$, l'amortissement effectif de la boucle de
+rétroaction devient négatif : le système accumule l'énergie au lieu de la dissiper
+([notebook 06](notebooks/06_resonance_larsen.ipynb)). Ce régime est la norme et non
+l'exception — la mesure situe l'écosystème informationnel entre **1,5 et 12**, de médiane
+**2,5 à 4,2** ([notebook 09](notebooks/09_calibration_visibilite.ipynb)). La grandeur
+réglementaire pertinente est donc la **marge**, pas le franchissement.
 
-**Difficulté opérationnelle.** $\lambda$ et $\alpha$ ne sont pas directement lisibles
-dans le code d'une plateforme. Leur estimation demande un protocole d'inférence à partir
-de séries temporelles de visibilité, qui reste à construire.
+**Pourquoi cette recommandation reste la plus solide.** Elle ne suppose aucune intention
+malveillante à démontrer. À gain uniforme, un contenu plus émotionnel devrait franchir le
+seuil qu'un contenu factuel ne franchit pas : le biais serait **mécanique**, et un audit de
+$\gamma$ plus opposable qu'un audit d'intentions éditoriales.
+
+**Réserve, à porter au dossier.** Ce dernier point n'est **pas étayé par les données** : la
+mesure ne détecte aucun écart de rapport entre contenus d'accusation et annonces
+scientifiques ($p \geq 0{,}13$). L'argument mécanique reste théoriquement solide, mais un
+régulateur ne doit pas le présenter comme démontré.
+
+**Difficultés opérationnelles, désormais chiffrées.**
+
+* $\rho_{\max}$ n'est pas déterminé par la théorie. La mesure fournit une référence
+  descriptive, pas un seuil normatif.
+* La valeur estimée **dépend de la méthode** : la médiane varie d'un facteur 1,7 selon la
+  fenêtre d'ajustement. Un seuil adossé à une valeur unique serait attaquable ; le protocole
+  d'estimation doit être normalisé en même temps que le seuil.
+* La mesure disponible porte sur un **gain d'écosystème**, non sur le $\gamma$ interne d'une
+  plateforme. Y accéder demande l'article 40 du DSA.
+* La méthode d'estimation actuelle est **aveugle aux régimes installés** — précisément les
+  cas de désinformation durable. Elle ne couvre que les épisodes en pic.
 
 ### 3. Brider la portée des super-diffuseurs en cas d'anomalie cinétique
 
@@ -173,7 +199,11 @@ Ces manques sont réels et il serait malhonnête de les taire :
 
 | Manque | Nature |
 |---|---|
-| calibration de $J$, $T$, $\gamma$, $\alpha$ sur données réelles | aucune procédure proposée |
+| calibration de $\gamma\alpha/\lambda$ | **fait** — [mesuré](calibration.md) entre 1,5 et 12 sur 19 épisodes publics, avec ses réserves |
+| calibration de $J$ et $T$ sur données réelles | aucune procédure proposée |
+| valeur normative de $\rho_{\max}$ | la mesure décrit, elle ne prescrit pas |
+| estimation du $\gamma$ **interne** d'une plateforme | demande l'accès article 40 du DSA |
+| couverture des régimes de désinformation **installés** | la méthode actuelle ne voit que les pics |
 | protocole d'audit préservant la vie privée | aucune conception |
 | définition normative du catalogue de points de vue $k$ | choix politique non tranché |
 | résistance de l'index au *gaming* | non étudiée |

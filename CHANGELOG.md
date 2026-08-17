@@ -7,13 +7,53 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — calibration empirique de γα/λ
+
+Première mesure d'un paramètre du modèle sur des données réelles. Détail et réserves :
+[`docs/calibration.md`](docs/calibration.md).
+
+- **`ide.calibration`** — identification de $\gamma\alpha$ et $\lambda$ par réduction de
+  l'équation de résonance au premier ordre, avec deux estimateurs : fenêtres adaptatives, et
+  fenêtres à horizon fixe. Détection d'épisodes par proéminence sur niveau de fond glissant,
+  avec compte rendu des rejets par motif.
+- **`ide.pageviews`** — accès à l'API de consultations de Wikimedia et cache sur disque.
+  Filtre d'agent `user` par défaut, pour exclure les robots.
+- **`ide.corpus`** — corpus pré-enregistré de 24 sujets, réparti en deux registres
+  émotionnels. Figé dans le code afin qu'aucun sujet ne puisse être écarté au vu de son
+  résultat.
+- **`scripts/fetch_pageviews.py`** — seul point d'accès réseau du dépôt, exécuté une fois.
+- **`data/pageviews/`** — les 24 séries, versionnées : l'analyse est reproductible hors
+  ligne et un test vérifie que le corpus reste intégralement disponible.
+- **`notebooks/09_calibration_visibilite.ipynb`** et 63 tests supplémentaires (266 au total).
+
+### Résultats
+
+- $\gamma\alpha/\lambda$ vaut **1,5 à 12** sur 19 épisodes, de médiane **2,5 à 4,2** selon
+  l'estimateur. L'amplification est deux à quatre fois plus rapide que l'oubli.
+- **Le critère de signe est vide** — nouveau point 15 de l'audit. Le rapport dépasse 1 dans
+  tous les épisodes, par construction de la procédure d'estimation : un épisode observable a
+  nécessairement connu une phase de croissance.
+- **La prédiction sur la charge émotionnelle n'est pas étayée** : aucun écart détectable
+  entre registres ($p \geq 0{,}13$), et l'estimation ponctuelle va dans le sens contraire.
+
+### Modifié
+
+- **Recommandation 2 du mémorandum réécrite** — d'une interdiction des configurations où
+  $\gamma\alpha > \lambda$, inapplicable puisque toujours vraie, vers un **plafond sur le
+  rapport** $\gamma\alpha/\lambda \leq \rho_{\max}$.
+- `docs/limites.md` : ajout du point 15 et révision de la section sur la calibration, qui
+  n'est plus absente mais seulement entamée.
+- `ide.calibration.fit_exponential_rate` exige des valeurs strictement positives au lieu de
+  les rabattre sur un plancher — un rabattement aplatissait silencieusement les
+  décroissances et produisait un taux nul.
+
 ### À faire
 
-Les pistes sont détaillées et priorisées dans
-[`docs/feuille-de-route.md`](docs/feuille-de-route.md). Les trois premières :
+Priorisé dans [`docs/feuille-de-route.md`](docs/feuille-de-route.md). En tête désormais :
 
-- calibration de $\gamma\alpha/\lambda$ sur des séries temporelles de visibilité
-  publiques — c'est le chiffre qui manque le plus au mémorandum ;
+- **détecter des changements de régime, et non des pics** — la calibration actuelle ne voit
+  pas les désinformations qui s'installent, soit précisément les cas archétypaux ;
+- résolution infra-quotidienne, et décroissance non exponentielle ;
 - test adverse de manipulabilité de l'IDE, entièrement simulable ;
 - évaluation hors ligne de l'ADE sur un jeu de données de recommandation réel.
 

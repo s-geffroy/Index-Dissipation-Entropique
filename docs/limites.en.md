@@ -7,7 +7,7 @@ analogies. That method produces sound intuitions alongside shortcuts that do not
 Publishing the thread as-is would expose the whole to being dismissed over a detail,
 when the starting intuition deserves better.
 
-Each point below follows the same structure: what the thread claimed, why it is a
+Fifteen points are documented. Each follows the same structure: what the thread claimed, why it is a
 problem, and the formulation adopted. Every correction is **traceable** — implemented in
 `src/`, verified in `tests/`, illustrated in a notebook.
 
@@ -297,6 +297,39 @@ The `pygame` prototype is preserved verbatim in
 
 ---
 
+## F. A correction that came from measurement
+
+This point was not found by re-reading the thread but by **confronting the data**. It is
+appended after the fact, which is how an audit should live.
+
+### 15. The $\gamma\alpha > \lambda$ criterion is not a test, it is a definition
+
+**The thread, and the memorandum that followed from it.** "Prohibit algorithmic
+configurations in which a piece of content's amplification rate exceeds its natural damping
+rate: $\gamma\alpha > \lambda$."
+
+**The problem, revealed by [calibration](calibration.en.md).** The ratio
+$\gamma\alpha/\lambda$ exceeds 1 in all 19 measured attention episodes, under all four
+estimators tested. This is not an alarming property of the ecosystem: it is a **tautology of
+the estimation procedure**. An observable attention episode necessarily went through a growth
+phase, so $r_{\text{up}} > 0$, so $\gamma\alpha > \lambda$.
+
+In other words, the recommendation asked a regulator to check a condition that holds of any
+content which broke through. It was **inapplicable**, and nothing in the theoretical
+reasoning flagged it.
+
+**Adopted.** A **ceiling on the ratio**, $\gamma\alpha/\lambda \leq \rho_{\max}$. The
+regulatory quantity is the margin above the threshold, not the crossing of it. The
+measurement supplies a descriptive reference — median 2.5 to 4.2 depending on estimator —
+from which a normative $\rho_{\max}$ can be argued.
+
+**What this episode teaches about method.** An error of this kind is invisible to re-reading:
+it only becomes apparent when you try to measure. It is the most concrete argument for
+empirical calibration — not to confirm the model, but to discover where its recommendations
+mean nothing.
+
+---
+
 ## What the model cannot do
 
 These are not pending corrections. They are the boundaries of the work, and they should
@@ -308,10 +341,15 @@ Nothing in this repository demonstrates that human opinion *obeys* statistical
 mechanics. The work establishes that a formalism borrowed from physics **reproduces**
 certain observed behaviours — abrupt transition, persistence after retraction, selective
 amplification. It is a structural hypothesis, fruitful because it yields measurable
-quantities. It is not a law of social nature, and the parameters $J$, $T$, $\gamma$,
-$\alpha$ currently have no empirical calibration procedure. **This is the work's
-principal weakness**: the formalism is coherent, its grounding in real data remains to
-be done. See the [roadmap](feuille-de-route.en.md).
+quantities. It is not a law of social nature.
+
+Exactly one of its parameters is now calibrated on real data: the ratio
+$\gamma\alpha/\lambda$ ([calibration](calibration.en.md)). And that calibration, far from
+reinforcing the model, showed that one of its regulatory recommendations was meaningless
+(point 15) and that one of its mechanisms is not data-supported. **$J$, $T$, $\gamma$ and
+$\alpha$ taken separately still have no estimation procedure**: the formalism is coherent,
+its empirical grounding has barely begun. This remains the work's principal weakness. See the
+[roadmap](feuille-de-route.en.md).
 
 ### Individuals are not spins
 

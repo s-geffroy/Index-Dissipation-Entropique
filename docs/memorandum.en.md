@@ -14,9 +14,14 @@ algorithmic resonance of false information
 
 The underlying reasoning is formalised and numerically verified
 ([models](theorie/fokker-planck.md),
-[tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)), but
-its parameters have **no empirical calibration**. It therefore proposes a *metrological
-framework* and *quantities to measure*, not thresholds ready to be written into law.
+[tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)). Exactly
+one of its parameters is now **calibrated on real data** — the ratio $\gamma\alpha/\lambda$,
+[measured](calibration.en.md) on public attention series; the others are not. It therefore
+proposes a *metrological framework* and *quantities to measure*, not thresholds ready to be
+written into law.
+
+That single calibration in fact forced **recommendation 2 to be rewritten**: an argument for
+measuring before legislating, not for taking the framework as settled.
 
 A second reservation must be stated at the outset. The original thread concluded that
 "regulation ceases to be arbitrary censorship and becomes an engineering of stability".
@@ -59,26 +64,48 @@ one way to meet the objective, not the only one.
 a threshold without diversifying the argument. A credible standard must pair automated
 measurement with qualitative sampling. → [roadmap §2.2](feuille-de-route.en.md)
 
-### 2. Audit kinetic damping coefficients
+### 2. Cap the amplification-to-damping ratio
 
-**Measure.** Prohibit algorithmic configurations in which a piece of content's
-amplification rate exceeds its natural damping rate:
+!!! warning "Recommendation revised after measurement"
+    This recommendation was originally written as a prohibition on configurations where
+    $\gamma\alpha > \lambda$. The [empirical calibration](calibration.en.md) shows that
+    formulation to be **inapplicable**: the ratio exceeds 1 in all 19 measured episodes,
+    under every estimator. This follows logically — an observable attention episode
+    necessarily went through a growth phase. Checking the sign tells you nothing.
 
-$$\gamma\alpha > \lambda \quad \text{(prohibited configuration)}$$
+**Measure.** Impose a **ceiling** on the ratio between a piece of content's amplification
+rate and its natural damping rate:
 
-**Rationale.** Beyond this threshold, effective damping of the feedback loop becomes
-negative: the system accumulates energy instead of dissipating it. This is the
-informational Larsen effect, and the threshold is sharp
-([notebook 06](notebooks/06_resonance_larsen.ipynb)).
+$$\frac{\gamma\alpha}{\lambda} \leq \rho_{\max}$$
 
-**Why this is the most solid recommendation.** It presupposes no malicious intent to be
-demonstrated. At uniform gain, a more emotional item crosses the threshold where a factual
-one does not: the bias is **mechanical**. Auditing $\gamma$ is therefore more relevant —
-and more enforceable — than auditing editorial intent.
+**Rationale.** Beyond $\gamma\alpha = \lambda$, effective damping of the feedback loop
+becomes negative: the system accumulates energy instead of dissipating it
+([notebook 06](notebooks/06_resonance_larsen.ipynb)). That regime is the norm, not the
+exception — measurement places the information ecosystem between **1.5 and 12**, median
+**2.5 to 4.2** ([notebook 09](notebooks/09_calibration_visibilite.ipynb)). The relevant
+regulatory quantity is therefore the **margin**, not the crossing.
 
-**Operational difficulty.** $\lambda$ and $\alpha$ are not directly legible in platform
-code. Estimating them requires an inference protocol from visibility time series, which
-remains to be built. → [roadmap §1.1](feuille-de-route.en.md)
+**Why this remains the most solid recommendation.** It presupposes no malicious intent to be
+demonstrated. At uniform gain, a more emotional item should cross the threshold where a
+factual one does not: the bias would be **mechanical**, and auditing $\gamma$ more
+enforceable than auditing editorial intent.
+
+**A caveat for the record.** That last point is **not supported by the data**: the
+measurement detects no difference in ratio between accusation content and scientific
+announcements ($p \geq 0.13$). The mechanical argument remains theoretically sound, but a
+regulator must not present it as demonstrated.
+
+**Operational difficulties, now quantified.**
+
+* $\rho_{\max}$ is not determined by theory. The measurement provides a descriptive
+  reference, not a normative threshold.
+* The estimated value is **method-dependent**: the median varies by a factor of 1.7 with the
+  fitting window. A threshold anchored to a single value would be contestable; the estimation
+  protocol must be standardised alongside the threshold.
+* The available measurement concerns an **ecosystem gain**, not a platform's internal
+  $\gamma$. Reaching the latter requires DSA Article 40 access.
+* The current estimation method is **blind to installed regimes** — precisely the durable
+  disinformation cases. It covers only spike-shaped episodes.
 
 ### 3. Throttle super-spreader reach on kinetic anomaly
 
@@ -161,7 +188,11 @@ informational space, independently of the content of any single message.
 
 | Gap | Nature |
 |---|---|
-| calibration of $J$, $T$, $\gamma$, $\alpha$ on real data | no procedure proposed |
+| calibration of $\gamma\alpha/\lambda$ | **done** — [measured](calibration.en.md) between 1.5 and 12 across 19 public episodes, with its caveats |
+| calibration of $J$ and $T$ on real data | no procedure proposed |
+| normative value of $\rho_{\max}$ | the measurement describes, it does not prescribe |
+| estimating a platform's **internal** $\gamma$ | requires DSA Article 40 access |
+| coverage of **installed** disinformation regimes | the current method sees only spikes |
 | privacy-preserving audit protocol | not designed |
 | normative definition of the viewpoint catalogue $k$ | political choice unresolved |
 | resistance of the index to gaming | not studied |

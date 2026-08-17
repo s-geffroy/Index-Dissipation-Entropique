@@ -19,19 +19,45 @@ cohérent mais flottant, et aucun seuil réglementaire n'est calibrable.
 
 ### 1.1 Estimer $\lambda$ et $\gamma\alpha$ sur des courbes de visibilité publiques
 
-C'est le point d'entrée le moins coûteux, parce que la grandeur observable — la
-visibilité d'un contenu au cours du temps — est directement celle du modèle.
+!!! success "Fait — voir [Calibration](calibration.md)"
+    Le rapport $\gamma\alpha/\lambda$ vaut **1,5 à 12** sur 19 épisodes d'attention
+    publics (consultations Wikipédia, agent `user`, corpus pré-enregistré de 24 sujets),
+    de médiane **2,5 à 4,2** selon l'estimateur.
 
-* **Méthode.** Ajuster $V(t)$ sur des séries temporelles d'engagement, en régime
-  amorti (décroissance exponentielle → $\lambda$) puis en régime résonant (croissance →
-  $\gamma\alpha - \lambda$). Deux régressions sur des logarithmes suffisent pour un
-  premier ordre de grandeur.
-* **Sources.** Archives Reddit (Pushshift et ses successeurs), historiques d'édition de
-  Wikipédia sur des articles controversés — qui ont l'avantage d'être complets,
-  horodatés et publics.
-* **Livrable.** Un notebook `09_calibration_visibilite.ipynb` qui produit une plage de
-  valeurs plausibles pour $\gamma\alpha/\lambda$, et détermine si le seuil critique est
-  franchi en pratique. **C'est le résultat qui manque le plus au mémorandum.**
+    Trois enseignements, dont deux négatifs :
+
+    * l'ordre de grandeur existe — l'amplification est deux à quatre fois plus rapide que
+      l'oubli ;
+    * **le critère de signe est vide** : il est satisfait par construction pour tout
+      épisode observable, ce qui a imposé de réécrire la recommandation 2 du mémorandum
+      en plafond sur le rapport ;
+    * **la prédiction sur la charge émotionnelle n'est pas vérifiée** ($p \geq 0{,}13$),
+      et l'estimation ponctuelle va dans le sens contraire.
+
+    Livré : `ide.calibration`, `ide.pageviews`, `ide.corpus`,
+    `scripts/fetch_pageviews.py`, cache versionné de 24 séries, 40 tests, et le
+    [notebook 09](notebooks/09_calibration_visibilite.ipynb).
+
+Les suites directes de cette mesure, par ordre d'importance :
+
+* **Détecter des changements de régime, pas des pics.** C'est la limite la plus lourde de
+  la mesure actuelle : les cas archétypaux — QAnon, désinformation sanitaire, hésitation
+  vaccinale — ne produisent pas un pic mais un **déplacement durable** du niveau
+  d'attention, que la détection par proéminence ne voit pas. Il faut une méthode de
+  détection de rupture (CUSUM, segmentation bayésienne), et une identification adaptée :
+  dans un régime installé, $\gamma\alpha \approx \lambda$ à l'équilibre, et c'est la
+  *transition* qu'il faut ajuster.
+* **Passer à une résolution infra-quotidienne.** Le motif de rejet dominant est la
+  fenêtre trop courte : beaucoup d'épisodes montent en un ou deux jours. Wikimedia
+  publie des séries horaires sur une profondeur limitée ; cela suffirait à rendre
+  identifiable ce qui ne l'est pas ici.
+* **Ajuster une décroissance non exponentielle.** La queue de l'attention est plus lourde
+  qu'une exponentielle, ce qui produit un artefact de fenêtre sévère (corrélation de rang
+  $-0{,}94$ entre durée de fenêtre et $\lambda$), aujourd'hui contourné par un horizon
+  fixe. Une loi de puissance ou une somme de deux exponentielles le supprimerait.
+* **Étendre le corpus.** Dix-neuf épisodes ne permettent aucune inférence de classe. Un
+  corpus de plusieurs centaines de sujets, toujours pré-enregistré, rendrait la
+  comparaison entre registres émotionnels concluante — dans un sens ou dans l'autre.
 
 ### 1.2 Inférer les coefficients de Fokker-Planck directement
 
@@ -216,10 +242,13 @@ Ces points n'ont pas d'enjeu scientifique, mais ils conditionnent la relecture.
 
 ## Si une seule chose devait être faite
 
-**§1.1 — estimer $\gamma\alpha/\lambda$ sur des données publiques.**
+**Détecter des changements de régime, et non des pics** (§1.1, première suite).
 
-C'est le seul résultat qui transformerait le critère d'instabilité, aujourd'hui une
-inégalité formelle, en constat empirique. Le mémorandum recommande d'interdire les
-configurations où $\gamma\alpha > \lambda$ ; personne ne sait encore si les plateformes
-réelles s'y trouvent. Tant que ce chiffre manque, la recommandation la plus solide du
-travail reste une hypothèse.
+Le §1.1 initial est fait : $\gamma\alpha/\lambda$ est mesuré, et cette mesure a corrigé une
+recommandation réglementaire qui, sans elle, aurait été inapplicable. Mais elle a révélé une
+limite plus grave qu'elle n'en a levé : **la méthode ne voit pas les désinformations qui
+s'installent.** QAnon, la désinformation sanitaire, l'hésitation vaccinale — les cas qui
+motivent tout le travail — sont invisibles à une détection par pic.
+
+Un modèle de la polarisation qui ne peut mesurer que les emballements passagers n'atteint pas
+son objet. C'est là que se joue la suite.

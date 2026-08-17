@@ -17,17 +17,43 @@ and no regulatory threshold is calibratable.
 
 ### 1.1 Estimate $\lambda$ and $\gamma\alpha$ from public visibility curves
 
-The cheapest entry point, because the observable quantity — a piece of content's
-visibility over time — is exactly the model's variable.
+!!! success "Done — see [Calibration](calibration.en.md)"
+    The ratio $\gamma\alpha/\lambda$ lies between **1.5 and 12** across 19 public attention
+    episodes (Wikipedia pageviews, `user` agent, pre-registered corpus of 24 subjects), with
+    a median of **2.5 to 4.2** depending on the estimator.
 
-* **Method.** Fit $V(t)$ to engagement time series: in the damped regime (exponential
-  decay → $\lambda$), then in the resonant regime (growth → $\gamma\alpha - \lambda$). Two
-  log-linear regressions suffice for a first order of magnitude.
-* **Sources.** Reddit archives (Pushshift and successors), Wikipedia edit histories on
-  contested articles — complete, timestamped and public.
-* **Deliverable.** A notebook `09_calibration_visibilite.ipynb` producing a plausible range
-  for $\gamma\alpha/\lambda$, and determining whether the critical threshold is crossed in
-  practice. **This is the result the memorandum most lacks.**
+    Three findings, two of them negative:
+
+    * the order of magnitude now exists — amplification is two to four times faster than
+      forgetting;
+    * **the sign criterion is empty**: it holds by construction for any observable episode,
+      which forced recommendation 2 of the memorandum to be rewritten as a ceiling on the
+      ratio;
+    * **the emotional-charge prediction is not supported** ($p \geq 0.13$), and the point
+      estimate goes the other way.
+
+    Delivered: `ide.calibration`, `ide.pageviews`, `ide.corpus`,
+    `scripts/fetch_pageviews.py`, a versioned cache of 24 series, 40 tests, and
+    [notebook 09](notebooks/09_calibration_visibilite.ipynb).
+
+Direct follow-ups, in order of importance:
+
+* **Detect regime changes, not peaks.** This is the heaviest limitation of the current
+  measurement: the archetypal cases — QAnon, health disinformation, vaccine hesitancy — do
+  not produce a spike but a **durable shift** in attention level, which prominence-based
+  detection cannot see. This needs change-point methods (CUSUM, Bayesian segmentation) and an
+  adapted identification: in an installed regime $\gamma\alpha \approx \lambda$ at
+  equilibrium, and it is the *transition* that must be fitted.
+* **Move to sub-daily resolution.** The dominant rejection reason is too short a window: many
+  episodes rise in one or two days. Wikimedia publishes hourly series over a limited depth,
+  which would suffice to identify what cannot be identified here.
+* **Fit non-exponential decay.** The tail of attention is heavier than exponential, producing
+  a severe window artefact (rank correlation $-0.94$ between window length and $\lambda$),
+  currently worked around with a fixed horizon. A power law or a sum of two exponentials
+  would remove it.
+* **Extend the corpus.** Nineteen episodes support no class-level inference. A corpus of
+  several hundred subjects, still pre-registered, would make the comparison between emotional
+  registers conclusive — one way or the other.
 
 ### 1.2 Infer the Fokker-Planck coefficients directly
 
@@ -189,9 +215,13 @@ threshold — connecting the work to an established literature rather than an ad
 
 ## If only one thing were done
 
-**§1.1 — estimate $\gamma\alpha/\lambda$ on public data.**
+**Detect regime changes, not peaks** (§1.1, first follow-up).
 
-It is the only result that would turn the instability criterion, today a formal inequality,
-into an empirical finding. The memorandum recommends prohibiting configurations where
-$\gamma\alpha > \lambda$; nobody yet knows whether real platforms sit there. Until that
-number exists, the work's most solid recommendation remains a hypothesis.
+The original §1.1 is done: $\gamma\alpha/\lambda$ is measured, and that measurement
+corrected a regulatory recommendation that would otherwise have been inapplicable. But it
+revealed a limitation graver than the one it lifted: **the method cannot see disinformation
+that installs itself.** QAnon, health disinformation, vaccine hesitancy — the cases that
+motivate the entire work — are invisible to peak-based detection.
+
+A model of polarisation that can only measure passing flare-ups does not reach its object.
+That is where the next step lies.

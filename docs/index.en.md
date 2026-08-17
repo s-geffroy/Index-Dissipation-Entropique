@@ -40,11 +40,13 @@ field does not return opinion to neutrality: group conformity takes over from th
 and sustains the belief. This is **hysteresis**, it is measurable, and it explains why
 passive debunking fails. → [Social temperature](theorie/temperature.md)
 
-**Amplification has a sharp threshold.** When a platform's algorithmic gain exceeds the
-natural decay rate of a piece of content ($\gamma\alpha > \lambda$), effective damping
-becomes negative: the system accumulates the energy injected into it instead of
-dissipating it. This is an informational Larsen effect, and it is an **auditable
-inequality**. → [Resonance](theorie/resonance.md)
+**Amplification has a sharp threshold — and the ecosystem sits above it.** When algorithmic
+gain exceeds the natural decay rate of a piece of content ($\gamma\alpha > \lambda$),
+effective damping becomes negative: the system accumulates the energy injected into it instead
+of dissipating it. [Measurement on public data](calibration.en.md) places the ratio between
+**1.5 and 12** across 19 attention episodes — and shows, in the same move, that checking the
+*sign* of this criterion tells you nothing, which forced a memorandum recommendation to be
+rewritten. → [Resonance](theorie/resonance.md) · [Calibration](calibration.en.md)
 
 ## What the work proposes
 
@@ -61,22 +63,23 @@ national and European regulators under the Digital Services Act.
 
 ## What the work does not claim
 
-The [**critical audit**](limites.en.md) is the page to read before the others. It
-records fourteen corrections to the original reasoning — three of which invalidated a
-formula outright — and lists the limitations that remain, including those bearing on
-regulatory use of the index: the index is gameable, its discretisation into viewpoints
-is a political choice, and imposing a floor on its value is an intervention in public
-debate, not a neutral technical measure.
+The [**critical audit**](limites.en.md) is the page to read before the others. It records
+**fifteen corrections** to the original reasoning — five of which invalidated a formula
+outright, and one discovered by trying to measure — and lists the limitations that remain,
+including those bearing on regulatory use of the index: the index is gameable, its
+discretisation into viewpoints is a political choice, and imposing a floor on its value is an
+intervention in public debate, not a neutral technical measure.
 
 Nothing here demonstrates that human opinion *obeys* statistical mechanics. The work
-establishes that a formalism borrowed from physics **reproduces** certain observed
-behaviours, and derives measurable quantities from it. The parameters currently have no
-empirical calibration procedure: that is the work's principal weakness, and it is
-stated as such. The [roadmap](feuille-de-route.en.md) sets out how to address it.
+establishes that a formalism borrowed from physics **reproduces** certain observed behaviours,
+and derives measurable quantities from it. Exactly one of its parameters is now calibrated on
+real data — and that calibration showed one of its regulatory recommendations to be
+meaningless. Empirical grounding has barely begun: that is the work's principal weakness, and
+the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The eight notebooks are executable and produce every figure in the paper. Each stands
+The nine notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -89,6 +92,7 @@ on its own.
 | [06 — Resonance](notebooks/06_resonance_larsen.ipynb) | the $\gamma\alpha > \lambda$ threshold and the attention limit cycle |
 | [07 — Algorithm](notebooks/07_ade_filtre_entropique.ipynb) | a frozen feed reopening under annealing |
 | [08 — Agent model](notebooks/08_abm_compas_politique.ipynb) | the filter bubble seen from the individual |
+| [09 — Calibration](notebooks/09_calibration_visibilite.ipynb) | $\gamma\alpha/\lambda$ measured across 19 public attention episodes |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 
@@ -100,7 +104,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 203 tests
+docker compose run --rm test          # 266 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

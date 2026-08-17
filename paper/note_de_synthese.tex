@@ -45,8 +45,13 @@ métrique auditable de la diversité informationnelle d'un fil, et l'\textbf{Alg
 Dissipation Entropique} (ADE), filtre de recommandation qui optimise cet index plutôt que
 l'engagement brut.
 
-La section~\ref{sec:limites} énonce les limites du travail, dont la principale :
-les paramètres n'ont pas de procédure de calibration empirique. L'intégralité du code, des
+Une calibration sur des séries d'attention publiques (\S\ref{sec:calibration}) situe le
+rapport $\gamma\alpha/\lambda$ entre $1{,}5$ et $12$ sur dix-neuf épisodes. Elle montre du
+même coup que le critère d'instabilité est satisfait par construction pour tout épisode
+observable : sa vérification n'apprend rien, et la recommandation réglementaire
+correspondante doit porter sur un plafond du rapport.
+
+La section~\ref{sec:limites} énonce les limites du travail. L'intégralité du code, des
 tests et des figures est reproductible en conteneur.
 \end{abstract}
 
@@ -372,16 +377,87 @@ c'est la transposition du recuit simulé, un pic de température ponctuel pour c
 figé, suivi d'un refroidissement. À $\mu = 0$, l'ADE est indiscernable d'un filtre
 d'engagement, ce qui en fait un ajout paramétré plutôt qu'une refonte.
 
+\section{Calibration empirique du rapport d'amplification}
+\label{sec:calibration}
+
+Le critère \eqref{eq:critere} est resté longtemps une inégalité formelle : rien n'indiquait
+où se situent les systèmes réels. Nous l'estimons ici sur des séries d'attention publiques.
+
+\subsection{Identification}
+
+Pour un pic d'attention isolé, non oscillatoire, \eqref{eq:resonance} se réduit à sa forme
+du premier ordre $\dot V = \gamma\alpha\,\sigma(V)V - \lambda V$, qui se sépare en deux
+régimes mesurables : pendant la \emph{montée}, la saturation est inactive et
+$V \propto e^{(\gamma\alpha-\lambda)t}$ ; pendant la \emph{décroissance}, l'amplification est
+éteinte et $V \propto e^{-\lambda t}$. Deux régressions log-linéaires donnent donc
+\begin{equation}
+\lambda = r_{\mathrm{down}}, \qquad \gamma\alpha = r_{\mathrm{up}} + r_{\mathrm{down}},
+\qquad \frac{\gamma\alpha}{\lambda} = 1 + \frac{r_{\mathrm{up}}}{r_{\mathrm{down}}}.
+\label{eq:identification}
+\end{equation}
+
+\subsection{Données}
+
+Les séries proviennent de l'API de consultations de Wikimedia, filtrées sur l'agent
+\texttt{user} pour exclure les robots, sur un corpus de 24 sujets \emph{pré-enregistré} et
+réparti en deux registres émotionnels — accusation ou scandale d'une part, découverte non
+programmée d'autre part. Wikipédia étant dépourvue d'algorithme de recommandation, le
+$\gamma$ ainsi estimé est un gain d'\emph{écosystème} et non la fonction de classement d'une
+plateforme.
+
+\subsection{Résultats}
+
+Dix-neuf épisodes sont exploitables. Le rapport vaut entre $1{,}5$ et $12$, de médiane
+$2{,}5$ à $4{,}2$ selon l'estimateur (figure~\ref{fig:calibration}). Trois enseignements,
+dont deux négatifs.
+
+\paragraph{Le critère de signe est vide.} Le rapport dépasse $1$ dans tous les épisodes et
+sous tous les estimateurs. Ce n'est pas une propriété de l'écosystème mais une
+\emph{tautologie de la procédure} : un épisode observable a nécessairement connu une phase de
+croissance, donc $r_{\mathrm{up}} > 0$. La recommandation « interdire les configurations où
+$\gamma\alpha > \lambda$ » est par conséquent inapplicable, et doit être remplacée par un
+\textbf{plafond} $\gamma\alpha/\lambda \leq \rho_{\max}$. Cette erreur n'était pas
+détectable par relecture : seule la tentative de mesure l'a révélée.
+
+\paragraph{La valeur dépend de la méthode.} Avec des fenêtres délimitées par le retour au
+niveau de fond, leur durée varie de 6 à 46 jours ; l'attention décroissant plus lentement
+qu'une exponentielle, un ajustement sur une fenêtre longue produit un $\lambda$ plus faible.
+La corrélation de rang atteint $-0{,}94$. Un second estimateur, à horizon fixe, rend
+$\lambda$ comparable entre épisodes ; la médiane varie néanmoins d'un facteur $1{,}7$ selon
+l'estimateur retenu, ce qui interdit d'adosser un seuil réglementaire à une valeur unique.
+
+\paragraph{Le mécanisme de la charge émotionnelle n'est pas étayé.} Aucun écart détectable
+entre les deux registres ($p \geq 0{,}13$), et l'estimation ponctuelle va dans le sens
+contraire à la prédiction. Les effectifs sont faibles et le biais de sélection décrit
+ci-dessous écarte les cas les plus chargés ; il serait donc excessif d'y voir une
+réfutation — mais le mécanisme ne peut pas être présenté comme soutenu par les données.
+
+\paragraph{La méthode est aveugle aux régimes installés.} Onze sujets sur vingt-quatre ne
+livrent aucun épisode exploitable, et ce sont les cas archétypaux : QAnon, désinformation
+sanitaire, hésitation vaccinale. Leur attention ne forme pas un pic mais un \emph{palier
+durable}, que le niveau de fond glissant absorbe — la détection par proéminence ne les voit
+pas. La procédure sélectionne donc contre le phénomène même que la théorie décrit, ce qui
+constitue la limite la plus lourde de cette calibration.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig09_calibration.png}
+\caption{Un épisode d'attention et ses deux régimes exponentiels ; la distribution du rapport
+par registre émotionnel ; la sensibilité de la médiane au choix d'estimateur ; et l'artefact
+de fenêtre qui a imposé l'estimateur à horizon fixe.}
+\label{fig:calibration}
+\end{figure}
+
 \section{Limites}
 \label{sec:limites}
 
 Ces limites sont énoncées ici plutôt que laissées aux relecteurs.
 
-\paragraph{Absence de calibration empirique.} C'est la faiblesse principale. Les paramètres
-$J$, $T$, $\gamma$, $\alpha$ n'ont aucune procédure d'estimation sur données réelles. Le
-formalisme est cohérent ; son ancrage empirique reste à construire. La voie la plus
-accessible serait l'estimation de $\gamma\alpha/\lambda$ par ajustement de
-\eqref{eq:resonance} sur des séries temporelles de visibilité publiques.
+\paragraph{Calibration empirique à peine entamée.} C'est la faiblesse principale. Un seul
+paramètre composite est estimé (\S\ref{sec:calibration}) ; $J$, $T$, $\gamma$ et $\alpha$
+pris séparément n'ont aucune procédure d'estimation. La voie la plus prometteuse serait
+l'inférence des coefficients de Kramers-Moyal sur des séries d'opinion longues, qui
+permettrait de \emph{tester} la dérive \eqref{eq:derive} plutôt que de l'ajuster.
 
 \paragraph{Une analogie n'est pas une explication.} Rien ici ne démontre que les opinions
 \emph{obéissent} à une mécanique statistique. Le travail établit qu'un formalisme emprunté

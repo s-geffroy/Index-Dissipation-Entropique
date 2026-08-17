@@ -44,8 +44,12 @@ metric of a feed's informational diversity, and the \textbf{Entropic Dissipation
 Algorithm} (EDA), a recommender filter that optimises this index rather than raw
 engagement.
 
-Section~\ref{sec:limits} states the work's limitations, chief among them that the
-parameters have no empirical calibration procedure. All code, tests and figures are
+A calibration on public attention series (\S\ref{sec:calibration}) places the ratio
+$\gamma\alpha/\lambda$ between $1.5$ and $12$ across nineteen episodes. It also shows that
+the instability criterion holds by construction for any observable episode: checking it tells
+you nothing, and the corresponding regulatory recommendation must instead cap the ratio.
+
+Section~\ref{sec:limits} states the work's limitations. All code, tests and figures are
 reproducible in containers.
 \end{abstract}
 
@@ -362,16 +366,86 @@ transposes simulated annealing, a temperature spike to break a frozen state foll
 cooling. At $\mu = 0$ the algorithm is indistinguishable from an engagement filter, which
 makes it a parameterised addition rather than a redesign.
 
+\section{Empirical calibration of the amplification ratio}
+\label{sec:calibration}
+
+Criterion \eqref{eq:criterion} long remained a formal inequality: nothing indicated where
+real systems sit. We estimate it here on public attention series.
+
+\subsection{Identification}
+
+For an isolated, non-oscillatory attention spike, \eqref{eq:resonance} reduces to its
+first-order form $\dot V = \gamma\alpha\,\sigma(V)V - \lambda V$, which separates into two
+measurable regimes: during the \emph{rise}, saturation is inactive and
+$V \propto e^{(\gamma\alpha-\lambda)t}$; during the \emph{decay}, amplification is switched
+off and $V \propto e^{-\lambda t}$. Two log-linear regressions therefore give
+\begin{equation}
+\lambda = r_{\mathrm{down}}, \qquad \gamma\alpha = r_{\mathrm{up}} + r_{\mathrm{down}},
+\qquad \frac{\gamma\alpha}{\lambda} = 1 + \frac{r_{\mathrm{up}}}{r_{\mathrm{down}}}.
+\label{eq:identification}
+\end{equation}
+
+\subsection{Data}
+
+The series come from the Wikimedia pageviews API, filtered to the \texttt{user} agent to
+exclude robots, over a \emph{pre-registered} corpus of 24 subjects split into two emotional
+registers — accusation or scandal on one side, unscheduled discovery on the other. Since
+Wikipedia has no recommender algorithm, the estimated $\gamma$ is an \emph{ecosystem} gain
+rather than a platform's ranking function.
+
+\subsection{Results}
+
+Nineteen episodes are exploitable. The ratio lies between $1.5$ and $12$, with a median of
+$2.5$ to $4.2$ depending on the estimator (figure~\ref{fig:calibration}). Three findings,
+two of them negative.
+
+\paragraph{The sign criterion is empty.} The ratio exceeds $1$ in every episode and under
+every estimator. This is not a property of the ecosystem but a \emph{tautology of the
+procedure}: an observable episode necessarily went through a growth phase, so
+$r_{\mathrm{up}} > 0$. The recommendation to "prohibit configurations where
+$\gamma\alpha > \lambda$" is consequently inapplicable and must be replaced by a
+\textbf{ceiling} $\gamma\alpha/\lambda \leq \rho_{\max}$. This error was not detectable by
+re-reading: only the attempt to measure revealed it.
+
+\paragraph{The value is method-dependent.} With windows bounded by the return to baseline,
+their length ranges from 6 to 46 days; since attention decays more slowly than an
+exponential, a fit over a long window yields a smaller $\lambda$. The rank correlation
+reaches $-0.94$. A second, fixed-horizon estimator makes $\lambda$ comparable across
+episodes; the median nonetheless varies by a factor of $1.7$ across estimators, which forbids
+anchoring a regulatory threshold to a single value.
+
+\paragraph{The emotional-charge mechanism is not supported.} No detectable difference between
+the two registers ($p \geq 0.13$), and the point estimate goes the opposite way to the
+prediction. Sample sizes are small and the selection bias described below excludes the most
+charged cases, so it would be excessive to call this a refutation — but the mechanism cannot
+be presented as data-supported.
+
+\paragraph{The method is blind to installed regimes.} Eleven of twenty-four subjects yield no
+exploitable episode, and these are the archetypal cases: QAnon, health disinformation, vaccine
+hesitancy. Their attention does not form a spike but a \emph{durable plateau}, which the
+rolling baseline absorbs — prominence-based detection does not see them. The procedure
+therefore selects against the very phenomenon the theory describes, which is the heaviest
+limitation of this calibration.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig09_calibration.png}
+\caption{An attention episode and its two exponential regimes; the ratio distribution by
+emotional register; sensitivity of the median to the estimator; and the window artefact that
+forced the fixed-horizon estimator.}
+\label{fig:calibration}
+\end{figure}
+
 \section{Limitations}
 \label{sec:limits}
 
 These are stated here rather than left to reviewers.
 
-\paragraph{No empirical calibration.} This is the principal weakness. The parameters $J$,
-$T$, $\gamma$, $\alpha$ have no estimation procedure on real data. The formalism is
-coherent; its empirical grounding remains to be built. The most accessible route would be
-estimating $\gamma\alpha/\lambda$ by fitting \eqref{eq:resonance} to public visibility time
-series.
+\paragraph{Empirical calibration barely begun.} This is the principal weakness. A single
+composite parameter is estimated (\S\ref{sec:calibration}); $J$, $T$, $\gamma$ and $\alpha$
+taken separately have no estimation procedure. The most promising route would be
+Kramers-Moyal inference on long opinion series, which would allow \emph{testing} the drift
+\eqref{eq:drift} rather than fitting it.
 
 \paragraph{An analogy is not an explanation.} Nothing here demonstrates that opinion
 \emph{obeys} statistical mechanics. The work establishes that a formalism borrowed from

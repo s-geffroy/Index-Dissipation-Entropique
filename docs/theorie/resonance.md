@@ -32,10 +32,18 @@ $$\boxed{\gamma\alpha > \lambda}$$
 Au-delà de ce seuil, l'amortissement effectif devient **négatif** : le système
 n'évacue plus l'énergie qu'on lui injecte, il l'accumule.
 
-C'est le résultat le plus opérationnel de tout le travail, parce qu'il est
-**auditable** : un régulateur peut, en principe, mesurer un taux d'amplification et un
-taux d'amortissement, et interdire les configurations où le premier dépasse le second.
-Le notebook 06 vérifie que le seuil mesuré coïncide bien avec $\gamma^\star = \lambda/\alpha$.
+C'est le résultat le plus opérationnel de tout le travail, parce qu'il est **auditable** :
+un régulateur peut, en principe, mesurer un taux d'amplification et un taux d'amortissement.
+Le notebook 06 vérifie que le seuil mesuré coïncide bien avec
+$\gamma^\star = \lambda/\alpha$.
+
+!!! warning "Ce que la mesure a corrigé"
+    La [calibration sur données publiques](../calibration.md) donne
+    $\gamma\alpha/\lambda$ entre **1,5 et 12** sur 19 épisodes d'attention. Le rapport
+    dépasse donc 1 **partout** — non par pathologie de l'écosystème, mais parce que tout
+    épisode observable a connu une phase de croissance. **Vérifier le signe n'apprend
+    rien** : la grandeur réglementaire est la marge, et la recommandation correspondante du
+    mémorandum a été réécrite en plafond. Voir l'[audit, point 15](../limites.md).
 
 ## Le point qui compte pour la régulation
 
