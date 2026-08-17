@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ide"
+version = "0.1.0"
+description = "Index de Dissipation Entropique — modélisation thermodynamique de la polarisation algorithmique"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Sylvain Geffroy" }]
+keywords = ["sociophysics", "opinion-dynamics", "ising", "fokker-planck", "entropy", "dsa"]
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+lab = ["matplotlib>=3.8", "jupyterlab>=4.0", "pandas>=2.1"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# Les docstrings du noyau scientifique contiennent des exemples exécutables : ils
+# sont exécutés avec la suite, pour qu'un exemple de documentation ne puisse pas
+# dériver silencieusement du code qu'il illustre.
+testpaths = ["tests", "src"]
+addopts = "-q --strict-markers --doctest-modules"
+markers = ["slow: simulations Monte-Carlo longues (désactivables via -m 'not slow')"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

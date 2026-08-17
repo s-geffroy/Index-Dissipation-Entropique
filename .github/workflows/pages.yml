@@ -1,0 +1,47 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Déploiement via GitHub Actions, et non depuis une branche gh-pages : le dépôt ne
+# contient donc aucun HTML généré. À activer une fois côté dépôt avec
+#   gh api -X POST repos/OWNER/REPO/pages -f build_type=workflow
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un seul déploiement à la fois ; une exécution en cours n'est pas annulée, pour ne
+# pas laisser le site dans un état intermédiaire.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Construire le site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Construire la documentation bilingue
+        run: docker compose run --rm --no-deps site-build
+
+      - name: Préparer l'artefact Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+  deploy:
+    name: Déployer
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

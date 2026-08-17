@@ -1,0 +1,78 @@
+# Tout s'exécute en conteneur : aucune dépendance n'est installée sur la machine hôte.
+#
+#   docker compose run --rm test          # suite pytest
+#   docker compose run --rm notebooks     # exécute les notebooks et régénère les figures
+#   docker compose up lab                 # JupyterLab sur http://localhost:8888
+#   docker compose up site                # documentation sur http://localhost:8000
+#   docker compose run --rm latex         # compile paper/*.tex en PDF
+
+x-lab: &lab
+  build:
+    context: .
+    dockerfile: docker/lab.Dockerfile
+  working_dir: /work
+  volumes:
+    - .:/work
+
+x-site: &site
+  build:
+    context: .
+    dockerfile: docker/site.Dockerfile
+  working_dir: /project
+  volumes:
+    - .:/project
+
+services:
+  lab:
+    <<: *lab
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888 --no-browser
+      --allow-root --IdentityProvider.token=''
+    ports:
+      - "8888:8888"
+
+  test:
+    <<: *lab
+    command: pytest
+
+  lint:
+    <<: *lab
+    command: ruff check src tests
+
+  notebooks:
+    <<: *lab
+    command: >
+      jupyter nbconvert --to notebook --execute --inplace
+      --ExecutePreprocessor.timeout=1200 notebooks/*.ipynb
+
+  # Les notebooks et les figures vivent à la racine du dépôt, où ils sont exécutables
+  # et versionnés une seule fois ; ils sont recopiés sous docs/ avant chaque build,
+  # MkDocs n'incluant que ce qui se trouve dans son docs_dir.
+  site:
+    <<: *site
+    command: >
+      sh -c "rm -rf docs/notebooks docs/figures &&
+      cp -r notebooks docs/notebooks &&
+      cp -r paper/figures docs/figures &&
+      mkdocs serve --dev-addr 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+
+  site-build:
+    <<: *site
+    command: >
+      sh -c "rm -rf docs/notebooks docs/figures &&
+      cp -r notebooks docs/notebooks &&
+      cp -r paper/figures docs/figures &&
+      mkdocs build --strict"
+
+  latex:
+    build:
+      context: .
+      dockerfile: docker/latex.Dockerfile
+    working_dir: /paper
+    volumes:
+      - ./paper:/paper
+    command: >
+      sh -c "latexmk -pdf -interaction=nonstopmode -output-directory=build note_de_synthese.tex &&
+      latexmk -pdf -interaction=nonstopmode -output-directory=build synthesis_note.tex"

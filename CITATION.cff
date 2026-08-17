@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: "Si vous utilisez ce travail, merci de le citer comme suit."
+title: "Index de Dissipation Entropique (IDE) : de la décohérence quantique à la polarisation algorithmique"
+abstract: >-
+  Formalisation thermodynamique de la dynamique d'opinion sous flux algorithmique.
+  Le travail construit une analogie structurelle entre décohérence quantique et
+  effondrement du consensus, la formalise via les modèles d'Ising et de Voter, puis
+  via l'équation de Fokker-Planck, et en dérive deux instruments : l'Index de
+  Dissipation Entropique (IDE), métrique auditable de la diversité informationnelle
+  d'un fil d'actualité, et l'Algorithme de Dissipation Entropique (ADE), filtre de
+  recommandation qui optimise cet index plutôt que l'engagement brut.
+type: software
+authors:
+  - family-names: Geffroy
+    given-names: Sylvain
+version: 0.1.0
+date-released: "2026-08-17"
+license: MIT
+license-url: "https://opensource.org/licenses/MIT"
+repository-code: "https://github.com/s-geffroy/Index-Dissipation-Entropique"
+url: "https://s-geffroy.github.io/Index-Dissipation-Entropique/"
+keywords:
+  - sociophysique
+  - dynamique des opinions
+  - modèle d'Ising
+  - équation de Fokker-Planck
+  - entropie de Shannon
+  - Digital Services Act
+references:
+  - type: article
+    authors:
+      - family-names: Zeh
+        given-names: H. Dieter
+    title: "On the interpretation of measurement in quantum theory"
+    year: 1970
+  - type: article
+    authors:
+      - family-names: Zurek
+        given-names: Wojciech H.
+    title: "Decoherence, einselection, and the quantum origins of the classical"
+    year: 2003
+  - type: article
+    authors:
+      - family-names: Galam
+        given-names: Serge
+    title: "Sociophysics: a personal testimony"
+    year: 2004
+  - type: article
+    authors:
+      - family-names: Shannon
+        given-names: Claude E.
+    title: "A Mathematical Theory of Communication"
+    year: 1948

@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Les jobs passent par docker compose plutôt que par une installation directe de
+# Python : c'est exactement la commande que documente le README, donc un échec en
+# intégration continue est reproductible en local sans traduction.
+jobs:
+  tests:
+    name: Tests et lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint
+        run: docker compose run --rm --no-deps lint
+
+      - name: Suite de tests
+        run: docker compose run --rm --no-deps test pytest
+
+  notebooks:
+    name: Exécution des notebooks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Exécuter les notebooks et régénérer les figures
+        run: docker compose run --rm --no-deps notebooks
+
+      # Une figure qui change n'est pas une erreur — les simulations sont pourtant
+      # toutes graines fixées, donc une différence signale soit une régression, soit
+      # un changement de version de dépendance qu'il vaut mieux voir passer.
+      - name: Signaler les figures modifiées
+        run: |
+          if ! git diff --quiet -- paper/figures; then
+            echo "::warning::Les figures régénérées diffèrent des versions commitées."
+            git diff --stat -- paper/figures
+          fi
+
+      - name: Publier les figures régénérées
+        uses: actions/upload-artifact@v4
+        with:
+          name: figures
+          path: paper/figures/
+
+  site:
+    name: Build de la documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # --strict transforme tout lien mort ou toute référence cassée en échec.
+      - name: Construire le site
+        run: docker compose run --rm --no-deps site-build

@@ -1,0 +1,31 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Sylvain Geffroy
+
+Le code source de ce dépôt (répertoires `src/`, `tests/`, `notebooks/`, `legacy/`)
+est distribué sous licence MIT — voir le fichier LICENSE.
+
+Les contenus rédactionnels et scientifiques (répertoires `docs/` et `paper/`,
+README.md et CHANGELOG.md) sont distribués sous licence Creative Commons
+Attribution 4.0 International.
+
+Vous êtes libre de :
+  - Partager  — copier, distribuer et communiquer ces contenus par tous moyens
+                et sous tous formats.
+  - Adapter   — remixer, transformer et créer à partir de ces contenus, y compris
+                pour un usage commercial.
+
+Selon la condition suivante :
+  - Attribution — vous devez créditer l'auteur, fournir un lien vers la licence
+                  et indiquer si des modifications ont été effectuées.
+
+Texte légal complet : https://creativecommons.org/licenses/by/4.0/legalcode.fr
+
+---
+
+The source code in this repository (`src/`, `tests/`, `notebooks/`, `legacy/`)
+is released under the MIT License — see LICENSE.
+
+The written and scientific content (`docs/`, `paper/`, README.md, CHANGELOG.md)
+is released under the Creative Commons Attribution 4.0 International License.
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode

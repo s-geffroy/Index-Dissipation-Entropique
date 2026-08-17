@@ -1,0 +1,133 @@
+site_name: Index de Dissipation Entropique
+site_description: >-
+  De la décohérence quantique à la polarisation algorithmique : modélisation
+  thermodynamique de l'opinion publique.
+site_author: Sylvain Geffroy
+site_url: https://s-geffroy.github.io/Index-Dissipation-Entropique/
+repo_url: https://github.com/s-geffroy/Index-Dissipation-Entropique
+repo_name: s-geffroy/Index-Dissipation-Entropique
+copyright: >-
+  Code sous licence MIT · contenus rédactionnels sous licence CC BY 4.0
+
+docs_dir: docs
+# `docs/notebooks/` et `docs/figures/` sont recopiés depuis la racine avant le build
+# (voir docker-compose.yml et .github/workflows/pages.yml) : les notebooks restent à
+# leur place canonique, exécutable par `docker compose run --rm notebooks`, sans être
+# dupliqués dans le dépôt.
+
+theme:
+  name: material
+  language: fr
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Passer au thème sombre
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Passer au thème clair
+  features:
+    # navigation.instant est volontairement absent : il est incompatible avec le
+    # sélecteur de langue contextuel de mkdocs-static-i18n.
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - toc.follow
+    - search.highlight
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: fr
+          name: Français
+          default: true
+          build: true
+        - locale: en
+          name: English
+          build: true
+          site_name: Entropic Dissipation Index
+          nav_translations:
+            Théorie: Theory
+            Entropie: Entropy
+            Température sociale: Social temperature
+            Fokker-Planck: Fokker-Planck
+            Résonance: Resonance
+            Instruments: Instruments
+            IDE — l'index: EDI — the index
+            ADE — l'algorithme: EDA — the algorithm
+            Mémorandum de régulation: Regulatory memorandum
+            Réserves: Caveats
+            Audit critique et limites: Critical audit and limitations
+            Feuille de route: Roadmap
+            Errata: Errata
+            Appel à relecture: Call for review
+            Notebooks: Notebooks
+  - mkdocs-jupyter:
+      include: ["notebooks/*.ipynb"]
+      execute: false
+      include_source: true
+      ignore_h1_titles: false
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.blocks.caption
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascript/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/s-geffroy/Index-Dissipation-Entropique
+
+nav:
+  - Introduction: index.md
+  - Théorie:
+      - Entropie: theorie/entropie.md
+      - Température sociale: theorie/temperature.md
+      - Fokker-Planck: theorie/fokker-planck.md
+      - Résonance: theorie/resonance.md
+  - Instruments:
+      - IDE — l'index: ide.md
+      - ADE — l'algorithme: ade.md
+      - Mémorandum de régulation: memorandum.md
+  - Réserves:
+      - Audit critique et limites: limites.md
+      - Feuille de route: feuille-de-route.md
+      - Errata: errata.md
+      - Appel à relecture: relecture.md
+  - Notebooks:
+      - 01 — Entropie et pureté: notebooks/01_entropie_et_purete.ipynb
+      - 02 — Ising: notebooks/02_ising_temperature_sociale.ipynb
+      - 03 — Voter Model: notebooks/03_voter_consensus_et_taille.ipynb
+      - 04 — Fokker-Planck: notebooks/04_fokker_planck_paysage.ipynb
+      - 05 — Hystérésis: notebooks/05_hysteresis_et_contre_champ.ipynb
+      - 06 — Résonance: notebooks/06_resonance_larsen.ipynb
+      - 07 — ADE: notebooks/07_ade_filtre_entropique.ipynb
+      - 08 — Modèle à agents: notebooks/08_abm_compas_politique.ipynb

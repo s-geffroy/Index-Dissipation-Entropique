@@ -1,0 +1,44 @@
+# --- Confidentialité : le fil source contient des adresses e-mail personnelles ---
+# Ne jamais commiter l'impression Gmail d'origine ni ses dérivés.
+ide.pdf
+*_gmail*.pdf
+raw/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Sorties de simulation
+out/
+*.csv
+!docs/data/*.csv
+
+# Site MkDocs — docs/notebooks et docs/figures sont recopiés avant chaque build
+site/
+docs/notebooks/
+docs/figures/
+
+# LaTeX — les intermédiaires de compilation sont exclus, mais les PDF sont versionnés
+# pour qu'un relecteur puisse les ouvrir depuis GitHub sans installer texlive.
+paper/build/*
+!paper/build/*.pdf
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# macOS
+.DS_Store
