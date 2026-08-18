@@ -7,6 +7,53 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — le test adverse sur fils ordonnés, et la sévérité du biais estimée
+
+Règle les deux dettes explicites laissées par le chantier précédent. Détail :
+[`docs/rang-adverse.md`](docs/rang-adverse.md) et le
+[notebook 15](notebooks/15_rang_adverse_et_severite.ipynb).
+
+- **`ide.ranking`** — le test adverse repris sur des fils **ordonnés** et non sur des
+  compositions. L'optimisation est **exhaustive** : les 65 536 fils possibles sont énumérés,
+  l'optimum est donc exact et non le résultat d'une heuristique. Au-delà d'une limite déclarée,
+  le module refuse plutôt que de basculer en silence sur une approximation.
+- **`ide.offpolicy.estimate_position_bias`** — estimation de $\eta$ par régression à effets
+  fixes de contenu sur $\log \mathrm{CTR} = \log g(i) - \eta \log R$, avec erreur type et
+  **drapeau d'identifiabilité**.
+- **`notebooks/15_rang_adverse_et_severite.ipynb`** et 24 tests supplémentaires.
+
+### Résultats — les quatre mesures se laissent contourner par l'ordre
+
+- **Une plateforme certifiée à 0,70 n'expose que 0,36.** Sous plancher aveugle au rang,
+  l'entropie de Rao certifie 0,750 pour une diversité exposée de **0,355** ; l'entropie de
+  position, 0,774 pour **0,443**. Le fil optimal a toujours la même forme — six contenus du
+  point de vue préféré, puis les divergents relégués aux dernières positions.
+- **Un plancher conscient du rang ferme l'échappatoire, et double le coût** : de 8,2 % à
+  18,9 % pour l'entropie de Rao, de 10,7 % à 20,9 % pour l'entropie de position.
+- **L'écart croît avec l'exigence** : 0,262 à plancher 0,40, 0,395 à plancher 0,70 pour Rao.
+  Plus la norme aveugle demande de diversité, plus il devient rentable de l'enterrer.
+- **La proximité à la cible résiste le mieux** — écart nul à plancher 0,40, 0,122 à 0,70 —
+  troisième point sur lequel elle se détache des trois autres mesures.
+- **Cet écart-là est seuillable**, contrairement à l'excès de signature : il compare **la même
+  mesure à elle-même**, une fois à l'aveugle du rang et une fois en le prenant en compte.
+
+### Résultats — la sévérité du biais de position s'estime, et il fallait l'estimer
+
+- **$\hat\eta = 1{,}013 \pm 0{,}019$** sur 40 000 impressions ; la sévérité vraie est
+  retrouvée de 0,4 à 1,6.
+- **À politique déterministe, $\eta$ n'est pas identifiable.** Aucun contenu ne change de
+  rang, il n'y a donc aucune variation à exploiter, et l'estimateur **refuse de renvoyer un
+  chiffre**. À exploration faible il en renvoie un, mais l'erreur type dit qu'il ne vaut rien.
+- **Poser $\eta$ de travers coûte jusqu'à 179 % d'erreur** — soit l'ordre de grandeur du biais
+  de 201 % que la correction contrefactuelle prétendait éliminer. Avec $\eta$ estimé, le coût
+  tient entre 6,6 % et 6,9 % contre 6,6 % de valeur vraie.
+- **Conséquences** : la recommandation 1 du mémorandum reçoit le **prix** de la mesure
+  consciente du rang et une **grandeur de contrôle** associée ; la feuille de route §3.1 ajoute
+  une quatrième exigence — estimer $\eta$, et vérifier d'abord l'exploration du jeu de données.
+- **Réserve maintenue :** la forme $e(R) = R^{-\eta}$ reste posée, seule sa sévérité est
+  estimée. Et l'énumération exhaustive borne les fils étudiés à huit positions sur quatre
+  points de vue — rien n'assure que le comportement se transporte à plus grande échelle.
+
 ### Ajouté — rang et contrefactuel, deux corrections avant l'évaluation sur données réelles
 
 Détail : [`docs/evaluation.md`](docs/evaluation.md) et le

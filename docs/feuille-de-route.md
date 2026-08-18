@@ -204,7 +204,11 @@ C'est ce qui permettrait de répondre à la seule objection sérieuse d'une plat
        clics enregistrés. Le replay se trompe de **201 % en médiane**, jusqu'à 851 %, et son
        sens n'est pas garanti — il n'offre donc même pas une borne ;
     3. le **modèle de propension**, la **taille d'échantillon effective** et le **plafond**
-       doivent être publiés avec le chiffre.
+       doivent être publiés avec le chiffre ;
+    4. la **sévérité du biais de position doit être estimée**, non posée — poser $\eta$ au
+       jugé coûte jusqu'à 179 % d'erreur — et l'**exploration du jeu de données** doit être
+       vérifiée d'abord, car c'est elle qui décide si l'estimation est seulement possible.
+       → [Rang adverse et sévérité](rang-adverse.md)
 
     Sans ces trois conditions, la frontière de Pareto annoncée mesurerait surtout le biais de
     position de la plateforme qui a produit les données.

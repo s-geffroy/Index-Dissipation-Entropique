@@ -70,6 +70,11 @@ to rank is satisfied by **burying** the divergent items, and naive evaluation of
 logged clicks is off by **201 % at the median**, without even guaranteeing the sign of its error.
 → [Rank and counterfactual](evaluation.en.md)
 
+**And a rank-blind standard lets the essential through.** Retested on ordered feeds, all four
+diversity measures are circumvented by **burial**: a platform certified at 0.70 exposes only
+**0.36**. Closing the loophole doubles the engagement cost.
+→ [Adversarial rank and severity](rang-adverse.en.md)
+
 ## What the work proposes
 
 | | Object | Intended for |
@@ -101,7 +106,7 @@ the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The fourteen notebooks are executable and produce every figure in the paper. Each stands
+The fifteen notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -120,6 +125,7 @@ on its own.
 | [12 — Blind annotation](notebooks/12_annotation_en_aveugle.ipynb) | 40 % label noise measured, and the double recoding at $\kappa = 0.92$ |
 | [13 — Adversarial test](notebooks/13_test_adverse_index.ipynb) | an index floor saturated at zero cost, and the fix that prescribed polarisation |
 | [14 — Rank and counterfactual](notebooks/14_rang_et_contrefactuel.ipynb) | burying diversity, and offline evaluation wrong by 201 % |
+| [15 — Adversarial rank](notebooks/15_rang_adverse_et_severite.ipynb) | all four measures circumvented by order, and position-bias severity estimated |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 
@@ -131,7 +137,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 488 tests
+docker compose run --rm test          # 512 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

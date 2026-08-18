@@ -11,6 +11,11 @@
     floor would **prescribe polarisation** — precisely what this project sets out to measure.
     See [the correction](#the-correction-raos-entropy-prescribed-polarisation).
 
+!!! danger "And all four measures were judged without the rank adversary"
+    All of them bear here on the feed's **composition**, never on its order. Retested on
+    ordered feeds, all are circumvented by **burial**: a platform certified at 0.70 exposes
+    only **0.36**. → [Adversarial rank and severity](rang-adverse.en.md)
+
 !!! tip "What this prescribes, after correction"
     The result does not destroy the index, it **moves its definition**: what must be measured is
     not the diversity of the **labels** served, but that of the **items** they carry. The

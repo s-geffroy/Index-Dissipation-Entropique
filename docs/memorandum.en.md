@@ -93,6 +93,16 @@ one way to meet the objective, not the only one.
         bear on a distribution **weighted by the attention each rank receives**.
         → [Rank and counterfactual](evaluation.en.md)
 
+        **Its price is quantified**: the engagement cost doubles — from 8.2 % to 18.9 % for
+        Rao's entropy, from 10.7 % to 20.9 % for position entropy. A platform certified at
+        0.70 by a blind measure in fact exposes only 0.36.
+        → [Adversarial rank and severity](rang-adverse.en.md)
+
+        **Associated control quantity**: the gap between the blind and the rank-aware measure
+        of the **same** feed. Unlike the excess signature, it compares a measure with itself
+        and is therefore directly thresholdable — it is zero for a platform that does not
+        relegate.
+
     What the regulator must then fix in addition: the **reference catalogue**, which serves as
     both grid and unit. It is the same political question as the choice of $k$, moved one step
     along.

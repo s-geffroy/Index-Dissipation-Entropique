@@ -172,9 +172,13 @@ L'évaluation de l'ADE sur données réelles n'est pas abandonnée : elle est **
 1. la diversité s'y mesure **par une divergence consciente du rang** à une référence déclarée,
    non par une valeur ponctuelle sur la composition du fil ;
 2. le coût en pertinence s'y estime **par IPS ou SNIPS**, jamais par replay ;
-3. le modèle de propension, la taille effective et le plafond sont **publiés avec le chiffre**.
+3. le modèle de propension, la taille effective et le plafond sont **publiés avec le chiffre** ;
+4. **la sévérité $\eta$ du biais de position est estimée, non posée**, et son incertitude est
+   propagée jusqu'au résultat. Poser $\eta$ au jugé coûte jusqu'à 179 % d'erreur, soit l'ordre
+   de grandeur du biais qu'on prétendait corriger.
+   → [Rang adverse et sévérité](rang-adverse.md)
 
-Sans ces trois conditions, la frontière de compromis annoncée mesurerait surtout le biais de
+Sans ces conditions, la frontière de compromis annoncée mesurerait surtout le biais de
 position de la plateforme qui a produit les données.
 
 ## Les hypothèses qui restent
@@ -191,12 +195,12 @@ disponible pour l'attribut qu'on voudrait mesurer.
 
 ## Pistes ouvertes
 
-1. **Estimer la sévérité du biais de position** plutôt que la poser. Les méthodes
-   d'*intervention harvesting* et les modèles de position par maximum de vraisemblance
-   l'estiment à partir des données enregistrées elles-mêmes.
-2. **Reprendre le test adverse sous mesure consciente du rang.** Les quatre mesures comparées
-   au [notebook 13](notebooks/13_test_adverse_index.ipynb) l'ont été sans rang ; l'enterrement
-   les concerne toutes.
+1. ~~**Estimer la sévérité du biais de position** plutôt que la poser.~~
+   → **[fait](rang-adverse.md)** : $\hat\eta = 1{,}013 \pm 0{,}019$ par régression à effets
+   fixes de contenu — et un refus d'estimer quand la plateforme n'a pas varié ses classements.
+2. ~~**Reprendre le test adverse sous mesure consciente du rang.**~~
+   → **[fait](rang-adverse.md)** : les quatre mesures se laissent contourner par
+   l'enterrement, et le plancher conscient du rang double le coût d'engagement.
 3. **Comparer à des lignes de base réglées** — MMR, réordonnancement aléatoire, popularité — et
    non au seul filtre d'engagement pur, qui est un homme de paille.
 4. **Instancier les cinq références sur données réelles**, ce qui suppose de résoudre d'abord le

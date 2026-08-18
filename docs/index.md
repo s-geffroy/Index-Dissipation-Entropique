@@ -72,6 +72,11 @@ diversité aveugle au rang se laisse satisfaire en **enterrant** les contenus di
 l'évaluation naïve d'un réordonnancement sur des clics enregistrés se trompe de **201 % en
 médiane**, sans même garantir le sens de son erreur. → [Rang et contrefactuel](evaluation.md)
 
+**Et une norme aveugle au rang laisse passer l'essentiel.** Reprises sur des fils ordonnés,
+les quatre mesures de diversité se laissent toutes contourner par l'**enterrement** : une
+plateforme certifiée à 0,70 n'expose que **0,36**. Fermer l'échappatoire double le coût
+d'engagement. → [Rang adverse et sévérité](rang-adverse.md)
+
 ## Ce que le travail propose
 
 | | Objet | Destinataire |
@@ -104,7 +109,7 @@ faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment 
 
 ## Explorer
 
-Les quatorze notebooks sont exécutables et produisent l'intégralité des figures de la
+Les quinze notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -123,6 +128,7 @@ note. Chacun se lit indépendamment.
 | [12 — Annotation en aveugle](notebooks/12_annotation_en_aveugle.ipynb) | 40 % de bruit d'étiquetage mesuré, et le double recodage à $\kappa = 0{,}92$ |
 | [13 — Test adverse](notebooks/13_test_adverse_index.ipynb) | un plancher d'IDE saturé à coût nul, et le correctif qui prescrivait la polarisation |
 | [14 — Rang et contrefactuel](notebooks/14_rang_et_contrefactuel.ipynb) | l'enterrement de la diversité, et l'évaluation hors ligne fausse de 201 % |
+| [15 — Rang adverse](notebooks/15_rang_adverse_et_severite.ipynb) | les quatre mesures contournées par l'ordre, et la sévérité du biais estimée |
 
 ## Reproduire
 
@@ -132,7 +138,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 488 tests
+docker compose run --rm test          # 512 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

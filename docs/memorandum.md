@@ -99,6 +99,16 @@ inapplicable et contre-productif.
         donc porter sur une distribution **pondérée par l'attention accordée à chaque rang**.
         → [Rang et contrefactuel](evaluation.md)
 
+        **Son prix est chiffré** : le coût d'engagement double — de 8,2 % à 18,9 % pour
+        l'entropie de Rao, de 10,7 % à 20,9 % pour l'entropie de position. Une plateforme
+        certifiée à 0,70 par une mesure aveugle n'expose en réalité que 0,36.
+        → [Rang adverse et sévérité](rang-adverse.md)
+
+        **Grandeur de contrôle associée** : l'écart entre la mesure aveugle et la mesure
+        consciente du rang du **même** fil. Contrairement à l'excès de signature, il compare
+        une mesure à elle-même et se seuille donc directement — il vaut zéro pour une
+        plateforme qui ne relègue pas.
+
     Ce que le régulateur doit alors fixer en plus : le **catalogue de référence**, qui sert à
     la fois de grille et d'unité. C'est la même question politique que le choix de $k$,
     déplacée d'un cran.

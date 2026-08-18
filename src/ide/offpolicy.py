@@ -64,12 +64,16 @@ résultat obtenu ainsi doit être publié avec elle, et non sans.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 import numpy as np
 
 __all__ = [
+    "PositionBiasEstimate",
     "clipped_ips",
     "doubly_robust",
     "effective_sample_size",
+    "estimate_position_bias",
     "importance_weights",
     "ips",
     "naive",
@@ -77,6 +81,7 @@ __all__ = [
     "position_bias",
     "rank_propensities",
     "simulate_logged_feedback",
+    "simulate_ranked_feedback",
     "snips",
     "value_under_policy",
 ]
@@ -348,3 +353,152 @@ def naive_replay(
     """
     return float(np.asarray(target_propensity, dtype=float)
                  @ np.asarray(click_rates, dtype=float))
+
+
+# ————————————————————————————————————————————————————————————————————————————————
+# Estimer la sévérité du biais de position, plutôt que la poser
+# ————————————————————————————————————————————————————————————————————————————————
+
+
+@dataclass(frozen=True)
+class PositionBiasEstimate:
+    """Sévérité estimée du biais de position, et ce qui la porte.
+
+    Attributes:
+        severity: :math:`\\hat{\\eta}` estimé.
+        standard_error: erreur type de l'estimation.
+        items_with_variation: nombre de contenus observés à **plus d'un rang**. C'est d'eux
+            seuls que vient l'information : un contenu toujours servi au même rang ne dit
+            rien sur la forme de l'attention.
+        identifiable: faux quand aucun contenu ne varie de rang. Le paramètre n'est alors pas
+            estimable, et le champ ``severity`` vaut ``nan`` plutôt qu'un chiffre trompeur.
+    """
+
+    severity: float
+    standard_error: float
+    items_with_variation: int
+    identifiable: bool
+
+
+def estimate_position_bias(
+    items: np.ndarray,
+    ranks: np.ndarray,
+    clicks: np.ndarray,
+    minimum_impressions: int = 5,
+) -> PositionBiasEstimate:
+    """Estime :math:`\\eta` à partir des seules données enregistrées.
+
+    Le modèle à biais de position pose :math:`P(\\text{clic}) = R^{-\\eta}\\,g(i)`, donc
+
+    .. math:: \\log \\mathrm{CTR}(i, R) = \\log g(i) - \\eta \\log R
+
+    La pertinence :math:`g(i)` y est un **effet fixe de contenu** : on ne cherche pas à
+    l'estimer, on l'élimine en centrant à l'intérieur de chaque contenu. Ce qui subsiste est la
+    seule variation qui identifie :math:`\\eta` — celle d'un **même contenu vu à des rangs
+    différents**.
+
+    C'est la version la plus simple de la *récolte d'interventions* : elle n'exige aucune
+    expérience, seulement que la plateforme n'ait pas toujours classé les mêmes contenus aux
+    mêmes places.
+
+    .. warning::
+        Une politique d'enregistrement **déterministe** ne produit aucune variation de rang à
+        contenu fixé, et :math:`\\eta` n'y est alors **pas identifiable**. La fonction le
+        signale au lieu de renvoyer un chiffre : c'est précisément le cas où poser la valeur
+        plutôt que l'estimer serait indétectable dans les résultats.
+
+    Args:
+        items: identifiant du contenu de chaque impression.
+        ranks: rang auquel il a été servi, à partir de 1.
+        clicks: 1 si l'impression a produit un clic.
+        minimum_impressions: nombre d'impressions en deçà duquel une cellule
+            (contenu, rang) est écartée. Un taux de clic estimé sur deux impressions
+            n'apporte que du bruit, et le logarithme l'amplifie.
+
+    Returns:
+        L'estimation, avec de quoi juger si elle repose sur quelque chose.
+    """
+    items = np.asarray(items, dtype=int)
+    ranks = np.asarray(ranks, dtype=float)
+    clicks = np.asarray(clicks, dtype=float)
+    if not (items.shape == ranks.shape == clicks.shape):
+        raise ValueError("les trois relevés doivent porter sur les mêmes impressions")
+    if np.any(ranks < 1):
+        raise ValueError("les rangs se comptent à partir de 1")
+
+    # Agrégation en cellules (contenu, rang) : le taux de clic y est la grandeur observée.
+    keys, inverse = np.unique(np.stack([items, ranks.astype(int)], axis=1), axis=0,
+                              return_inverse=True)
+    exposures = np.bincount(inverse, minlength=len(keys))
+    successes = np.bincount(inverse, weights=clicks, minlength=len(keys))
+
+    usable = (exposures >= minimum_impressions) & (successes > 0)
+    cell_items = keys[usable, 0]
+    cell_ranks = keys[usable, 1].astype(float)
+    rates = successes[usable] / exposures[usable]
+
+    varying = {item for item in np.unique(cell_items)
+               if np.unique(cell_ranks[cell_items == item]).size > 1}
+    if not varying:
+        return PositionBiasEstimate(float("nan"), float("nan"), 0, identifiable=False)
+
+    keep = np.isin(cell_items, list(varying))
+    response = np.log(rates[keep])
+    regressor = np.log(cell_ranks[keep])
+    grouping = cell_items[keep]
+
+    # Élimination des effets fixes de contenu par centrage intra-contenu.
+    centred_response = np.empty_like(response)
+    centred_regressor = np.empty_like(regressor)
+    for item in np.unique(grouping):
+        mask = grouping == item
+        centred_response[mask] = response[mask] - response[mask].mean()
+        centred_regressor[mask] = regressor[mask] - regressor[mask].mean()
+
+    denominator = float(centred_regressor @ centred_regressor)
+    if denominator <= 0.0:
+        return PositionBiasEstimate(float("nan"), float("nan"), len(varying), identifiable=False)
+
+    slope = float(centred_regressor @ centred_response) / denominator
+    residual = centred_response - slope * centred_regressor
+    freedom = max(centred_response.size - len(varying) - 1, 1)
+    error = float(np.sqrt((residual @ residual) / freedom / denominator))
+
+    return PositionBiasEstimate(-slope, error, len(varying), identifiable=True)
+
+
+def simulate_ranked_feedback(
+    relevance: np.ndarray,
+    impressions: int,
+    severity: float = 1.0,
+    exploration: float = 0.5,
+    rng: np.random.Generator | None = None,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Simule des impressions classées par une plateforme partiellement aléatoire.
+
+    Args:
+        relevance: pertinence de chaque contenu.
+        impressions: nombre de fils servis.
+        severity: sévérité vraie du biais de position, celle qu'on cherchera à retrouver.
+        exploration: bruit du classement. À 0, la plateforme classe toujours de la même
+            façon et le biais de position **cesse d'être identifiable** ; plus il croît, plus
+            un même contenu se retrouve à des rangs variés.
+        rng: générateur, pour que la simulation soit reproductible.
+
+    Returns:
+        Contenu, rang et clic, une ligne par position servie.
+    """
+    generator = np.random.default_rng() if rng is None else rng
+    relevance = np.asarray(relevance, dtype=float)
+    if exploration < 0.0:
+        raise ValueError("l'exploration ne peut être négative")
+
+    count = relevance.size
+    noise = generator.normal(0.0, exploration, size=(impressions, count))
+    orders = np.argsort(-(relevance + noise), axis=1)
+
+    ranks = np.tile(np.arange(1, count + 1), (impressions, 1))
+    probability = position_bias(ranks, severity=severity) * relevance[orders]
+    clicked = (generator.random((impressions, count)) < probability).astype(float)
+
+    return orders.ravel(), ranks.ravel(), clicked.ravel()

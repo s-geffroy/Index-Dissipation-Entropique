@@ -169,9 +169,13 @@ Evaluating the algorithm on real data is not abandoned: it is **conditioned**.
 1. diversity is measured there by a **rank-aware divergence** to a declared reference, not by a
    point value on the feed's composition;
 2. the cost in relevance is estimated **by IPS or SNIPS**, never by replay;
-3. the propensity model, the effective size and the cap are **published with the figure**.
+3. the propensity model, the effective size and the cap are **published with the figure**;
+4. **the position-bias severity $\eta$ is estimated, not posited**, and its uncertainty is
+   propagated to the result. Positing $\eta$ by eye costs up to 179 % of error — the order of
+   magnitude of the bias one claimed to correct.
+   → [Adversarial rank and severity](rang-adverse.en.md)
 
-Without those three conditions, the announced trade-off frontier would chiefly measure the
+Without those conditions, the announced trade-off frontier would chiefly measure the
 position bias of the platform that produced the data.
 
 ## The assumptions that remain
@@ -187,11 +191,12 @@ attribute one would like to measure.
 
 ## Open leads
 
-1. **Estimate the severity of position bias** rather than posit it. Intervention harvesting and
-   maximum-likelihood position models estimate it from the logged data themselves.
-2. **Redo the adversarial test under rank-aware measurement.** The four measures compared in
-   [notebook 13](notebooks/13_test_adverse_index.ipynb) were tested without rank; burial
-   concerns all of them.
+1. ~~**Estimate the severity of position bias** rather than posit it.~~
+   → **[done](rang-adverse.en.md)**: $\hat\eta = 1.013 \pm 0.019$ by a content fixed-effects
+   regression — and a refusal to estimate when the platform did not vary its rankings.
+2. ~~**Redo the adversarial test under rank-aware measurement.**~~
+   → **[done](rang-adverse.en.md)**: all four measures are circumvented by burial, and the
+   rank-aware floor doubles the engagement cost.
 3. **Compare against tuned baselines** — MMR, random re-ranking, popularity — not against the
    pure engagement filter alone, which is a straw man.
 4. **Instantiate the five references on real data**, which presupposes first solving the

@@ -12,6 +12,11 @@
     0,750 à un fil étalé. Un plancher de Rao **prescrirait la polarisation** — précisément ce
     que ce projet cherche à mesurer. Voir la [section 8](#le-correctif-lentropie-de-rao-prescrivait-la-polarisation).
 
+!!! danger "Et les quatre mesures ont été jugées sans l'adversaire du rang"
+    Toutes portent ici sur la **composition** du fil, jamais sur son ordre. Reprises sur des
+    fils ordonnés, elles se laissent toutes contourner par l'**enterrement** : une plateforme
+    certifiée à 0,70 n'expose que **0,36**. → [Rang adverse et sévérité](rang-adverse.md)
+
 !!! tip "Ce que cela prescrit, après correction"
     Le résultat ne détruit pas l'index, il en **déplace la définition** : ce qu'il faut mesurer
     n'est pas la diversité des **étiquettes** servies, mais celle des **contenus** qu'elles

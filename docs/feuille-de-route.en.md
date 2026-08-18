@@ -178,7 +178,11 @@ And it requires no privileged data access.
        clicks. Replay is off by **201 % at the median**, up to 851 %, and its sign is not
        guaranteed — so it does not even offer a bound;
     3. the **propensity model**, the **effective sample size** and the **clipping cap** must be
-       published with the figure.
+       published with the figure;
+    4. the **position-bias severity must be estimated**, not posited — positing $\eta$ by eye
+       costs up to 179 % of error — and the **dataset's exploration** must be checked first,
+       since it decides whether estimation is possible at all.
+       → [Adversarial rank and severity](rang-adverse.en.md)
 
     Without those three conditions, the announced Pareto frontier would chiefly measure the
     position bias of the platform that produced the data.
