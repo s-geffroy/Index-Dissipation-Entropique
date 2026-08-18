@@ -7,7 +7,7 @@ analogies. That method produces sound intuitions alongside shortcuts that do not
 Publishing the thread as-is would expose the whole to being dismissed over a detail,
 when the starting intuition deserves better.
 
-Fifteen points are documented. Each follows the same structure: what the thread claimed, why it is a
+Sixteen points are documented. Each follows the same structure: what the thread claimed, why it is a
 problem, and the formulation adopted. Every correction is **traceable** — implemented in
 `src/`, verified in `tests/`, illustrated in a notebook.
 
@@ -299,8 +299,9 @@ The `pygame` prototype is preserved verbatim in
 
 ## F. A correction that came from measurement
 
-This point was not found by re-reading the thread but by **confronting the data**. It is
-appended after the fact, which is how an audit should live.
+These points were not found by re-reading the thread but by **confronting the data**. They are
+appended after the fact, which is how an audit should live. The second corrects not the original
+thread but an instrument this repository had itself built.
 
 ### 15. The $\gamma\alpha > \lambda$ criterion is not a test, it is a definition
 
@@ -327,6 +328,30 @@ from which a normative $\rho_{\max}$ can be argued.
 it only becomes apparent when you try to measure. It is the most concrete argument for
 empirical calibration — not to confirm the model, but to discover where its recommendations
 mean nothing.
+
+### 16. Abundant rank variation is not exploration
+
+**What this repository had built.** Estimating the severity $\eta$ of position bias
+([adversarial rank](rang-adverse.en.md)) comes with an identifiability check: it refuses to
+answer when no item was served at more than one rank. That check was presented as the guard to
+pass before estimating.
+
+**The problem, revealed by measuring [MIND](mind.en.md).** The check counts rank variation
+without saying where it comes from. In MIND the recorded order is **shuffled**: variation is
+maximal — a median item appears at sixteen distinct positions — and entirely artificial. The
+estimator therefore accepts the dataset, declares itself identifiable, and returns a severity
+that is merely an increasing function of a nuisance parameter, from $-0.13$ to $+0.25$ depending
+on the impression threshold, always with a standard error below 0.007.
+
+**Adopted.** A **within-feed exchangeability test** that precedes estimation: given the feed, are
+clicks distributed independently of the recorded position? It is exact — expectation and variance
+are known under the null — and it comes with its power calibration, without which a test that
+rejects nothing says nothing.
+
+**What this episode teaches about method.** A necessary check invites one to believe it
+sufficient. This one was written to catch the visible case — a deterministic platform, producing
+no variation at all — and it let through the invisible one, variation both abundant and false. A
+check is worth only what it is worth against the case it was not designed to see.
 
 ---
 

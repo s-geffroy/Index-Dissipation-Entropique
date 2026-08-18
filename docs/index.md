@@ -77,6 +77,14 @@ les quatre mesures de diversité se laissent toutes contourner par l'**enterreme
 plateforme certifiée à 0,70 n'expose que **0,36**. Fermer l'échappatoire double le coût
 d'engagement. → [Rang adverse et sévérité](rang-adverse.md)
 
+**Et le jeu de données sur lequel tout cela devait être évalué n'enregistre pas l'ordre.** Dans
+MIND, la référence de la recommandation d'actualité, l'ordre des contenus est **mélangé** : le
+test d'échangeabilité n'y détecte rien ($z = +0{,}12$) là où il verrait $\eta = 0{,}02$ à douze
+écarts-types. La courbe de biais de position qu'on y trace pourtant — $\hat\eta = 0{,}39$ —
+n'est qu'un artefact de composition, et l'estimateur de ce dépôt y renvoie **cinq sévérités
+incompatibles**. Mélanger l'ordre ne débiaise pas les clics : cela détruit la variable qui
+permettrait de les corriger. → [Exploration réelle de MIND](mind.md)
+
 ## Ce que le travail propose
 
 | | Objet | Destinataire |
@@ -94,7 +102,7 @@ Services Act*.
 ## Ce que le travail ne prétend pas
 
 L'[**audit critique**](limites.md) est la page qu'il faut lire avant les autres. Il
-recense **quinze corrections** apportées au raisonnement d'origine — dont cinq qui
+recense **seize corrections** apportées au raisonnement d'origine — dont cinq qui
 invalidaient une formule, et une découverte en tentant de mesurer — et énumère les limites
 qui subsistent, y compris celles qui touchent à l'usage réglementaire de l'index : l'IDE est
 manipulable, sa discrétisation en points de vue est un choix politique, et un seuil imposé sur
@@ -109,7 +117,7 @@ faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment 
 
 ## Explorer
 
-Les quinze notebooks sont exécutables et produisent l'intégralité des figures de la
+Les seize notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -129,6 +137,7 @@ note. Chacun se lit indépendamment.
 | [13 — Test adverse](notebooks/13_test_adverse_index.ipynb) | un plancher d'IDE saturé à coût nul, et le correctif qui prescrivait la polarisation |
 | [14 — Rang et contrefactuel](notebooks/14_rang_et_contrefactuel.ipynb) | l'enterrement de la diversité, et l'évaluation hors ligne fausse de 201 % |
 | [15 — Rang adverse](notebooks/15_rang_adverse_et_severite.ipynb) | les quatre mesures contournées par l'ordre, et la sévérité du biais estimée |
+| [16 — Exploration de MIND](notebooks/16_exploration_mind.ipynb) | un ordre indiscernable d'un mélange, et cinq sévérités tirées du même jeu |
 
 ## Reproduire
 
@@ -138,7 +147,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 512 tests
+docker compose run --rm test          # 531 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

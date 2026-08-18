@@ -125,6 +125,13 @@ undetectable in the results.
 
 Under thin exploration it does return one — but the standard error says it is worth nothing.
 
+!!! failure "Since corrected: this check is necessary and not sufficient"
+    It counts rank variation without saying **where it comes from**. A log whose order was
+    **shuffled** before publication shows more of it than any real platform, and the estimator
+    declares itself identifiable there before returning five incompatible severities. The missing
+    check is an exchangeability test, and it must **precede** estimation.
+    → [MIND's real exploration](mind.en.md)
+
 ## 3. Why it had to be estimated
 
 | Posited $\eta$ | 0.5 | 0.8 | **1.0** | 1.2 | 1.5 | 2.0 |
@@ -170,8 +177,9 @@ so would require an optimisation whose exactness would no longer be guaranteed.
    does not invent the result.
 2. **Enrich the examination model**: confidence or cascade models make attention depend on what
    the reader has already consulted, not on rank alone.
-3. **Measure a public dataset's actual exploration** before drawing anything from it: it decides
-   whether $\eta$ is identifiable there.
+3. ~~**Measure a public dataset's actual exploration** before drawing anything from it: it
+   decides whether $\eta$ is identifiable there.~~ → **[done, and negative](mind.en.md)**: the
+   order recorded in MIND is indistinguishable from a shuffle.
 4. **Compare against tuned baselines** — MMR, random re-ranking, popularity — which remains the
    evaluation programme's outstanding debt.
 

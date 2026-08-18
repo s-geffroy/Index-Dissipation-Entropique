@@ -7,7 +7,7 @@ journée, par accumulation d'analogies. Cette méthode produit des intuitions ju
 et des raccourcis qui ne tiennent pas. Publier le fil tel quel exposerait
 l'ensemble à être écarté sur un détail, alors que l'intuition de départ mérite mieux.
 
-Quinze points sont documentés. Chacun suit la même structure : ce que le fil affirmait, pourquoi
+Seize points sont documentés. Chacun suit la même structure : ce que le fil affirmait, pourquoi
 c'est un problème, et la formulation retenue. Les corrections sont **traçables** :
 chacune est implémentée dans `src/`, vérifiée dans `tests/`, et illustrée dans un
 notebook.
@@ -360,8 +360,9 @@ et réimplémenté proprement dans `ide.abm`.
 
 ## F. Correction issue de la mesure
 
-Ce point n'a pas été trouvé par relecture du fil mais par **confrontation aux données**. Il
-est ajouté après coup, ce qui est la façon normale dont un audit doit vivre.
+Ces points n'ont pas été trouvés par relecture du fil mais par **confrontation aux données**.
+Ils sont ajoutés après coup, ce qui est la façon normale dont un audit doit vivre. Le second
+ne corrige pas le fil d'origine mais un instrument que ce dépôt avait lui-même construit.
 
 ### 15. Le critère $\gamma\alpha > \lambda$ n'est pas un test, c'est une définition
 
@@ -389,6 +390,30 @@ $\rho_{\max}$ normatif peut se discuter.
 relecture : elle ne devient visible qu'en essayant de mesurer. C'est l'argument le plus
 concret en faveur de la calibration empirique — non pour confirmer le modèle, mais pour
 découvrir où ses recommandations ne veulent rien dire.
+
+### 16. Une variation de rang abondante n'est pas une exploration
+
+**Ce que ce dépôt avait construit.** L'estimation de la sévérité $\eta$ du biais de position
+([rang adverse](rang-adverse.md)) est assortie d'un contrôle d'identifiabilité : elle refuse de
+répondre quand aucun contenu n'a été servi à plusieurs rangs. Le contrôle a été présenté comme
+la garde à passer avant d'estimer.
+
+**Le problème, révélé par la mesure sur [MIND](mind.md).** Le contrôle compte la variation de
+rang sans dire d'où elle vient. Dans MIND, l'ordre enregistré est **mélangé** : la variation y
+est maximale — un contenu médian y apparaît à seize positions distinctes — et entièrement
+artificielle. L'estimateur accepte donc le jeu, se déclare identifiable, et renvoie une
+sévérité qui n'est qu'une fonction croissante d'un paramètre de nuisance, de $-0{,}13$ à
+$+0{,}25$ selon le seuil d'impressions, toujours assortie d'une erreur type inférieure à 0,007.
+
+**Retenu.** Un **test d'échangeabilité intra-fil** qui précède l'estimation : à fil donné, les
+clics sont-ils répartis indépendamment de la position enregistrée ? Il est exact — l'espérance
+et la variance sont connues sous l'hypothèse nulle — et il s'accompagne de son étalonnage de
+puissance, sans lequel un test qui ne rejette rien ne dit rien.
+
+**Ce que cet épisode enseigne sur la méthode.** Un contrôle nécessaire invite à le croire
+suffisant. Celui-ci a été écrit pour attraper le cas visible — une plateforme déterministe, qui
+ne produit aucune variation — et il laissait passer le cas invisible, une variation abondante
+et fausse. Un contrôle ne vaut que confronté au cas qu'il n'a pas été conçu pour voir.
 
 ---
 

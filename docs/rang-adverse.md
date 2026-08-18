@@ -126,6 +126,13 @@ l'estimer serait indétectable dans les résultats.
 
 À exploration faible, il en renvoie un — mais l'erreur type dit qu'il ne vaut rien.
 
+!!! failure "Corrigé depuis : ce contrôle est nécessaire et non suffisant"
+    Il compte la variation de rang sans dire **d'où elle vient**. Un journal dont l'ordre a été
+    **mélangé** avant publication en présente davantage qu'aucune plateforme réelle, et
+    l'estimateur s'y déclare identifiable avant de renvoyer cinq sévérités incompatibles. Le
+    contrôle qui manquait est un test d'échangeabilité, et il doit **précéder** l'estimation.
+    → [L'exploration réelle de MIND](mind.md)
+
 ## 3. Pourquoi il fallait l'estimer
 
 | $\eta$ supposé | 0,5 | 0,8 | **1,0** | 1,2 | 1,5 | 2,0 |
@@ -172,8 +179,9 @@ garantie.
    qu'elle n'invente pas le résultat.
 2. **Enrichir le modèle d'examen** : les modèles à confiance ou à cascade font dépendre
    l'attention de ce que le lecteur a déjà consulté, non du seul rang.
-3. **Mesurer l'exploration réelle d'un jeu de données public** avant d'en tirer quoi que ce
-   soit : c'est elle qui décide si $\eta$ y est identifiable.
+3. ~~**Mesurer l'exploration réelle d'un jeu de données public** avant d'en tirer quoi que ce
+   soit : c'est elle qui décide si $\eta$ y est identifiable.~~ → **[fait, et
+   négatif](mind.md)** : l'ordre enregistré dans MIND est indiscernable d'un mélange.
 4. **Comparer à des lignes de base réglées** — MMR, réordonnancement aléatoire, popularité —
    qui reste la dette du programme d'évaluation.
 

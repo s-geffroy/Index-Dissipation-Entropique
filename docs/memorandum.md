@@ -275,6 +275,35 @@ de la distribution** : une bimodalité franche sans zone de modération centrale
 caractérise un espace informationnel dégradé, indépendamment du contenu de chaque
 message.
 
+### Ce qu'un journal doit contenir pour être auditable
+
+Le DSA ouvre aux chercheurs et au régulateur un accès aux données des plateformes (article 40).
+Cette section dit ce que cet accès doit exiger pour ne pas être vide.
+
+**Le rang servi, ou à défaut la propension d'exposition.** Un clic dépend de deux choses, la
+pertinence du contenu et l'exposition qu'on lui a donnée. Sans le rang, les deux restent
+confondues, et aucune évaluation contrefactuelle d'un réordonnancement n'est possible — ni par
+le régulateur, ni par la plateforme elle-même. Publier cette colonne ne révèle rien du code de
+classement : elle dit *où* un contenu a été montré, pas *pourquoi*.
+
+**Ce que l'anonymisation ne doit pas détruire.** Mélanger l'ordre d'affichage avant publication
+ne rend pas un journal non biaisé : les clics ont été produits sous l'ordre réel et en portent
+le biais en entier. Le mélange retire seulement la variable qui permettrait de le corriger — il
+rend le journal **non corrigible**. C'est le cas de [MIND](mind.md), le jeu de référence de la
+recommandation d'actualité. → [L'exploration réelle de MIND](mind.md)
+
+**Contrôle d'acceptation.** Avant tout audit reposant sur un journal transmis, passer le **test
+d'échangeabilité intra-fil** : à fil donné, les clics sont-ils répartis indépendamment de la
+position enregistrée ? Le test est exact et son étalonnage de puissance dit ce qu'il aurait su
+détecter. Un journal qui le « passe » — au sens où l'ordre y est indiscernable d'un mélange —
+n'est pas auditable contrefactuellement, et il vaut mieux l'établir avant l'audit qu'après.
+
+**Pourquoi ce contrôle n'est pas facultatif.** Sans lui, l'estimation de l'exposition ne
+s'interrompt pas : elle renvoie un chiffre. Sur MIND, l'estimateur de sévérité accepte le jeu,
+se déclare identifiable et produit **cinq sévérités incompatibles** selon un simple paramètre de
+nuisance, de $-0{,}13$ à $+0{,}25$, toutes assorties d'une erreur type inférieure à 0,007. Un
+audit fondé sur l'une d'elles serait indiscernable d'un audit correct.
+
 ### Ce qui manque pour rendre ce cadre opérationnel
 
 Ces manques sont réels et il serait malhonnête de les taire :
@@ -295,6 +324,8 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | calibration du plancher d'**entropie de position** | aucune procédure — le test adverse établit la forme de la norme, pas son niveau |
 | choix de la **cible d'exposition** | question politique non tranchée, que la mesure par divergence rend explicite au lieu de l'enfouir |
 | coût en pertinence perçue d'un plancher d'IDE | non évalué |
+| évaluation contrefactuelle sur un jeu de données public | **fait, et négatif** — [MIND](mind.md) ne conserve pas le rang d'affichage : l'exposition n'y est pas identifiable, et l'estimation qu'on y mène quand même renvoie cinq sévérités incompatibles |
+| exigence de publication du **rang servi** dans les journaux transmis | proposée ici, non instrumentée côté régulateur |
 
 Le mémorandum doit donc être lu comme une **proposition de cadre à durcir**, pas comme
 un dispositif prêt à l'emploi. Sa contribution est de nommer des grandeurs mesurables

@@ -262,6 +262,35 @@ The relevant quantity is not the number of problematic items but the **shape of 
 distribution**: sharp bimodality with no central moderation zone characterises a degraded
 informational space, independently of the content of any single message.
 
+### What a log must contain to be auditable
+
+The DSA opens platform data to researchers and regulators (Article 40). This section states what
+that access must require if it is not to be empty.
+
+**The served rank, or failing that the exposure propensity.** A click depends on two things: the
+item's relevance and the exposure it was given. Without the rank the two stay conflated, and no
+counterfactual evaluation of a re-ranking is possible — not by the regulator, nor by the platform
+itself. Publishing that column reveals nothing of the ranking code: it says *where* an item was
+shown, not *why*.
+
+**What anonymisation must not destroy.** Shuffling the display order before publication does not
+make a log unbiased: the clicks were produced under the real order and carry its bias in full.
+The shuffle removes only the variable that would allow correction — it makes the log
+**uncorrectable**. That is the case of [MIND](mind.en.md), the reference dataset for news
+recommendation. → [MIND's real exploration](mind.en.md)
+
+**Acceptance check.** Before any audit resting on a supplied log, run the **within-feed
+exchangeability test**: given the feed, are clicks distributed independently of the recorded
+position? The test is exact, and its power calibration states what it would have detected. A log
+that "passes" it — in the sense that its order is indistinguishable from a shuffle — is not
+auditable counterfactually, and it is better to establish that before the audit than after.
+
+**Why this check is not optional.** Without it, exposure estimation does not halt: it returns a
+figure. On MIND the severity estimator accepts the dataset, declares itself identifiable and
+produces **five incompatible severities** depending on a mere nuisance parameter, from $-0.13$ to
+$+0.25$, each with a standard error below 0.007. An audit resting on any one of them would be
+indistinguishable from a correct one.
+
 ### What is missing to make this operational
 
 | Gap | Nature |
@@ -280,6 +309,8 @@ informational space, independently of the content of any single message.
 | calibration of the **position-entropy** floor | no procedure — the adversarial test establishes the form of the standard, not its level |
 | choice of the **exposure target** | an unsettled political question, which a divergence measure makes explicit instead of burying |
 | cost in perceived relevance of an index floor | not evaluated |
+| counterfactual evaluation on a public dataset | **done, and negative** — [MIND](mind.en.md) does not retain display rank: exposure is not identifiable there, and estimating it anyway returns five incompatible severities |
+| requiring the **served rank** in supplied logs | proposed here, not instrumented on the regulator's side |
 
 This memorandum should therefore be read as a **framework to harden**, not a ready-to-use
 mechanism. Its contribution is to name measurable quantities where regulatory debate still

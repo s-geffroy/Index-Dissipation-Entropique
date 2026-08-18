@@ -213,6 +213,27 @@ C'est ce qui permettrait de répondre à la seule objection sérieuse d'une plat
     Sans ces trois conditions, la frontière de Pareto annoncée mesurerait surtout le biais de
     position de la plateforme qui a produit les données.
 
+!!! failure "Et la quatrième condition n'est pas remplie par MIND — c'est mesuré"
+    → **[L'exploration réelle de MIND](mind.md)**. L'ordre enregistré dans `behaviors.tsv` est
+    **mélangé** : le test d'échangeabilité intra-fil n'y détecte rien ($z = +0{,}12$ sur 156 965
+    fils, répliqué à $z = +0{,}28$ sur le second découpage) là où il verrait $\eta = 0{,}02$ à
+    douze écarts-types.
+
+    Trois conséquences pour cette piste :
+
+    1. l'estimation contrefactuelle du coût d'engagement — le point 3 du protocole, et l'objet
+       même de l'exercice — est **impossible sur MIND**. Non par manque de données, mais par
+       absence de la variable qui identifierait l'exposition ;
+    2. les points 1 et 2 restent faisables : l'IDE des fils observés et le réordonnancement se
+       mesurent sans modèle d'exposition, à condition de dire que le coût publié est un coût en
+       pertinence **déclarée** ;
+    3. le choix du jeu de données devient le premier travail, pas le dernier. Le critère n'est
+       plus la taille ni la présence d'étiquettes éditoriales, mais l'**enregistrement du rang
+       servi**.
+
+    Le contrôle est désormais outillé : `ide.mind.exchangeability_test` et son étalonnage de
+    puissance, à passer sur tout journal public **avant** d'en tirer un chiffre.
+
 ### 3.2 Formuler une prédiction falsifiable
 
 **La limite.** Rien ne démontre que les opinions *obéissent* à cette mécanique ; le

@@ -75,6 +75,14 @@ diversity measures are circumvented by **burial**: a platform certified at 0.70 
 **0.36**. Closing the loophole doubles the engagement cost.
 → [Adversarial rank and severity](rang-adverse.en.md)
 
+**And the dataset on which all of this was to be evaluated does not record the order.** In MIND,
+the reference dataset for news recommendation, item order is **shuffled**: the exchangeability
+test detects nothing ($z = +0.12$) where it would see $\eta = 0.02$ at twelve standard
+deviations. The position-bias curve one nonetheless plots there — $\hat\eta = 0.39$ — is a mere
+composition artefact, and this repository's own estimator returns **five incompatible
+severities**. Shuffling the order does not debias the clicks: it destroys the variable that would
+allow them to be corrected. → [MIND's real exploration](mind.en.md)
+
 ## What the work proposes
 
 | | Object | Intended for |
@@ -91,7 +99,7 @@ national and European regulators under the Digital Services Act.
 ## What the work does not claim
 
 The [**critical audit**](limites.en.md) is the page to read before the others. It records
-**fifteen corrections** to the original reasoning — five of which invalidated a formula
+**sixteen corrections** to the original reasoning — five of which invalidated a formula
 outright, and one discovered by trying to measure — and lists the limitations that remain,
 including those bearing on regulatory use of the index: the index is gameable, its
 discretisation into viewpoints is a political choice, and imposing a floor on its value is an
@@ -106,7 +114,7 @@ the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The fifteen notebooks are executable and produce every figure in the paper. Each stands
+The sixteen notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -126,6 +134,7 @@ on its own.
 | [13 — Adversarial test](notebooks/13_test_adverse_index.ipynb) | an index floor saturated at zero cost, and the fix that prescribed polarisation |
 | [14 — Rank and counterfactual](notebooks/14_rang_et_contrefactuel.ipynb) | burying diversity, and offline evaluation wrong by 201 % |
 | [15 — Adversarial rank](notebooks/15_rang_adverse_et_severite.ipynb) | all four measures circumvented by order, and position-bias severity estimated |
+| [16 — MIND's exploration](notebooks/16_exploration_mind.ipynb) | an order indistinguishable from a shuffle, and five severities from one dataset |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 
@@ -137,7 +146,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 512 tests
+docker compose run --rm test          # 531 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

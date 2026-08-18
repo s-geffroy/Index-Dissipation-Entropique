@@ -6,7 +6,7 @@ thermodynamique de l'opinion publique.**
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Index-Dissipation-Entropique/)
-[![Tests : 512](https://img.shields.io/badge/tests-512-brightgreen.svg)](tests/)
+[![Tests : 531](https://img.shields.io/badge/tests-531-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Index-Dissipation-Entropique/)**
 · [English](https://s-geffroy.github.io/Index-Dissipation-Entropique/en/)
@@ -60,6 +60,13 @@ Trois résultats, chacun adossé à du code exécutable :
   les quatre mesures se laissent contourner par l'**enterrement** — une plateforme certifiée à
   0,70 n'expose que **0,36** — et la sévérité du biais de position, jusqu'ici posée, **s'estime**
   à ±0,02. → **[Rang adverse et sévérité](docs/rang-adverse.md)**
+- **Et le jeu de données sur lequel tout cela devait être évalué n'enregistre pas l'ordre.**
+  Dans MIND, l'ordre des contenus est **mélangé** : le test d'échangeabilité n'y détecte rien
+  ($z = +0{,}12$) là où il verrait $\eta = 0{,}02$ à douze écarts-types, la courbe de biais de
+  position qu'on y trace n'est qu'un **artefact de composition**, et l'estimateur de ce dépôt y
+  renvoie **cinq sévérités incompatibles**. Mélanger l'ordre ne débiaise pas les clics : cela
+  détruit la variable qui permettrait de les corriger.
+  → **[Exploration réelle de MIND](docs/mind.md)**
 
 Le travail en dérive deux instruments :
 
@@ -70,7 +77,7 @@ Le travail en dérive deux instruments :
 
 ## À lire d'abord : ce que le travail ne prétend pas
 
-L'**[audit critique](docs/limites.md)** recense **quinze corrections** apportées au
+L'**[audit critique](docs/limites.md)** recense **seize corrections** apportées au
 raisonnement d'origine — dont **cinq formules invalides**, et une découverte en tentant de
 mesurer — et énumère les limites qui subsistent, y compris celles qui touchent à l'usage
 réglementaire de l'index : il est manipulable, sa discrétisation en points de vue est un choix
@@ -92,7 +99,7 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 512 tests, dont les exemples de docstrings
+docker compose run --rm test          # 531 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
 docker compose run --rm notebooks     # régénère les 11 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
@@ -118,12 +125,19 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── pageviews.py    accès à l'API Wikimedia, cache versionné et compressé
 ├── catalogue.py    corpus étendu dérivé de catégories Wikipédia
 ├── corpus.py       corpus pré-enregistré de calibration
+├── annotation.py   grille d'annotation en aveugle, accords inter-codeurs
+├── gaming.py       test adverse de l'index et mesures de diversité concurrentes
+├── radio.py        divergences conscientes du rang (RADio) et métriques DART
+├── offpolicy.py    estimateurs contrefactuels et sévérité du biais de position
+├── ranking.py      test adverse sur fils ordonnés, énumération exhaustive
+├── mind.py         exploration réellement enregistrée dans MIND, test d'échangeabilité
 └── abm/            modèle à agents « compas politique »
 
-tests/              512 tests — validation physique, numérique et statistique
-notebooks/          01 à 11, un par bloc théorique, exécutables
+tests/              531 tests — validation physique, numérique et statistique
+notebooks/          01 à 16, un par bloc théorique, exécutables
 data/pageviews/     464 séries de consultation, versionnées pour la reproductibilité
 data/catalogue.json manifeste pré-enregistré du corpus étendu (440 sujets)
+data/mind_digest.npz  condensé de MIND-small (1,5 Mo) — le jeu brut n'est pas versionné
 scripts/            collecte des données (seul point d'accès réseau du dépôt)
 paper/              note de synthèse LaTeX (FR + EN) et figures générées
 docs/               documentation du site, bilingue
@@ -148,10 +162,12 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 | les deux registres du corpus étendu ont des effectifs **exactement** égaux | l'équilibre vient d'une troncature, il doit donc être exact |
 | un temps d'oubli plus long que la fenêtre d'ajustement est **refusé** | sans quoi un ajustement excellent produit un rapport de 5431 |
 | reproductibilité à la graine du modèle à agents | condition minimale pour qu'un chiffre du dépôt soit citable |
+| le condensé de MIND rend **exactement** les chiffres du journal brut | sans quoi le dépôt publierait des mesures que personne ne pourrait refaire |
+| un ordre mélangé passe le contrôle d'identifiabilité et donne cinq sévérités | fige l'erreur que ce contrôle laissait passer |
 
 ## Contenu du dépôt
 
-- [`docs/limites.md`](docs/limites.md) — **audit critique** : les quinze corrections et les
+- [`docs/limites.md`](docs/limites.md) — **audit critique** : les seize corrections et les
   limites qui subsistent.
 - [`docs/calibration.md`](docs/calibration.md) — **la mesure de $\gamma\alpha/\lambda$** sur
   données publiques, ses trois enseignements et ses réserves.
@@ -168,6 +184,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   diversité, et pourquoi une évaluation hors ligne naïve se trompe de 201 %.
 - [`docs/rang-adverse.md`](docs/rang-adverse.md) — **rang adverse et sévérité** : les quatre
   mesures contournées par l'ordre, et l'estimation du biais de position.
+- [`docs/mind.md`](docs/mind.md) — **l'exploration réelle de MIND** : un ordre indiscernable
+  d'un mélange, et cinq sévérités incompatibles tirées du même jeu.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

@@ -7,6 +7,63 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — l'exploration réellement enregistrée dans MIND
+
+Le préalable inscrit à la feuille de route §3.1 : mesurer l'exploration d'un jeu de données
+public **avant** d'y évaluer quoi que ce soit. Détail : [`docs/mind.md`](docs/mind.md) et le
+[notebook 16](notebooks/16_exploration_mind.ipynb).
+
+- **`ide.mind`** — lecture des journaux d'impressions de MIND, **test d'échangeabilité
+  intra-fil** (exact, avec étalonnage de puissance par simulation à structure de fils
+  identique), taux de clic par rang à longueur de fil contrôlée, et couverture de rang.
+- **`scripts/fetch_mind.py`** — récupération des journaux, avec vérification du nombre de fils
+  et de l'empreinte SHA-256 : la source officielle répond désormais *409 Public access is not
+  permitted*, le jeu vient d'un miroir, et un miroir se vérifie.
+- **`scripts/build_mind_digest.py`** et **`data/mind_digest.npz`** — condensé de 1,5 Mo, seul
+  dérivé de MIND que ce dépôt puisse porter (licence de recherche Microsoft, 135 Mo bruts). Un
+  test vérifie qu'il rend **exactement** les chiffres du journal brut.
+- **`notebooks/16_exploration_mind.ipynb`**, `paper/figures/fig16_exploration_mind.png` et 19
+  tests supplémentaires (531 au total).
+
+### Résultats — l'ordre enregistré dans MIND n'en est pas un
+
+- **Indiscernable d'un mélange** : $z = +0{,}12$ ($p = 0{,}91$) sur 156 965 fils, répliqué à
+  $z = +0{,}28$ ($p = 0{,}78$) sur le second découpage. Le test détecterait $\eta = 0{,}02$ à
+  douze écarts-types ; la sévérité minimale détectable vaut $\eta \approx 0{,}004$.
+- **La courbe de biais de position qu'on y trace est un artefact de composition.** Le taux de
+  clic décroît de 0,108 à 0,038 sur vingt rangs, soit $\hat\eta = 0{,}39$ — mais à longueur de
+  fil fixée la pente est nulle et **change de signe** d'une longueur à l'autre. Les positions
+  élevées n'existent que dans les fils longs, où le taux de clic par contenu est plus faible.
+- **Cinq sévérités incompatibles tirées du même jeu**, de $-0{,}13$ à $+0{,}25$ selon un simple
+  seuil d'impressions, toutes d'erreur type inférieure à 0,007.
+- **Le mélange ne débiaise pas les clics, il détruit la variable qui les corrigerait.** Sur un
+  journal simulé de sévérité vraie 1,00 : $\hat\eta = 1{,}003$ avec l'ordre conservé,
+  $-0{,}003$ après mélange — à clics identiques. L'évaluation qui s'ensuit estime le coût d'un
+  réordonnancement à **0,00 %** contre 6,61 % de valeur vraie : sous $\eta = 0$, deux politiques
+  qui ne diffèrent que par l'ordre reçoivent la même valeur, donc l'évaluation est vide par
+  construction.
+
+### Corrigé — le contrôle d'identifiabilité était nécessaire et non suffisant
+
+- Le drapeau d'identifiabilité de `estimate_position_bias`, présenté au chantier précédent comme
+  la garde à passer avant d'estimer $\eta$, **compte la variation de rang sans dire d'où elle
+  vient**. Une variation artificielle le satisfait mieux que n'importe quelle exploration réelle.
+  Le test d'échangeabilité est le contrôle manquant, et il doit précéder l'estimation.
+  Seizième entrée de l'[audit critique](docs/limites.md).
+
+### Modifié
+
+- [`docs/feuille-de-route.md`](docs/feuille-de-route.md) §3.1 — la quatrième condition n'est pas
+  remplie par MIND : l'estimation contrefactuelle du coût d'engagement y est impossible, les
+  autres étapes restent faisables à condition de dire que le coût publié est un coût en
+  pertinence **déclarée**, et le choix du jeu de données devient le premier travail.
+- [`docs/memorandum.md`](docs/memorandum.md) — nouvelle section **« ce qu'un journal doit
+  contenir pour être auditable »** : publication du rang servi ou de la propension d'exposition,
+  et test d'échangeabilité en contrôle d'acceptation des journaux transmis au titre de
+  l'article 40 du DSA.
+- [`docs/rang-adverse.md`](docs/rang-adverse.md) — avertissement sur le contrôle
+  d'identifiabilité, et piste ouverte 3 réglée.
+
 ### Ajouté — le test adverse sur fils ordonnés, et la sévérité du biais estimée
 
 Règle les deux dettes explicites laissées par le chantier précédent. Détail :

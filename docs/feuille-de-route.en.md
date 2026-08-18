@@ -187,6 +187,26 @@ And it requires no privileged data access.
     Without those three conditions, the announced Pareto frontier would chiefly measure the
     position bias of the platform that produced the data.
 
+!!! failure "And MIND does not meet the fourth condition — this is measured"
+    → **[MIND's real exploration](mind.en.md)**. The order recorded in `behaviors.tsv` is
+    **shuffled**: the within-feed exchangeability test detects nothing ($z = +0.12$ across
+    156,965 feeds, replicated at $z = +0.28$ on the second split) where it would see
+    $\eta = 0.02$ at twelve standard deviations.
+
+    Three consequences for this path:
+
+    1. counterfactual estimation of engagement cost — step 3 of the protocol, and the point of
+       the exercise — is **impossible on MIND**. Not for want of data, but for want of the
+       variable that would identify exposure;
+    2. steps 1 and 2 remain feasible: the index of observed feeds and the re-ranking can be
+       measured without an exposure model, provided the published cost is stated as a cost in
+       **declared** relevance;
+    3. choosing the dataset becomes the first task, not the last. The criterion is no longer
+       size or the presence of editorial labels, but whether the **served rank is recorded**.
+
+    The check is now tooled: `ide.mind.exchangeability_test` and its power calibration, to be
+    run on any public log **before** drawing a figure from it.
+
 ### 3.2 Formulate a falsifiable prediction
 
 **The limitation.** Nothing shows opinion *obeys* this mechanics; the work shows it
