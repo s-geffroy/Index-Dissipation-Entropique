@@ -59,6 +59,13 @@ artefact de sélection manuelle, et l'[annotation en aveugle](annotation.md) du 
 approximatif, il n'existe pas.
 → [Corpus étendu](corpus-etendu.md) · [Annotation en aveugle](annotation.md)
 
+**Et l'index proposé n'était pas une norme tenable.** Le [test adverse](gaming.md) montre
+qu'une plateforme capable de dissocier l'étiquette du contenu obtient un IDE de 1,000 — la note
+maximale — pour une diversité de contenu nulle, sans céder un point d'engagement. La mesure doit
+porter sur l'**entropie quadratique de Rao**, qui pondère la diversité par la distance
+sémantique réelle : elle résiste, et se retourne contre le manipulateur.
+→ [Test adverse de l'index](gaming.md)
+
 ## Ce que le travail propose
 
 | | Objet | Destinataire |
@@ -91,7 +98,7 @@ faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment 
 
 ## Explorer
 
-Les onze notebooks sont exécutables et produisent l'intégralité des figures de la
+Les treize notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -107,6 +114,8 @@ note. Chacun se lit indépendamment.
 | [09 — Calibration](notebooks/09_calibration_visibilite.ipynb) | $\gamma\alpha/\lambda$ mesuré sur 19 épisodes d'attention publics |
 | [10 — Changement de régime](notebooks/10_changement_de_regime.ipynb) | 14 basculements datés, et pourquoi le rapport n'y est pas identifiable |
 | [11 — Corpus étendu](notebooks/11_corpus_etendu.ipynb) | 440 sujets dérivés de catégories : l'écart de persistance ne se réplique pas |
+| [12 — Annotation en aveugle](notebooks/12_annotation_en_aveugle.ipynb) | 40 % de bruit d'étiquetage mesuré, et le double recodage à $\kappa = 0{,}92$ |
+| [13 — Test adverse](notebooks/13_test_adverse_index.ipynb) | un plancher d'IDE saturé à coût nul, et l'entropie de Rao qui y résiste |
 
 ## Reproduire
 
@@ -116,7 +125,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 266 tests
+docker compose run --rm test          # 420 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

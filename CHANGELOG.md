@@ -7,6 +7,62 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — test adverse de l'index, et réplication de l'annotation
+
+Deux vérifications indépendantes, l'une sur le livrable réglementaire, l'autre sur la méthode
+d'annotation. Détail : [`docs/gaming.md`](docs/gaming.md) et
+[`docs/annotation.md`](docs/annotation.md).
+
+- **`ide.gaming`** — test de saturabilité de l'index sous contrainte. Une plateforme maximise
+  l'engagement sous plancher d'IDE ou d'entropie de Rao, avec une latitude paramétrée de
+  découplage entre étiquette et contenu. La solution sous contrainte d'entropie est **exacte**
+  (distribution de Boltzmann : le plancher agit comme une température), ce qui importe pour un
+  résultat négatif.
+- **`ide.annotation`** — $\kappa$ de Cohen, $\kappa$ de Fleiss, registre consensuel, et
+  chargement des recodages indépendants.
+- **`data/annotations_replication.json`** — deux recodages complets du corpus, sous la grille
+  identique, à partir du même matériau présenté dans un ordre différent et sans l'étiquette de
+  catégorie.
+- **`notebooks/13_test_adverse_index.ipynb`**, section 8 à 10 du notebook 12, et 48 tests
+  supplémentaires.
+
+### Résultats — l'index n'est pas une norme tenable en l'état
+
+- **Un plancher d'IDE se sature à coût nul.** Une plateforme capable de dissocier l'étiquette
+  du contenu obtient un **IDE de 1,000 — la note maximale — pour une diversité de contenu
+  strictement nulle**, sans céder un point d'engagement. Sur un catalogue honnête, le même
+  plancher à 0,80 coûte 18 % d'engagement : la contrainte mord, et c'est bien la manipulation
+  qui l'annule.
+- **La dégradation devance largement le découplage.** À mi-découplage, la contrainte n'a plus
+  que **36 %** de sa force ; à 80 %, il en reste 7 %.
+- **L'entropie quadratique de Rao résiste, et inverse l'incitation.** Au-delà d'un découplage
+  de moitié le plancher devient **inatteignable** ; en deçà, il coûte *plus* cher à mesure que
+  la plateforme vide ses étiquettes — 16 % à découplage nul, 40 % à mi-découplage.
+- **Une signature de manipulation**, définie comme excès sur la contrefactuelle honnête et non
+  comme écart brut : nulle par construction pour une plateforme honnête, croissante avec le
+  découplage. L'écart brut, lui, vaut déjà 0,36 sur un fil honnête et ne se prête donc à aucun
+  seuil.
+- **Recommandation 1 du mémorandum révisée** : le plancher ne porte plus sur l'IDE des
+  étiquettes mais sur l'entropie de Rao des contenus, le régulateur fixant l'étendue du
+  catalogue de référence.
+- **Défaut corrigé en cours de route.** Une première version normalisait l'entropie de Rao par
+  l'étalement effectivement servi. La mesure devenait invariante d'échelle et un fil réduit à
+  un point y marquait $Q \approx 1$ sur du bruit d'arrondi — la conclusion publiée aurait été
+  l'inverse de la vérité. Un test verrouille désormais le point.
+
+### Résultats — la grille d'annotation est reproductible
+
+- **$\kappa$ de Fleiss = 0,921** sur trois codages du même corpus ; accords deux à deux de
+  0,903, 0,917 et 0,944 ; unanimité sur **92,3 %** des sujets.
+- **Le désaccord tombe au bon endroit.** Sur 34 sujets non unanimes, **33** portent sur
+  l'appartenance à un registre et **1** seul inverse `accusation` et `discovery` :
+  l'imprécision résiduelle fait varier les effectifs de la comparaison, pas son sens.
+- **Le résultat est inchangé sous le codage consensuel** : taux de basculement 4,3 % contre
+  5,4 % ($p = 0{,}77$), persistance ×3,06 contre ×2,90 ($p = 0{,}84$).
+- **Réserve maintenue :** les trois codeurs sont des instances du même modèle de langue.
+  L'accord mesure la reproductibilité de la **grille**, non l'accord entre juges humains
+  indépendants, et il le surestime nécessairement. La feuille de route en fait sa priorité n° 1.
+
 ### Résultats — l'annotation en aveugle tranche : l'écart n'existe pas
 
 Détail : [`docs/annotation.md`](docs/annotation.md) et le

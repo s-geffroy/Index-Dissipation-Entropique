@@ -109,6 +109,16 @@ would allow genuine calibration of $T$ and of the index threshold.
 
 ### 2.2 Make the index resistant to gaming
 
+!!! failure "Done — and the objection holds: see [Adversarial test](gaming.en.md)"
+    The saturability test was carried out by simulation. A platform able to decouple label from
+    content obtains an **EDI of 1.000 for zero content diversity**, at zero engagement cost;
+    and at half decoupling the constraint retains only **36 %** of its force. **A floor on
+    label entropy is not a tenable standard.**
+
+    **Rao's quadratic entropy** resists, and better than hoped: beyond half decoupling the
+    floor becomes unattainable, and below it costs *more* as the platform empties its labels.
+    [Memorandum recommendation 1](memorandum.en.md) is revised accordingly.
+
 **The limitation.** A platform required to keep the index high can serve formally divergent
 but substantively empty content.
 
@@ -224,7 +234,7 @@ threshold — connecting the work to an established literature rather than an ad
 
 ## If only one thing were done
 
-**Have the corpus annotated by a second coder, blind, and publish Cohen's $\kappa$.**
+**Have the corpus coded by human annotators.**
 
 Hand annotation of the register — priority 1 in the previous version of this page — was
 [carried out across all 440 subjects](annotation.en.md) and settled the question it was meant
@@ -237,10 +247,14 @@ the amplification rate, persistence on the pilot then the extended corpus, and t
 rate. The emotional-charge mechanism $\alpha$ remains without empirical support, and no longer
 for want of looking.
 
-What survives is a **methodological** caveat, and only one: the annotator was a single person,
-so there is no measure of coding reliability. The rubric is written and published, hence
-replicable; a second blind coding of the same corpus would cost a few hours and remove the last
-purchase a reviewer has on this result.
+The blind double coding was carried out: Fleiss' $\kappa$ of **0.921**, unanimity on 92 % of
+subjects, and an unchanged result under consensus coding. The rubric is therefore
+**reproducible** — the written instructions suffice to produce a stable coding.
+
+But the three coders are instances of the **same language model**, and agreement among them
+necessarily overstates what independent judges would produce. That is the last identifiable
+methodological caveat, and the only one that calculation cannot lift: it needs human
+annotators.
 
 **What probably should not be done**, by contrast, is a fifth measurement of the same object.
 Three quantities drawn from the same aggregate attention series have been tested without

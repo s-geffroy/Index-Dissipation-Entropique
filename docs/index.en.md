@@ -57,6 +57,12 @@ reduced it to ×3.04 versus ×2.90 ($p = 0.53$). It was a hand-selection artefac
 the gap was not diluted by approximate labelling, it does not exist.
 → [Extended corpus](corpus-etendu.en.md) · [Blind annotation](annotation.en.md)
 
+**And the index proposed was not a tenable standard.** The [adversarial test](gaming.en.md)
+shows that a platform able to decouple label from content obtains an index of 1.000 — full marks
+— for zero content diversity, without giving up a point of engagement. The measurement must be
+made on **Rao's quadratic entropy**, which weights diversity by real semantic distance: it
+resists, and turns against the gamer. → [Adversarial test of the index](gaming.en.md)
+
 ## What the work proposes
 
 | | Object | Intended for |
@@ -88,7 +94,7 @@ the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The eleven notebooks are executable and produce every figure in the paper. Each stands
+The thirteen notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -104,6 +110,8 @@ on its own.
 | [09 — Calibration](notebooks/09_calibration_visibilite.ipynb) | $\gamma\alpha/\lambda$ measured across 19 public attention episodes |
 | [10 — Regime change](notebooks/10_changement_de_regime.ipynb) | 14 dated switches, and why the ratio is unidentifiable there |
 | [11 — Extended corpus](notebooks/11_corpus_etendu.ipynb) | 440 category-derived subjects: the persistence gap does not replicate |
+| [12 — Blind annotation](notebooks/12_annotation_en_aveugle.ipynb) | 40 % label noise measured, and the double recoding at $\kappa = 0.92$ |
+| [13 — Adversarial test](notebooks/13_test_adverse_index.ipynb) | an index floor saturated at zero cost, and Rao's entropy resisting it |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 
@@ -115,7 +123,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 266 tests
+docker compose run --rm test          # 420 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

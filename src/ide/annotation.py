@@ -39,9 +39,21 @@ leur élévation dans la page [corpus étendu](../../docs/corpus-etendu.md), et 
 les connaît donc. Ils sont listés dans :data:`CONTAMINATED` et l'analyse est reprise sans
 eux, en contrôle de sensibilité.
 
-Un annotateur unique ne donne pas d'accord inter-juges. Ce travail corrige donc le bruit
-d'étiquetage, il ne mesure pas la fiabilité du codage — la distinction est reportée dans les
-limites.
+La réplication
+--------------
+
+Un annotateur unique ne donne pas d'accord inter-juges. Le corpus a donc été **recodé** par
+deux lecteurs indépendants du contexte, sous la même grille, à partir du même matériau
+présenté dans un ordre différent et sans l'étiquette de catégorie. Leurs codages sont
+versionnés dans ``data/annotations_replication.json`` et les accords se calculent par
+:func:`cohen_kappa` et :func:`fleiss_kappa`.
+
+Ce que cette réplication mesure, et ce qu'elle ne mesure pas : les trois codeurs sont des
+instances du **même modèle de langue**. L'accord obtenu mesure donc la **reproductibilité de
+la grille** — le fait qu'une lecture fraîche des mêmes consignes, sans accès au premier codage
+ni aux résultats, redonne les mêmes étiquettes. Il ne mesure pas l'accord entre juges humains
+indépendants, et il le surestime nécessairement, des instances d'un même modèle partageant
+leurs a priori. La réserve est reportée telle quelle dans les limites.
 
 La grille
 ---------
@@ -104,20 +116,25 @@ from ide.corpus import CorpusEntry
 __all__ = [
     "ACCUSATION",
     "ANNOTATIONS_PATH",
+    "Annotation",
     "CONTAMINATED",
     "DISCOVERY",
     "EXTRACTS_PATH",
     "KINDS",
     "NEITHER",
     "REGISTERS",
+    "REPLICATION_PATH",
     "RUBRIC_VERSION",
-    "Annotation",
     "annotated_entries",
+    "cohen_kappa",
     "confusion_matrix",
+    "consensus_registers",
     "digest_extracts",
     "fetch_extracts",
+    "fleiss_kappa",
     "load_annotations",
     "load_extracts",
+    "load_replication",
     "save_annotations",
     "save_extracts",
 ]
@@ -159,6 +176,11 @@ EXTRACTS_PATH = Path(__file__).resolve().parents[2] / "data" / "extracts.json"
 
 #: Annotations manuelles, avec l'empreinte des chapeaux dont elles proviennent.
 ANNOTATIONS_PATH = Path(__file__).resolve().parents[2] / "data" / "annotations.json"
+
+#: Recodages indépendants du même corpus, sous la même grille.
+REPLICATION_PATH = (
+    Path(__file__).resolve().parents[2] / "data" / "annotations_replication.json"
+)
 
 _ENDPOINT = "https://en.wikipedia.org/w/api.php"
 _USER_AGENT = "IDE-research/0.1 (https://github.com/s-geffroy/Index-Dissipation-Entropique)"
@@ -398,3 +420,140 @@ def confusion_matrix(
             continue
         matrix.setdefault(entry.category, Counter())[annotation.register] += 1
     return matrix
+
+
+def load_replication(path: Path | None = None) -> dict[str, dict[str, Annotation]]:
+    """Charge les recodages indépendants, indexés par codeur puis par titre.
+
+    Raises:
+        FileNotFoundError: si le fichier n'existe pas.
+        ValueError: si un recodage a été produit sous une autre version de grille — un accord
+            entre deux grilles différentes ne mesurerait rien.
+    """
+    source = REPLICATION_PATH if path is None else path
+    if not source.exists():
+        raise FileNotFoundError(f"recodages absents ({source}).")
+
+    payload = json.loads(source.read_text())
+    if payload.get("rubric_version") != RUBRIC_VERSION:
+        raise ValueError(
+            f"recodages produits avec la grille {payload.get('rubric_version')!r}, "
+            f"la grille courante est {RUBRIC_VERSION!r}"
+        )
+
+    return {
+        coder: {
+            item["title"]: Annotation(
+                title=item["title"],
+                register=item["register"],
+                kind=item["kind"],
+                confidence=item.get("confidence", "sure"),
+                note=item.get("note", ""),
+            )
+            for item in rows
+        }
+        for coder, rows in payload["coders"].items()
+    }
+
+
+def cohen_kappa(first: list[str], second: list[str]) -> float:
+    """Accord entre deux codeurs, corrigé du hasard.
+
+    .. math:: \\kappa = \\frac{p_o - p_e}{1 - p_e}
+
+    où :math:`p_o` est l'accord observé et :math:`p_e` l'accord attendu si les deux codeurs
+    tiraient indépendamment selon leurs propres fréquences marginales. La correction importe
+    ici : un corpus dont 40 % des sujets relèvent d'une même étiquette produit un accord brut
+    élevé sans qu'aucune compétence soit en jeu.
+
+    Args:
+        first: étiquettes du premier codeur.
+        second: étiquettes du second, dans le même ordre.
+
+    Returns:
+        :math:`\\kappa`, valant 1 pour un accord parfait et 0 pour un accord de hasard. La
+        valeur peut être négative si les codeurs s'accordent moins que le hasard.
+    """
+    if len(first) != len(second):
+        raise ValueError("les deux codages doivent porter sur les mêmes sujets")
+    if not first:
+        raise ValueError("un accord ne se calcule pas sur un corpus vide")
+
+    total = len(first)
+    observed = sum(1 for a, b in zip(first, second, strict=True) if a == b) / total
+
+    left, right = Counter(first), Counter(second)
+    expected = sum(
+        (left[label] / total) * (right[label] / total) for label in set(left) | set(right)
+    )
+    if expected >= 1.0:
+        raise ValueError("accord de hasard dégénéré : un seul label est employé")
+
+    return (observed - expected) / (1.0 - expected)
+
+
+def fleiss_kappa(codings: list[list[str]], categories: tuple[str, ...] = REGISTERS) -> float:
+    """Accord entre plus de deux codeurs, corrigé du hasard.
+
+    Args:
+        codings: un codage par codeur, tous dans le même ordre de sujets.
+        categories: les étiquettes possibles.
+
+    Returns:
+        Le :math:`\\kappa` de Fleiss.
+    """
+    if len(codings) < 2:
+        raise ValueError("il faut au moins deux codeurs")
+    subject_count = len(codings[0])
+    if any(len(coding) != subject_count for coding in codings):
+        raise ValueError("les codages doivent porter sur les mêmes sujets")
+
+    rater_count = len(codings)
+    counts = [
+        [sum(1 for coding in codings if coding[index] == label) for label in categories]
+        for index in range(subject_count)
+    ]
+
+    agreement = [
+        (sum(value**2 for value in row) - rater_count) / (rater_count * (rater_count - 1))
+        for row in counts
+    ]
+    shares = [
+        sum(row[position] for row in counts) / (subject_count * rater_count)
+        for position in range(len(categories))
+    ]
+
+    observed = sum(agreement) / subject_count
+    expected = sum(share**2 for share in shares)
+    if expected >= 1.0:
+        raise ValueError("accord de hasard dégénéré : un seul label est employé")
+
+    return (observed - expected) / (1.0 - expected)
+
+
+def consensus_registers(codings: list[dict[str, Annotation]]) -> dict[str, str]:
+    """Registre majoritaire de chaque sujet, sur plusieurs codages.
+
+    En cas d'égalité — possible à nombre pair de codeurs — l'ordre de :data:`REGISTERS`
+    départage, ce qui garde le résultat déterministe plutôt qu'arbitraire au tirage.
+
+    Args:
+        codings: un dictionnaire titre → annotation par codeur.
+
+    Returns:
+        Le registre retenu pour chaque sujet présent chez **tous** les codeurs.
+    """
+    if not codings:
+        raise ValueError("il faut au moins un codage")
+
+    shared = set(codings[0])
+    for coding in codings[1:]:
+        shared &= set(coding)
+
+    consensus: dict[str, str] = {}
+    for title in sorted(shared):
+        votes = Counter(coding[title].register for coding in codings)
+        best = max(votes.values())
+        consensus[title] = next(r for r in REGISTERS if votes.get(r, 0) == best)
+
+    return consensus

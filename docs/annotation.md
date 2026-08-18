@@ -107,6 +107,11 @@ fiabilité du codage. Ce travail corrige le bruit d'étiquetage ; il n'établit 
 serait appliquée à l'identique par quelqu'un d'autre. C'est la limite principale du
 dispositif, et la grille écrite ci-dessus est ce qui la rend au moins réplicable.
 
+!!! success "Levé en partie — voir [Réplication](#replication-deux-codeurs-independants)"
+    Le corpus a depuis été recodé deux fois, en aveugle, sous la grille identique :
+    $\kappa$ de Fleiss de **0,921**. La grille est donc reproductible. Ce qui subsiste — que
+    trois instances d'un même modèle ne valent pas trois juges humains — est repris plus bas.
+
 **La connaissance du résultat agrégé.** L'annotateur sait que la mesure précédente était
 nulle. Aucune disposition ne neutralise cela ; la direction du biais qui en résulterait n'est
 pas déterminée.
@@ -258,6 +263,86 @@ d'observabilité ajouté après le corpus étendu. Il porte sur **« Watch Dogs 
 un sujet codé « ni l'un ni l'autre ». L'identification des paramètres reste donc, en pratique,
 hors de portée sur ce type de données.
 
+## Réplication : deux codeurs indépendants
+
+!!! success "La grille est reproductible — κ de Fleiss = 0,921"
+    Le corpus a été recodé par deux lecteurs indépendants du contexte, sous la grille
+    identique, à partir du même matériau présenté dans un ordre différent et **sans
+    l'étiquette de catégorie**. Accords deux à deux : **0,903 · 0,917 · 0,944**. Unanimité sur
+    **92,3 %** des sujets. Sur l'échelle de Landis et Koch, $\kappa > 0{,}80$ se lit « accord
+    presque parfait ».
+
+![Réplication : accords, structure du désaccord, robustesse du résultat](figures/fig12b_replication.png)
+
+/// caption
+Les accords corrigés du hasard ; la nature des trente-quatre désaccords ; et le résultat sous
+les trois étiquetages. Figure régénérée par
+[le notebook 12](notebooks/12_annotation_en_aveugle.ipynb).
+///
+
+### Les marges, puis les sujets
+
+| Codeur | accusation | découverte | ni l'un ni l'autre |
+|---|---|---|---|
+| C1 — initial | 147 | 118 | 175 |
+| C2-A | 140 | 114 | 186 |
+| C2-B | 141 | 109 | 190 |
+
+Les distributions marginales sont déjà voisines, mais cela ne suffit pas : deux codeurs peuvent
+produire les mêmes effectifs sur des sujets différents. C'est l'accord corrigé du hasard qui
+tranche, et il importe ici — sur un corpus dont 40 % relèvent d'une seule étiquette, l'accord
+brut serait flatteur.
+
+| Paire | accord brut | $\kappa$ de Cohen |
+|---|---|---|
+| C1 vs C2-A | 93,6 % | **0,903** |
+| C1 vs C2-B | 94,5 % | **0,917** |
+| C2-A vs C2-B | 96,4 % | **0,944** |
+| les trois (Fleiss) | — | **0,921** |
+
+### Le désaccord tombe au bon endroit
+
+Trente-quatre sujets ne font pas l'unanimité. Leur répartition est le résultat structurel de
+cette section :
+
+| Nature du désaccord | sujets |
+|---|---|
+| appartenance à un registre (`accusation` ou `discovery` contre `neither`) | **33** |
+| inversion des deux registres comparés | **1** |
+
+**Un seul sujet sur 440** voit un codeur dire « accusation » là où un autre dit « découverte ».
+L'ambiguïté résiduelle de la grille fait donc varier les **effectifs** de la comparaison, pas
+son **sens** — c'est la forme d'imprécision la moins dommageable qu'on pouvait espérer.
+
+Les cas litigieux sont interprétables : des étoiles dont le chapeau ne dit pas si leur
+notabilité tient à une découverte, des dispositifs de physique sans annonce associée, quelques
+affaires dont le chapeau ne rapporte pas la mise en cause. La **règle 4** — l'objet de
+catalogue — est celle qui laisse le plus de latitude, et c'est là qu'une version 1.1 de la
+grille devrait porter.
+
+### Le résultat sous le codage consensuel
+
+| Étiquette | accusation | découverte | rapport de cotes | p |
+|---|---|---|---|---|
+| catégorie | 8,6 % | 2,7 % | 3,37 | 0,012 |
+| annotation C1 | 4,8 % | 5,1 % | 0,93 | 1,000 |
+| **consensus des trois** | **4,3 %** | **5,4 %** | **0,78** | **0,769** |
+
+Et la persistance : ×3,06 (n = 6) contre ×2,90 (n = 7), $p = 0{,}836$.
+
+**Les deux résultats sont inchangés.** Le codage initial n'était pas un cas particulier.
+
+!!! danger "Ce que cet accord ne mesure pas"
+    Les trois codeurs sont des instances du **même modèle de langue**. L'accord mesure donc la
+    reproductibilité de la **grille** — le fait qu'une lecture fraîche des mêmes consignes,
+    sans accès au premier codage ni aux résultats, redonne les mêmes étiquettes. Il ne mesure
+    **pas** l'accord entre juges humains indépendants, et il le surestime nécessairement, des
+    instances d'un même modèle partageant leurs a priori.
+
+    La réserve d'un codage humain multiple subsiste donc entière. Ce qui a changé : on sait
+    désormais que les consignes écrites suffisent à produire un codage stable, ce qui rend le
+    travail **réplicable** par un tiers plutôt que seulement consultable.
+
 ## Ce que cela change pour le projet
 
 **Quatre mesures ont été menées, et aucune ne distingue les registres émotionnels** : le taux
@@ -275,9 +360,11 @@ constat proposé au [mémorandum](memorandum.md).
 
 ## Pistes ouvertes
 
-1. **Faire annoter le même corpus par un second codeur**, à l'aveugle également, et publier le
-   $\kappa$ de Cohen. C'est le complément direct et peu coûteux de ce travail, et la seule
-   réserve de méthode qui subsiste.
+1. ~~**Faire annoter le même corpus par un second codeur**, à l'aveugle également, et publier
+   le $\kappa$ de Cohen.~~ → **fait**, avec deux codeurs plutôt qu'un : $\kappa$ de Fleiss de
+   0,921, et un résultat inchangé sous le codage consensuel. Ce qui reste à faire est un
+   codage par des **annotateurs humains** : trois instances d'un même modèle partagent leurs
+   a priori, et surestiment donc l'accord.
 2. **Apparier sur le type de sujet** autant que sur le trafic, dès la construction du corpus.
    Comparer des événements à des événements et des personnes à des personnes est désormais une
    exigence mesurée, non une précaution théorique.

@@ -120,6 +120,17 @@ acte technique neutre.
 
 ### 2.2 Rendre l'index résistant au *gaming*
 
+!!! failure "Fait — et l'objection est fondée : voir [Test adverse](gaming.md)"
+    Le test de saturabilité a été mené par simulation. Une plateforme capable de dissocier
+    l'étiquette du contenu obtient un **IDE de 1,000 pour une diversité de contenu nulle**, à
+    coût d'engagement nul ; et à mi-découplage, la contrainte n'a plus que **36 %** de sa
+    force. **Un plancher d'IDE sur les étiquettes n'est pas une norme tenable.**
+
+    L'**entropie quadratique de Rao** résiste, et mieux qu'espéré : au-delà d'un découplage de
+    moitié le plancher devient inatteignable, et en deçà il coûte *plus* cher à mesure que la
+    plateforme vide ses étiquettes. La [recommandation 1 du mémorandum](memorandum.md) est
+    révisée en conséquence.
+
 **La limite.** Une plateforme contrainte de maintenir un IDE élevé peut servir des
 contenus formellement divergents mais substantiellement vides.
 
@@ -254,7 +265,7 @@ Ces points n'ont pas d'enjeu scientifique, mais ils conditionnent la relecture.
 
 ## Si une seule chose devait être faite
 
-**Faire annoter le corpus par un second codeur, en aveugle, et publier le $\kappa$ de Cohen.**
+**Faire coder le corpus par des annotateurs humains.**
 
 L'annotation manuelle du registre — priorité n° 1 de la version précédente de cette page — a
 été [menée sur les 440 sujets](annotation.md) et a tranché la question qu'elle devait trancher.
@@ -267,10 +278,14 @@ taux d'amplification, la persistance sur corpus pilote puis étendu, et le taux 
 Le mécanisme de la charge émotionnelle $\alpha$ reste sans appui empirique, et ce n'est plus
 faute d'avoir cherché.
 
-Ce qui subsiste est une réserve de **méthode**, et une seule : l'annotateur était unique, donc
-il n'existe aucune mesure de la fiabilité du codage. La grille est écrite et publiée, elle est
-donc réplicable ; un second codage à l'aveugle, sur le même corpus, coûterait quelques heures
-et retirerait la dernière prise qu'un relecteur puisse avoir sur ce résultat.
+Le double codage à l'aveugle a été mené : $\kappa$ de Fleiss de **0,921**, unanimité sur 92 %
+des sujets, et un résultat inchangé sous le codage consensuel. La grille est donc
+**reproductible** — les consignes écrites suffisent à produire un codage stable.
+
+Mais les trois codeurs sont des instances du **même modèle de langue**, et l'accord entre elles
+surestime nécessairement ce que produiraient des juges indépendants. C'est la dernière réserve
+de méthode identifiable, et la seule qui ne se lève pas par le calcul : elle demande des
+annotateurs humains.
 
 **Ce qu'il ne faut probablement pas faire**, en revanche, c'est une cinquième mesure du même
 objet. Trois quantités tirées de la même série d'attention agrégée ont été testées sans succès,

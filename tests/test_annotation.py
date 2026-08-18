@@ -23,13 +23,18 @@ from ide.annotation import (
     KINDS,
     NEITHER,
     REGISTERS,
+    REPLICATION_PATH,
     RUBRIC_VERSION,
     Annotation,
     annotated_entries,
+    cohen_kappa,
     confusion_matrix,
+    consensus_registers,
     digest_extracts,
+    fleiss_kappa,
     load_annotations,
     load_extracts,
+    load_replication,
     save_annotations,
     save_extracts,
 )
@@ -224,3 +229,119 @@ class TestDeliveredAnnotations:
 
         assert payload["rubric_version"] == RUBRIC_VERSION
         assert set(CONFIDENCES) == {"sure", "unsure"}
+
+
+class TestAgreement:
+    """Accord entre codeurs, corrigé du hasard."""
+
+    def test_perfect_agreement_gives_one(self) -> None:
+        labels = [ACCUSATION, DISCOVERY, NEITHER, ACCUSATION]
+
+        assert cohen_kappa(labels, list(labels)) == pytest.approx(1.0)
+
+    def test_chance_level_agreement_gives_about_zero(self) -> None:
+        """Deux codeurs qui tirent indépendamment doivent tomber près de zéro, pas près de 1.
+
+        C'est ce que la correction du hasard achète : sur un corpus déséquilibré, l'accord
+        brut reste élevé sans qu'aucune compétence soit en jeu.
+        """
+        first = [ACCUSATION] * 80 + [DISCOVERY] * 20
+        second = [ACCUSATION] * 80 + [DISCOVERY] * 20
+        second = second[16:] + second[:16]
+
+        assert abs(cohen_kappa(first, second)) < 0.15
+
+    def test_systematic_disagreement_goes_negative(self) -> None:
+        first = [ACCUSATION, DISCOVERY] * 20
+        second = [DISCOVERY, ACCUSATION] * 20
+
+        assert cohen_kappa(first, second) < 0.0
+
+    def test_mismatched_lengths_are_refused(self) -> None:
+        with pytest.raises(ValueError, match="mêmes sujets"):
+            cohen_kappa([ACCUSATION], [ACCUSATION, DISCOVERY])
+
+    def test_a_single_label_is_a_degenerate_agreement(self) -> None:
+        with pytest.raises(ValueError, match="dégénéré"):
+            cohen_kappa([ACCUSATION] * 5, [ACCUSATION] * 5)
+
+    def test_fleiss_matches_cohen_on_two_coders(self) -> None:
+        """Les deux mesures ne coïncident pas exactement, mais doivent rester voisines."""
+        first = [ACCUSATION, DISCOVERY, NEITHER, ACCUSATION, NEITHER, DISCOVERY] * 8
+        second = [ACCUSATION, DISCOVERY, NEITHER, NEITHER, NEITHER, DISCOVERY] * 8
+
+        assert fleiss_kappa([first, second]) == pytest.approx(cohen_kappa(first, second), abs=0.1)
+
+    def test_fleiss_needs_at_least_two_coders(self) -> None:
+        with pytest.raises(ValueError, match="deux codeurs"):
+            fleiss_kappa([[ACCUSATION, DISCOVERY]])
+
+    def test_the_consensus_follows_the_majority(self) -> None:
+        codings = [
+            {"A": Annotation("A", ACCUSATION, "event")},
+            {"A": Annotation("A", ACCUSATION, "event")},
+            {"A": Annotation("A", NEITHER, "work")},
+        ]
+
+        assert consensus_registers(codings) == {"A": ACCUSATION}
+
+    def test_the_consensus_keeps_only_shared_subjects(self) -> None:
+        codings = [
+            {"A": Annotation("A", ACCUSATION, "event"), "B": Annotation("B", NEITHER, "work")},
+            {"A": Annotation("A", ACCUSATION, "event")},
+        ]
+
+        assert set(consensus_registers(codings)) == {"A"}
+
+
+@pytest.mark.skipif(not REPLICATION_PATH.exists(), reason="recodages non encore produits")
+class TestDeliveredReplication:
+    def test_every_coder_covers_the_whole_catalogue(self) -> None:
+        entries, _ = load_catalogue()
+        titles = {entry.label for entry in entries}
+
+        for coder, coding in load_replication().items():
+            assert set(coding) == titles, coder
+
+    def test_the_recorded_digest_matches_the_extracts(self) -> None:
+        """Les recodages doivent porter sur le même matériau que le codage initial."""
+        payload = json.loads(REPLICATION_PATH.read_text())
+
+        assert payload["extracts_sha256"] == digest_extracts(EXTRACTS_PATH)
+
+    def test_agreement_on_the_register_is_the_published_one(self) -> None:
+        annotations = load_annotations()
+        replication = load_replication()
+        titles = sorted(annotations)
+        first = [annotations[t].register for t in titles]
+
+        for coding in replication.values():
+            kappa = cohen_kappa(first, [coding[t].register for t in titles])
+            assert 0.85 <= kappa <= 0.95, kappa
+
+    def test_the_three_way_agreement_is_the_published_one(self) -> None:
+        annotations = load_annotations()
+        replication = load_replication()
+        titles = sorted(annotations)
+        codings = [[annotations[t].register for t in titles]]
+        codings += [[coding[t].register for t in titles] for coding in replication.values()]
+
+        assert fleiss_kappa(codings) == pytest.approx(0.921, abs=0.01)
+
+    def test_disagreements_almost_never_swap_the_two_compared_registers(self) -> None:
+        """Le résultat structurel : l'ambiguïté porte sur l'appartenance, non sur le registre.
+
+        Un désaccord entre `accusation` et `discovery` changerait le sens de la comparaison.
+        Un désaccord avec `neither` n'en change que l'effectif.
+        """
+        annotations = load_annotations()
+        codings = [{t: a.register for t, a in annotations.items()}]
+        codings += [{t: a.register for t, a in c.items()} for c in load_replication().values()]
+
+        swaps = sum(
+            1 for title in annotations
+            if {coding[title] for coding in codings} == {ACCUSATION, DISCOVERY}
+            or {coding[title] for coding in codings} >= {ACCUSATION, DISCOVERY}
+        )
+
+        assert swaps <= 3, swaps

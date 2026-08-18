@@ -65,7 +65,31 @@ mémoire des fausses croyances devient persistante
 une façon d'atteindre l'objectif, pas la seule. Imposer un algorithme serait à la fois
 inapplicable et contre-productif.
 
-**Réserve à traiter dans le texte.** L'index est manipulable : de la diversité
+!!! failure "Recommandation révisée après le test adverse — le plancher doit porter sur Rao"
+    La réserve ci-dessous, laissée en suspens, a été mise à l'épreuve par simulation
+    ([test adverse](gaming.md)), et elle est **fondée au-delà de ce qui était supposé** : une
+    plateforme capable de dissocier l'étiquette du contenu obtient un **IDE de 1,000 — la note
+    maximale — pour une diversité de contenu strictement nulle**, sans céder un point
+    d'engagement. Il n'est même pas besoin d'aller jusque-là : à mi-découplage, la contrainte
+    n'a plus que **36 %** de sa force.
+
+    **Un plancher d'IDE sur les étiquettes n'est donc pas une norme tenable.** La mesure
+    doit porter sur l'**entropie quadratique de Rao**, qui pondère la diversité par la
+    distance sémantique effective entre les contenus servis. Elle résiste, et mieux que cela :
+    au-delà d'un découplage de moitié le plancher devient **inatteignable**, et en deçà il
+    coûte *plus* cher à mesure que la plateforme vide ses étiquettes. Manipuler l'étiquetage
+    s'y retourne contre la plateforme.
+
+    Ce que le régulateur doit alors fixer en plus : l'**étendue du catalogue de référence**,
+    qui sert d'unité à la mesure. C'est la même question politique que le choix de $k$,
+    déplacée d'un cran.
+
+    **Disposition complémentaire.** Publier les deux indices sur le même fil et contrôler
+    l'**excès de signature** — l'écart IDE − Rao rapporté à ce qu'un catalogue honnête
+    afficherait au même index. Il vaut zéro pour une plateforme honnête et croît avec la
+    manipulation. → [Test adverse de l'index](gaming.md)
+
+**Réserve d'origine, conservée pour mémoire.** L'index est manipulable : de la diversité
 d'étiquette peut satisfaire un seuil sans diversifier l'argument. Une norme technique
 crédible doit prévoir un contrôle qualitatif d'échantillon en complément de la mesure.
 
@@ -233,7 +257,8 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | existence d'un effet de la **charge émotionnelle** $\alpha$ | **quatre mesures, aucun effet** : amplification, persistance sur corpus pilote puis étendu, taux de basculement |
 | protocole d'audit préservant la vie privée | aucune conception |
 | définition normative du catalogue de points de vue $k$ | choix politique non tranché |
-| résistance de l'index au *gaming* | non étudiée |
+| résistance de l'index au *gaming* | **fait, et négatif** — un plancher d'IDE se sature à coût nul ([test adverse](gaming.md)) ; la mesure doit porter sur l'entropie de Rao |
+| calibration du plancher de **Rao** | aucune procédure — le test adverse établit la forme de la norme, pas son niveau |
 | coût en pertinence perçue d'un plancher d'IDE | non évalué |
 
 Le mémorandum doit donc être lu comme une **proposition de cadre à durcir**, pas comme
