@@ -70,6 +70,7 @@ plugins:
             Calibration empirique: Empirical calibration
             Changements de régime: Regime changes
             Corpus étendu: Extended corpus
+            Annotation en aveugle: Blind annotation
             Mémorandum de régulation: Regulatory memorandum
             Réserves: Caveats
             Audit critique et limites: Critical audit and limitations
@@ -122,6 +123,7 @@ nav:
       - Calibration empirique: calibration.md
       - Changements de régime: regimes.md
       - Corpus étendu: corpus-etendu.md
+      - Annotation en aveugle: annotation.md
       - Mémorandum de régulation: memorandum.md
   - Réserves:
       - Audit critique et limites: limites.md

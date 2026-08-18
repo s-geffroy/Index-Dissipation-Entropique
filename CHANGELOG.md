@@ -7,6 +7,22 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — pré-enregistrement de l'annotation en aveugle
+
+Fixe la grille d'annotation manuelle du registre **avant** toute annotation, pour trancher
+entre absence d'effet et effet dilué par le bruit d'étiquetage. Protocole :
+[`docs/annotation.md`](docs/annotation.md).
+
+- **`ide.annotation`** — grille à trois registres (`accusation`, `discovery`, `neither`),
+  cinq règles de départage arrêtées d'avance, type de sujet et confiance en dimensions
+  accessoires ; chargement d'annotations refusé si la version de grille diffère.
+- **`scripts/fetch_extracts.py`** — fige le chapeau des 440 articles dans
+  `data/extracts.json`, seule entrée de l'annotateur, dont l'empreinte SHA-256 est inscrite
+  dans le fichier d'annotations.
+- **Contamination déclarée** — les six sujets cités avec leur élévation dans la page du
+  corpus étendu sont listés dans `ide.annotation.CONTAMINATED`, annotés comme les autres, et
+  l'analyse sera reprise sans eux.
+
 ### Ajouté — corpus étendu et réplication
 
 Met à l'épreuve, sur 440 sujets, le seul écart entre registres émotionnels que le projet
