@@ -15,17 +15,37 @@ import pytest
 from ide.gaming import (
     Feed,
     canonical_positions,
+    centre_share,
     engagement,
     excess_signature,
+    gaussian_ild,
     ide_of_feed,
+    largest_gap,
     max_achievable_rao,
+    optimal_feed_under,
     optimal_feed_under_ide,
     optimal_feed_under_rao,
+    position_entropy,
     rao_entropy,
     served_positions,
+    target_divergence,
 )
 
-VIEWPOINTS = 8
+CATALOGUE = canonical_positions(VIEWPOINTS := 8)
+REFERENCE = float(np.ptp(CATALOGUE))
+BANDWIDTH = float(CATALOGUE[1] - CATALOGUE[0])
+
+
+def _bimodal() -> np.ndarray:
+    """Fil polarisé : la moitié de la masse à chaque bord, rien entre les deux."""
+    weights = np.zeros(VIEWPOINTS)
+    weights[0] = weights[-1] = 0.5
+    return weights
+
+
+def _uniform() -> np.ndarray:
+    return np.full(VIEWPOINTS, 1.0 / VIEWPOINTS)
+
 USER = 0.6
 WIDTH = 0.5
 
@@ -229,9 +249,176 @@ class TestFeed:
             positions=np.array([-1.0, 1.0]),
             user=0.0,
             width=WIDTH,
-            reference=2.0,
+            catalogue=np.array([-1.0, 1.0]),
         )
 
         assert feed.ide == pytest.approx(1.0)
         assert feed.rao == pytest.approx(1.0)
         assert feed.signature == pytest.approx(0.0)
+
+
+class TestThePolarisationPathology:
+    """Le défaut de l'entropie de Rao, et ce qui l'en préserve.
+
+    L'entropie de Rao est la distance intra-liste, dont Ohsaka et Togashi (SIGIR 2023) ont
+    montré qu'elle admet des optima dégénérés. Sur un axe d'opinion, le dégénéré porte un
+    nom : c'est le fil bimodal, qui sert les deux bords et vide le centre. Une norme qui le
+    préfère prescrirait exactement ce que ce dépôt cherche à mesurer.
+    """
+
+    def test_rao_prefers_a_polarised_feed_to_a_spread_one(self) -> None:
+        """Le défaut, énoncé comme un test : il est reproductible, donc il est réel."""
+        polarised = rao_entropy(_bimodal(), CATALOGUE, REFERENCE)
+        spread = rao_entropy(_uniform(), CATALOGUE, REFERENCE)
+
+        assert polarised == pytest.approx(1.0)
+        assert polarised > spread
+
+    @pytest.mark.parametrize(
+        "measure",
+        [
+            lambda q, x: position_entropy(q, x, CATALOGUE),
+            lambda q, x: gaussian_ild(q, x, BANDWIDTH),
+            lambda q, x: target_divergence(q, x, CATALOGUE),
+        ],
+        ids=["entropie de position", "gaussian ILD", "proximité à la cible"],
+    )
+    def test_the_replacements_prefer_a_spread_feed(self, measure) -> None:
+        assert measure(_bimodal(), CATALOGUE) < measure(_uniform(), CATALOGUE)
+
+    @pytest.mark.parametrize(
+        "measure",
+        [
+            lambda q, x: rao_entropy(q, x, REFERENCE),
+            lambda q, x: position_entropy(q, x, CATALOGUE),
+            lambda q, x: gaussian_ild(q, x, BANDWIDTH),
+            lambda q, x: target_divergence(q, x, CATALOGUE),
+        ],
+        ids=["rao", "entropie de position", "gaussian ILD", "proximité à la cible"],
+    )
+    def test_every_candidate_still_resists_label_stuffing(self, measure) -> None:
+        """La correction ne doit pas rouvrir la faille qu'elle vient de fermer."""
+        collapsed = served_positions(CATALOGUE, USER, decoupling=1.0)
+
+        best = max(measure(w, collapsed) for w in (_uniform(), _bimodal(), np.eye(VIEWPOINTS)[0]))
+
+        assert best < 0.6
+
+    def test_the_optimum_under_rao_empties_the_centre(self) -> None:
+        """Ce n'est pas une manipulation : c'est la réponse optimale à la contrainte."""
+        feed = optimal_feed_under(
+            lambda q, x: rao_entropy(q, x, REFERENCE), VIEWPOINTS, USER, 0.8, width=WIDTH
+        )
+
+        assert feed.largest_gap > 0.5
+        assert int(np.sum(feed.weights > 0.01)) < VIEWPOINTS
+
+    def test_the_optimum_under_position_entropy_does_not(self) -> None:
+        feed = optimal_feed_under(
+            lambda q, x: position_entropy(q, x, CATALOGUE), VIEWPOINTS, USER, 0.8, width=WIDTH
+        )
+
+        assert feed.largest_gap < 0.2
+        assert feed.centre_share > 0.5
+
+
+class TestReplacementMeasures:
+    def test_position_entropy_keeps_the_index_conventions(self) -> None:
+        """Un fil gelé vaut 0, l'uniforme vaut 1 : c'est l'IDE, sur les contenus."""
+        frozen = np.zeros(VIEWPOINTS)
+        frozen[0] = 1.0
+
+        assert position_entropy(frozen, CATALOGUE, CATALOGUE) == pytest.approx(0.0)
+        assert position_entropy(_uniform(), CATALOGUE, CATALOGUE) == pytest.approx(1.0)
+
+    def test_position_entropy_is_nominal_and_blind_to_geometry(self) -> None:
+        """Limite à déclarer : elle compte les bacs occupés, elle n'en voit pas l'écartement.
+
+        C'est pourquoi le plus grand vide est publié à côté d'elle plutôt qu'à sa place.
+        """
+        clustered = np.zeros(VIEWPOINTS)
+        clustered[[0, 1, 2, 3]] = 0.25
+        spread = np.zeros(VIEWPOINTS)
+        spread[[0, 2, 5, 7]] = 0.25
+
+        assert position_entropy(clustered, CATALOGUE, CATALOGUE) == pytest.approx(
+            position_entropy(spread, CATALOGUE, CATALOGUE)
+        )
+        assert largest_gap(clustered, CATALOGUE, CATALOGUE) < largest_gap(
+            spread, CATALOGUE, CATALOGUE
+        )
+
+    def test_gaussian_ild_sees_the_geometry_the_entropy_misses(self) -> None:
+        clustered = np.zeros(VIEWPOINTS)
+        clustered[[0, 1, 2, 3]] = 0.25
+        spread = np.zeros(VIEWPOINTS)
+        spread[[0, 2, 5, 7]] = 0.25
+
+        assert gaussian_ild(spread, CATALOGUE, BANDWIDTH) > gaussian_ild(
+            clustered, CATALOGUE, BANDWIDTH
+        )
+
+    def test_gaussian_ild_cannot_reach_one_which_bars_it_as_a_threshold(self) -> None:
+        """Sa borne dépend de k et de la bande : un seuil chiffré n'y serait pas lisible."""
+        assert gaussian_ild(_uniform(), CATALOGUE, BANDWIDTH) < 0.8
+
+    def test_a_degenerate_bandwidth_is_refused(self) -> None:
+        with pytest.raises(ValueError, match="largeur de bande"):
+            gaussian_ild(_uniform(), CATALOGUE, 0.0)
+
+    def test_the_target_divergence_is_one_on_its_own_target(self) -> None:
+        assert target_divergence(_uniform(), CATALOGUE, CATALOGUE) == pytest.approx(1.0)
+
+    def test_a_declared_target_changes_the_verdict(self) -> None:
+        """C'est l'intérêt de la mesure : la forme visée est déclarée, non supposée."""
+        target = np.zeros(VIEWPOINTS)
+        target[0] = target[-1] = 0.5
+
+        assert target_divergence(_bimodal(), CATALOGUE, CATALOGUE, target) == pytest.approx(1.0)
+        assert target_divergence(_uniform(), CATALOGUE, CATALOGUE, target) < 0.6
+
+    def test_sprinkling_a_crumb_in_every_bin_does_not_buy_compliance(self) -> None:
+        """Troisième adversaire : la diversité de façade, une miette partout."""
+        crumbs = np.full(VIEWPOINTS, 0.01)
+        crumbs[VIEWPOINTS - 2] = 1.0 - 0.01 * (VIEWPOINTS - 1)
+
+        assert position_entropy(crumbs, CATALOGUE, CATALOGUE) < 0.3
+        assert gaussian_ild(crumbs, CATALOGUE, BANDWIDTH) < 0.3
+
+
+class TestShapeDiagnostics:
+    def test_the_centre_share_is_zero_on_a_bimodal_feed(self) -> None:
+        assert centre_share(_bimodal(), CATALOGUE, CATALOGUE) == pytest.approx(0.0)
+        assert centre_share(_uniform(), CATALOGUE, CATALOGUE) > 0.7
+
+    def test_the_largest_gap_is_maximal_on_a_bimodal_feed(self) -> None:
+        assert largest_gap(_bimodal(), CATALOGUE, CATALOGUE) == pytest.approx(1.0)
+
+    def test_a_crumb_does_not_fill_a_gap(self) -> None:
+        """Sans seuil, saupoudrer une miette effacerait le diagnostic."""
+        crumbed = _bimodal() * 0.99
+        crumbed[VIEWPOINTS // 2] = 0.01
+
+        assert largest_gap(crumbed, CATALOGUE, CATALOGUE) == pytest.approx(1.0)
+
+
+class TestGenericOptimiser:
+    def test_it_reproduces_the_dedicated_rao_solver(self) -> None:
+        generic = optimal_feed_under(
+            lambda q, x: rao_entropy(q, x, REFERENCE), VIEWPOINTS, USER, 0.5, width=WIDTH
+        )
+        dedicated = optimal_feed_under_rao(VIEWPOINTS, USER, floor=0.5, width=WIDTH)
+
+        assert generic.weights == pytest.approx(dedicated.weights)
+
+    def test_it_saturates_the_floor_it_is_given(self) -> None:
+        feed = optimal_feed_under(
+            lambda q, x: position_entropy(q, x, CATALOGUE), VIEWPOINTS, USER, 0.7, width=WIDTH
+        )
+
+        assert feed.position_entropy >= 0.7 - 1e-6
+
+    @pytest.mark.parametrize("floor", [-0.1, 1.5])
+    def test_an_impossible_floor_is_refused(self, floor: float) -> None:
+        with pytest.raises(ValueError, match="plancher"):
+            optimal_feed_under(lambda q, x: 1.0, VIEWPOINTS, USER, floor)

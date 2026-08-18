@@ -103,9 +103,10 @@ would allow genuine calibration of $T$ and of the index threshold.
   methods (Kozachenko-Leonenko). No labels, hence no partitioning arbitrariness — at the
   cost of dependence on the embedding model, which relocates the arbitrariness rather than
   removing it.
-* **Rao's quadratic entropy.** $Q = \sum_{ij} p_i p_j d_{ij}$, weighting diversity by the
-  **semantic distance** between viewpoints. See §2.2: it is also the best defence against
-  gaming.
+* **Entropy computed on items, not on labels.** ~~Rao's quadratic entropy~~ — discarded in
+  §2.2, its constrained optimum being bimodal. What survives of the idea is simpler: project
+  the items served onto the catalogue's viewpoints and compute the usual entropy there. It is
+  also the best defence against gaming.
 
 ### 2.2 Make the index resistant to gaming
 
@@ -115,9 +116,11 @@ would allow genuine calibration of $T$ and of the index threshold.
     and at half decoupling the constraint retains only **36 %** of its force. **A floor on
     label entropy is not a tenable standard.**
 
-    **Rao's quadratic entropy** resists, and better than hoped: beyond half decoupling the
-    floor becomes unattainable, and below it costs *more* as the platform empties its labels.
-    [Memorandum recommendation 1](memorandum.en.md) is revised accordingly.
+    The replacement first proposed — **Rao's quadratic entropy** — turned out to be defective
+    in its turn: it is the intra-list distance, whose constrained optimum is **bimodal**. A Rao
+    floor would prescribe polarisation. The retained floor is finally on **position entropy** —
+    the index computed on the items served — published with a largest-gap diagnostic.
+    [Memorandum recommendation 1](memorandum.en.md) has therefore been revised twice.
 
 **The limitation.** A platform required to keep the index high can serve formally divergent
 but substantively empty content.
@@ -127,8 +130,9 @@ but substantively empty content.
   constraint is saturable at no cost, the index is unusable as it stands — better to know
   before making it a standard. This is a constrained optimisation problem, hence entirely
   simulable: **no real data is needed to settle it.**
-* **Move to Rao's quadratic entropy**, which rewards diversity only in proportion to actual
-  semantic distance. Label padding yields no gain.
+* **Move to a measure bearing on the items served**, not on the labels announcing them.
+  Label padding yields no gain there. Mind the choice of measure: Rao's quadratic entropy meets
+  that criterion and **fails another**, its constrained optimum being bimodal.
 * **Qualitative sampling** alongside automated measurement, written into the standard.
 
 ### 2.3 Design a privacy-preserving audit protocol

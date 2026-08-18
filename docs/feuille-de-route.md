@@ -114,9 +114,10 @@ acte technique neutre.
   différentielle par des méthodes à $k$ plus proches voisins (Kozachenko-Leonenko).
   Plus d'étiquettes, donc plus d'arbitraire de découpage — au prix d'une dépendance au
   modèle d'*embedding*, qui est un arbitraire déplacé plutôt que supprimé.
-* **Entropie quadratique de Rao.** $Q = \sum_{ij} p_i p_j d_{ij}$, qui pondère la
-  diversité par la **distance sémantique** entre points de vue. Voir §2.2 : c'est aussi
-  la meilleure défense contre la manipulation.
+* **Entropie calculée sur les contenus, non sur les étiquettes.** ~~L'entropie quadratique
+  de Rao~~ — écartée en §2.2, son optimum sous contrainte étant bimodal. Ce qui subsiste de
+  l'idée est plus simple : projeter les contenus servis sur les points de vue du catalogue et
+  y calculer l'entropie habituelle. C'est aussi la meilleure défense contre la manipulation.
 
 ### 2.2 Rendre l'index résistant au *gaming*
 
@@ -126,10 +127,12 @@ acte technique neutre.
     coût d'engagement nul ; et à mi-découplage, la contrainte n'a plus que **36 %** de sa
     force. **Un plancher d'IDE sur les étiquettes n'est pas une norme tenable.**
 
-    L'**entropie quadratique de Rao** résiste, et mieux qu'espéré : au-delà d'un découplage de
-    moitié le plancher devient inatteignable, et en deçà il coûte *plus* cher à mesure que la
-    plateforme vide ses étiquettes. La [recommandation 1 du mémorandum](memorandum.md) est
-    révisée en conséquence.
+    Le remplacement d'abord proposé — l'**entropie quadratique de Rao** — s'est révélé
+    défectueux à son tour : c'est la distance intra-liste, dont l'optimum sous contrainte est
+    **bimodal**. Un plancher de Rao prescrirait la polarisation. Le plancher retenu porte
+    finalement sur l'**entropie de position** — l'IDE calculé sur les contenus servis — publié
+    avec un diagnostic de plus grand vide. La [recommandation 1 du mémorandum](memorandum.md)
+    a donc été révisée deux fois.
 
 **La limite.** Une plateforme contrainte de maintenir un IDE élevé peut servir des
 contenus formellement divergents mais substantiellement vides.
@@ -142,9 +145,10 @@ contenus formellement divergents mais substantiellement vides.
   en l'état — et il vaut mieux le savoir avant d'en faire une norme. C'est un problème
   d'optimisation sous contrainte, donc entièrement simulable : **aucune donnée réelle
   n'est nécessaire pour trancher ce point.**
-* **Passage à l'entropie quadratique de Rao**, qui ne récompense la diversité qu'à
-  proportion de la distance sémantique réelle entre les contenus servis. Le remplissage
-  par étiquettes n'y produit aucun gain.
+* **Passage à une mesure portant sur les contenus servis**, et non sur les étiquettes qui
+  les annoncent. Le remplissage par étiquettes n'y produit aucun gain. Attention au choix de
+  la mesure : l'entropie quadratique de Rao satisfait ce critère et **échoue sur un autre**,
+  son optimum sous contrainte étant bimodal.
 * **Contrôle qualitatif d'échantillon** en complément de la mesure automatique, à
   inscrire dans la norme technique.
 

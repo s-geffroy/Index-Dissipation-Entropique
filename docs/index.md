@@ -62,9 +62,10 @@ approximatif, il n'existe pas.
 **Et l'index proposé n'était pas une norme tenable.** Le [test adverse](gaming.md) montre
 qu'une plateforme capable de dissocier l'étiquette du contenu obtient un IDE de 1,000 — la note
 maximale — pour une diversité de contenu nulle, sans céder un point d'engagement. La mesure doit
-porter sur l'**entropie quadratique de Rao**, qui pondère la diversité par la distance
-sémantique réelle : elle résiste, et se retourne contre le manipulateur.
-→ [Test adverse de l'index](gaming.md)
+porter sur les **contenus** servis et non sur les étiquettes qui les annoncent. Le premier
+remplaçant proposé — l'entropie de Rao — s'est révélé pire encore : son optimum sous contrainte
+est **bimodal**, donc il *prescrirait* la polarisation. Le plancher retenu est une entropie
+calculée sur les contenus. → [Test adverse de l'index](gaming.md)
 
 ## Ce que le travail propose
 
@@ -125,7 +126,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 420 tests
+docker compose run --rm test          # 445 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

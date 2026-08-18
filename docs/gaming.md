@@ -6,16 +6,18 @@
     d'engagement. Et il n'est pas besoin d'aller jusque-là : à mi-découplage, la contrainte n'a
     plus que **36 %** de sa force.
 
-!!! success "L'entropie quadratique de Rao résiste, et se retourne contre le manipulateur"
-    Au-delà d'un découplage de moitié, le plancher devient **inatteignable** : la plateforme ne
-    peut plus s'y conformer, quoi qu'elle fasse. Et en deçà, il coûte **plus** cher à mesure
-    qu'elle vide ses étiquettes — 16 % à découplage nul, 40 % à mi-découplage.
+!!! failure "Le remplaçant d'abord proposé — l'entropie de Rao — était défectueux lui aussi"
+    Elle résiste bien au bourrage d'étiquettes, mais **son optimum sous contrainte est
+    bimodal** : elle attribue 1,000 à un fil servant les deux bords et rien entre eux, contre
+    0,750 à un fil étalé. Un plancher de Rao **prescrirait la polarisation** — précisément ce
+    que ce projet cherche à mesurer. Voir la [section 8](#le-correctif-lentropie-de-rao-prescrivait-la-polarisation).
 
-!!! tip "Ce que cela prescrit"
+!!! tip "Ce que cela prescrit, après correction"
     Le résultat ne détruit pas l'index, il en **déplace la définition** : ce qu'il faut mesurer
-    n'est pas la diversité des étiquettes servies, mais la distance sémantique entre les
-    contenus qu'elles portent. La [recommandation 1 du mémorandum](memorandum.md) est révisée
-    en conséquence.
+    n'est pas la diversité des **étiquettes** servies, mais celle des **contenus** qu'elles
+    portent. Le plancher retenu porte sur l'**entropie de position** — l'IDE calculé sur les
+    contenus et non sur les étiquettes — publié avec un diagnostic de **plus grand vide**. La
+    [recommandation 1 du mémorandum](memorandum.md) est révisée en conséquence, deux fois.
 
 ---
 
@@ -118,7 +120,7 @@ perd sa force.
 Un découplage de moitié — une latitude que l'on peut supposer accessible à une plateforme
 disposant d'un vaste catalogue — retire déjà les deux tiers de la contrainte.
 
-### 4. L'entropie quadratique de Rao résiste
+### 4. L'entropie quadratique de Rao résiste à *cette* attaque
 
 $$Q = \frac{2}{D}\sum_{\ell m} q_\ell q_m \, |x^*_\ell - x^*_m|$$
 
@@ -142,8 +144,13 @@ Deux propriétés, et la seconde était inattendue :
   diversité atteignable, donc rend la conformité plus chère. **Manipuler l'étiquetage se
   retourne contre la plateforme.**
 
-C'est cette seconde propriété, plus que la simple robustesse, qui fait de $Q$ une norme tenable :
-elle inverse l'incitation.
+C'est cette seconde propriété, plus que la simple robustesse, qui semblait faire de $Q$ une
+norme tenable : elle inverse l'incitation.
+
+!!! failure "Cette conclusion est fausse — voir la section 8"
+    Ces deux propriétés sont exactes, et elles ne suffisent pas. $Q$ résiste au bourrage
+    d'étiquettes **et** prescrit la polarisation : cette section avait éprouvé le remplaçant
+    contre un seul adversaire.
 
 !!! danger "Un piège de normalisation, et ce qu'il aurait coûté"
     Une première version du module normalisait $Q$ par l'étalement **effectivement servi**. La
@@ -169,18 +176,132 @@ dont les étiquettes prédisent le contenu afficherait au même IDE.
 Nul par construction pour une plateforme honnête, croissant avec la manipulation, et calculable
 par le régulateur puisqu'il ne dépend que du catalogue de référence — qu'il fixe lui-même.
 
+---
+
+## Le correctif : l'entropie de Rao prescrivait la polarisation
+
+!!! danger "Un remplaçant testé contre un seul adversaire"
+    La conclusion ci-dessus était fausse, et la faute est de méthode : le remplaçant avait été
+    éprouvé contre l'attaque qu'il devait fermer, et contre aucune autre.
+
+**L'entropie de Rao est la *distance intra-liste*** (ILD), l'objectif de diversité le plus
+employé du domaine — et Ohsaka et Togashi ([SIGIR 2023](https://arxiv.org/abs/2305.13801)) en
+ont publié une réexamination critique : l'ILD admet des **optima dégénérés**, parce qu'elle
+récompense l'écart sans jamais récompenser l'occupation.
+
+Sur un axe d'opinion, le dégénéré porte un nom :
+
+| Fil servi | Rao |
+|---|---|
+| uniforme sur les huit points de vue | 0,750 |
+| **50 % à chaque bord, rien entre les deux** | **1,000** |
+
+**Un plancher de Rao récompense la polarisation maximale.** Et le point est plus grave qu'une
+faille exploitable : la plateforme n'a **pas besoin de tricher** pour vider le centre, c'est ce
+que lui dicte la maximisation de l'engagement sous contrainte.
+
+![Correctif : l'entropie de Rao prescrivait la polarisation](figures/fig13b_correctif_rao.png)
+
+/// caption
+Le verdict de chaque mesure sur un fil polarisé ; le fil que chaque plancher fait effectivement
+servir ; et le coût de chaque norme, la courbe s'interrompant là où le plancher devient
+inatteignable. Figure régénérée par
+[le notebook 13](notebooks/13_test_adverse_index.ipynb).
+///
+
+### L'optimum sous plancher de Rao vide le centre
+
+| Plancher 0,80 | coût | points de vue servis | part hors des bords | plus grand vide |
+|---|---|---|---|---|
+| **Rao (ILD)** | 32,8 % | **4/8** | **0,53** | **0,71** |
+| entropie de position | 18,1 % | 8/8 | 0,83 | 0,14 |
+| Gaussian ILD | *inatteignable* | 2/8 | 0,00 | 1,00 |
+| proximité à la cible | 14,4 % | 8/8 | 0,87 | 0,14 |
+
+Sous plancher de Rao, la plateforme sert quatre points de vue sur huit et laisse un vide de
+**0,71 — les sept dixièmes de l'axe d'opinion**. Le plancher réglementaire produit lui-même
+l'exposition bimodale que le projet cherchait à mesurer.
+
+### Trois remplaçantes, éprouvées contre les trois adversaires
+
+| Mesure | fil polarisé | fil étalé | verdict |
+|---|---|---|---|
+| Rao (ILD) | **1,000** | 0,750 | **préfère la polarisation** |
+| entropie de position | 0,333 | 1,000 | préfère l'étalement |
+| Gaussian ILD | 0,500 | 0,715 | préfère l'étalement |
+| proximité à la cible | 0,451 | 1,000 | préfère l'étalement |
+
+Aucune des trois ne rouvre la faille d'origine : sur des contenus tous identiques — découplage
+total — leur valeur maximale atteignable tombe à 0,000 (0,283 pour la divergence), donc sous
+tout plancher utile. Et aucune ne se laisse satisfaire par un saupoudrage d'une miette dans
+chaque bac, le troisième adversaire testé.
+
+**L'entropie de position** est l'IDE à une substitution près : la distribution mesurée n'est
+plus celle des étiquettes déclarées mais celle des **positions effectivement servies**,
+projetées sur les bacs du catalogue de référence. Elle garde l'interprétation de l'index
+d'origine — 0 pour un fil gelé, 1 pour l'uniforme — et coûte **moins cher** que Rao.
+
+**La Gaussian ILD** est la proposition d'Ohsaka et Togashi : un noyau gaussien qui sature, si
+bien qu'au-delà de quelques largeurs de bande, s'éloigner davantage ne rapporte plus rien.
+
+**La proximité à une cible déclarée** répond à un défaut de principe que les trois autres
+partagent : elles supposent qu'une forme d'exposition est bonne sans le dire. L'entropie suppose
+l'uniforme, l'entropie de Rao suppose l'écartement — et c'est ce non-dit qui la conduit à
+prescrire la bimodalité. Une divergence rend l'hypothèse explicite : le régulateur **déclare**
+la distribution visée.
+
+### Leurs défauts propres, avant de recommander
+
+Trois fils occupant chacun **quatre bacs**, mais pas de la même façon :
+
+| Fil | entropie de position | Gaussian ILD | plus grand vide |
+|---|---|---|---|
+| groupés à gauche | 0,667 | 0,487 | 0,14 |
+| étalés | 0,667 | 0,715 | 0,43 |
+| deux blocs aux bords | 0,667 | 0,598 | 0,71 |
+
+**L'entropie de position est nominale** : elle compte les bacs occupés et ne voit pas leur
+écartement. C'est sa limite, et la raison pour laquelle le plus grand vide est publié à côté
+d'elle plutôt qu'à sa place.
+
+**La Gaussian ILD est métrique** et les distingue — mais elle plafonne à 0,715 sur l'uniforme.
+Sa borne dépend de $k$ et de la largeur de bande, donc un seuil chiffré n'y serait pas lisible
+pour un régulateur. C'est un bon diagnostic, une mauvaise norme.
+
+### Ce que le correctif retient
+
+| Rôle | Mesure | Motif |
+|---|---|---|
+| **plancher** | entropie de position | garde l'interprétation de l'IDE, résiste aux trois adversaires, coûte moins cher que Rao |
+| **publié à côté** | plus grand vide | l'entropie est nominale et ne voit pas la géométrie que ce diagnostic expose |
+| **successeur** | proximité à une cible déclarée | seule à rendre explicite la forme d'exposition visée |
+
+### La leçon de méthode
+
+L'erreur n'a pas été trouvée en relisant le code : elle a été trouvée en lisant ce que le
+domaine avait déjà publié sur la mesure employée. Le test adverse était **correct dans ce qu'il
+réfutait, et faux dans ce qu'il proposait**.
+
+> **Une norme ne se valide pas contre l'attaque qu'on a imaginée, mais contre celles qu'on n'a
+> pas imaginées.** C'est un argument pour aller chercher la littérature avant de prescrire, non
+> après.
+
 ## Ce que cela change pour le mémorandum
 
 La [recommandation 1](memorandum.md) imposait un plancher d'IDE. Cette formulation est
 **abandonnée** : elle est saturable à coût nul par une plateforme qui découple étiquette et
 contenu, et largement affaiblie bien avant.
 
-Ce qui la remplace :
+Ce qui la remplace, **après le correctif de la section précédente** :
 
-1. **le plancher porte sur l'entropie quadratique de Rao**, mesurée sur les contenus servis ;
-2. **le régulateur fixe l'étendue du catalogue de référence**, qui sert d'unité — c'est la même
-   question politique que le choix de $k$, déplacée d'un cran ;
-3. **les deux indices sont publiés sur le même fil**, et l'excès de signature est contrôlé.
+1. **le plancher porte sur l'entropie de position** — l'entropie de Shannon des *contenus*
+   servis, projetés sur les bacs du catalogue de référence. Ce n'est pas l'entropie de Rao,
+   qui prescrirait la polarisation ;
+2. **le plus grand vide est publié à côté du plancher**, parce que l'entropie est nominale ;
+3. **le régulateur fixe le catalogue de référence**, qui sert de grille et d'unité — c'est la
+   même question politique que le choix de $k$, déplacée d'un cran ;
+4. **les deux indices — étiquettes et contenus — sont publiés sur le même fil**, et l'excès de
+   signature est contrôlé.
 
 ## Ce que le modèle suppose, et qui pourrait le retourner
 

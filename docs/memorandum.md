@@ -73,21 +73,38 @@ inapplicable et contre-productif.
     d'engagement. Il n'est même pas besoin d'aller jusque-là : à mi-découplage, la contrainte
     n'a plus que **36 %** de sa force.
 
-    **Un plancher d'IDE sur les étiquettes n'est donc pas une norme tenable.** La mesure
-    doit porter sur l'**entropie quadratique de Rao**, qui pondère la diversité par la
-    distance sémantique effective entre les contenus servis. Elle résiste, et mieux que cela :
-    au-delà d'un découplage de moitié le plancher devient **inatteignable**, et en deçà il
-    coûte *plus* cher à mesure que la plateforme vide ses étiquettes. Manipuler l'étiquetage
-    s'y retourne contre la plateforme.
+    **Un plancher d'IDE sur les étiquettes n'est donc pas une norme tenable.** La mesure doit
+    porter sur les **contenus** servis, non sur les étiquettes qui les annoncent.
 
-    Ce que le régulateur doit alors fixer en plus : l'**étendue du catalogue de référence**,
-    qui sert d'unité à la mesure. C'est la même question politique que le choix de $k$,
+    !!! danger "Corrigé une seconde fois — pas sur l'entropie de Rao"
+        Cette recommandation a d'abord désigné l'**entropie quadratique de Rao**. C'était une
+        erreur, et du plus mauvais genre : l'entropie de Rao est la *distance intra-liste*,
+        dont l'optimum sous contrainte est **bimodal**. Elle attribue 1,000 à un fil servant
+        les deux bords et rien entre eux, contre 0,750 à un fil étalé — **un plancher de Rao
+        prescrirait la polarisation.**
+
+    **Le plancher retenu porte sur l'entropie de position** : l'entropie de Shannon des
+    contenus servis, projetés sur les bacs du catalogue de référence. C'est l'IDE à une
+    substitution près — les contenus au lieu des étiquettes — donc la même lecture, la même
+    échelle, et un coût de conformité inférieur à celui de l'entropie de Rao.
+
+    **Le plus grand vide est publié à côté du plancher.** L'entropie est *nominale* : elle
+    compte les points de vue occupés sans voir leur écartement. Le diagnostic couvre ce
+    qu'elle ne voit pas, et il est ce qui rend la bimodalité constatable.
+
+    Ce que le régulateur doit alors fixer en plus : le **catalogue de référence**, qui sert à
+    la fois de grille et d'unité. C'est la même question politique que le choix de $k$,
     déplacée d'un cran.
 
     **Disposition complémentaire.** Publier les deux indices sur le même fil et contrôler
     l'**excès de signature** — l'écart IDE − Rao rapporté à ce qu'un catalogue honnête
     afficherait au même index. Il vaut zéro pour une plateforme honnête et croît avec la
     manipulation. → [Test adverse de l'index](gaming.md)
+
+    **Successeur à instruire.** Une *proximité à une cible déclarée* — divergence entre
+    l'exposition servie et une distribution que le régulateur publie — est la seule des mesures
+    éprouvées qui rende explicite la forme d'exposition visée, au lieu de la supposer. C'est
+    aussi la porte d'entrée vers les métriques de diversité normative du domaine.
 
 **Réserve d'origine, conservée pour mémoire.** L'index est manipulable : de la diversité
 d'étiquette peut satisfaire un seuil sans diversifier l'argument. Une norme technique
@@ -258,7 +275,8 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | protocole d'audit préservant la vie privée | aucune conception |
 | définition normative du catalogue de points de vue $k$ | choix politique non tranché |
 | résistance de l'index au *gaming* | **fait, et négatif** — un plancher d'IDE se sature à coût nul ([test adverse](gaming.md)) ; la mesure doit porter sur l'entropie de Rao |
-| calibration du plancher de **Rao** | aucune procédure — le test adverse établit la forme de la norme, pas son niveau |
+| calibration du plancher d'**entropie de position** | aucune procédure — le test adverse établit la forme de la norme, pas son niveau |
+| choix de la **cible d'exposition** | question politique non tranchée, que la mesure par divergence rend explicite au lieu de l'enfouir |
 | coût en pertinence perçue d'un plancher d'IDE | non évalué |
 
 Le mémorandum doit donc être lu comme une **proposition de cadre à durcir**, pas comme

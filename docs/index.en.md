@@ -60,8 +60,10 @@ the gap was not diluted by approximate labelling, it does not exist.
 **And the index proposed was not a tenable standard.** The [adversarial test](gaming.en.md)
 shows that a platform able to decouple label from content obtains an index of 1.000 — full marks
 — for zero content diversity, without giving up a point of engagement. The measurement must be
-made on **Rao's quadratic entropy**, which weights diversity by real semantic distance: it
-resists, and turns against the gamer. → [Adversarial test of the index](gaming.en.md)
+made on the **items** served, not on the labels announcing them. The first replacement proposed
+— Rao's entropy — turned out worse still: its constrained optimum is **bimodal**, so it would
+*prescribe* polarisation. The retained floor is an entropy computed on the items served.
+→ [Adversarial test of the index](gaming.en.md)
 
 ## What the work proposes
 
@@ -123,7 +125,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 420 tests
+docker compose run --rm test          # 445 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

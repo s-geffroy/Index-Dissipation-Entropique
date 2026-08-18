@@ -7,6 +7,59 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Corrigé — le remplaçant proposé pour l'IDE prescrivait la polarisation
+
+Correction du correctif publié la veille. Détail : [`docs/gaming.md`](docs/gaming.md), section
+« Le correctif », et le [notebook 13](notebooks/13_test_adverse_index.ipynb).
+
+- **Le défaut.** L'entropie quadratique de Rao est la *distance intra-liste*, dont Ohsaka et
+  Togashi (SIGIR 2023) ont montré qu'elle admet des optima dégénérés. Sur un axe d'opinion le
+  dégénéré est le **fil bimodal** : elle attribue **1,000** à un fil servant les deux bords et
+  rien entre eux, contre **0,750** à un fil étalé.
+- **Ce n'est pas une faille exploitable, c'est la réponse optimale.** Sous plancher de Rao à
+  0,80, la plateforme sert **4 points de vue sur 8** et laisse un vide de **0,71** — les sept
+  dixièmes de l'axe. Le plancher réglementaire produit lui-même l'exposition bimodale que le
+  projet cherche à mesurer.
+- **La faute est de méthode** : le remplaçant avait été éprouvé contre l'attaque qu'il devait
+  fermer, et contre aucune autre. L'erreur a été trouvée en lisant la littérature du domaine
+  sur la mesure employée, non en relisant le code.
+
+### Ajouté — trois mesures candidates, éprouvées contre trois adversaires
+
+- **`position_entropy`** — l'IDE calculé sur les **contenus** servis, projetés sur les bacs du
+  catalogue de référence, et non sur les étiquettes déclarées. Garde l'interprétation de
+  l'index d'origine, résiste aux trois adversaires, et coûte **moins cher** que Rao (18,1 %
+  contre 32,8 % à plancher 0,80).
+- **`gaussian_ild`** — la proposition d'Ohsaka et Togashi. Métrique là où l'entropie est
+  nominale, mais elle plafonne à 0,715 sur l'uniforme : sa borne dépend de $k$ et de la largeur
+  de bande, donc un seuil chiffré n'y serait pas lisible. Bon diagnostic, mauvaise norme.
+- **`target_divergence`** — proximité à une distribution d'exposition **déclarée** par le
+  régulateur. Seule à rendre explicite la forme visée, là où les autres la supposent : l'entropie
+  suppose l'uniforme, l'entropie de Rao suppose l'écartement.
+- **`centre_share` et `largest_gap`** — diagnostics de forme. Ce sont eux qui ont rendu le
+  défaut visible, alors qu'aucune grandeur contrainte ne s'en émouvait.
+- **`optimal_feed_under`** — optimiseur générique : toutes les mesures passent désormais par le
+  même solveur, une comparaison entre normes ne valant que si l'optimisation est identique de
+  part et d'autre.
+- **`Feed`** porte le catalogue de référence complet et non son seul écart maximal, ce qui lui
+  donne aussi la grille de bacs.
+- 25 tests supplémentaires, dont le défaut de Rao énoncé comme test — il est reproductible,
+  donc il est réel.
+
+### Résultats — ce que le correctif retient
+
+| Rôle | Mesure |
+|---|---|
+| plancher | entropie de position |
+| publié à côté | plus grand vide, l'entropie étant nominale |
+| successeur à instruire | proximité à une cible déclarée |
+
+- **Recommandation 1 du mémorandum révisée une seconde fois.** Le plancher ne porte ni sur
+  l'IDE des étiquettes, ni sur l'entropie de Rao des contenus, mais sur l'**entropie de
+  position**, publiée avec le plus grand vide.
+- **Pages corrigées en place** : `gaming`, `memorandum`, `feuille-de-route` (§2.1 et §2.2),
+  `index` et README, qui présentaient tous l'entropie de Rao comme le remplacement retenu.
+
 ### Ajouté — test adverse de l'index, et réplication de l'annotation
 
 Deux vérifications indépendantes, l'une sur le livrable réglementaire, l'autre sur la méthode

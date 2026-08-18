@@ -69,19 +69,36 @@ one way to meet the objective, not the only one.
     that far: at half decoupling, the constraint retains only **36 %** of its force.
 
     **A floor on label entropy is therefore not a tenable standard.** The measurement must be
-    made on **Rao's quadratic entropy**, which weights diversity by the effective semantic
-    distance between the items served. It resists, and better than that: beyond half
-    decoupling the floor becomes **unattainable**, and below it the floor costs *more* as the
-    platform empties its labels. Gaming the labelling turns against the platform.
+    made on the **items** served, not on the labels announcing them.
 
-    What the regulator must then fix in addition: the **span of the reference catalogue**,
-    which serves as the unit of the measure. It is the same political question as the choice
-    of $k$, moved one step along.
+    !!! danger "Corrected a second time — not on Rao's entropy"
+        This recommendation first named **Rao's quadratic entropy**. That was an error, and of
+        the worst kind: Rao's entropy is the *intra-list distance*, whose constrained optimum
+        is **bimodal**. It awards 1.000 to a feed serving the two edges and nothing between,
+        against 0.750 to a spread feed — **a Rao floor would prescribe polarisation.**
+
+    **The retained floor is on position entropy**: the Shannon entropy of the items served,
+    projected onto the bins of the reference catalogue. It is the index with one substitution
+    — items instead of labels — hence the same reading, the same scale, and a lower compliance
+    cost than Rao's entropy.
+
+    **The largest gap is published beside the floor.** Entropy is *nominal*: it counts
+    occupied viewpoints without seeing their spacing. The diagnostic covers what it misses,
+    and it is what makes bimodality observable.
+
+    What the regulator must then fix in addition: the **reference catalogue**, which serves as
+    both grid and unit. It is the same political question as the choice of $k$, moved one step
+    along.
 
     **Complementary provision.** Publish both indices on the same feed and monitor the
     **excess signature** — the EDI − Rao gap relative to what an honest catalogue would show
     at the same index. It is zero for an honest platform and grows with gaming.
     → [Adversarial test of the index](gaming.en.md)
+
+    **Successor to be worked out.** A *target proximity* — divergence between the exposure
+    served and a distribution the regulator publishes — is the only measure tested that makes
+    the intended shape of exposure explicit rather than assumed. It is also the entry point to
+    the field's normative-diversity metrics.
 
 **Original reservation, kept on record.** The index is gameable: label diversity can satisfy
 a threshold without diversifying the argument. A credible standard must pair automated
@@ -243,7 +260,8 @@ informational space, independently of the content of any single message.
 | privacy-preserving audit protocol | not designed |
 | normative definition of the viewpoint catalogue $k$ | political choice unresolved |
 | resistance of the index to gaming | **done, and negative** — an EDI floor saturates at zero cost ([adversarial test](gaming.en.md)); the measurement must be made on Rao's entropy |
-| calibration of the **Rao** floor | no procedure — the adversarial test establishes the form of the standard, not its level |
+| calibration of the **position-entropy** floor | no procedure — the adversarial test establishes the form of the standard, not its level |
+| choice of the **exposure target** | an unsettled political question, which a divergence measure makes explicit instead of burying |
 | cost in perceived relevance of an index floor | not evaluated |
 
 This memorandum should therefore be read as a **framework to harden**, not a ready-to-use
