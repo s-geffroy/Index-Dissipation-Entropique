@@ -72,6 +72,7 @@ plugins:
             Corpus étendu: Extended corpus
             Annotation en aveugle: Blind annotation
             Test adverse de l'index: Adversarial test of the index
+            Rang et contrefactuel: Rank and counterfactual
             Mémorandum de régulation: Regulatory memorandum
             Réserves: Caveats
             Audit critique et limites: Critical audit and limitations
@@ -126,6 +127,7 @@ nav:
       - Corpus étendu: corpus-etendu.md
       - Annotation en aveugle: annotation.md
       - Test adverse de l'index: gaming.md
+      - Rang et contrefactuel: evaluation.md
       - Mémorandum de régulation: memorandum.md
   - Réserves:
       - Audit critique et limites: limites.md
@@ -146,3 +148,4 @@ nav:
       - 11 — Corpus étendu: notebooks/11_corpus_etendu.ipynb
       - 12 — Annotation en aveugle: notebooks/12_annotation_en_aveugle.ipynb
       - 13 — Test adverse: notebooks/13_test_adverse_index.ipynb
+      - 14 — Rang et contrefactuel: notebooks/14_rang_et_contrefactuel.ipynb

@@ -192,6 +192,23 @@ des étiquettes de points de vue déjà disponibles. On peut :
 C'est ce qui permettrait de répondre à la seule objection sérieuse d'une plateforme :
 *combien ça coûte*. Et cela ne demande aucun accès privilégié aux données.
 
+!!! danger "Trois conditions, sans lesquelles cette mesure ne mesure rien"
+    → **[Rang et contrefactuel](evaluation.md)** a établi que le protocole ci-dessus, pris au
+    pied de la lettre, est **faux**.
+
+    1. la diversité doit se mesurer par une **divergence consciente du rang** à une référence
+       déclarée. Sans quoi une plateforme s'y conforme en **enterrant** les contenus
+       divergents : à composition identique, cela rapporte 10 % d'engagement et aucune mesure
+       ponctuelle ne le voit ;
+    2. le coût en pertinence doit s'estimer par **IPS ou SNIPS**, jamais par *replay* sur les
+       clics enregistrés. Le replay se trompe de **201 % en médiane**, jusqu'à 851 %, et son
+       sens n'est pas garanti — il n'offre donc même pas une borne ;
+    3. le **modèle de propension**, la **taille d'échantillon effective** et le **plafond**
+       doivent être publiés avec le chiffre.
+
+    Sans ces trois conditions, la frontière de Pareto annoncée mesurerait surtout le biais de
+    position de la plateforme qui a produit les données.
+
 ### 3.2 Formuler une prédiction falsifiable
 
 **La limite.** Rien ne démontre que les opinions *obéissent* à cette mécanique ; le

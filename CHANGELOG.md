@@ -7,6 +7,48 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — rang et contrefactuel, deux corrections avant l'évaluation sur données réelles
+
+Détail : [`docs/evaluation.md`](docs/evaluation.md) et le
+[notebook 14](notebooks/14_rang_et_contrefactuel.ipynb).
+
+- **`ide.radio`** — divergences conscientes du rang, d'après RADio (Vrijenhoek *et al.*,
+  RecSys 2022) : remise de rang réciproque ou logarithmique, divergence de Jensen-Shannon en
+  base 2 donc **exactement** bornée par 1, et les cinq références du cadre — calibration,
+  fragmentation, activation, représentation, voix alternatives.
+- **`ide.offpolicy`** — estimateurs contrefactuels : IPS, SNIPS, IPS plafonné, doublement
+  robuste, taille d'échantillon effective, et l'estimateur de *replay* implémenté **pour être
+  comparé, non pour être employé**. Un défaut de recouvrement y lève une erreur au lieu de
+  produire un chiffre.
+- **`notebooks/14_rang_et_contrefactuel.ipynb`** et 68 tests supplémentaires.
+
+### Résultats — un quatrième adversaire, et une évaluation qui ne mesurait rien
+
+- **L'enterrement fonctionne.** À composition **rigoureusement identique**, déplacer les
+  contenus divergents vers le bas du fil rapporte **10 % d'engagement** et fait passer la
+  divergence de 0,525 à 0,630. L'entropie de position — le plancher retenu la veille — vaut
+  0,774 dans les deux cas : elle ne voit que la composition, jamais l'ordre.
+- **La remise de rang ferme l'échappatoire.** À composition fixe, faire glisser le bloc
+  divergent du haut vers le bas laisse la mesure sans remise **parfaitement plate**, tandis que
+  les mesures escomptées montent de 0,29 à 0,68.
+- **L'évaluation naïve d'un réordonnancement est fausse de 201 % en médiane**, jusqu'à 851 %
+  sur soixante jeux de contenus. Elle surestime le coût dans 56 cas sur 60 — ce qui inviterait
+  à la tenir pour prudente — mais le sous-estime dans les 4 autres, à configuration pourtant
+  identique. **Un chiffre naïf n'est donc même pas une borne supérieure.**
+- **IPS et SNIPS retrouvent la valeur vraie à moins d'un point** (6,6 % contre 6,6 %, là où le
+  replay annonce 5,0 %).
+- **Trois grandeurs doivent accompagner tout résultat contrefactuel** : le modèle de propension
+  employé, la taille d'échantillon effective — qui tombe de 60 000 à 10 026 quand le
+  réordonnancement devient agressif — et le plafond, dont le seul choix déplace l'estimation de
+  −6,5 % à −0,0 %.
+- **Conséquences** : la recommandation 1 du mémorandum exige désormais une mesure **consciente
+  du rang** ; la feuille de route §3.1 conditionne l'évaluation de l'ADE à trois exigences sans
+  lesquelles « la frontière de Pareto annoncée mesurerait surtout le biais de position de la
+  plateforme qui a produit les données ».
+- **Réserve maintenue :** le modèle de biais de position est une hypothèse, non une mesure. Le
+  problème se déplace d'un cran, de « les clics sont des étiquettes » vers « l'exposition se
+  modélise par le rang ». Le second énoncé est bien meilleur, et il reste un énoncé.
+
 ### Corrigé — le remplaçant proposé pour l'IDE prescrivait la polarisation
 
 Correction du correctif publié la veille. Détail : [`docs/gaming.md`](docs/gaming.md), section

@@ -92,6 +92,13 @@ inapplicable et contre-productif.
     compte les points de vue occupés sans voir leur écartement. Le diagnostic couvre ce
     qu'elle ne voit pas, et il est ce qui rend la bimodalité constatable.
 
+    !!! danger "Et la mesure doit être consciente du rang"
+        Une mesure portant sur la seule composition du fil se laisse satisfaire en
+        **enterrant** les contenus divergents au bas du classement : à composition identique,
+        cela rapporte 10 % d'engagement sans changer la mesure d'un point. Le plancher doit
+        donc porter sur une distribution **pondérée par l'attention accordée à chaque rang**.
+        → [Rang et contrefactuel](evaluation.md)
+
     Ce que le régulateur doit alors fixer en plus : le **catalogue de référence**, qui sert à
     la fois de grille et d'unité. C'est la même question politique que le choix de $k$,
     déplacée d'un cran.

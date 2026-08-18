@@ -65,6 +65,11 @@ made on the **items** served, not on the labels announcing them. The first repla
 *prescribe* polarisation. The retained floor is an entropy computed on the items served.
 → [Adversarial test of the index](gaming.en.md)
 
+**And evaluating it on real data required two prior corrections.** A diversity measure blind
+to rank is satisfied by **burying** the divergent items, and naive evaluation of a re-ranking on
+logged clicks is off by **201 % at the median**, without even guaranteeing the sign of its error.
+→ [Rank and counterfactual](evaluation.en.md)
+
 ## What the work proposes
 
 | | Object | Intended for |
@@ -96,7 +101,7 @@ the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The thirteen notebooks are executable and produce every figure in the paper. Each stands
+The fourteen notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -113,7 +118,8 @@ on its own.
 | [10 — Regime change](notebooks/10_changement_de_regime.ipynb) | 14 dated switches, and why the ratio is unidentifiable there |
 | [11 — Extended corpus](notebooks/11_corpus_etendu.ipynb) | 440 category-derived subjects: the persistence gap does not replicate |
 | [12 — Blind annotation](notebooks/12_annotation_en_aveugle.ipynb) | 40 % label noise measured, and the double recoding at $\kappa = 0.92$ |
-| [13 — Adversarial test](notebooks/13_test_adverse_index.ipynb) | an index floor saturated at zero cost, and Rao's entropy resisting it |
+| [13 — Adversarial test](notebooks/13_test_adverse_index.ipynb) | an index floor saturated at zero cost, and the fix that prescribed polarisation |
+| [14 — Rank and counterfactual](notebooks/14_rang_et_contrefactuel.ipynb) | burying diversity, and offline evaluation wrong by 201 % |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 
@@ -125,7 +131,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 445 tests
+docker compose run --rm test          # 488 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

@@ -86,6 +86,13 @@ one way to meet the objective, not the only one.
     occupied viewpoints without seeing their spacing. The diagnostic covers what it misses,
     and it is what makes bimodality observable.
 
+    !!! danger "And the measure must be rank-aware"
+        A measure bearing on a feed's composition alone is satisfied by **burying** the
+        divergent items at the bottom of the ranking: at identical composition that yields
+        10 % more engagement without moving the measure by a point. The floor must therefore
+        bear on a distribution **weighted by the attention each rank receives**.
+        → [Rank and counterfactual](evaluation.en.md)
+
     What the regulator must then fix in addition: the **reference catalogue**, which serves as
     both grid and unit. It is the same political question as the choice of $k$, moved one step
     along.

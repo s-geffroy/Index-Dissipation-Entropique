@@ -67,6 +67,11 @@ remplaçant proposé — l'entropie de Rao — s'est révélé pire encore : son
 est **bimodal**, donc il *prescrirait* la polarisation. Le plancher retenu est une entropie
 calculée sur les contenus. → [Test adverse de l'index](gaming.md)
 
+**Et l'évaluer sur données réelles demandait deux corrections préalables.** Une mesure de
+diversité aveugle au rang se laisse satisfaire en **enterrant** les contenus divergents, et
+l'évaluation naïve d'un réordonnancement sur des clics enregistrés se trompe de **201 % en
+médiane**, sans même garantir le sens de son erreur. → [Rang et contrefactuel](evaluation.md)
+
 ## Ce que le travail propose
 
 | | Objet | Destinataire |
@@ -99,7 +104,7 @@ faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment 
 
 ## Explorer
 
-Les treize notebooks sont exécutables et produisent l'intégralité des figures de la
+Les quatorze notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -116,7 +121,8 @@ note. Chacun se lit indépendamment.
 | [10 — Changement de régime](notebooks/10_changement_de_regime.ipynb) | 14 basculements datés, et pourquoi le rapport n'y est pas identifiable |
 | [11 — Corpus étendu](notebooks/11_corpus_etendu.ipynb) | 440 sujets dérivés de catégories : l'écart de persistance ne se réplique pas |
 | [12 — Annotation en aveugle](notebooks/12_annotation_en_aveugle.ipynb) | 40 % de bruit d'étiquetage mesuré, et le double recodage à $\kappa = 0{,}92$ |
-| [13 — Test adverse](notebooks/13_test_adverse_index.ipynb) | un plancher d'IDE saturé à coût nul, et l'entropie de Rao qui y résiste |
+| [13 — Test adverse](notebooks/13_test_adverse_index.ipynb) | un plancher d'IDE saturé à coût nul, et le correctif qui prescrivait la polarisation |
+| [14 — Rang et contrefactuel](notebooks/14_rang_et_contrefactuel.ipynb) | l'enterrement de la diversité, et l'évaluation hors ligne fausse de 201 % |
 
 ## Reproduire
 
@@ -126,7 +132,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 445 tests
+docker compose run --rm test          # 488 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

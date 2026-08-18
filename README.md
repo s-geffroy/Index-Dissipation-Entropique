@@ -6,7 +6,7 @@ thermodynamique de l'opinion publique.**
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Index-Dissipation-Entropique/)
-[![Tests : 445](https://img.shields.io/badge/tests-445-brightgreen.svg)](tests/)
+[![Tests : 488](https://img.shields.io/badge/tests-488-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Index-Dissipation-Entropique/)**
 · [English](https://s-geffroy.github.io/Index-Dissipation-Entropique/en/)
@@ -50,7 +50,12 @@ Trois résultats, chacun adossé à du code exécutable :
   du contenu obtient un IDE de **1,000 pour une diversité de contenu nulle**, à coût nul. Le
   premier remplaçant proposé — l'entropie de Rao — s'est révélé pire : son optimum sous
   contrainte est **bimodal**, donc il prescrirait la polarisation. Le plancher retenu porte sur
-  une entropie calculée sur les **contenus** servis.
+  une entropie calculée sur les **contenus** servis, et il doit être **conscient du rang** :
+  sinon la plateforme s'y conforme en enterrant les contenus divergents.
+- **Et l'évaluation hors ligne de l'algorithme demandait d'abord d'être corrigée.** Sur des
+  clics enregistrés, l'estimation naïve du coût d'un filtre de diversité se trompe de **201 %
+  en médiane** — et rien ne garantit le sens de l'erreur.
+  → **[Rang et contrefactuel](docs/evaluation.md)**
 
 Le travail en dérive deux instruments :
 
@@ -83,7 +88,7 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 445 tests, dont les exemples de docstrings
+docker compose run --rm test          # 488 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
 docker compose run --rm notebooks     # régénère les 11 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
@@ -111,7 +116,7 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── corpus.py       corpus pré-enregistré de calibration
 └── abm/            modèle à agents « compas politique »
 
-tests/              445 tests — validation physique, numérique et statistique
+tests/              488 tests — validation physique, numérique et statistique
 notebooks/          01 à 11, un par bloc théorique, exécutables
 data/pageviews/     464 séries de consultation, versionnées pour la reproductibilité
 data/catalogue.json manifeste pré-enregistré du corpus étendu (440 sujets)
@@ -155,6 +160,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   le double recodage ($\kappa$ de Fleiss = 0,921).
 - [`docs/gaming.md`](docs/gaming.md) — **le test adverse de l'index** : un plancher d'IDE se
   sature à coût nul, et le premier correctif proposé prescrivait la polarisation.
+- [`docs/evaluation.md`](docs/evaluation.md) — **rang et contrefactuel** : l'enterrement de la
+  diversité, et pourquoi une évaluation hors ligne naïve se trompe de 201 %.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

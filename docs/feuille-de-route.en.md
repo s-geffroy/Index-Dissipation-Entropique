@@ -167,6 +167,22 @@ datasets (such as MIND, the Microsoft News Dataset) provide both real reading hi
 This would answer the only serious objection a platform can raise: *what does it cost*.
 And it requires no privileged data access.
 
+!!! danger "Three conditions, without which this measurement measures nothing"
+    → **[Rank and counterfactual](evaluation.en.md)** established that the protocol above,
+    taken at face value, is **wrong**.
+
+    1. diversity must be measured by a **rank-aware divergence** to a declared reference.
+       Otherwise a platform complies by **burying** the divergent items: at identical
+       composition that yields 10 % more engagement and no point measure sees it;
+    2. the cost in relevance must be estimated by **IPS or SNIPS**, never by *replay* on logged
+       clicks. Replay is off by **201 % at the median**, up to 851 %, and its sign is not
+       guaranteed — so it does not even offer a bound;
+    3. the **propensity model**, the **effective sample size** and the **clipping cap** must be
+       published with the figure.
+
+    Without those three conditions, the announced Pareto frontier would chiefly measure the
+    position bias of the platform that produced the data.
+
 ### 3.2 Formulate a falsifiable prediction
 
 **The limitation.** Nothing shows opinion *obeys* this mechanics; the work shows it
