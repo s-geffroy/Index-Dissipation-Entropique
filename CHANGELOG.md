@@ -7,6 +7,39 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Résultats — l'annotation en aveugle tranche : l'écart n'existe pas
+
+Détail : [`docs/annotation.md`](docs/annotation.md) et le
+[notebook 12](notebooks/12_annotation_en_aveugle.ipynb).
+
+- **Le bruit d'étiquetage est massif et mesuré.** 175 sujets sur 440 — **40 %** — ne relèvent
+  d'aucun des deux registres, et l'accord entre catégorie et annotation n'atteint que
+  **59,5 %**. Le bruit est asymétrique (31,8 % côté accusation, 47,7 % côté découverte) mais
+  le registre franchement inversé est quasi nul : 3 sujets. C'est le profil d'un bruit qui
+  dilue sans biaiser, tel que le corpus étendu l'avait supposé.
+- **L'écart de taux de basculement disparaît.** 8,6 % contre 2,7 % (rapport de cotes 3,37,
+  $p = 0{,}012$) devient **4,8 % contre 5,1 %** (rapport de cotes **0,93**, $p = 1{,}00$). Les
+  sujets écartés basculent à 6,9 %, soit **plus souvent que les deux registres** : ce sont eux
+  qui portaient l'écart. Quatre des cinq plus fortes élévations du corpus sont codées « ni
+  l'un ni l'autre ».
+- **Le déséquilibre d'audience était lui-même un effet de l'étiquetage.** Le trafic médian
+  passe de 39 contre 11 vues/jour à 36 contre 26,5.
+- **La persistance reste nulle, avec la puissance de conclure.** ×3,04 contre ×2,90
+  ($p = 0{,}90$), robuste au retrait des sujets contaminés, des annotations incertaines et des
+  sujets à faible trafic. À $n = 7$ contre 7, un écart aussi séparé que celui qu'annonçait le
+  corpus pilote aurait été détecté ($p = 0{,}04$ avec quatre rangs de chevauchement).
+- **Un défaut de plan d'expérience est révélé.** Correctement étiquetés, les deux registres ne
+  portent presque pas sur les mêmes types de sujets — 58 événements et 63 concepts côté
+  accusation, 58 objets et 39 personnes côté découverte. Les concepts ne basculent jamais
+  (0/63 et 0/15). Une comparaison bâtie sur des catégories thématiques compare donc aussi des
+  natures d'objets.
+- **Bilan :** quatre mesures, aucun effet du registre émotionnel. La dernière hypothèse de
+  sauvetage — la dilution par l'étiquetage — est éliminée. Le mécanisme de la charge
+  émotionnelle $\alpha$ reste sans appui empirique.
+- **Pages corrigées en place** : `corpus-etendu`, `regimes`, `memorandum` (dont la ligne
+  « persistance » du tableau des points non mesurés, restée en ×9,2 contre ×2,9), `index`,
+  README et feuille de route, dont la priorité n° 1 devient le double codage.
+
 ### Ajouté — pré-enregistrement de l'annotation en aveugle
 
 Fixe la grille d'annotation manuelle du registre **avant** toute annotation, pour trancher
@@ -21,7 +54,10 @@ entre absence d'effet et effet dilué par le bruit d'étiquetage. Protocole :
   dans le fichier d'annotations.
 - **Contamination déclarée** — les six sujets cités avec leur élévation dans la page du
   corpus étendu sont listés dans `ide.annotation.CONTAMINATED`, annotés comme les autres, et
-  l'analyse sera reprise sans eux.
+  l'analyse est reprise sans eux.
+- **`data/extracts.json` et `data/annotations.json`** — les chapeaux figés des 440 articles et
+  leur codage manuel, avec l'empreinte SHA-256 des premiers inscrite dans le second.
+- **`notebooks/12_annotation_en_aveugle.ipynb`** et 22 tests supplémentaires.
 
 ### Ajouté — corpus étendu et réplication
 

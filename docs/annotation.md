@@ -131,10 +131,162 @@ rapportés comme tels.
 
 ## Résultats
 
-!!! info "À venir"
-    Cette section sera complétée après l'annotation. La grille ci-dessus ne sera pas
-    modifiée : si elle devait l'être, la version de grille serait incrémentée et l'annotation
-    reprise.
+!!! success "La question est tranchée : l'écart n'était pas dilué, il n'existe pas"
+    L'écart de taux de basculement **disparaît complètement** une fois l'étiquette corrigée :
+    8,6 % contre 2,7 % ($p = 0{,}012$) devient **4,8 % contre 5,1 %**, rapport de cotes 0,93,
+    $p = 1{,}00$. La persistance reste nulle — ×3,04 contre ×2,90, $p = 0{,}90$ — et le test
+    conserve la puissance de détecter un écart de l'ampleur annoncée par le corpus pilote.
+
+!!! warning "Le bruit d'étiquetage était massif"
+    **Deux sujets sur cinq** ne relèvent d'aucun des deux registres, et l'accord entre
+    catégorie et annotation n'atteint que **59,5 %**. La conjecture du corpus étendu est
+    vérifiée, et son ampleur dépasse ce qu'il supposait.
+
+!!! danger "Et l'annotation expose un défaut de conception"
+    Correctement étiquetés, les deux registres **ne portent presque pas sur les mêmes types de
+    sujets** : concepts et événements d'un côté, objets et personnes de l'autre. Une
+    comparaison bâtie sur des catégories thématiques compare donc aussi des natures d'objets.
+
+### 1. Le bruit d'étiquetage, mesuré
+
+| Catégorie | n | annoté accusation | annoté découverte | annoté ni l'un ni l'autre |
+|---|---|---|---|---|
+| accusation | 220 | **147** (66,8 %) | 3 (1,4 %) | **70** (31,8 %) |
+| découverte | 220 | 0 (0,0 %) | **115** (52,3 %) | **105** (47,7 %) |
+
+Accord global : **262/440 = 59,5 %**. Registre franchement inversé : **3 sujets**.
+
+Le bruit est **asymétrique**, pour une raison de construction : le registre « découverte »
+tirait ses effectifs de catalogues d'objets célestes, dont l'immense majorité sont des entrées
+techniques sans public. Le filtre de substance de dix mille octets n'y suffisait pas.
+
+Mais le registre franchement inversé est **quasi nul**. La catégorie se trompe en capturant des
+sujets hors registre, presque jamais en attribuant le mauvais registre — c'est exactement le
+profil d'un bruit qui dilue sans biaiser, tel que le corpus étendu l'avait supposé.
+
+### 2. L'écart de taux de basculement s'évanouit
+
+![Annotation en aveugle : le bruit d'étiquetage portait l'écart](figures/fig12_annotation.png)
+
+/// caption
+Le bruit d'étiquetage ; la disparition de l'écart de taux avec l'étiquette corrigée ; la
+persistance par registre annoté ; et le défaut de conception que l'annotation révèle. Figure
+régénérée par [le notebook 12](notebooks/12_annotation_en_aveugle.ipynb).
+///
+
+| Étiquette | accusation | découverte | rapport de cotes | p |
+|---|---|---|---|---|
+| catégorie | 19/220 = 8,6 % | 6/220 = 2,7 % | 3,37 | **0,012** |
+| **annotation** | 7/147 = 4,8 % | 6/118 = 5,1 % | **0,93** | **1,000** |
+| *(ni l'un ni l'autre)* | *12/175 = 6,9 %* | | | |
+
+Le rapport de cotes ne s'atténue pas : il **disparaît**, et change même très légèrement de sens.
+
+Le détail le plus parlant est la dernière ligne. Les sujets écartés basculent à **6,9 %**,
+c'est-à-dire **plus souvent que les deux registres**. Ce n'étaient pas des observations
+inertes : ce sont elles qui portaient l'écart attribué au registre d'accusation. Sur les cinq
+plus fortes élévations du corpus, **quatre** sont codées « ni l'un ni l'autre » — Lil Tay,
+Watch Dogs, Million Dollar Extreme, The Capture. Ce sont exactement les cas que le corpus
+étendu avait cités comme suspects.
+
+**Le déséquilibre d'audience était lui-même un effet de l'étiquetage.** Le trafic médian passe
+de 39 contre 11 vues/jour ($p = 5\times10^{-14}$) à 36 contre 26,5 ($p = 2{,}6\times10^{-3}$) :
+les entrées de catalogue sans public gonflaient le registre « découverte ». Les deux contrôles
+du corpus étendu confirment l'absence d'écart — strate ≥ 47 vues/jour, RC = 0,45 ($p = 0{,}32$)
+; 116 paires appariées sur le trafic, McNemar $p = 1{,}00$.
+
+### 3. La persistance reste nulle — et le test pouvait conclure
+
+| Corpus | accusation | découverte | p |
+|---|---|---|---|
+| pilote, 24 sujets choisis à la main | ×9,20 (n = 8) | ×2,90 (n = 6) | 0,081 |
+| étendu, étiquette de catégorie | ×3,04 (n = 21) | ×2,90 (n = 7) | 0,533 |
+| **étendu, registre annoté** | **×3,04** (n = 7) | **×2,90** (n = 7) | **0,902** |
+| *sans les sujets contaminés* | *×2,87* (n = 6) | *×2,90* (n = 7) | *0,945* |
+| *sans les annotations incertaines* | *×3,06* (n = 6) | *×2,90* (n = 5) | *0,931* |
+| *strate de trafic comparable* | *×2,69* (n = 5) | *×2,90* (n = 7) | *0,876* |
+
+Quatorze observations, sept de chaque côté. Il faut le dire avant qu'on ne l'objecte — mais un
+test de Mann-Whitney à sept contre sept n'est pas aveugle :
+
+| Rangs de chevauchement | p |
+|---|---|
+| 0 — séparation complète | 0,0006 |
+| 2 | 0,0048 |
+| **4** | **0,040** |
+| 5 | 0,140 |
+
+Le corpus pilote annonçait des intervalles interquartiles [4,0 ; 14,9] contre [2,7 ; 3,2],
+c'est-à-dire presque disjoints. **Un écart de cette ampleur aurait été détecté ici.** Le
+résultat nul n'est donc pas un simple manque de puissance.
+
+> **La question laissée ouverte par le corpus étendu est tranchée : l'écart n'était pas dilué
+> par l'étiquetage, il n'existe pas.**
+
+### 4. Ce que l'annotation révèle du plan d'expérience
+
+C'est la découverte que ni le pilote ni le corpus étendu ne pouvaient faire, faute d'étiquette
+fiable.
+
+| Type de sujet | accusation | découverte | ni l'un ni l'autre |
+|---|---|---|---|
+| événement | **58** | 6 | 1 |
+| concept | **63** | 15 | 21 |
+| personne | 13 | **39** | 12 |
+| objet | 0 | **58** | 109 |
+| organisation | 11 | 0 | 13 |
+| œuvre | 2 | 0 | 19 |
+
+Le registre d'accusation est fait de **concepts et d'événements** ; celui de découverte,
+d'**objets et de personnes**. Un seul type se trouve des deux côtés en nombre suffisant — les
+personnes, 23,1 % contre 7,7 %, $p = 0{,}16$ — et il n'y donne rien de concluant. Les concepts,
+eux, ne basculent **jamais** : 0 sur 63 et 0 sur 15.
+
+La conséquence dépasse ce corpus. **Une comparaison entre registres bâtie sur des catégories
+thématiques compare aussi, et peut-être surtout, des natures d'objets.** Un concept
+encyclopédique — « Corruption au Mexique » — n'a pas la dynamique d'attention d'un événement
+daté, indépendamment de toute charge émotionnelle. Le corpus étendu avait nommé ce confondant
+sans pouvoir le mesurer ; il est ici mesuré, et il est sévère.
+
+C'est une limite du **plan d'expérience**, non du résultat : elle ne ressuscite pas l'écart,
+elle indique ce qu'un quatrième protocole devrait contrôler.
+
+### 5. Une note sur l'identification
+
+Un ajustement sur vingt-huit passe cette fois tous les contrôles, y compris celui
+d'observabilité ajouté après le corpus étendu. Il porte sur **« Watch Dogs (jeu vidéo) »** —
+un sujet codé « ni l'un ni l'autre ». L'identification des paramètres reste donc, en pratique,
+hors de portée sur ce type de données.
+
+## Ce que cela change pour le projet
+
+**Quatre mesures ont été menées, et aucune ne distingue les registres émotionnels** : le taux
+d'amplification ([calibration](calibration.md)), la persistance sur corpus pilote puis étendu
+([régimes](regimes.md), [corpus étendu](corpus-etendu.md)), et le taux de basculement. La
+dernière hypothèse de sauvetage — la dilution par un étiquetage approximatif — est éliminée.
+
+Le mécanisme de la **charge émotionnelle $\alpha$ reste sans appui empirique**, et ce n'est
+plus faute d'avoir cherché. Si ce mécanisme existe, il ne se lit pas dans la dynamique
+d'attention agrégée d'une encyclopédie.
+
+Ce qui subsiste est intact et n'a jamais dépendu du registre : la **détection de basculements
+datés** fonctionne, les dates et les amplitudes sont robustes, et elles restent l'instrument de
+constat proposé au [mémorandum](memorandum.md).
+
+## Pistes ouvertes
+
+1. **Faire annoter le même corpus par un second codeur**, à l'aveugle également, et publier le
+   $\kappa$ de Cohen. C'est le complément direct et peu coûteux de ce travail, et la seule
+   réserve de méthode qui subsiste.
+2. **Apparier sur le type de sujet** autant que sur le trafic, dès la construction du corpus.
+   Comparer des événements à des événements et des personnes à des personnes est désormais une
+   exigence mesurée, non une précaution théorique.
+3. **Abaisser le seuil de détection en agrégeant par semaine.** Vingt-huit basculements sur
+   440 sujets laissent le test principal à sept observations par registre ; c'est le facteur
+   limitant qui reste.
+4. **Chercher l'effet ailleurs que dans la dynamique d'attention agrégée.** Trois quantités ont
+   été testées sans résultat ; la quatrième piste ne devrait pas être une quatrième mesure du
+   même objet.
 
 ---
 

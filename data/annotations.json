@@ -1,0 +1,3099 @@
+{
+ "rubric_version": "1.0",
+ "extracts_sha256": "23bff50b70ae0508f1f533eeb05f9b2c8b764ca35451cf10a63f7304ee2ed12b",
+ "registers": [
+  "accusation",
+  "discovery",
+  "neither"
+ ],
+ "kinds": [
+  "event",
+  "person",
+  "organisation",
+  "work",
+  "concept",
+  "object"
+ ],
+ "annotations": [
+  {
+   "title": "111 Tauri",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "17 Cygni",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "1858 Bradford sweets poisoning",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "19 Aquilae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "1937 Liechtenstein spy affair",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "1987 Lieyu massacre",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "2 Piscis Austrini",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "2006 Georgian–Russian espionage controversy",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "2025 NBA illegal gambling prosecution",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "21 Aquilae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "2685 Masursky",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "3 Piscis Austrini",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "31 Cygni",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "32 Orionis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "3C 298",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "4 Centauri",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "42 Capricorni",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "4587 Rees",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "4C 10.45",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "52 Sagittarii",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "55 Cancri Ac",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "55 Cancri Ad",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "56 Pegasi",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "6189 Völk",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "73 Leonis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "79 Ceti",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "8 Andromedae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "AB Aurigae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "etoile jeune a disque ; le chapeau ne rapporte aucune decouverte associee"
+  },
+  {
+   "title": "ADS 1359",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "AG Carinae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "AK Scorpii",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "etoile jeune a disque circumbinaire image ; notabilite d'observation"
+  },
+  {
+   "title": "ALPHA experiment",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Accountability",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Acquired homosexuality",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Ad hominem",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Adagio in G minor",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "unsure",
+   "note": "oeuvre musicale celebre ; la fausse attribution est un fait d'histoire, non le moteur de l'attention"
+  },
+  {
+   "title": "Adeeb files",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Advanced Composition Explorer",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Afshar experiment",
+   "register": "discovery",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Agartala Conspiracy Case",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Al-Masdar News",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "journal en ligne ; le chapeau signale un parti pris, sans imputer de tromperie"
+  },
+  {
+   "title": "Alan Keyes",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "homme politique ; le chapeau est biographique et ne rapporte aucune affaire"
+  },
+  {
+   "title": "Alnilam",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Alpha Caeli",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Alpha Gruis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Alpha Lyncis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Altair",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Antares",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Anti-gender movement",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "mouvement politique ; le chapeau le decrit comme opposition militante, la charge polemique y est centrale"
+  },
+  {
+   "title": "Apollo 12",
+   "register": "discovery",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Arcturus",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Arrest of Robert Seacat",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Assassination of Orlando Letelier",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Astroturfing",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Asylum seekers with apathetic refugee children",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "unsure",
+   "note": "controverse medico-politique ; le chapeau rapporte un debat et une accusation d'abus"
+  },
+  {
+   "title": "Avram Hershko",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Ballymurphy massacre",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Bank Secrecy Act",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "loi de conformite financiere ; texte administratif, sans faute imputee a quelqu'un"
+  },
+  {
+   "title": "Barnard's Star",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "etoile proche tres etudiee ; objet astronomique, sans annonce de decouverte dans le chapeau"
+  },
+  {
+   "title": "Beatrice Sparks",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Beijing Schmidt CCD Asteroid Program",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "BeppoSAX",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Beta Canis Majoris",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Beta Sculptoris",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Bidzina Ivanishvili",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "oligarque et dirigeant de fait ; le chapeau ne rapporte aucune affaire judiciaire"
+  },
+  {
+   "title": "Big Five cartel",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Big lie",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Bion (satellite)",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Black Legend",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Black Ribbons",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Blacklist (employment)",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "pratique d'exclusion professionnelle ; regle 5, mais le chapeau reste historique et descriptif"
+  },
+  {
+   "title": "Blacksmith token",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "monnaie d'evasion du XIXe ; objet numismatique, la fraude y est historique et technique"
+  },
+  {
+   "title": "Bob Fitzsimmons vs. Tom Sharkey",
+   "register": "neither",
+   "kind": "event",
+   "confidence": "unsure",
+   "note": "combat de boxe a decision contestee ; le public mobilise est un public sportif"
+  },
+  {
+   "title": "Bodo League massacre",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Branding national myths and symbols",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Brian Josephson",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Brian Kobilka",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Bridge and tunnel",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Bumper sticker",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "C. F. Powell",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "CE Antliae",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "COVID-19 misinformation",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Capture of the Tuapse",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Carl Bosch",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Carlos Bandeirense Mirandópolis hoax",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Chemetco",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "China Cables",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Civil service reform in developing countries",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "reforme administrative ; sujet de politique publique, sans faute imputee"
+  },
+  {
+   "title": "Clientelism",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Compact Muon Solenoid",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Confederation Liberty and Independence",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "alliance politique ; le chapeau ne rapporte aucune affaire"
+  },
+  {
+   "title": "Conformity Gate",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "theorie de fans autour d'une serie ; le public mobilise est celui du divertissement"
+  },
+  {
+   "title": "Controversies surrounding the Royal Canadian Mounted Police",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Afghanistan",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Angola",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Bangladesh",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Botswana",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Chad",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Cuba",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Haiti",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Hungary",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Mexico",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Nicaragua",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Poland",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Romania",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Sudan",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in Taiwan",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in the Democratic Republic of the Congo",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Corruption in the United States",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Cosmic Background Explorer",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Coverage of the Hillsborough disaster by The Sun",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Cowan–Reines neutrino experiment",
+   "register": "discovery",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Cryogenic Dark Matter Search",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "DR Chamaeleontis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "DS Tucanae",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "DY Pegasi",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Danske Bank money laundering scandal",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "David Baker (biochemist)",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "David Julius",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Deepfake",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "technologie de media synthetique ; la charge de tromperie est centrale mais le chapeau reste technique"
+  },
+  {
+   "title": "Defence Honours and Awards scandal",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Delta Cassiopeiae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Derek Ridgewell",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Diepreye Alamieyeseigha",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "gouverneur ; le chapeau est purement biographique et ne rapporte aucune affaire"
+  },
+  {
+   "title": "Dipak K. Das",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Disappearance of Sherlyn Cadapan and Karen Empeño",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Disinformation research",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "champ de recherche academique ; registre savant, bien que son objet releve de l'accusation"
+  },
+  {
+   "title": "Disrupted planet",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Distributed Denial of Secrets",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "site de fuites ; sa notoriete tient aux affaires qu'il publie, non a une faute propre"
+  },
+  {
+   "title": "Double Asteroid Redirection Test",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Dresden left-wing extremism trial",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Dubai Papers",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "EG Andromedae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "EW Lacertae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Eddy current brake",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Electoral bonds",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Elizabeth Blackburn",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Emilio Segrè",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Enfield poltergeist",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "unsure",
+   "note": "affaire de hantise ; registre de la peur et de la supercherie, public de fait divers"
+  },
+  {
+   "title": "Epsilon Cygni",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Epsilon Draconis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Epsilon Geminorum",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Epsilon Herculis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Epsilon Scorpii",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Eugen Grigore case",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Fake Accounts",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Fake news websites in the United States",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "False titles of nobility",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Far Ultraviolet Spectroscopic Explorer",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Feynman sprinkler",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Fixer (person)",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "terme generique dont le sens varie selon le contexte"
+  },
+  {
+   "title": "Fomalhaut",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Forgery",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Francis Crick",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Frank Farian",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "producteur ; le chapeau decrit la substitution de voix, tromperie du public qui fait sa notoriete"
+  },
+  {
+   "title": "G Scorpii",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "GJ 3470 b",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "GZ Velorum",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gamma Corvi",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gamma Equulei",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gamma Piscis Austrini",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gamma Sextantis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gamma Trianguli Australis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gang stalking",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "croyance persecutoire ; registre de la menace percue, sans faute averee imputee"
+  },
+  {
+   "title": "Gay Nazis myth",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gay agenda",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Genocost",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "George Smith (chemist)",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Giri Bandhu Tea Estate Corruption",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Glenanne gang",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gliese 282",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gliese 393",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gliese 777",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gliese 784",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "naine rouge ; le chapeau evoque un compagnon planetaire possible, non confirme"
+  },
+  {
+   "title": "GraceLand",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Granat",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Granma (newspaper)",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "journal officiel ; le chapeau le decrit comme vecteur ideologique sans imputer de tromperie"
+  },
+  {
+   "title": "Gregg L. Semenza",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "GroundBIRD",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Gulargate",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 101917",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 11007",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 115404",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 118285",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 1461",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 154972",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 164595",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 164712",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 165185",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 166",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 168592",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 170773",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 172555",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 177565",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 181327",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 187086",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 18742",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 195479",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 1976",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 204018",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 209458",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 209458 b",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 219134 b",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 30080",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 31529",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 4391",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 44120",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 45184",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 63433 d",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HD 66920",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HR 3562",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "HR 4796",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "systeme a anneau de debris image ; la notoriete tient a l'observation, non au catalogue"
+  },
+  {
+   "title": "HS 0810+2554",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Halley's Comet",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "comete celebre ; objet astronomique traite comme les autres etoiles brillantes du corpus"
+  },
+  {
+   "title": "Hans Krebs (biochemist)",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Hayabusa",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Herbert Kickl",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "dirigeant de parti ; aucune mise en cause dans le chapeau"
+  },
+  {
+   "title": "Heteronuclear single quantum coherence spectroscopy",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "High Energy Astronomy Observatory 1",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "High-altitude balloon",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Highgate Vampire",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "unsure",
+   "note": "sensation mediatique surnaturelle ; registre de la peur, sans faute imputee a quelqu'un"
+  },
+  {
+   "title": "Hipster (1940s subculture)",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Hodag",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "creature folklorique ; canular local ludique, sans indignation"
+  },
+  {
+   "title": "Hopkins Ultraviolet Telescope",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Hover Lab",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Hsieh Ping-cheng espionage case",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Illuminati (game)",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Information laundering",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Intellectual",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Iota Cassiopeiae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Iranian diplomat terror plot trial",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Irish Section 110 Special Purpose Vehicle",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "vehicule fiscal ; le chapeau est technique, la controverse d'evitement y est implicite"
+  },
+  {
+   "title": "Jackalope",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "creature folklorique ; canular ludique, sans indignation ni faute imputee"
+  },
+  {
+   "title": "James Ashby",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "conseiller politique ; le chapeau rapporte le scandale qu'il a declenche"
+  },
+  {
+   "title": "James Rainwater",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Jens Christian Skou",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "John Bardeen",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "John L. Hall",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "John O'Donnell (political journalist)",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "journaliste politique ; le chapeau est biographique et ne rapporte pas d'affaire"
+  },
+  {
+   "title": "John Sulston",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Jonathan (tortoise)",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "tortue la plus agee ; curiosite et record, ni accusation ni decouverte"
+  },
+  {
+   "title": "Joseph Hooton Taylor Jr.",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Joseph L. Goldstein",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Joshua Schulte",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Judenzählung",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Junk science",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Kelvin equation",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Kelvin water dropper",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Kepler-11e",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Kepler-737b",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Khuman royal necklace incident",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "unsure",
+   "note": "conflit dynastique du VIIIe siecle ; violence rapportee, mais chapeau tres bref"
+  },
+  {
+   "title": "Killing of Nahida and Samar Anton",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Kinderhook plates",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Klaus Hasselmann",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Korean Central News Agency",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "agence de presse d'Etat ; le chapeau est descriptif et n'impute aucune faute"
+  },
+  {
+   "title": "Krishna Mandir, Lahore",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "temple ; la controverse tient a une information erronee, dementie, sur sa demolition"
+  },
+  {
+   "title": "Kurt Wüthrich",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "L 168-9",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Lambda Boötis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Lambda Draconis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Lavon Affair",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Lawrence E. King Jr.",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Lil Tay",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of Large Hadron Collider experiments",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of Nobel laureates in Physics",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of cases of factitious disorder imposed on another",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of cosmic microwave background experiments",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of directly imaged exoplanets",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of lunar probes",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of minor planets and comets visited by spacecraft",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of nearest exoplanets",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "List of political disinformation website campaigns",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Liz Mullinar",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Lost Cause of the Confederacy",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Louis Ignarro",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Luc Montagnier",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "prix Nobel ; le chapeau mentionne aussi des prises de position contestees, secondes a la decouverte"
+  },
+  {
+   "title": "Lucky Day (Doctor Who)",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Luis Walter Alvarez",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Luther Blissett (pseudonym)",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "nom collectif d'artistes ; canulars mediatiques ludiques, sans faute imputee"
+  },
+  {
+   "title": "MMR vaccine and autism",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Mafia state",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Mars sample-return mission",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Martin Karplus",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Martinus J. G. Veltman",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "María Milagros Charbonier",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Masatoshi Koshiba",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Master Detective Archives: Rain Code",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Mauritius Leaks",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Measurements of neutrino speed",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Meissa",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Merope (star)",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Michio Hoshino",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Million Dollar Extreme",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "troupe comique ; la controverse est seconde par rapport a l'activite de divertissement"
+  },
+  {
+   "title": "Mina Crandon",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Misha: A Mémoire of the Holocaust Years",
+   "register": "accusation",
+   "kind": "work",
+   "confidence": "unsure",
+   "note": "faux temoignage ; l'oeuvre est elle-meme la mystification, la regle 1 ne s'y applique pas"
+  },
+  {
+   "title": "Moon Diver (spacecraft)",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Moon landing conspiracy theories in popular culture",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "theories du complot vues par la culture populaire ; l'objet est la reference culturelle"
+  },
+  {
+   "title": "Moore's Ford lynchings",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Mossack Fonseca",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Mu Cassiopeiae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Mu1 Boötis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "NA49 experiment",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "NA63 experiment",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "NU Orionis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "NV Puppis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Nail Men",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "pratique de collecte de la Grande Guerre ; l'etiquette de propagande y est descriptive, non accusatoire"
+  },
+  {
+   "title": "Narada sting operation",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Nat Tate: An American Artist 1928–1960",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "unsure",
+   "note": "roman-canular ; oeuvre litteraire, meme si la mystification fait sa notoriete"
+  },
+  {
+   "title": "National Report",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "National Security League",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "organisation patriotique historique ; le chapeau est descriptif et n'impute aucune faute"
+  },
+  {
+   "title": "Neo-Templarism",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "mouvances esoteriques ; revendications de filiation, sans tromperie imputee"
+  },
+  {
+   "title": "Neutron Star Interior Composition Explorer",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "New Eastern Outlook",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Niger uranium forgeries",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Nineteen Eighty-Four",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "North Korean abductions of Japanese citizens",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Nu Geminorum",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "OSIRIS-REx",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Offshore financial centre",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "concept de finance internationale ; le chapeau est definitionnel et technique"
+  },
+  {
+   "title": "Oil drop experiment",
+   "register": "discovery",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "One America News Network",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "chaine d'information ; le chapeau decrit une ligne editoriale, sans faute imputee"
+  },
+  {
+   "title": "Operation Car Wash",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Operation Harvest Festival",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Order of Saint Lazarus (statuted 1910)",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "ordre chretien ; le chapeau ne rapporte aucune imposture"
+  },
+  {
+   "title": "Order of the Occult Hand",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Owen Richardson",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "P Cygni",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "P Eridani",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "PH1b",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Panama Papers case",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Paradise Papers",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Patent encumbrance of large automotive NiMH batteries",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Patricia Smith (poet)",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "poetesse primee ; registre de la reussite, mais litteraire et non scientifique"
+  },
+  {
+   "title": "Patriotic Front (Bulgaria, 2014)",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Personal life of Clint Eastwood",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Peter Doherty (immunologist)",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Phases of Operation Car Wash",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Poisoned candy myths",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Politainment",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "concept de communication politique ; le chapeau est descriptif"
+  },
+  {
+   "title": "Pope Cyril III of Alexandria",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "patriarche medieval ; le chapeau rapporte une ordination contestee et une reputation de venalite"
+  },
+  {
+   "title": "Potjaman Na Pombejra",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "chapeau limite a une relation familiale ; aucune mise en cause rapportee"
+  },
+  {
+   "title": "Project Azorian",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "unsure",
+   "note": "operation clandestine ; renseignement, mais la notoriete tient autant a l'exploit technique"
+  },
+  {
+   "title": "Propaganda",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Proplyd 114-426",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "unsure",
+   "note": "disque protoplanetaire ; objet d'observation active, non simple entree de catalogue"
+  },
+  {
+   "title": "Psi Aquilae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Psychological warfare",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "technique militaire d'influence ; le chapeau est descriptif, la manipulation y est constitutive"
+  },
+  {
+   "title": "R v Huhne",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "R v Zundel",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "R. Paul Butler",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Radio Bart",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Rainer Weiss",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "ReAwaken America Tour",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Redemption movement",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Reebok insider trading case",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Rhinogradentia",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "canular zoologique ; l'invention est ludique et son public est celui d'une curiosite savante"
+  },
+  {
+   "title": "Rhodanthe (mythology)",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "pseudo-mythologie ; fabrication sans auteur mis en cause ni indignation"
+  },
+  {
+   "title": "Right-wing antiglobalism",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "position politique ; le chapeau la relie a des theses complotistes sans imputer de faute precise"
+  },
+  {
+   "title": "Robert H. Grubbs",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Ross 154",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Rossiya Segodnya",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "groupe de medias d'Etat ; le chapeau est descriptif et n'impute aucune faute"
+  },
+  {
+   "title": "RuPaulmark Channel",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Russian 2022 war censorship laws",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Russian spies in the Russo-Ukrainian war",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "République (video game)",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "SNO+",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "STS-41-C",
+   "register": "discovery",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Santiago Ramón y Cajal",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Satan Wants You",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "unsure",
+   "note": "documentaire ; la regle 1 vise la fiction, mais le public reste celui d'une oeuvre"
+  },
+  {
+   "title": "Scapegoating",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "concept nommant une accusation injustifiee ; regle 5, mais l'usage courant est descriptif"
+  },
+  {
+   "title": "Schön scandal",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Scottish Family Party",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "parti politique mineur ; le chapeau ne rapporte ni affaire ni tromperie"
+  },
+  {
+   "title": "Seed oil misinformation",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Sharjeel Memon",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "elu provincial ; aucune affaire rapportee dans le chapeau"
+  },
+  {
+   "title": "Shauna Taylor case",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Sigma Scorpii",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Sikh Reference Library",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "bibliotheque detruite ; la notoriete tient a une destruction imputee a l'armee"
+  },
+  {
+   "title": "Solar Anomalous and Magnetospheric Particle Explorer",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Solar eclipse of May 29, 1919",
+   "register": "discovery",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "South Pole Telescope",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Spin (propaganda)",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Springfield race riot of 1908",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Stab-in-the-back myth",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "State capture",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Stephen Glass",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Stereotype content model",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Stimulus-triggered acquisition of pluripotency",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Subrahmanyan Chandrasekhar",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Susurluk scandal",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Syukuro Manabe",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "T Cygni",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "TAKE IT DOWN Act",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "loi visant les images intimes non consenties ; registre de la menace, mais l'objet est un texte legislatif"
+  },
+  {
+   "title": "TRAPPIST-1e",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Take Us to Your Chief: and Other Stories",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Tau Herculis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Tau Scorpii",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Tau1 Eridani",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Tax evasion",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Telescope Array Project",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Thaksin Shinawatra",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "premier ministre renverse ; le chapeau mentionne la destitution sans detailler la mise en cause"
+  },
+  {
+   "title": "The Capture (TV series)",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "The Ditch (website)",
+   "register": "accusation",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "site d'investigation ; sa notoriete tient aux affaires qu'il revele, non a une faute propre"
+  },
+  {
+   "title": "The KGB and Soviet Disinformation",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "unsure",
+   "note": "ouvrage documentaire ; le public est celui d'un livre, meme si le sujet releve de l'accusation"
+  },
+  {
+   "title": "The Masked Marauders",
+   "register": "accusation",
+   "kind": "work",
+   "confidence": "unsure",
+   "note": "album-canular ; l'oeuvre est elle-meme la mystification, la regle 1 ne s'y applique pas"
+  },
+  {
+   "title": "The Report from Iron Mountain",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "unsure",
+   "note": "satire publiee comme faux rapport ; oeuvre litteraire devenue reference complotiste"
+  },
+  {
+   "title": "Theta Ceti",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Theta Eridani",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Time Cube",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "pseudoscience personnelle ; le chapeau rapporte une allegation de complot academique"
+  },
+  {
+   "title": "Torsten Wiesel",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Transvestigation",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Trial of Jeffrey Donaldson",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Trial of Louis XVI",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Trial of Slobodan Milošević",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Trials and allegations involving Silvio Berlusconi",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Tsargrad TV",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "chaine de television ; le chapeau decrit une ligne editoriale, sans imputation de tromperie"
+  },
+  {
+   "title": "UK undercover policing scandal",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Uber Files",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Uncrewed spaceflights to the International Space Station",
+   "register": "discovery",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "V509 Cassiopeiae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "V520 Carinae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "V718 Coronae Australis",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Vega",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Velichie",
+   "register": "neither",
+   "kind": "organisation",
+   "confidence": "unsure",
+   "note": "parti politique ; le chapeau ne rapporte aucune affaire"
+  },
+  {
+   "title": "Vera C. Rubin Observatory",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Victor Grignard",
+   "register": "discovery",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Victor Klemperer",
+   "register": "neither",
+   "kind": "person",
+   "confidence": "unsure",
+   "note": "philologue et diariste ; sa notoriete tient a un temoignage historique, non a une mise en cause"
+  },
+  {
+   "title": "WASP-13",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "WASP-132",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "WASP-15",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "WASP-24",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Watch Dogs (video game)",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Wealth of Adolf Hitler",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "finances personnelles d'un dictateur ; le chapeau rapporte une exemption fiscale auto-octroyee"
+  },
+  {
+   "title": "Widgery Tribunal",
+   "register": "accusation",
+   "kind": "event",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Wilson Edwards",
+   "register": "accusation",
+   "kind": "person",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "XO-2",
+   "register": "discovery",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Xi Aquarii",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Yellow Peril",
+   "register": "accusation",
+   "kind": "concept",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "You are either with us, or against us",
+   "register": "neither",
+   "kind": "concept",
+   "confidence": "unsure",
+   "note": "formule de communication politique ; le chapeau decrit un procede rhetorique, sans tromperie imputee"
+  },
+  {
+   "title": "Your Honor (Indian TV series)",
+   "register": "neither",
+   "kind": "work",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Zeta Cassiopeiae",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  },
+  {
+   "title": "Zeta Eridani",
+   "register": "neither",
+   "kind": "object",
+   "confidence": "sure",
+   "note": ""
+  }
+ ]
+}

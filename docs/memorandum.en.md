@@ -120,10 +120,14 @@ regulator must not present it as demonstrated.
     twenty-four subjects suggested a ×9.2 versus ×2.9 gap; verification on
     [440 category-derived subjects](corpus-etendu.en.md) reduced it to ×3.04 versus ×2.90
     ($p = 0.53$), and showed the switching-rate gap to be an audience effect.
+    [Blind annotation](annotation.en.md) of the register closed the question: with the label
+    corrected, the switching rate goes from 8.6 % versus 2.7 % to **4.8 % versus 5.1 %**
+    ($p = 1.00$). The gap was not diluted by approximate labelling, it does not exist.
 
     A regulator can therefore use it to **observe** a durable switch, not to establish that a
     category of content produces more of them.
-    → [Regime changes](regimes.en.md) · [Extended corpus](corpus-etendu.en.md)
+    → [Regime changes](regimes.en.md) · [Extended corpus](corpus-etendu.en.md) ·
+    [Blind annotation](annotation.en.md)
 
 ### 3. Throttle super-spreader reach on kinetic anomaly
 
@@ -212,7 +216,8 @@ informational space, independently of the content of any single message.
 | estimating a platform's **internal** $\gamma$ | requires DSA Article 40 access |
 | detection of **installed** disinformation regimes | **done** — [14 dated changes](regimes.en.md), QAnon and health disinformation included |
 | identification of $\rho$ on installed regimes | fails: real scatter four times too high, and unidentifiable under logistic saturation |
-| calibration of the **persistence** indicator | measured at ×9.2 versus ×2.9 across registers, $p = 0.08$ — to be confirmed on an extended corpus |
+| calibration of the **persistence** indicator | **done, and negative** — the pilot corpus's ×9.2 versus ×2.9 gap failed to replicate across [440 subjects](corpus-etendu.en.md), and [blind annotation](annotation.en.md) eliminated it for good. The indicator observes; it does not discriminate |
+| existence of an **emotional-charge** effect $\alpha$ | **four measurements, no effect**: amplification, persistence on the pilot then the extended corpus, switching rate |
 | privacy-preserving audit protocol | not designed |
 | normative definition of the viewpoint catalogue $k$ | political choice unresolved |
 | resistance of the index to gaming | not studied |

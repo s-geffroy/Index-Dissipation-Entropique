@@ -126,10 +126,14 @@ régulateur ne doit pas le présenter comme démontré.
     sur vingt-quatre sujets suggérait un écart de ×9,2 contre ×2,9 ; la vérification sur
     [440 sujets dérivés de catégories](corpus-etendu.md) l'a réduit à ×3,04 contre ×2,90
     ($p = 0{,}53$), et a montré que l'écart de taux de basculement était un effet d'audience.
+    L'[annotation en aveugle](annotation.md) du registre a clos la question : à étiquette
+    corrigée, le taux de basculement passe de 8,6 % contre 2,7 % à **4,8 % contre 5,1 %**
+    ($p = 1{,}00$). L'écart n'était pas dilué par un étiquetage approximatif, il n'existe pas.
 
     Un régulateur peut donc s'en servir pour **constater** un basculement durable, non pour
     établir qu'une catégorie de contenus en produit davantage.
-    → [Changements de régime](regimes.md) · [Corpus étendu](corpus-etendu.md)
+    → [Changements de régime](regimes.md) · [Corpus étendu](corpus-etendu.md) ·
+    [Annotation en aveugle](annotation.md)
 
 ### 3. Brider la portée des super-diffuseurs en cas d'anomalie cinétique
 
@@ -225,7 +229,8 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | estimation du $\gamma$ **interne** d'une plateforme | demande l'accès article 40 du DSA |
 | détection des régimes de désinformation **installés** | **fait** — [14 changements datés](regimes.md), QAnon et désinformation sanitaire compris |
 | identification de $\rho$ sur les régimes installés | échoue : dispersion réelle quatre fois trop élevée, et non identifiable sous saturation logistique |
-| calibration de l'indicateur de **persistance** | mesuré à ×9,2 contre ×2,9 entre registres, $p = 0{,}08$ — à confirmer sur un corpus étendu |
+| calibration de l'indicateur de **persistance** | **fait, et négatif** — l'écart de ×9,2 contre ×2,9 du corpus pilote ne s'est pas répliqué sur [440 sujets](corpus-etendu.md), et l'[annotation en aveugle](annotation.md) l'a éliminé définitivement. L'indicateur constate, il ne discrimine pas |
+| existence d'un effet de la **charge émotionnelle** $\alpha$ | **quatre mesures, aucun effet** : amplification, persistance sur corpus pilote puis étendu, taux de basculement |
 | protocole d'audit préservant la vie privée | aucune conception |
 | définition normative du catalogue de points de vue $k$ | choix politique non tranché |
 | résistance de l'index au *gaming* | non étudiée |

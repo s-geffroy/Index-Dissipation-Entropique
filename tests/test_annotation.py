@@ -191,6 +191,34 @@ class TestDeliveredAnnotations:
 
         assert used <= set(KINDS)
 
+    def test_the_published_labelling_noise_is_the_measured_one(self) -> None:
+        """Les chiffres publiés dans `docs/annotation.md` doivent rester ceux du manifeste.
+
+        C'est un garde-fou contre une régénération silencieuse : le taux de bruit
+        d'étiquetage est le résultat central de la page, et rien dans une liste de 440
+        annotations ne signalerait qu'il a bougé.
+        """
+        entries, _ = load_catalogue()
+        annotations = load_annotations()
+
+        neither = sum(1 for a in annotations.values() if a.register == NEITHER)
+        agreement = sum(1 for e in entries if annotations[e.label].register == e.category)
+
+        assert neither == 175, "40 % de sujets hors registre — chiffre publié"
+        assert agreement == 262, "59,5 % d'accord catégorie/annotation — chiffre publié"
+
+    def test_the_category_almost_never_assigns_the_wrong_register(self) -> None:
+        """Le bruit dilue sans biaiser : c'est ce qui rend le résultat nul interprétable."""
+        entries, _ = load_catalogue()
+        annotations = load_annotations()
+
+        reversed_register = [
+            e.label for e in entries
+            if annotations[e.label].register not in (e.category, NEITHER)
+        ]
+
+        assert len(reversed_register) <= 5, reversed_register
+
     def test_the_rubric_version_is_the_current_one(self) -> None:
         payload = json.loads(ANNOTATIONS_PATH.read_text())
 

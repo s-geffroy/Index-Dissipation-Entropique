@@ -19,6 +19,10 @@
     ce corpus pilote, qui contenait les théories du complot les plus connues. La section
     correspondante est conservée telle quelle, avec cet avertissement.
 
+    L'[annotation en aveugle](annotation.md) du registre a ensuite éliminé la dernière
+    hypothèse de sauvetage : l'écart n'était pas dilué par un étiquetage approximatif, il
+    n'existe pas.
+
 !!! danger "Et une limite théorique domine les deux"
     L'identifiabilité de $\gamma\alpha/\lambda$ sur un changement de régime **dépend de la
     forme supposée de la saturation**. Sous saturation logistique, elle n'existe pas : deux
@@ -216,8 +220,8 @@ vitesse d'un emballement, mais la **durée pendant laquelle une fausse croyance 
 installée**.
 
 Elles **ne distinguent pas** les registres émotionnels pour autant : la vérification sur
-[440 sujets](corpus-etendu.md) l'a établi. Ce sont des instruments de constat, non la preuve
-d'un mécanisme.
+[440 sujets](corpus-etendu.md) puis l'[annotation en aveugle](annotation.md) l'ont établi. Ce
+sont des instruments de constat, non la preuve d'un mécanisme.
 
 ## Pistes ouvertes
 
@@ -227,9 +231,9 @@ d'un mécanisme.
 2. **Un observable moins bruité.** La dispersion des consultations quotidiennes est
    irréductible ; des séries hebdomadaires, ou une mesure d'exposition plutôt que de
    consultation, changeraient l'ordre de grandeur.
-3. **Étendre le corpus à la persistance.** L'écart ×9,2 contre ×2,9 mérite d'être testé sur
-   plusieurs centaines de sujets pré-enregistrés : c'est le seul résultat du projet qui
-   distingue les registres émotionnels, et il est à $p = 0{,}08$.
+3. ~~**Étendre le corpus à la persistance.**~~ → **fait**, et l'écart ne s'est pas répliqué
+   ([corpus étendu](corpus-etendu.md)), puis a été définitivement éliminé par
+   l'[annotation en aveugle](annotation.md) du registre.
 4. **Vérifier que les régimes « découverte » sont bien des régimes** en allongeant la durée
    de maintien exigée.
 

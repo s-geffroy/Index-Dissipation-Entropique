@@ -17,6 +17,13 @@
     zero — the null result is therefore consistent with the absence of an effect **as much as**
     with a diluted one.
 
+!!! success "Since settled — by blind annotation"
+    The ambiguity this page leaves open was resolved by [annotating the register by
+    hand](annotation.en.md) across all 440 subjects. Label noise is indeed massive — **40 % of
+    subjects belong to neither register** — and it carried the whole switching-rate gap:
+    8.6 % versus 2.7 % becomes **4.8 % versus 5.1 %** ($p = 1.00$). **The gap was not diluted,
+    it does not exist.**
+
 ---
 
 ## Why change the selection protocol, not just the size
@@ -131,19 +138,29 @@ proposed in place of a cap on $\gamma\alpha/\lambda$ **does measure something** 
 and amplitudes are robust — but it **does not discriminate** between emotional registers on this
 corpus. It remains usable as an instrument of observation, not as proof of a mechanism.
 
-## Neither protocol settles it
+## Neither protocol settles it — and what settled it
 
 The pilot was biased by selection; the extended corpus is noisy in its labelling. This is not a
 dead end but a specification: a third protocol should combine a **category-derived pool** — for
 the absence of selection bias — with a **subject-by-subject validation of the register**, carried
 out blind, without seeing the series. That is annotation work, not computation.
 
+!!! success "Done — see [Blind annotation](annotation.en.md)"
+    That third protocol was carried out. All 440 subjects were coded by hand from title and
+    lede alone, under a rubric published before any annotation existed. Agreement between
+    category and annotation is **59.5 %**; the switching-rate gap falls to an odds ratio of
+    **0.93** ($p = 1.00$); and the discarded subjects — those belonging to neither register —
+    turn out to switch **more often** than either. They were what carried the gap.
+
 ## Open leads
 
-1. **Annotate the register by hand on the category-derived pool**, blind. It is the only way to
-   separate the absence of an effect from its dilution. Two hundred subjects would suffice.
+1. ~~**Annotate the register by hand on the category-derived pool**, blind.~~
+   → **[done](annotation.en.md)**, across all 440 subjects rather than two hundred. It settled
+   the question: no effect, rather than a diluted one.
 2. **Match on traffic at construction time** rather than afterwards: drawing subjects in pairs of
-   comparable traffic would immunise the comparison against the principal confound.
+   comparable traffic would immunise the comparison against the principal confound. The
+   annotation adds a requirement: **match on subject kind too**, since the two registers turn
+   out to barely cover the same kinds of subject.
 3. **Lower the detection threshold by aggregating weekly.** A switching rate of 2 to 8 % leaves
    more than nine subjects in ten without a measurement.
 4. **Establish a baseline switching rate** on a control register — subjects with no particular

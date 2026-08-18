@@ -52,8 +52,10 @@ rewritten. → [Resonance](theorie/resonance.md) · [Calibration](calibration.en
 detection](regimes.en.md) recovers dated switches — QAnon in March 2020, the Benalla affair on
 20 July 2018. A persistence gap between accusation content and discovery announcements seemed
 established there, ×9.2 versus ×2.9; verification across [440 subjects](corpus-etendu.en.md)
-reduced it to ×3.04 versus ×2.90 ($p = 0.53$). It was a hand-selection artefact.
-→ [Extended corpus](corpus-etendu.en.md)
+reduced it to ×3.04 versus ×2.90 ($p = 0.53$). It was a hand-selection artefact, and
+[blind annotation](annotation.en.md) of the register eliminated the last rescuing hypothesis:
+the gap was not diluted by approximate labelling, it does not exist.
+→ [Extended corpus](corpus-etendu.en.md) · [Blind annotation](annotation.en.md)
 
 ## What the work proposes
 

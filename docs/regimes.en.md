@@ -18,6 +18,9 @@
     corpus, which contained the best-known conspiracy theories. The section is kept as written,
     with this warning.
 
+    [Blind annotation](annotation.en.md) of the register then eliminated the last rescuing
+    hypothesis: the gap was not diluted by approximate labelling, it does not exist.
+
 !!! danger "And a theoretical limitation dominates both"
     The identifiability of $\gamma\alpha/\lambda$ from a regime change **depends on the
     assumed saturation form**. Under logistic saturation it does not exist: two parameter
@@ -207,7 +210,8 @@ $\rho$ is not, and it would address what a regulator actually seeks to establish
 of a flare-up, but **how long a false belief stays installed**.
 
 They do **not** distinguish emotional registers, however: verification on
-[440 subjects](corpus-etendu.en.md) established that. They are instruments of observation, not
+[440 subjects](corpus-etendu.en.md) and then [blind annotation](annotation.en.md) established
+that. They are instruments of observation, not
 proof of a mechanism.
 
 ## Open leads
@@ -217,9 +221,9 @@ proof of a mechanism.
    is not determined by the data.
 2. **A less noisy observable.** Daily pageview scatter is irreducible; weekly series, or a
    measure of exposure rather than consultation, would change the order of magnitude.
-3. **Extend the corpus to persistence.** The ×9.2 versus ×2.9 gap deserves testing on several
-   hundred pre-registered subjects: it is the project's only result distinguishing emotional
-   registers, and it sits at $p = 0.08$.
+3. ~~**Extend the corpus to persistence.**~~ → **done**, and the gap failed to replicate
+   ([extended corpus](corpus-etendu.en.md)), then was eliminated for good by
+   [blind annotation](annotation.en.md) of the register.
 4. **Check that "discovery" regimes really are regimes** by lengthening the required sustain
    period.
 

@@ -54,7 +54,10 @@ de [changement de régime](regimes.md) retrouve des basculements datés — QAno
 l'affaire Benalla le 20 juillet 2018. Un écart de persistance entre contenus d'accusation et
 annonces de découverte y semblait acquis, ×9,2 contre ×2,9 ; la vérification sur
 [440 sujets](corpus-etendu.md) l'a ramené à ×3,04 contre ×2,90 ($p = 0{,}53$). C'était un
-artefact de sélection manuelle. → [Corpus étendu](corpus-etendu.md)
+artefact de sélection manuelle, et l'[annotation en aveugle](annotation.md) du registre a
+éliminé la dernière hypothèse de sauvetage : l'écart n'était pas dilué par un étiquetage
+approximatif, il n'existe pas.
+→ [Corpus étendu](corpus-etendu.md) · [Annotation en aveugle](annotation.md)
 
 ## Ce que le travail propose
 

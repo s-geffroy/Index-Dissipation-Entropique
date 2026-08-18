@@ -40,8 +40,10 @@ Trois résultats, chacun adossé à du code exécutable :
   QAnon en mars 2020, l'affaire Benalla le 20 juillet 2018. Un écart de persistance entre
   registres émotionnels y semblait acquis (×9,2 contre ×2,9) ; la vérification sur
   **[440 sujets](docs/corpus-etendu.md)** l'a ramené à ×3,04 contre ×2,90 ($p = 0{,}53$).
-  C'était un artefact de sélection manuelle, et **aucune différence entre registres ne résiste
-  à sa vérification.**
+  C'était un artefact de sélection manuelle, et l'**[annotation en aveugle](docs/annotation.md)**
+  du registre a éliminé la dernière hypothèse de sauvetage : l'écart de taux de basculement
+  passe de 8,6 % contre 2,7 % à **4,8 % contre 5,1 %** ($p = 1{,}00$) une fois l'étiquette
+  corrigée. **Aucune différence entre registres ne résiste à sa vérification.**
 
 Le travail en dérive deux instruments :
 
@@ -141,6 +143,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   basculements datés, et pourquoi le rapport n'y est pas identifiable.
 - [`docs/corpus-etendu.md`](docs/corpus-etendu.md) — **la réplication sur 440 sujets** :
   comment un corpus dérivé de catégories a infirmé le résultat du corpus pilote.
+- [`docs/annotation.md`](docs/annotation.md) — **l'annotation en aveugle** : la grille
+  pré-enregistrée, les 40 % de bruit d'étiquetage mesurés, et la disparition du dernier écart.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

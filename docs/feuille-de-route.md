@@ -63,6 +63,13 @@ Les suites directes de cette mesure, par ordre d'importance :
   s'explique par un déséquilibre d'audience d'un facteur 3,5. L'extension a aussi révélé un
   défaut de son propre protocole : l'appartenance à une catégorie est un indicateur bruité du
   registre.
+* **Annoter le registre à la main, en aveugle.** → **[fait](annotation.md)** sur les 440
+  sujets, sous une grille pré-enregistrée. Le bruit d'étiquetage est mesuré à 40 % de sujets
+  hors registre, et il portait la totalité de l'écart de taux de basculement : le rapport de
+  cotes tombe de 3,37 à **0,93** ($p = 1{,}00$). La dernière hypothèse de sauvetage est
+  éliminée — l'écart n'était pas dilué, il n'existe pas. L'annotation a aussi révélé un
+  **défaut de plan d'expérience** : correctement étiquetés, les deux registres ne portent
+  presque pas sur les mêmes types de sujets.
 
 ### 1.2 Inférer les coefficients de Fokker-Planck directement
 
@@ -247,18 +254,26 @@ Ces points n'ont pas d'enjeu scientifique, mais ils conditionnent la relecture.
 
 ## Si une seule chose devait être faite
 
-**Annoter le registre à la main, en aveugle, sur le pool dérivé de catégories.**
+**Faire annoter le corpus par un second codeur, en aveugle, et publier le $\kappa$ de Cohen.**
 
-Trois mesures ont été menées, et elles convergent vers un constat sobre : **aucune différence
-entre registres émotionnels ne résiste à sa vérification.** Le taux d'amplification n'en
-montrait aucune ; l'écart de persistance du corpus pilote a disparu à l'échelle ; et l'écart de
-taux de basculement s'est révélé être un effet d'audience.
+L'annotation manuelle du registre — priorité n° 1 de la version précédente de cette page — a
+été [menée sur les 440 sujets](annotation.md) et a tranché la question qu'elle devait trancher.
+Le bruit d'étiquetage était massif (40 % des sujets hors registre, 59,5 % d'accord seulement)
+et il portait la totalité de l'écart de taux de basculement, qui tombe de 8,6 % contre 2,7 % à
+4,8 % contre 5,1 %. **L'écart n'était pas dilué, il n'existe pas.**
 
-Mais le corpus étendu a son propre défaut, et il va dans le sens du résultat nul : un
-étiquetage par catégorie est bruité, et un bruit d'étiquetage attire tout écart vers zéro. Le
-résultat obtenu est donc compatible avec l'absence d'effet **comme** avec un effet dilué, et
-ces données ne permettent pas de choisir.
+**Quatre mesures ont donc été menées, et aucune ne distingue les registres émotionnels** : le
+taux d'amplification, la persistance sur corpus pilote puis étendu, et le taux de basculement.
+Le mécanisme de la charge émotionnelle $\alpha$ reste sans appui empirique, et ce n'est plus
+faute d'avoir cherché.
 
-Deux cents sujets du pool, annotés à la main **sans voir leurs séries**, trancheraient. C'est
-un travail d'annotation et non de calcul, et c'est le seul point du projet où quelques heures
-de travail humain valent mieux que n'importe quel raffinement de méthode.
+Ce qui subsiste est une réserve de **méthode**, et une seule : l'annotateur était unique, donc
+il n'existe aucune mesure de la fiabilité du codage. La grille est écrite et publiée, elle est
+donc réplicable ; un second codage à l'aveugle, sur le même corpus, coûterait quelques heures
+et retirerait la dernière prise qu'un relecteur puisse avoir sur ce résultat.
+
+**Ce qu'il ne faut probablement pas faire**, en revanche, c'est une cinquième mesure du même
+objet. Trois quantités tirées de la même série d'attention agrégée ont été testées sans succès,
+et l'annotation a montré au passage que le plan d'expérience lui-même est contraint : les deux
+registres, correctement étiquetés, ne portent presque pas sur les mêmes types de sujets. Si le
+mécanisme existe, c'est ailleurs qu'il faut le chercher — voir §3.1 et §3.2.

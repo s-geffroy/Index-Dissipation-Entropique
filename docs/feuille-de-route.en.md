@@ -57,6 +57,12 @@ Direct follow-ups, in order of importance:
   (×3.04 versus ×2.90, $p = 0.53$), and the switching-rate gap is explained by a ×3.5 audience
   imbalance. The extension also revealed a flaw in its own protocol: category membership is a
   noisy proxy for the register.
+* **Annotate the register by hand, blind.** → **[done](annotation.en.md)** across all 440
+  subjects, under a pre-registered rubric. Label noise is measured at 40 % of subjects outside
+  either register, and it carried the whole switching-rate gap: the odds ratio falls from 3.37
+  to **0.93** ($p = 1.00$). The last rescuing hypothesis is eliminated — the gap was not
+  diluted, it does not exist. The annotation also revealed a **design flaw**: correctly
+  labelled, the two registers barely cover the same kinds of subject.
 
 ### 1.2 Infer the Fokker-Planck coefficients directly
 
@@ -218,18 +224,26 @@ threshold — connecting the work to an established literature rather than an ad
 
 ## If only one thing were done
 
-**Annotate the register by hand, blind, on the category-derived pool.**
+**Have the corpus annotated by a second coder, blind, and publish Cohen's $\kappa$.**
 
-Three measurements have been made, and they converge on a sober finding: **no difference
-between emotional registers survives verification.** The amplification rate showed none; the
-pilot's persistence gap vanished at scale; and the switching-rate gap turned out to be an
-audience effect.
+Hand annotation of the register — priority 1 in the previous version of this page — was
+[carried out across all 440 subjects](annotation.en.md) and settled the question it was meant
+to settle. Label noise was massive (40 % of subjects outside either register, only 59.5 %
+agreement) and it carried the whole switching-rate gap, which falls from 8.6 % versus 2.7 % to
+4.8 % versus 5.1 %. **The gap was not diluted, it does not exist.**
 
-But the extended corpus has a flaw of its own, and it points in the direction of the null
-result: category labelling is noisy, and label noise attracts any gap towards zero. The result
-obtained is therefore consistent with the absence of an effect **as much as** with a diluted
-one, and these data cannot choose between them.
+**Four measurements have therefore been made, and none distinguishes the emotional registers**:
+the amplification rate, persistence on the pilot then the extended corpus, and the switching
+rate. The emotional-charge mechanism $\alpha$ remains without empirical support, and no longer
+for want of looking.
 
-Two hundred subjects from the pool, annotated by hand **without seeing their series**, would
-settle it. That is annotation work, not computation — and it is the one point in the project
-where a few hours of human labour beat any refinement of method.
+What survives is a **methodological** caveat, and only one: the annotator was a single person,
+so there is no measure of coding reliability. The rubric is written and published, hence
+replicable; a second blind coding of the same corpus would cost a few hours and remove the last
+purchase a reviewer has on this result.
+
+**What probably should not be done**, by contrast, is a fifth measurement of the same object.
+Three quantities drawn from the same aggregate attention series have been tested without
+success, and the annotation showed along the way that the design itself is constrained: the two
+registers, correctly labelled, barely cover the same kinds of subject. If the mechanism exists,
+it must be sought elsewhere — see §3.1 and §3.2.

@@ -17,6 +17,13 @@
     bruit d'étiquetage attire tout écart vers zéro — le résultat nul est donc compatible avec
     l'absence d'effet **comme** avec un effet dilué.
 
+!!! success "Depuis tranché — par l'annotation en aveugle"
+    L'ambiguïté que cette page laisse ouverte a été levée en [annotant le registre à la
+    main](annotation.md) sur les 440 sujets. Le bruit d'étiquetage est effectivement massif —
+    **40 % des sujets ne relèvent d'aucun des deux registres** — et il portait la totalité de
+    l'écart de taux de basculement : 8,6 % contre 2,7 % devient **4,8 % contre 5,1 %**
+    ($p = 1{,}00$). **L'écart n'était pas dilué, il n'existe pas.**
+
 ---
 
 ## Pourquoi changer le protocole de sélection, et pas seulement la taille
@@ -135,7 +142,7 @@ dates et amplitudes des basculements sont robustes — mais **ne discrimine pas*
 émotionnels sur ce corpus. Il reste utilisable comme instrument de constat, non comme preuve
 d'un mécanisme.
 
-## Aucun des deux protocoles ne tranche
+## Aucun des deux protocoles ne tranche — et ce qui a tranché
 
 Le pilote était biaisé par la sélection ; l'étendu est bruité par l'étiquetage. Ce n'est pas
 une impasse mais une spécification : un troisième protocole devrait combiner un **pool dérivé
@@ -143,13 +150,23 @@ de catégories** — pour l'absence de biais de sélection — et une **validati
 par sujet**, réalisée en aveugle, sans voir les séries. C'est un travail d'annotation, non de
 calcul.
 
+!!! success "Fait — voir [Annotation en aveugle](annotation.md)"
+    Ce troisième protocole a été mené. Les 440 sujets ont été codés à la main à partir du seul
+    couple titre + chapeau, sous une grille publiée avant que la moindre annotation existe.
+    L'accord entre catégorie et annotation est de **59,5 %** ; l'écart de taux de basculement
+    tombe à un rapport de cotes de **0,93** ($p = 1{,}00$) ; et les sujets écartés — ceux qui
+    ne relèvent d'aucun registre — basculent en fait **plus souvent** que les deux autres.
+    C'étaient eux qui portaient l'écart.
+
 ## Pistes ouvertes
 
-1. **Annoter le registre à la main sur le pool dérivé de catégories**, en aveugle. C'est le
-   seul moyen de séparer l'absence d'effet de sa dilution. Deux cents sujets suffiraient.
+1. ~~**Annoter le registre à la main sur le pool dérivé de catégories**, en aveugle.~~
+   → **[fait](annotation.md)**, sur les 440 sujets plutôt que deux cents. La question est
+   tranchée : absence d'effet, et non effet dilué.
 2. **Apparier sur le trafic dès la construction du corpus** plutôt qu'en aval : tirer les
    sujets par paires de trafic comparable immuniserait la comparaison contre le confondant
-   principal.
+   principal. L'annotation y ajoute une exigence : **apparier aussi sur le type de sujet**, les
+   deux registres ne portant presque pas sur les mêmes natures d'objets.
 3. **Abaisser le seuil de détection en agrégeant par semaine.** Un taux de basculement de 2 à
    8 % laisse plus de neuf sujets sur dix sans mesure.
 4. **Établir un taux de basculement de référence** sur un registre témoin — sujets sans charge
