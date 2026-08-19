@@ -1,4 +1,4 @@
-site_name: Index de Dissipation Entropique
+site_name: Indice de Diversité Exposée
 site_description: >-
   De la décohérence quantique à la polarisation algorithmique : modélisation
   thermodynamique de l'opinion publique.
@@ -57,7 +57,7 @@ plugins:
         - locale: en
           name: English
           build: true
-          site_name: Entropic Dissipation Index
+          site_name: Exposed Diversity Index
           nav_translations:
             Théorie: Theory
             Entropie: Entropy

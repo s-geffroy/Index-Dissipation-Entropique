@@ -1,4 +1,4 @@
-"""Validation des mesures d'entropie et de l'Index de Dissipation Entropique."""
+"""Validation des mesures d'entropie et de l'Indice de Diversité Exposée."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 
 from ide.entropy import (
-    entropic_dissipation_index,
+    label_diversity_index,
     shannon_entropy,
     shannon_entropy_from_counts,
     von_neumann_entropy,
@@ -112,11 +112,11 @@ class TestVonNeumannEntropy:
 
 class TestEntropicDissipationIndex:
     def test_balanced_feed_reaches_the_maximum(self) -> None:
-        assert entropic_dissipation_index(["a", "b", "c", "d"], catalogue_size=4) == 1.0
+        assert label_diversity_index(["a", "b", "c", "d"], catalogue_size=4) == 1.0
 
     def test_frozen_bubble_collapses_to_zero(self) -> None:
         """Bulle fermée face à un catalogue de quatre points de vue."""
-        index = entropic_dissipation_index(["complot"] * 20, catalogue_size=4)
+        index = label_diversity_index(["complot"] * 20, catalogue_size=4)
 
         assert index == 0.0
         assert np.copysign(1.0, index) > 0.0
@@ -124,7 +124,7 @@ class TestEntropicDissipationIndex:
     def test_index_stays_within_unit_interval(self) -> None:
         feed = ["a"] * 9 + ["b"] * 3 + ["c"]
 
-        assert 0.0 < entropic_dissipation_index(feed, catalogue_size=4) < 1.0
+        assert 0.0 < label_diversity_index(feed, catalogue_size=4) < 1.0
 
     def test_index_decreases_as_the_bubble_closes(self) -> None:
         """Monotonie attendue : plus le fil se referme, plus l'index baisse."""
@@ -133,7 +133,7 @@ class TestEntropicDissipationIndex:
         closed = ["a"] * 20
 
         indices = [
-            entropic_dissipation_index(feed, catalogue_size=4)
+            label_diversity_index(feed, catalogue_size=4)
             for feed in (open_feed, narrowing, closed)
         ]
 
@@ -143,12 +143,12 @@ class TestEntropicDissipationIndex:
         """Sans catalogue de référence, une bulle fermée obtient un index nul mais
         un fil à deux modalités obtient 1 — d'où l'exigence d'un k imposé par le
         régulateur, documentée dans le mémorandum."""
-        assert entropic_dissipation_index(["a", "a", "b", "b"]) == 1.0
-        assert entropic_dissipation_index(["a", "a", "b", "b"], catalogue_size=4) == 0.5
+        assert label_diversity_index(["a", "a", "b", "b"]) == 1.0
+        assert label_diversity_index(["a", "a", "b", "b"], catalogue_size=4) == 0.5
 
     def test_empty_feed_is_index_zero(self) -> None:
-        assert entropic_dissipation_index([], catalogue_size=4) == 0.0
+        assert label_diversity_index([], catalogue_size=4) == 0.0
 
     def test_catalogue_smaller_than_observation_is_rejected(self) -> None:
         with pytest.raises(ValueError, match="inférieur"):
-            entropic_dissipation_index(["a", "b", "c"], catalogue_size=2)
+            label_diversity_index(["a", "b", "c"], catalogue_size=2)

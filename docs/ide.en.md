@@ -1,10 +1,28 @@
-# EDI — Entropic Dissipation Index
+# EDI — Exposed Diversity Index
 
 !!! info "Two distinct objects"
     The **index** (IDE in French, EDI in English) is a *metric*, for the regulator. The
     **[algorithm](ade.en.md)** is a *mechanism*, for the platform. The original thread
     used both acronyms interchangeably; the distinction here is deliberate.
     → [audit, point 1](limites.en.md)
+
+!!! success "Renamed — the name now says what is measured"
+    The index was first called the "**Entropic Dissipation Index**", after the quantum
+    decoherence analogy that started this work. The [audit](limites.en.md) dismantled that
+    analogy transfer by transfer: nothing specifically quantum survived it, and what holds —
+    free-energy landscape, hysteresis, barrier crossing — belongs to classical statistical
+    mechanics. A name pointing at a false analogy is not neutral: it announces something other
+    than what the instrument measures.
+
+    The acronym stays **EDI / IDE**. It now reads **Exposed Diversity Index** — the spread of
+    the attention **actually served** across the viewpoints of the declared catalogue.
+    "Exposed" is not decoration: it is the correction imposed by [adversarial
+    rank](rang-adverse.en.md), where a platform certified at 0.70 by a rank-blind measure
+    exposes only 0.36.
+
+    The repository name and the site address are unchanged, so no incoming link breaks — and the
+    historical function is now called `label_diversity_index`, because that is what it computes:
+    the diversity of **labels**, looking at neither the items nor the rank.
 
 ## Definition
 
@@ -37,12 +55,12 @@ Since a perfectly closed feed presents only one modality, the denominator would 
 and the index would flatter.
 
 ```python
-from ide.entropy import entropic_dissipation_index
+from ide.entropy import label_diversity_index
 
 feed = ["conspiracy"] * 10 + ["factual"] * 10
 
-entropic_dissipation_index(feed)                    # 1.0  — two modalities observed
-entropic_dissipation_index(feed, catalogue_size=4)  # 0.5  — four viewpoints available
+label_diversity_index(feed)                    # 1.0  — two modalities observed
+label_diversity_index(feed, catalogue_size=4)  # 0.5  — four viewpoints available
 ```
 
 **A regulator must therefore impose a reference $k$.** It is the first parameter a
@@ -107,5 +125,5 @@ Developed further in the [critical audit](limites.en.md).
 
 ---
 
-*Implementation: `ide.entropy.entropic_dissipation_index` ·
+*Implementation: `ide.entropy.label_diversity_index` ·
 [Regulatory memorandum](memorandum.en.md)*

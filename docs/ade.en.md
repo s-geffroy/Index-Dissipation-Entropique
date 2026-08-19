@@ -1,4 +1,4 @@
-# EDA — Entropic Dissipation Algorithm
+# EDA — Exposed Diversity Algorithm
 
 !!! info "Two distinct objects"
     The **[index](ide.en.md)** is a *metric*, mandated by the regulator. The **algorithm**

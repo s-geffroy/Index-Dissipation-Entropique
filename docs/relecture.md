@@ -69,8 +69,8 @@ coordonnée personnelle n'est incluse dans ce dépôt.
 > **Résumé.** Le travail formalise une analogie structurelle entre décohérence
 > quantique et effondrement du consensus dans une population soumise à des flux
 > informationnels algorithmiques. Il en dérive deux instruments : un *Index de
-> Dissipation Entropique* (IDE), métrique auditable de la diversité informationnelle
-> d'un fil d'actualité, et un *Algorithme de Dissipation Entropique* (ADE), filtre de
+> Diversité Exposée* (IDE), métrique auditable de la diversité informationnelle
+> d'un fil d'actualité, et un *Algorithme de Diversité Exposée* (ADE), filtre de
 > recommandation qui optimise cet index plutôt que l'engagement brut. L'objectif est de
 > proposer un cadre métrologique concret pour l'audit algorithmique, dans l'esprit du
 > *Digital Services Act*.

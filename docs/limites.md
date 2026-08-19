@@ -38,18 +38,32 @@ techniquement.
 
 | Sigle | Objet | Nature | Qui l'utilise |
 |---|---|---|---|
-| **IDE** | Index de Dissipation Entropique | métrique auditable, dans $[0, 1]$ | le régulateur |
-| **ADE** | Algorithme de Dissipation Entropique | filtre de recommandation | la plateforme |
+| **IDE** | Indice de Diversité Exposée | métrique auditable, dans $[0, 1]$ | le régulateur |
+| **ADE** | Algorithme de Diversité Exposée | filtre de recommandation | la plateforme |
 
 L'IDE se mesure sans accès au code : il suffit d'observer les contenus servis.
 L'ADE est une façon parmi d'autres de le maintenir au-dessus d'un seuil. Le
 mémorandum impose le premier et **ne prescrit pas** le second — imposer une
 implémentation serait à la fois inapplicable et contre-productif.
 
-Équivalents anglais : *Entropic Dissipation Index* (EDI) et *Entropic Dissipation
+Équivalents anglais : *Exposed Diversity Index* (EDI) et *Exposed Diversity
 Algorithm* (EDA).
 
-*Implémenté dans `ide.entropy.entropic_dissipation_index` et `ide.ade`.*
+!!! success "Et le nom lui-même a été corrigé, après coup"
+    Les deux objets s'appelaient à l'origine *Index* et *Algorithme de **Dissipation
+    Entropique***, d'après l'analogie avec la décohérence quantique. Le point B de cet audit
+    démonte cette analogie transfert par transfert, et la conclusion en est
+    qu'aucun de ses emprunts spécifiquement quantiques n'a survécu : ce qui tient est de la
+    mécanique statistique classique.
+
+    Garder ce nom aurait été garder une revendication réfutée dans l'intitulé de l'instrument.
+    Le sigle est conservé — il est cité dans des pages publiées et sert de nom de paquet — mais
+    il se lit désormais **Indice de Diversité Exposée**, ce qui est exactement ce que la mesure
+    retenue calcule : la répartition de l'attention servie entre les points de vue déclarés.
+    La fonction historique, elle, s'appelle `label_diversity_index`, parce qu'elle mesure la
+    diversité des **étiquettes** et rien de plus.
+
+*Implémenté dans `ide.entropy.label_diversity_index` et `ide.ade`.*
 
 ---
 

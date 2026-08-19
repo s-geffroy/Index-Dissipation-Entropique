@@ -40,7 +40,7 @@ played out. The models show the phenomenon is governed by structural parameters 
 algorithm, not by content taken item by item. Those parameters are what must be made
 observable.
 
-### 1. Impose a floor on the Entropic Dissipation Index
+### 1. Impose a floor on the Exposed Diversity Index
 
 **Measure.** Require very large online platforms to keep the [index](ide.en.md) of
 individual feeds above a threshold $H_{\text{critical}}$. Below it, the platform is

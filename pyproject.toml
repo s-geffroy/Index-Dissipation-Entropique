@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ide"
 version = "0.1.0"
-description = "Index de Dissipation Entropique — modélisation thermodynamique de la polarisation algorithmique"
+description = "Indice de Diversité Exposée — modélisation thermodynamique de la polarisation algorithmique"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }

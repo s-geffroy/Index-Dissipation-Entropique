@@ -1,4 +1,4 @@
-# ADE — Algorithme de Dissipation Entropique
+# ADE — Algorithme de Diversité Exposée
 
 !!! info "Deux objets distincts"
     L'**[IDE](ide.md)** est une *métrique*, imposée par le régulateur. L'**ADE** est

@@ -33,7 +33,7 @@ PALETTE = {
     "order": "#1f4e79",  # consensus, conformisme, régime ordonné
     "disorder": "#c1440e",  # cacophonie, agitation, régime désordonné
     "field": "#7a1f8f",  # champ médiatique, désinformation
-    "remedy": "#1b7a4a",  # dissipation entropique, vérification, remède
+    "remedy": "#1b7a4a",  # diversité exposée, vérification, remède
     "neutral": "#5a5a5a",  # repères, seuils, annotations
 }
 

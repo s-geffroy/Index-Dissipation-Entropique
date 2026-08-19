@@ -41,7 +41,7 @@ Le constat commun aux trois recommandations : la vérification passive des conte
 montrent que le phénomène est déterminé par des paramètres structurels de l'algorithme,
 pas par le contenu pris un à un. Ce sont ces paramètres qu'il faut rendre observables.
 
-### 1. Imposer un plancher d'Index de Dissipation Entropique
+### 1. Imposer un plancher d'Indice de Diversité Exposée
 
 **Mesure.** Exiger des très grandes plateformes (VLOP au sens du DSA) qu'elles
 maintiennent l'[IDE](ide.md) des fils d'actualité individuels au-dessus d'un seuil

@@ -1,10 +1,28 @@
-# IDE — Index de Dissipation Entropique
+# IDE — Indice de Diversité Exposée
 
 !!! info "Deux objets distincts"
     L'**IDE** est une *métrique*, destinée au régulateur. L'**[ADE](ade.md)** est un
     *algorithme*, implémenté par la plateforme. Le fil de travail d'origine employait
     les deux sigles indifféremment ; la distinction est ici délibérée.
     → [audit, point 1](limites.md)
+
+!!! success "Renommé — le nom dit désormais ce qui est mesuré"
+    L'indice s'est d'abord appelé « **Index de Dissipation Entropique** », d'après l'analogie
+    avec la décohérence quantique qui a lancé ce travail. L'[audit](limites.md) a démonté cette
+    analogie transfert par transfert : rien de spécifiquement quantique n'y a survécu, et ce qui
+    tient — paysage d'énergie libre, hystérésis, franchissement de barrière — relève de la
+    mécanique statistique classique. Un nom qui renvoie à une analogie fausse n'est pas neutre :
+    il annonce autre chose que ce que l'instrument mesure.
+
+    Le sigle reste **IDE**. Il se lit désormais **Indice de Diversité Exposée** — la répartition
+    de l'attention **réellement servie** entre les points de vue du catalogue déclaré.
+    « Exposée » n'est pas décoratif : c'est la correction qu'a imposée le [rang
+    adverse](rang-adverse.md), une plateforme certifiée à 0,70 par une mesure aveugle au rang
+    n'exposant que 0,36.
+
+    Le nom du dépôt et l'adresse du site restent inchangés, pour ne casser aucun lien entrant —
+    et la fonction historique s'appelle maintenant `label_diversity_index`, parce que c'est ce
+    qu'elle calcule : la diversité des **étiquettes**, sans regarder ni les contenus ni le rang.
 
 ## Définition
 
@@ -40,12 +58,12 @@ modalité, le dénominateur deviendrait dégénéré et l'index flatteur.
 L'implémentation rend cette dépendance explicite :
 
 ```python
-from ide.entropy import entropic_dissipation_index
+from ide.entropy import label_diversity_index
 
 feed = ["complot"] * 10 + ["factuel"] * 10
 
-entropic_dissipation_index(feed)                    # 1.0  — deux modalités observées
-entropic_dissipation_index(feed, catalogue_size=4)  # 0.5  — quatre points de vue disponibles
+label_diversity_index(feed)                    # 1.0  — deux modalités observées
+label_diversity_index(feed, catalogue_size=4)  # 0.5  — quatre points de vue disponibles
 ```
 
 **Un régulateur doit donc imposer un $k$ de référence.** C'est le premier paramètre
@@ -115,5 +133,5 @@ l'[audit critique](limites.md).
 
 ---
 
-*Implémentation : `ide.entropy.entropic_dissipation_index` ·
+*Implémentation : `ide.entropy.label_diversity_index` ·
 [Mémorandum de régulation](memorandum.md)*

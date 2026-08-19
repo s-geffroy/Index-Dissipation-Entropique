@@ -1,4 +1,4 @@
-"""Validation de l'Algorithme de Dissipation Entropique.
+"""Validation de l'Algorithme de Diversité Exposée.
 
 Le test décisif est celui du signe : avec :math:`\\mu = 0`, l'ADE doit se réduire
 **exactement** au filtre d'engagement qu'il prétend remplacer, et avec

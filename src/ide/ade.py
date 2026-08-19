@@ -1,4 +1,4 @@
-"""ADE — Algorithme de Dissipation Entropique.
+"""ADE — Algorithme de Diversité Exposée.
 
 Un algorithme de recommandation classique maximise l'engagement immédiat. Sous les
 équations de :mod:`ide.resonance`, cette fonction de coût est exactement celle qui
@@ -43,7 +43,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 from dataclasses import dataclass
 
-from ide.entropy import entropic_dissipation_index
+from ide.entropy import label_diversity_index
 
 __all__ = [
     "Candidate",
@@ -180,13 +180,13 @@ class ScoredCandidate:
 
 @dataclass
 class EntropicScorer:
-    """Classement de contenus par l'Algorithme de Dissipation Entropique.
+    """Classement de contenus par l'Algorithme de Diversité Exposée.
 
     Args:
         catalogue_size: nombre :math:`k` de points de vue que la plateforme est en
             mesure de servir. Sert de dénominateur à l'IDE ; sans référence fixe,
             une bulle fermée obtiendrait un index flatteur (voir
-            :func:`ide.entropy.entropic_dissipation_index`).
+            :func:`ide.entropy.label_diversity_index`).
         critical_index: seuil de déclenchement du recuit.
         resting_mu: coefficient de repos.
         annealing_mu: coefficient maximal en mode recuit.
@@ -225,7 +225,7 @@ class EntropicScorer:
 
     def current_index(self, feed: Sequence[str]) -> float:
         """IDE du fil actuel de l'utilisateur."""
-        return entropic_dissipation_index(feed, catalogue_size=self.catalogue_size)
+        return label_diversity_index(feed, catalogue_size=self.catalogue_size)
 
     def delta_entropy(self, feed: Sequence[str], viewpoint: str) -> float:
         """Variation d'IDE qu'entraînerait l'ajout d'un contenu au fil.
@@ -234,7 +234,7 @@ class EntropicScorer:
         modalité déjà dominante.
         """
         before = self.current_index(feed)
-        after = entropic_dissipation_index(
+        after = label_diversity_index(
             [*feed, viewpoint], catalogue_size=self.catalogue_size
         )
 

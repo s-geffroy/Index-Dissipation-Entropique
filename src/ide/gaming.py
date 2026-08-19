@@ -127,7 +127,7 @@ class Feed:
 
     @property
     def ide(self) -> float:
-        """Index de dissipation entropique, calculé sur les **étiquettes**."""
+        """Indice de diversité exposée, calculé sur les **étiquettes**."""
         return ide_of_feed(self.weights)
 
     @property
@@ -216,7 +216,7 @@ def served_positions(
 
 
 def ide_of_feed(weights: np.ndarray) -> float:
-    """Index de dissipation entropique d'un fil : entropie de Shannon normalisée.
+    """Indice de diversité exposée d'un fil : entropie de Shannon normalisée.
 
     L'index ne voit que les **étiquettes**. C'est précisément l'hypothèse que ce module met
     à l'épreuve.

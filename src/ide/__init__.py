@@ -1,12 +1,12 @@
-"""Index de Dissipation Entropique — noyau scientifique.
+"""Indice de Diversité Exposée — noyau scientifique.
 
 Deux objets distincts structurent ce paquet, et la distinction est délibérée
 (voir ``docs/limites.md``, point 1) :
 
-* **IDE** — *Index de Dissipation Entropique* : une métrique auditable de la
+* **IDE** — *Indice de Diversité Exposée* : une métrique auditable de la
   diversité informationnelle d'un fil d'actualité, destinée au régulateur.
   Implémentée dans :mod:`ide.entropy`.
-* **ADE** — *Algorithme de Dissipation Entropique* : un filtre de recommandation
+* **ADE** — *Algorithme de Diversité Exposée* : un filtre de recommandation
   qui optimise cet index au lieu de l'engagement brut. Implémenté dans
   :mod:`ide.ade`.
 
@@ -37,7 +37,7 @@ from ide.calibration import (
 )
 from ide.catalogue import CategorySource, load_catalogue
 from ide.entropy import (
-    entropic_dissipation_index,
+    label_diversity_index,
     shannon_entropy,
     shannon_entropy_from_counts,
     von_neumann_entropy,
@@ -85,7 +85,7 @@ __all__ = [
     "detect_episodes",
     "diffusion_term",
     "drift_term",
-    "entropic_dissipation_index",
+    "label_diversity_index",
     "entropic_score",
     "fit_exponential_rate",
     "fit_saturated_growth",

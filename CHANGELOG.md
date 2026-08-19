@@ -7,6 +7,30 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Modifié — l'index porte enfin le nom de ce qu'il mesure
+
+- **IDE** ne se lit plus « Index de Dissipation Entropique » mais **« Indice de Diversité
+  Exposée »** ; **ADE**, « Algorithme de Diversité Exposée ». En anglais, *Exposed Diversity
+  Index* (EDI) et *Exposed Diversity Algorithm* (EDA).
+- **Le motif.** L'analogie avec la décohérence quantique, qui donnait son nom à l'index, a été
+  démontée transfert par transfert par l'[audit critique](docs/limites.md) : entropie extensive
+  confondue avec le bruit de la variable macroscopique, entropie globale invariante sous
+  décohérence, $\tau_D \propto \tau_R/N$ heuristique, effet tunnel requalifié en métaphore,
+  $1/k^N$ décrivant un état initial. Rien de spécifiquement quantique n'a survécu ; ce qui tient
+  relève de la mécanique statistique classique. Garder ce nom, c'était garder une revendication
+  réfutée dans l'intitulé de l'instrument.
+- **Le nom retenu dit la mesure.** « Exposée » n'est pas décoratif : c'est la correction qu'ont
+  imposée le [test adverse](docs/gaming.md) et le [rang adverse](docs/rang-adverse.md) — la
+  norme porte sur l'attention **réellement servie**, contenus et rang compris, non sur les
+  étiquettes annoncées.
+- **`entropic_dissipation_index` devient `label_diversity_index`** : la fonction calcule la
+  diversité des **étiquettes**, aveugle aux contenus et au rang, et son nom le dit maintenant.
+  Son module porte l'avertissement correspondant.
+- **Inchangés, délibérément** : le sigle IDE/ADE, le paquet Python `ide`, le dépôt GitHub et
+  l'adresse du site — pour ne casser aucun lien entrant ni aucune citation déjà publiée. Les
+  citations du fil d'origine dans l'[audit](docs/limites.md) et les [errata](docs/errata.md)
+  conservent le nom historique : ce sont des pièces, pas du texte courant.
+
 ### Ajouté — la demande d'accès aux données, écrite comme une spécification
 
 Seule voie restante après le constat qu'aucun jeu public ne porte à la fois le rang servi et une

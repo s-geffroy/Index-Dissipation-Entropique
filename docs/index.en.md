@@ -1,4 +1,4 @@
-# Entropic Dissipation Index
+# Exposed Diversity Index
 
 **From quantum decoherence to algorithmic polarisation: a thermodynamic model of
 public opinion.**
@@ -102,8 +102,8 @@ measurements **identically** — for 95 times fewer rows than the log.
 
 | | Object | Intended for |
 |---|---|---|
-| **[EDI / IDE](ide.en.md)** | *Entropic Dissipation Index* — a metric of a feed's informational diversity, in $[0, 1]$, measurable without access to platform code | the regulator |
-| **[EDA / ADE](ade.en.md)** | *Entropic Dissipation Algorithm* — a recommender filter that optimises this index rather than raw engagement | the platform |
+| **[EDI / IDE](ide.en.md)** | *Exposed Diversity Index* — a metric of a feed's informational diversity, in $[0, 1]$, measurable without access to platform code | the regulator |
+| **[EDA / ADE](ade.en.md)** | *Exposed Diversity Algorithm* — a recommender filter that optimises this index rather than raw engagement | the platform |
 
 French acronyms **IDE** and **ADE** are used throughout the code and the French
 documentation; **EDI** and **EDA** are their English equivalents.

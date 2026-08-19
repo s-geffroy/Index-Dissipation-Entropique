@@ -26,6 +26,8 @@ correspondance.
 | « la probabilité d'unanimité s'effondre en $1/k^N$ » | vrai pour un **état initial** de tirages indépendants ; la question dynamique est traitée par le temps de consensus |
 | $\tau_D \propto \tau_R / N$ | conservé, explicitement étiqueté **loi d'échelle heuristique** |
 | « Index de Dissipation Entropique (ADE) » | **IDE** = l'index (métrique), **ADE** = l'algorithme (filtre) |
+| « Index de Dissipation Entropique » | **Indice de Diversité Exposée** — le sigle est conservé, le nom dit ce qui est mesuré : l'analogie avec la décohérence n'a pas survécu à l'audit, et la mesure retenue porte sur l'attention **exposée** |
+| `entropic_dissipation_index` | `label_diversity_index` — la fonction calcule la diversité des **étiquettes**, aveugle aux contenus et au rang |
 | « la régulation devient une ingénierie de la stabilité » | conservé, mais accompagné de la réserve qu'une ingénierie de la stabilité *est* une intervention sur le débat public |
 
 ## Ajouts

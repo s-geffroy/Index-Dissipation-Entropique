@@ -1,4 +1,4 @@
-# Index de Dissipation Entropique
+# Indice de Diversité Exposée
 
 **De la décohérence quantique à la polarisation algorithmique : modélisation
 thermodynamique de l'opinion publique.**
@@ -104,8 +104,8 @@ moins de lignes que le journal. → [Demande au titre de l'article 40](article-4
 
 | | Objet | Destinataire |
 |---|---|---|
-| **[IDE](ide.md)** | *Index de Dissipation Entropique* — une métrique de la diversité informationnelle d'un fil, dans $[0, 1]$, mesurable sans accès au code de la plateforme | le régulateur |
-| **[ADE](ade.md)** | *Algorithme de Dissipation Entropique* — un filtre de recommandation qui optimise cet index au lieu de l'engagement brut | la plateforme |
+| **[IDE](ide.md)** | *Indice de Diversité Exposée* — une métrique de la diversité informationnelle d'un fil, dans $[0, 1]$, mesurable sans accès au code de la plateforme | le régulateur |
+| **[ADE](ade.md)** | *Algorithme de Diversité Exposée* — un filtre de recommandation qui optimise cet index au lieu de l'engagement brut | la plateforme |
 
 Un seul paramètre du modèle est aujourd'hui **calibré sur données réelles** :
 → [Calibration empirique](calibration.md).

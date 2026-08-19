@@ -1,4 +1,4 @@
-"""Mesures d'entropie et définition de l'Index de Dissipation Entropique (IDE).
+"""Mesures d'entropie, et la première forme — historique — de l'indice.
 
 Le pont conceptuel du projet repose sur deux entropies qui mesurent la même chose
 — la perte de pureté d'un état — dans deux mondes différents :
@@ -9,11 +9,29 @@ Le pont conceptuel du projet repose sur deux entropies qui mesurent la même cho
 * l'entropie de Shannon :math:`H(X) = -\\sum_i p_i \\log_2 p_i`, nulle pour une
   opinion unanime, maximale pour une population totalement fragmentée.
 
-L'**IDE** est l'entropie de Shannon d'un fil d'actualité individuel, normalisée
-par son maximum théorique pour vivre dans :math:`[0, 1]` et rester comparable
-entre plateformes de tailles de catalogue différentes. C'est cette normalisation
-qui en fait une métrique auditable : un seuil réglementaire exprimé en pourcentage
-a un sens, un seuil exprimé en bits n'en a pas.
+L'indice proposé au régulateur — l'**IDE**, *Indice de Diversité Exposée* — est
+l'entropie de Shannon d'un fil d'actualité, normalisée par son maximum théorique
+pour vivre dans :math:`[0, 1]`. C'est cette normalisation qui en fait une métrique
+auditable : un seuil réglementaire exprimé en pourcentage a un sens, un seuil
+exprimé en bits n'en a pas.
+
+.. danger::
+    Ce module en porte la **première forme**, calculée sur les **étiquettes** d'un
+    fil et **aveugle au rang**. Deux mesures l'ont disqualifiée comme norme :
+
+    * le [test adverse](gaming.py) — une plateforme capable de dissocier
+      l'étiquette du contenu obtient 1,000 pour une diversité de contenu nulle,
+      sans céder un point d'engagement ;
+    * le [rang adverse](ranking.py) — une norme aveugle au rang se laisse
+      satisfaire en **enterrant** les contenus divergents : certifiée à 0,70, une
+      plateforme n'expose que 0,36.
+
+    La forme retenue mesure l'entropie des **contenus servis**, projetés sur le
+    catalogue de référence déclaré et **pondérés par l'attention** de chaque rang :
+    :func:`ide.gaming.position_entropy` et :func:`ide.radio.rank_weights`.
+    :func:`label_diversity_index` est conservée parce qu'elle est ce que le test
+    adverse attaque, et parce que le [modèle à agents](abm/metrics.py) s'en sert
+    pour décrire l'exposition d'un individu — usage où le rang n'existe pas.
 
 Avertissement d'échelle (voir ``docs/limites.md``, point 3) : l'entropie mesurée
 ici porte sur la **distribution des opinions exposées à un individu**, pas sur
@@ -29,7 +47,7 @@ from collections.abc import Iterable, Sequence
 import numpy as np
 
 __all__ = [
-    "entropic_dissipation_index",
+    "label_diversity_index",
     "shannon_entropy",
     "shannon_entropy_from_counts",
     "von_neumann_entropy",
@@ -172,25 +190,27 @@ def von_neumann_entropy(density_matrix: np.ndarray, base: float = np.e) -> float
     return shannon_entropy(populations, base=base)
 
 
-def entropic_dissipation_index(
+def label_diversity_index(
     labels: Sequence[object],
     catalogue_size: int | None = None,
 ) -> float:
-    """Index de Dissipation Entropique d'un fil d'actualité individuel.
+    """Diversité des **étiquettes** d'un fil : entropie de Shannon normalisée.
 
-    C'est la métrique proposée au régulateur : l'entropie de Shannon des opinions
-    exposées à un utilisateur, rapportée à l'entropie maximale atteignable pour le
-    même nombre de modalités.
+    C'est la première forme de l'indice — celle du fil d'origine — et son nom dit
+    désormais ce qu'elle mesure : la répartition des **étiquettes annoncées**, sans
+    regarder ni les contenus qu'elles désignent ni le rang auquel ils ont été servis.
+    Ce sont ces deux angles morts que le test adverse exploite ; la forme retenue
+    comme norme est décrite dans l'avertissement du module.
 
     .. math::
 
-        \\mathrm{IDE} = \\frac{H(X)}{\\log_2 k}
+        \\mathrm{H_{norm}} = \\frac{H(X)}{\\log_2 k}
 
     Interprétation :
 
-    * :math:`\\mathrm{IDE} = 1` — exposition parfaitement équilibrée entre les
+    * :math:`\\mathrm{H_{norm}} = 1` — répartition parfaitement équilibrée entre les
       :math:`k` points de vue disponibles ;
-    * :math:`\\mathrm{IDE} \\to 0` — bulle de filtres gelée, un seul point de vue
+    * :math:`\\mathrm{H_{norm}} \\to 0` — bulle de filtres gelée, un seul point de vue
       occupe le fil. C'est l'état :math:`T \\to 0` du modèle d'Ising, celui que le
       mémorandum de régulation cherche à rendre juridiquement constatable.
 
@@ -213,12 +233,12 @@ def entropic_dissipation_index(
     Examples:
         Fil équilibré sur quatre points de vue :
 
-        >>> entropic_dissipation_index(["a", "b", "c", "d"], catalogue_size=4)
+        >>> label_diversity_index(["a", "b", "c", "d"], catalogue_size=4)
         1.0
 
         Bulle fermée, alors que la plateforme disposait de quatre points de vue :
 
-        >>> entropic_dissipation_index(["a", "a", "a", "a"], catalogue_size=4)
+        >>> label_diversity_index(["a", "a", "a", "a"], catalogue_size=4)
         0.0
     """
     if len(labels) == 0:

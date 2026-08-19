@@ -23,7 +23,7 @@ from dataclasses import dataclass, fields
 import numpy as np
 
 from ide.abm.agents import Citizen
-from ide.entropy import entropic_dissipation_index
+from ide.entropy import label_diversity_index
 
 __all__ = [
     "SocietyMetrics",
@@ -92,7 +92,7 @@ def measure(
     radicalism = np.array([citizen.radicalism for citizen in citizens])
     individual_indices = np.array(
         [
-            entropic_dissipation_index(list(citizen.exposure), catalogue_size=catalogue_size)
+            label_diversity_index(list(citizen.exposure), catalogue_size=catalogue_size)
             for citizen in citizens
         ]
     )

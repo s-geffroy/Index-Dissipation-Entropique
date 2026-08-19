@@ -39,8 +39,8 @@ algorithmic gain exceeds a piece of content's natural damping rate
 ($\gamma\alpha > \lambda$), effective damping becomes negative and the system enters
 resonance --- an informational Larsen effect.
 
-We derive two instruments: the \textbf{Entropic Dissipation Index} (EDI), an auditable
-metric of a feed's informational diversity, and the \textbf{Entropic Dissipation
+We derive two instruments: the \textbf{Exposed Diversity Index} (EDI), an auditable
+metric of a feed's informational diversity, and the \textbf{Exposed Diversity
 Algorithm} (EDA), a recommender filter that optimises this index rather than raw
 engagement.
 
@@ -330,7 +330,7 @@ intent.
 
 \section{Two instruments}
 
-\subsection{The Entropic Dissipation Index}
+\subsection{The Exposed Diversity Index}
 
 The index is the Shannon entropy of the viewpoints served to a user, normalised by its
 theoretical maximum:
@@ -346,7 +346,7 @@ which a perfectly closed feed would obtain a flattering index.
 A collapsed index is the signature of a zero local social temperature, that is, a frozen
 state in the Ising sense --- the regime in which hysteresis makes false beliefs persistent.
 
-\subsection{The Entropic Dissipation Algorithm}
+\subsection{The Exposed Diversity Algorithm}
 
 A conventional recommender maximises immediate engagement; by \eqref{eq:criterion}, that
 cost function is the one producing negative damping. The algorithm replaces it with

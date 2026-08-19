@@ -35,13 +35,25 @@ and technically.
 
 | Acronym | Object | Nature | Used by |
 |---|---|---|---|
-| **IDE / EDI** | Entropic Dissipation Index | auditable metric in $[0, 1]$ | the regulator |
-| **ADE / EDA** | Entropic Dissipation Algorithm | recommender filter | the platform |
+| **IDE / EDI** | Exposed Diversity Index | auditable metric in $[0, 1]$ | the regulator |
+| **ADE / EDA** | Exposed Diversity Algorithm | recommender filter | the platform |
 
 The index is measurable without code access: observing the content served is enough. The
 algorithm is one way among others of keeping it above a threshold. The memorandum
 mandates the former and **does not prescribe** the latter — mandating an implementation
 would be both unenforceable and counterproductive.
+
+!!! success "And the name itself was corrected, after the fact"
+    Both objects were originally called the *Entropic Dissipation* Index and Algorithm, after
+    the quantum decoherence analogy. Section B of this audit dismantles that analogy transfer by
+    transfer, and the conclusion is that none of its specifically quantum borrowings survived:
+    what holds is classical statistical mechanics.
+
+    Keeping that name would have kept a refuted claim in the instrument's title. The acronym is
+    kept — it appears in published pages and names the Python package — but it now reads
+    **Exposed Diversity Index**, which is exactly what the retained measure computes: the spread
+    of served attention across the declared viewpoints. The historical function is now called
+    `label_diversity_index`, because it measures the diversity of **labels** and nothing more.
 
 ---
 
