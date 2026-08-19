@@ -42,6 +42,32 @@ observable.
 
 ### 1. Impose a floor on the Exposed Diversity Index
 
+!!! abstract "What is recommended today — after three corrections"
+    **The standard.** A floor on the entropy of the **items served**, projected onto the bins of
+    a **reference catalogue declared by the regulator**, and **weighted by the attention** each
+    rank commands. Not on announced labels, and not on feed composition alone.
+
+    **The two quantities to publish with it**:
+
+    * the **gap between the rank-blind and the rank-aware measure** of the same feed — zero for a
+      platform that does not relegate, and the only quantity in this repository that thresholds
+      directly;
+    * the **signature excess** — the gap between two indices computed on the same feed, relative
+      to what an honest catalogue would show, which grows with label/content decoupling.
+
+    **The price, quantified**: a rank-aware floor costs 10.6 % to 20.9 % of engagement depending
+    on the measure, against 5.9 % to 10.7 % for a rank-blind floor that protects nothing.
+
+    **What the regulator sets**: the reference catalogue, the aggregate quantity (the share of
+    the population below the threshold, not the mean), and the level of the threshold — which no
+    computation here determines.
+
+    **What remains unverified**: this form has never been measured on a real feed, for want of a
+    dataset carrying both the served rank and a viewpoint label.
+    → [Article 40 request](article-40.en.md)
+
+    The three corrections that led here are kept below, in the order they occurred.
+
 **Measure.** Require very large online platforms to keep the [index](ide.en.md) of
 individual feeds above a threshold $H_{\text{critical}}$. Below it, the platform is
 required to reinject a "cooling flow" of semantically diverse content.

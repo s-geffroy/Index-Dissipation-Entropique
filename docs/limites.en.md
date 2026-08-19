@@ -412,6 +412,29 @@ $\alpha$ taken separately still have no estimation procedure**: the formalism is
 its empirical grounding has barely begun. This remains the work's principal weakness. See the
 [roadmap](feuille-de-route.en.md).
 
+
+### The starting analogy is refuted — and that is a result
+
+This deserves stating more plainly than "an analogy is not an explanation". The claims
+**proper to** the quantum analogy were checked one by one, and none held:
+
+| What the analogy claimed | Verdict |
+|---|---|
+| the larger the system, the more disordered | **false, and backwards** — the macroscopic variable becomes *more* deterministic, as $1/N$ (point 3) |
+| decoherence increases entropy | **false** — global evolution stays unitary; it is the reduced subsystem whose entropy grows (point 8) |
+| $\tau_D \propto \tau_R/N$ | heuristic, not Zurek's result (point 11) |
+| social tunnelling | **metaphor** — the correct analogue is activated barrier crossing (point 9) |
+| $1/k^N$ measures the improbability of consensus | describes an **initial state**, not a dynamics (point 10) |
+
+What survives — free-energy landscape, phase transition, hysteresis, Kramers' law — belongs to
+**classical statistical mechanics**, in the Ising and sociophysics lineage. Nothing specifically
+quantum came through.
+
+The analogy therefore worked as **scaffolding**: it suggested measurable quantities that outlive
+it — an exposed diversity index, an exposure severity, an amplification threshold. That is a
+real role, and it is not the same as being true. The instrument's name was corrected accordingly
+(point 1).
+
 ### Individuals are not spins
 
 * **Intentionality.** A person can adopt a contrarian, ironic or strategic stance. A spin

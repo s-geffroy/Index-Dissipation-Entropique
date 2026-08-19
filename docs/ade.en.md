@@ -5,6 +5,19 @@
     is one way among others of keeping that metric above a threshold. The memorandum
     mandates the former and **does not prescribe** the latter.
 
+
+!!! warning "Status: proposed, never evaluated on real data"
+    The algorithm is validated **on its own model** — a four-viewpoint catalogue, synthetic
+    relevance. Its real cost in perceived relevance has not been measured, and cannot be on
+    public data as things stand: evaluation would require a dataset carrying **the served rank**
+    and **an interpretable viewpoint label**, and no public dataset carries both.
+    → [logs that record the rank](rang-servi.en.md) · [Article 40 request](article-40.en.md)
+
+    What *is* established, and bounds the discussion: a **rank-aware** floor costs between
+    10.6 % and 20.9 % of engagement depending on the measure, by exhaustive enumeration
+    ([adversarial rank](rang-adverse.en.md)); and evaluating that cost naively on logged clicks
+    is off by **201 % at the median** ([rank and counterfactual](evaluation.en.md)).
+
 ## The problem it addresses
 
 A conventional recommender maximises immediate engagement. The
@@ -113,8 +126,15 @@ freezing. That is also what limits its cost in perceived relevance.
 
 * **Not tested on a real system.** Validated against its own model, with a four-viewpoint
   catalogue and synthetic relevance. → [roadmap §3.1](feuille-de-route.en.md)
-* **The engagement cost is not evaluated.** A platform will object that rebalancing
-  reduces retention; the repository offers nothing to settle that.
+* **The engagement cost is evaluated only in simulation.** The order of magnitude exists —
+  10.6 % to 20.9 % for a rank-aware floor, by exhaustive enumeration of every possible feed —
+  but it concerns feeds of eight slots over four viewpoints, with synthetic relevance. It is not
+  an answer to a platform's objection; it is what is needed to state the objection properly.
+  → [adversarial rank](rang-adverse.en.md)
+* **The tooling to evaluate it exists, the data does not.** This repository's counterfactual
+  estimators were confronted with a ground truth and recover the value of a never-deployed
+  policy to within **2.5 %**, where the naive estimate is off by 32 %. What they lack is a log
+  carrying both rank and viewpoints. → [logs that record the rank](rang-servi.en.md)
 * **Viewpoint discretisation is inherited from the index**, with its limitations: label
   diversity can satisfy the score without diversifying the argument.
 * **An algorithm that decides what should be seen is still an algorithm that decides.**

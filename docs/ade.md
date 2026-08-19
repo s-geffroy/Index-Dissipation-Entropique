@@ -5,6 +5,19 @@
     un *algorithme*, une façon parmi d'autres de maintenir cette métrique au-dessus
     d'un seuil. Le mémorandum impose la première et **ne prescrit pas** le second.
 
+!!! warning "État : proposé, jamais évalué sur données réelles"
+    L'ADE est validé **sur son propre modèle** — catalogue de quatre points de vue, pertinence
+    synthétique. Son coût réel en pertinence perçue n'a pas été mesuré, et il ne peut pas l'être
+    sur données publiques en l'état : l'évaluation exigerait un jeu portant **le rang servi** et
+    **une étiquette de point de vue interprétable**, et aucun jeu public ne porte les deux.
+    → [journaux qui enregistrent le rang](rang-servi.md) ·
+    [demande au titre de l'article 40](article-40.md)
+
+    Ce qui *est* établi, et qui borne la discussion : un plancher **conscient du rang** coûte
+    entre 10,6 % et 20,9 % d'engagement selon la mesure retenue, par énumération exhaustive
+    ([rang adverse](rang-adverse.md)) ; et l'évaluation naïve de ce coût sur des clics
+    enregistrés se trompe de **201 % en médiane** ([rang et contrefactuel](evaluation.md)).
+
 ## Le problème que l'ADE résout
 
 Un algorithme de recommandation classique maximise l'engagement immédiat. La
@@ -121,8 +134,15 @@ mêmes paramètres et n'ont pas la même solidité :
 
 * **L'ADE n'est pas testé sur un système réel.** Il est validé sur son propre modèle,
   avec un catalogue de quatre points de vue et une notion de pertinence synthétique.
-* **Le coût en engagement n'est pas évalué.** Une plateforme objectera que le
-  rééquilibrage réduit la rétention ; le dépôt ne fournit aucun élément pour arbitrer.
+* **Le coût en engagement n'est évalué qu'en simulation.** L'ordre de grandeur existe — 10,6 %
+  à 20,9 % pour un plancher conscient du rang, par énumération exhaustive de tous les fils
+  possibles — mais il porte sur des fils de huit positions et quatre points de vue, avec une
+  pertinence synthétique. Ce n'est pas une réponse à l'objection d'une plateforme ; c'est de
+  quoi la formuler correctement. → [rang adverse](rang-adverse.md)
+* **L'outillage pour l'évaluer existe, la donnée non.** Les estimateurs contrefactuels du dépôt
+  ont été confrontés à une vérité terrain et retrouvent à **2,5 %** la valeur d'une politique
+  jamais déployée, là où l'estimation naïve se trompe de 32 %. Il leur manque un journal qui
+  porte à la fois le rang et les points de vue. → [journaux qui enregistrent le rang](rang-servi.md)
 * **La discrétisation en points de vue est héritée de l'IDE**, avec ses limites : de la
   diversité d'étiquette peut satisfaire le score sans diversifier l'argument.
 * **Un algorithme qui décide de ce qu'il faut voir reste un algorithme qui décide.**

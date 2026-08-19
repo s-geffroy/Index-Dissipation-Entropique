@@ -43,6 +43,33 @@ pas par le contenu pris un à un. Ce sont ces paramètres qu'il faut rendre obse
 
 ### 1. Imposer un plancher d'Indice de Diversité Exposée
 
+!!! abstract "Ce qui est recommandé aujourd'hui — après trois corrections"
+    **La norme.** Un plancher sur l'entropie des **contenus servis**, projetés sur les bacs d'un
+    **catalogue de référence déclaré par le régulateur**, et **pondérés par l'attention** qu'appelle
+    chaque rang. Ni sur les étiquettes annoncées, ni sur la seule composition du fil.
+
+    **Les deux grandeurs à publier avec elle** :
+
+    * l'**écart entre la mesure aveugle au rang et la mesure consciente du rang** du même fil —
+      il vaut zéro pour une plateforme qui ne relègue pas, et c'est la seule grandeur du dépôt
+      qui se seuille directement ;
+    * l'**excès de signature** — l'écart entre deux indices calculés sur le même fil, rapporté à
+      ce qu'un catalogue honnête afficherait, qui croît avec le découplage étiquette/contenu.
+
+    **Le prix, chiffré** : un plancher conscient du rang coûte 10,6 % à 20,9 % d'engagement
+    selon la mesure, contre 5,9 % à 10,7 % pour un plancher aveugle qui ne protège de rien.
+
+    **Ce que le régulateur fixe** : le catalogue de référence, la grandeur agrégée (la part de
+    la population sous le seuil, pas la moyenne), et le niveau du seuil — qu'aucun calcul de ce
+    dépôt ne détermine.
+
+    **Ce qui reste non vérifié** : cette forme n'a jamais été mesurée sur un fil réel, faute
+    d'un jeu de données portant à la fois le rang servi et une étiquette de point de vue.
+    → [demande au titre de l'article 40](article-40.md)
+
+    Le détail des trois corrections qui ont conduit là est conservé ci-dessous, dans l'ordre où
+    elles sont survenues.
+
 **Mesure.** Exiger des très grandes plateformes (VLOP au sens du DSA) qu'elles
 maintiennent l'[IDE](ide.md) des fils d'actualité individuels au-dessus d'un seuil
 $H_{\text{critique}}$. Sous ce seuil, la plateforme est tenue de réinjecter un « flux de

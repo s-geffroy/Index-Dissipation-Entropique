@@ -15,9 +15,9 @@
 
 \graphicspath{{figures/}}
 
-\title{\textbf{From Quantum Decoherence to Social Polarisation}\\[2mm]
-       \large A Thermodynamic Model of Public Opinion\\
-       and a Proposed Metrological Index}
+\title{\textbf{Measuring the Diversity a Feed Actually Exposes}\\[2mm]
+       \large A Thermodynamic Model of Public Opinion,\\
+       and What Testing It Refuted}
 \author{Sylvain Geffroy}
 \date{August 2026 --- \emph{working paper, open to review}}
 
@@ -51,6 +51,12 @@ you nothing, and the corresponding regulatory recommendation must instead cap th
 
 Section~\ref{sec:limits} states the work's limitations. All code, tests and figures are
 reproducible in containers.
+
+Section~\ref{sec:posterior} reports measurements made after this note was written, which
+invalidated part of it: the index proposed here saturates at zero cost, the quantum analogy
+from which it originally took its name survives none of its transfers, and the reference
+dataset on which evaluation was planned does not record display order.
+
 \end{abstract}
 
 \section{Introduction and hypothesis}
@@ -435,6 +441,74 @@ emotional register; sensitivity of the median to the estimator; and the window a
 forced the fixed-horizon estimator.}
 \label{fig:calibration}
 \end{figure}
+
+
+\section{What Later Measurements Established}
+\label{sec:posterior}
+
+The preceding sections reflect the state of the work when they were written. Six
+measurements made since have invalidated part of it; they are summarised here and
+documented in full in the repository.
+
+\subsection{The proposed index is not a tenable standard}
+
+Under adversarial constrained optimisation, a floor bearing on a feed's \emph{labels} is
+saturated at zero cost: a platform able to decouple label from content obtains
+$\mathrm{EDI} = 1.000$ for strictly zero content diversity, without giving up a point of
+engagement. The first replacement considered, Rao's quadratic entropy, proved worse: its
+engagement-constrained optimum is \emph{bimodal}, i.e. it would prescribe the very
+polarisation it claims to measure. The retained form bears on the entropy of the
+\textbf{items served}, projected onto the bins of a declared reference catalogue.
+
+\subsection{A rank-blind standard is circumvented by burial}
+
+Retested on \emph{ordered} feeds rather than compositions, by exhaustive enumeration of all
+$4^8 = 65{,}536$ possible feeds, all four candidate diversity measures are satisfied by
+relegating divergent items to the last ranks: a platform certified at $0.70$ exposes only
+$0.36$ of real diversity. Closing the loophole with an attention-weighted measure doubles the
+engagement cost, from $8.2\%$ to $18.9\%$ depending on the measure. The standard must
+therefore be \textbf{rank-aware}, and the associated control quantity is the gap between the
+two measures of the same feed.
+
+\subsection{Offline evaluation required two corrections}
+
+Evaluating a re-ranking on clicks logged by a different policy --- \emph{replay} --- is off
+by $201\%$ at the median, up to $851\%$, and the sign of the error is not guaranteed. The
+correction runs through importance-weighted estimators, whose validity requires knowing the
+severity $\eta$ of position bias; positing that value instead of estimating it costs up to
+$+179\%$ on the published figure.
+
+\subsection{The reference dataset does not permit that evaluation}
+
+In MIND, the reference dataset for news recommendation, item order is \emph{shuffled}: an
+exact, power-calibrated within-feed exchangeability test detects no dependence between
+recorded position and click ($z = +0.12$, $p = 0.91$) where it would detect $\eta = 0.02$ at
+twelve standard deviations. The click-rate curve one nonetheless plots there falls from
+$0.108$ to $0.038$ and fits $\hat\eta = 0.39$: a composition artefact, deep positions existing
+only in long feeds. Shuffling the order does not debias the clicks; it destroys the variable
+that would allow them to be corrected.
+
+\subsection{Two public logs do record it, and severity can be measured there}
+
+On Baidu-ULTR the same test rejects at $z = -206$, on the side theory prescribes, and severity
+is $\hat\eta = 1.10 \pm 0.09$ by document fixed effects. On the Open Bandit Dataset, whose
+random bucket makes the measurement causal, the position effect of a three-thumbnail
+horizontal banner is ten times weaker: $\eta$ is a property of the \emph{surface}, not a
+constant. That dataset also publishes true propensities, allowing this work's only
+confrontation with a ground truth: the value of a never-deployed policy, estimated from
+another policy's data alone, lands within $2.5\%$ of its measured value, against $31.6\%$ for
+the naive estimate --- on an effective sample size of $1{,}513$ out of $4{,}077{,}727$
+impressions.
+
+\subsection{Consequence for the founding analogy}
+
+None of the transfers proper to the quantum analogy survived: global entropy does not grow
+under decoherence, configuration entropy and the noise of the macroscopic variable move in
+opposite directions with $N$, $\tau_D \propto \tau_R/N$ is a heuristic rather than Zurek's
+result, social tunnelling is a metaphor, and $1/k^N$ describes an initial state. What
+survives --- free-energy landscape, phase transition, hysteresis, activated barrier crossing
+--- belongs to classical statistical mechanics. The index was renamed accordingly:
+\emph{Exposed Diversity Index}, which is exactly what the retained form measures.
 
 \section{Limitations}
 \label{sec:limits}

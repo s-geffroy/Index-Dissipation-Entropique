@@ -1,134 +1,126 @@
 # Indice de Diversité Exposée
 
-**De la décohérence quantique à la polarisation algorithmique : modélisation
-thermodynamique de l'opinion publique.**
+**Mesurer la diversité qu'un fil algorithmique expose réellement — et éprouver ce qu'on croit en savoir.**
 
 ---
 
-## L'intuition de départ
+## Ce que ce dépôt contient
 
-Plus un système quantique est grand, plus sa décohérence est rapide : au contact d'un
-environnement massif, la superposition d'états s'effondre presque instantanément vers
-un état classique unique.
+Un **instrument** — une mesure de la diversité qu'un fil d'actualité expose réellement à son
+lecteur, calculable sans accès au code de la plateforme — et la **méthode adverse** qui l'a
+mis à l'épreuve : chaque proposition y est attaquée, et ce qui tombe est publié comme tel.
 
-Plus une population est grande, plus il est difficile d'y trouver un accord.
+Il en reste dix-huit notebooks exécutables, 556 tests, dix-sept corrections consignées, et un
+état des lieux qui ne ressemble pas à ce que le projet annonçait.
 
-Cette analogie tient-elle mathématiquement ? Ce dépôt la prend au sérieux, la
-formalise, en teste les conséquences numériquement — et corrige au passage ce qu'elle
-contient de faux.
+![Une plateforme certifiée à 0,70 par une mesure aveugle au rang n'expose que 0,36 de
+diversité réelle](figures/fig15_rang_adverse.png)
+
+/// caption
+Le résultat central : sous un plancher de diversité aveugle au rang, les quatre mesures
+candidates se laissent contourner en **enterrant** les contenus divergents. Une plateforme
+certifiée à 0,70 n'expose que 0,36. Figure régénérée par
+[le notebook 15](notebooks/15_rang_adverse_et_severite.ipynb).
+///
+
+## Le verdict, en une page
+
+| Objet | État |
+|---|---|
+| L'analogie décohérence quantique ↔ effondrement du consensus | **réfutée**, transfert par transfert — rien de spécifiquement quantique n'y a survécu → [audit](limites.md) |
+| Le formalisme classique qu'elle a fait emprunter | **cohérent et reproduit des comportements**, mais un seul paramètre calibré, et sa seule prédiction propre — l'effet de la charge émotionnelle — **testée quatre fois sans effet** |
+| L'index tel qu'il était proposé au régulateur | **intenable** : saturable à coût nul, puis contournable par l'enterrement → [test adverse](gaming.md) · [rang adverse](rang-adverse.md) |
+| La forme retenue de l'index | **définie et chiffrée** — entropie des contenus servis, pondérée par le rang — mais **jamais éprouvée sur un fil réel** |
+| L'algorithme (ADE) | **non évalué**, et non évaluable sur données publiques en l'état → [journaux qui enregistrent le rang](rang-servi.md) |
+| L'écart de persistance entre registres émotionnels | **n'existe pas** — c'était un artefact de sélection → [corpus étendu](corpus-etendu.md) · [annotation](annotation.md) |
+| Les instruments de mesure construits en chemin | **valides**, et l'un d'eux confronté à une vérité terrain → [rang servi](rang-servi.md) |
+
+**En une phrase : la théorie n'a pas tenu, la métrologie oui.**
+
+## Ce qui tient
+
+**Un contrôle qui dit si un journal de recommandation est seulement corrigible.** Le test
+d'échangeabilité intra-fil ne détecte rien dans MIND ($z = +0{,}12$, ordre mélangé) et rejette
+à $z = -206$ sur Baidu-ULTR, du côté que la théorie prescrit. Il est exact, étalonné en
+puissance, et il doit précéder toute estimation d'exposition.
+→ [Exploration de MIND](mind.md) · [Journaux qui enregistrent le rang](rang-servi.md)
+
+**Une sévérité de biais de position qui s'estime au lieu de se poser.** $1{,}10 \pm 0{,}09$ sur
+une page de résultats de recherche ; **dix fois moins** sur un bandeau de trois vignettes, où
+l'allocation aléatoire rend la mesure causale. $\eta$ est une propriété de la **surface**, et la
+transporter coûte jusqu'à +179 % sur le chiffre publié. → [Rang adverse](rang-adverse.md)
+
+**Des estimateurs contrefactuels vérifiés contre une vérité terrain.** La valeur d'une politique
+jamais déployée, estimée sur les seules données d'une autre : **+2,5 %** d'écart, contre
+**+32 %** pour l'estimation naïve — avec le diagnostic qui interdit d'en tirer gloire, une
+taille d'échantillon effective de 1 513 pour 4 millions d'impressions.
+→ [Journaux qui enregistrent le rang](rang-servi.md)
+
+**Une demande d'accès aux données qui se vérifie au lieu de se plaider.** Quatre tableaux
+agrégés, sans aucune donnée personnelle, dont il est prouvé qu'ils recalculent les mesures **à
+l'identique** — pour 95 fois moins de lignes que le journal brut.
+→ [Demande au titre de l'article 40](article-40.md)
+
+## Ce qui est tombé
+
+Six résultats négatifs, chacun publié avec ce qui l'a établi :
+
+* **le critère $\gamma\alpha > \lambda$ ne veut rien dire** — il est satisfait par construction
+  pour tout contenu ayant percé, ce que seule la mesure a révélé → [calibration](calibration.md) ;
+* **l'écart de persistance entre registres n'existe pas** — ×9,2 contre ×2,9 sur le corpus
+  pilote, ×3,04 contre ×2,90 ($p = 0{,}53$) sur 440 sujets → [corpus étendu](corpus-etendu.md) ;
+* **il n'était pas dilué par l'étiquetage** — 40 % de bruit mesuré, et l'écart disparaît quand
+  même → [annotation en aveugle](annotation.md) ;
+* **un plancher d'index se sature à coût nul** — 1,000 pour une diversité de contenu nulle
+  → [test adverse](gaming.md) ;
+* **le premier correctif prescrivait la polarisation** — l'optimum sous contrainte de l'entropie
+  de Rao est bimodal → [test adverse](gaming.md) ;
+* **le jeu de données de référence ne permet pas l'évaluation annoncée** — MIND ne conserve pas
+  l'ordre servi, et aucun jeu public ne porte à la fois le rang et une étiquette de point de vue
+  → [MIND](mind.md) · [rang servi](rang-servi.md).
+
+## Ce qui n'est pas tranché
+
+* **La forme retenue de l'index n'a jamais été mesurée sur un fil réel.** Elle est définie,
+  son coût d'engagement est chiffré en simulation, et c'est tout.
+* **Le niveau du plancher est une décision politique**, comme le catalogue de points de vue qui
+  lui sert de grille. La mesure décrit, elle ne prescrit pas.
+* **Les trois codeurs de l'annotation sont des instances du même modèle de langue.** L'accord
+  entre elles surestime ce que produiraient des juges indépendants.
+* **Rien ne démontre que les opinions humaines *obéissent* à une mécanique statistique.** Le
+  travail établit qu'un formalisme emprunté à la physique en **reproduit** des comportements.
+
+## Les deux instruments
+
+| | Objet | État |
+|---|---|---|
+| **[IDE](ide.md)** | *Indice de Diversité Exposée* — entropie des contenus servis sur le catalogue de référence déclaré, **pondérée par l'attention de chaque rang**, dans $[0, 1]$ | forme retenue **définie**, non éprouvée sur données réelles |
+| **[ADE](ade.md)** | *Algorithme de Diversité Exposée* — filtre de recommandation qui optimise cet indice au lieu de l'engagement brut | **non évalué** : le jeu de données qui le permettrait n'existe pas publiquement |
+
+Le [mémorandum de régulation](memorandum.md) traduit l'indice en recommandations pour l'ARCOM
+et la Commission européenne, dans le cadre du *Digital Services Act* — avec, à chaque
+recommandation, la mesure qui l'a corrigée.
+
+## D'où cela vient
+
+Le projet est parti d'une analogie : plus un système quantique est grand, plus vite il
+décohère ; plus une population est grande, plus l'accord y est difficile. Cette analogie a
+produit des quantités mesurables, et **aucune de ses affirmations propres n'a résisté à la
+vérification**. C'est l'objet de l'[audit critique](limites.md), qui recense **dix-sept
+corrections** — dont cinq invalidaient une formule, et deux ont été découvertes en tentant de
+mesurer.
+
+Ce qui subsiste du formalisme est classique : paysage d'énergie libre, transition de phase,
+hystérésis, franchissement de barrière.
 
 ![Les trois régimes de l'opinion publique : paysage d'énergie libre, distributions
 stationnaires, et scission d'une société initialement modérée](figures/fig04_paysage.png)
 
 /// caption
-Les trois régimes de l'opinion publique, obtenus en changeant deux paramètres du même
-paysage d'énergie libre. Figure régénérée par
+Les trois régimes de l'opinion publique, obtenus en changeant deux paramètres du même paysage
+d'énergie libre. Figure régénérée par
 [le notebook 04](notebooks/04_fokker_planck_paysage.ipynb).
 ///
-
-## Ce que le travail établit
-
-Trois résultats, chacun vérifié par du code exécutable :
-
-**Une transition de phase, pas une dégradation continue.** Avec l'énergie libre
-$F = E - TS$ correctement écrite, la distribution des opinions passe brusquement d'un
-pic unique centré sur la modération à deux pics extrêmes, de part et d'autre d'une
-**température sociale critique**. Une société ne se polarise pas graduellement : elle
-bascule. → [Fokker-Planck](theorie/fokker-planck.md)
-
-**Un démenti ne suffit pas.** Sous la température critique, couper le champ
-médiatique ne ramène pas l'opinion à la neutralité : le conformisme de groupe prend
-le relais et maintient la croyance. C'est une **hystérésis**, mesurable, et elle
-explique pourquoi le *debunking* passif échoue. → [Température sociale](theorie/temperature.md)
-
-**L'amplification a un seuil net — et l'écosystème est au-dessus.** Quand le gain
-algorithmique dépasse le taux d'oubli naturel d'un contenu ($\gamma\alpha > \lambda$),
-l'amortissement effectif devient négatif : le système accumule l'énergie qu'on lui injecte au
-lieu de la dissiper. La [mesure sur données publiques](calibration.md) situe le rapport entre
-**1,5 et 12** sur 19 épisodes d'attention — et montre du même coup que vérifier le *signe* de
-ce critère n'apprend rien, ce qui a obligé à réécrire une recommandation du mémorandum.
-→ [Résonance](theorie/resonance.md) · [Calibration](calibration.md)
-
-**Les basculements durables se datent, mais ne distinguent pas les registres.** La détection
-de [changement de régime](regimes.md) retrouve des basculements datés — QAnon en mars 2020,
-l'affaire Benalla le 20 juillet 2018. Un écart de persistance entre contenus d'accusation et
-annonces de découverte y semblait acquis, ×9,2 contre ×2,9 ; la vérification sur
-[440 sujets](corpus-etendu.md) l'a ramené à ×3,04 contre ×2,90 ($p = 0{,}53$). C'était un
-artefact de sélection manuelle, et l'[annotation en aveugle](annotation.md) du registre a
-éliminé la dernière hypothèse de sauvetage : l'écart n'était pas dilué par un étiquetage
-approximatif, il n'existe pas.
-→ [Corpus étendu](corpus-etendu.md) · [Annotation en aveugle](annotation.md)
-
-**Et l'index proposé n'était pas une norme tenable.** Le [test adverse](gaming.md) montre
-qu'une plateforme capable de dissocier l'étiquette du contenu obtient un IDE de 1,000 — la note
-maximale — pour une diversité de contenu nulle, sans céder un point d'engagement. La mesure doit
-porter sur les **contenus** servis et non sur les étiquettes qui les annoncent. Le premier
-remplaçant proposé — l'entropie de Rao — s'est révélé pire encore : son optimum sous contrainte
-est **bimodal**, donc il *prescrirait* la polarisation. Le plancher retenu est une entropie
-calculée sur les contenus. → [Test adverse de l'index](gaming.md)
-
-**Et l'évaluer sur données réelles demandait deux corrections préalables.** Une mesure de
-diversité aveugle au rang se laisse satisfaire en **enterrant** les contenus divergents, et
-l'évaluation naïve d'un réordonnancement sur des clics enregistrés se trompe de **201 % en
-médiane**, sans même garantir le sens de son erreur. → [Rang et contrefactuel](evaluation.md)
-
-**Et une norme aveugle au rang laisse passer l'essentiel.** Reprises sur des fils ordonnés,
-les quatre mesures de diversité se laissent toutes contourner par l'**enterrement** : une
-plateforme certifiée à 0,70 n'expose que **0,36**. Fermer l'échappatoire double le coût
-d'engagement. → [Rang adverse et sévérité](rang-adverse.md)
-
-**Et le jeu de données sur lequel tout cela devait être évalué n'enregistre pas l'ordre.** Dans
-MIND, la référence de la recommandation d'actualité, l'ordre des contenus est **mélangé** : le
-test d'échangeabilité n'y détecte rien ($z = +0{,}12$) là où il verrait $\eta = 0{,}02$ à douze
-écarts-types. La courbe de biais de position qu'on y trace pourtant — $\hat\eta = 0{,}39$ —
-n'est qu'un artefact de composition, et l'estimateur de ce dépôt y renvoie **cinq sévérités
-incompatibles**. Mélanger l'ordre ne débiaise pas les clics : cela détruit la variable qui
-permettrait de les corriger. → [Exploration réelle de MIND](mind.md)
-
-**Deux journaux publics l'enregistrent, eux — et la sévérité s'y mesure.** Sur
-[Baidu-ULTR](rang-servi.md), le même test rejette à $z = -206$, du bon côté, et
-$\hat\eta = 1{,}10 \pm 0{,}09$. Sur l'Open Bandit Dataset, où l'allocation est **aléatoire**,
-l'effet de position d'un bandeau de trois vignettes est **dix fois plus faible** : $\eta$ est une
-propriété de la surface, pas une constante. Et l'estimateur contrefactuel de ce dépôt, confronté
-pour la première fois à une vérité terrain, tombe à **2,5 %** là où l'estimation naïve se trompe
-de 32 % — pour une taille d'échantillon **effective** de 1 513 sur 4 millions.
-→ [Journaux qui enregistrent le rang](rang-servi.md)
-
-**Et pour ce qui manque encore, la demande est écrite.** Aucun jeu public ne porte à la fois le
-rang servi et une étiquette de point de vue : reste l'article 40 du DSA. La
-[demande](article-40.md) ne réclame ni journal ni donnée personnelle mais **quatre tableaux
-agrégés**, dont il est vérifié qu'ils recalculent les mesures **à l'identique** — pour 95 fois
-moins de lignes que le journal. → [Demande au titre de l'article 40](article-40.md)
-
-## Ce que le travail propose
-
-| | Objet | Destinataire |
-|---|---|---|
-| **[IDE](ide.md)** | *Indice de Diversité Exposée* — une métrique de la diversité informationnelle d'un fil, dans $[0, 1]$, mesurable sans accès au code de la plateforme | le régulateur |
-| **[ADE](ade.md)** | *Algorithme de Diversité Exposée* — un filtre de recommandation qui optimise cet index au lieu de l'engagement brut | la plateforme |
-
-Un seul paramètre du modèle est aujourd'hui **calibré sur données réelles** :
-→ [Calibration empirique](calibration.md).
-
-Le [mémorandum de régulation](memorandum.md) traduit ces deux objets en
-recommandations pour l'ARCOM et la Commission européenne, dans le cadre du *Digital
-Services Act*.
-
-## Ce que le travail ne prétend pas
-
-L'[**audit critique**](limites.md) est la page qu'il faut lire avant les autres. Il
-recense **dix-sept corrections** apportées au raisonnement d'origine — dont cinq qui
-invalidaient une formule, et une découverte en tentant de mesurer — et énumère les limites
-qui subsistent, y compris celles qui touchent à l'usage réglementaire de l'index : l'IDE est
-manipulable, sa discrétisation en points de vue est un choix politique, et un seuil imposé sur
-sa valeur est une intervention sur le débat public, non une simple mesure technique.
-
-Rien ici ne démontre que les opinions humaines *obéissent* à une mécanique statistique. Le
-travail établit qu'un formalisme emprunté à la physique **reproduit** certains comportements
-observés, et en tire des quantités mesurables. Un seul de ses paramètres est aujourd'hui
-calibré sur données réelles — et cette calibration a montré qu'une de ses recommandations
-réglementaires ne voulait rien dire. L'ancrage empirique n'est qu'entamé : c'est la principale
-faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment y remédier.
 
 ## Explorer
 

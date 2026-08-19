@@ -7,6 +7,47 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Modifié — revue complète des pages à l'état des derniers résultats
+
+Les pages avaient grossi par accrétion : chaque chantier ajoutait un paragraphe « Et… » à la
+suite du précédent, si bien que la page d'accueil racontait la chronologie du projet plutôt que
+son état. Revue de fond, page par page.
+
+- **Sous-titre** — « De la décohérence quantique à la polarisation algorithmique » devient
+  **« Mesurer la diversité qu'un fil algorithmique expose réellement — et éprouver ce qu'on
+  croit en savoir »**, dans le README, la page d'accueil, `mkdocs.yml`, `CITATION.cff` et
+  `pyproject.toml`. Le titre des deux notes LaTeX suit.
+- **Page d'accueil et README réécrits** autour de quatre sections : le **verdict** en un
+  tableau, **ce qui tient** (quatre instruments de mesure), **ce qui est tombé** (six résultats
+  négatifs), **ce qui n'est pas tranché**. L'origine du projet passe en fin de page, où elle a
+  désormais sa place.
+- **[`docs/ide.md`](docs/ide.md)** — la définition présente maintenant la **forme retenue** en
+  premier : entropie des contenus servis, projetés sur le catalogue déclaré, pondérés par
+  l'attention de chaque rang — chacun de ces trois choix étant la conséquence d'une attaque qui
+  a réussi. La forme d'origine, sur les étiquettes, est reléguée à une section qui dit ce
+  qu'elle mesure et pourquoi elle ne peut pas servir de norme.
+- **[`docs/ade.md`](docs/ade.md)** — encadré d'état : proposé, jamais évalué sur données
+  réelles, et non évaluable en l'état. La limite « le coût en engagement n'est pas évalué » est
+  corrigée : il l'est en simulation, entre 10,6 % et 20,9 %.
+- **[`docs/theorie/entropie.md`](docs/theorie/entropie.md)** — le parallèle von Neumann /
+  Shannon est explicitement présenté comme un **échafaudage qui n'a pas tenu**, et le renvoi vers
+  l'index pointe la distribution effectivement retenue.
+- **[`docs/limites.md`](docs/limites.md)** — nouvelle section : *l'analogie de départ est
+  réfutée, et c'est un résultat*, avec le tableau des cinq transferts et leur verdict.
+- **[`docs/memorandum.md`](docs/memorandum.md)** — la recommandation 1 s'ouvre sur **ce qui est
+  recommandé aujourd'hui**, prix chiffré et grandeurs de contrôle comprises ; l'historique des
+  trois corrections reste dessous, dans l'ordre où elles sont survenues.
+- **[`docs/relecture.md`](docs/relecture.md)** — les retours demandés ont changé d'ordre : la
+  forme de l'indice et les instruments de mesure passent devant la calibration. Le modèle de
+  courriel est réécrit et annonce les six résultats négatifs.
+- **[`docs/feuille-de-route.md`](docs/feuille-de-route.md)** — « si une seule chose devait être
+  faite » n'est plus l'annotation humaine mais le **dépôt de la demande d'accès aux données par
+  un organisme de recherche** : c'est le seul verrou que ce dépôt ne peut pas lever seul, et il
+  commande les trois mesures qui manquent.
+- **`paper/*.tex`** — nouvelle section *Ce que les mesures postérieures ont établi* : les six
+  résultats qui invalident une partie du corps de la note, résumés avec leurs chiffres. Les deux
+  PDF sont recompilés.
+
 ### Modifié — l'index porte enfin le nom de ce qu'il mesure
 
 - **IDE** ne se lit plus « Index de Dissipation Entropique » mais **« Indice de Diversité

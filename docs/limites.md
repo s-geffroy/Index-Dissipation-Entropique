@@ -481,6 +481,30 @@ $\gamma$ et $\alpha$ pris séparément restent sans procédure d'estimation** : 
 est cohérent, son ancrage empirique n'est qu'entamé. C'est toujours la principale faiblesse
 du travail.
 
+
+### L'analogie de départ est réfutée — et c'est un résultat
+
+Il faut le dire plus nettement que « une analogie n'est pas une explication ». Les
+affirmations **propres** à l'analogie quantique ont été vérifiées une à une, et aucune n'a
+tenu :
+
+| Ce que l'analogie affirmait | Verdict |
+|---|---|
+| plus le système est grand, plus il se désordonne | **faux, et à l'envers** — la variable macroscopique devient *plus* déterministe en $1/N$ (point 3) |
+| la décohérence augmente l'entropie | **faux** — l'évolution globale reste unitaire ; c'est le sous-système réduit qui voit son entropie croître (point 8) |
+| $\tau_D \propto \tau_R/N$ | heuristique, pas le résultat de Zurek (point 11) |
+| effet tunnel social | **métaphore** — l'analogue correct est le franchissement de barrière par activation (point 9) |
+| $1/k^N$ mesure l'improbabilité du consensus | décrit un **état initial**, pas une dynamique (point 10) |
+
+Ce qui subsiste — paysage d'énergie libre, transition de phase, hystérésis, loi de Kramers —
+relève de la **mécanique statistique classique**, dans la lignée d'Ising et de la
+sociophysique. Rien de spécifiquement quantique n'a survécu au passage.
+
+L'analogie a donc fonctionné comme **échafaudage** : elle a suggéré des quantités mesurables
+qui lui survivent — un indice de diversité exposée, une sévérité d'exposition, un seuil
+d'amplification. C'est un rôle réel, et il ne se confond pas avec la vérité. Le nom de
+l'instrument a d'ailleurs été corrigé en conséquence (point 1).
+
 ### Les individus ne sont pas des spins
 
 * **Intentionnalité.** Un individu peut adopter une posture anticonformiste, ironique

@@ -319,30 +319,31 @@ threshold — connecting the work to an established literature rather than an ad
 
 ## If only one thing were done
 
-**Have the corpus coded by human annotators.**
+**Have the data access request filed by a research organisation.**
 
-Hand annotation of the register — priority 1 in the previous version of this page — was
-[carried out across all 440 subjects](annotation.en.md) and settled the question it was meant
-to settle. Label noise was massive (40 % of subjects outside either register, only 59.5 %
-agreement) and it carried the whole switching-rate gap, which falls from 8.6 % versus 2.7 % to
-4.8 % versus 5.1 %. **The gap was not diluted, it does not exist.**
+It is the one lock this repository cannot open on its own, and it commands all the others. The
+[request](article-40.en.md) is written, specified article by article of Delegated Regulation
+(EU) 2025/2050, and **verified**: the four aggregate tables it asks for recompute identically the
+exchangeability test, position-bias severity and both diversity measures, for 95 times fewer rows
+than the raw log and with no personal data at all. All it lacks is an applicant eligible under
+Article 40(8)(a).
 
-**Four measurements have therefore been made, and none distinguishes the emotional registers**:
-the amplification rate, persistence on the pilot then the extended corpus, and the switching
-rate. The emotional-charge mechanism $\alpha$ remains without empirical support, and no longer
-for want of looking.
+Without it, three things stay out of reach, and will stay there whatever methodological progress
+is made:
 
-The blind double coding was carried out: Fleiss' $\kappa$ of **0.921**, unanimity on 92 % of
-subjects, and an unchanged result under consensus coding. The rubric is therefore
-**reproducible** — the written instructions suffice to produce a stable coding.
+* **measuring the index on a real feed** — the retained form has never been computed anywhere but
+  in simulation;
+* **evaluating the algorithm's engagement cost** other than against its own model;
+* **checking that burial actually happens** on a platform, rather than on eight-slot feeds
+  enumerated exhaustively.
 
-But the three coders are instances of the **same language model**, and agreement among them
-necessarily overstates what independent judges would produce. That is the last identifiable
-methodological caveat, and the only one that calculation cannot lift: it needs human
-annotators.
+### What comes right after
 
-**What probably should not be done**, by contrast, is a fifth measurement of the same object.
-Three quantities drawn from the same aggregate attention series have been tested without
-success, and the annotation showed along the way that the design itself is constrained: the two
-registers, correctly labelled, barely cover the same kinds of subject. If the mechanism exists,
-it must be sought elsewhere — see §3.1 and §3.2.
+**Human annotators.** The corpus's three coders are instances of the same language model: their
+agreement — Fleiss' $\kappa$ of **0.921**, unanimity on 92 % of subjects — necessarily overstates
+what independent judges would produce. It is the last methodological reservation that no
+computation lifts. It would not change the conclusion, though: blind annotation **eliminated** the
+register gap, and four independent measurements find no trace of it.
+
+**Tuned baselines** — MMR, random re-ranking, popularity. The oldest debt of the evaluation
+programme, and it requires no new data.

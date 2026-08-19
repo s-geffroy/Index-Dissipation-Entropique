@@ -24,20 +24,52 @@
     et la fonction historique s'appelle maintenant `label_diversity_index`, parce que c'est ce
     qu'elle calcule : la diversité des **étiquettes**, sans regarder ni les contenus ni le rang.
 
-## Définition
+## Définition — la forme retenue
 
-L'IDE est l'entropie de Shannon des points de vue servis à un utilisateur sur une
-fenêtre d'observation, rapportée à son maximum théorique :
+L'IDE est l'entropie de Shannon de la distribution des **points de vue exposés**, normalisée
+par son maximum théorique :
 
-$$\mathrm{IDE} = \frac{H(X)}{\log_2 k} = \frac{-\sum_i p_i \log_2 p_i}{\log_2 k}$$
+$$\mathrm{IDE} = \frac{H(q)}{\log_2 k}, \qquad
+q_i = \frac{\sum_R w_R \, \mathbb{1}[\text{le contenu servi au rang } R \text{ tombe dans le bac } i]}
+{\sum_R w_R}$$
 
-où $p_i$ est la part du point de vue $i$ dans le fil, et $k$ le nombre de points de vue
-que la plateforme est **en mesure** de servir.
+Trois choix la distinguent de l'entropie qu'on écrirait spontanément, et chacun est la
+**conséquence d'une attaque qui a réussi** :
+
+| Choix | Pourquoi | Ce qui arrive sans lui |
+|---|---|---|
+| $q$ porte sur les **contenus servis**, projetés sur les bacs du catalogue de référence — non sur les étiquettes qui les annoncent | une étiquette se choisit, un contenu se constate | l'index atteint **1,000 pour une diversité de contenu nulle**, à coût d'engagement nul → [test adverse](gaming.md) |
+| chaque rang est pondéré par l'**attention** qu'il reçoit, $w_R$ (par défaut $1/R$) | un lecteur consulte le premier élément bien plus souvent que le dernier | la norme se satisfait en **enterrant** les contenus divergents : certifiée à 0,70, une plateforme n'expose que **0,36** → [rang adverse](rang-adverse.md) |
+| le dénominateur $\log_2 k$ est fixé par le **catalogue déclaré**, non par ce que la plateforme sert | comparer deux plateformes exige la même unité | un fil parfaitement fermé ne présente qu'une modalité : le dénominateur dégénère et l'index flatte |
 
 | Valeur | Interprétation |
 |---|---|
-| $\mathrm{IDE} = 1$ | exposition parfaitement équilibrée entre les $k$ points de vue |
-| $\mathrm{IDE} \to 0$ | bulle de filtres gelée : un seul point de vue occupe le fil |
+| $\mathrm{IDE} = 1$ | l'attention servie se répartit également entre les $k$ points de vue du catalogue |
+| $\mathrm{IDE} \to 0$ | bulle de filtres gelée : l'attention servie va à un seul point de vue |
+
+**Grandeur de contrôle associée.** L'écart entre la mesure **aveugle au rang** et la mesure
+**consciente du rang** du *même* fil vaut zéro pour une plateforme qui ne relègue pas, et croît
+avec l'enterrement. Contrairement aux autres diagnostics du dépôt, il compare une mesure à
+elle-même : il est donc directement seuillable. → [rang adverse](rang-adverse.md)
+
+!!! warning "Cette forme n'a jamais été mesurée sur un fil réel"
+    Son coût d'engagement est chiffré **en simulation** — de 8,2 % à 18,9 % selon la mesure,
+    par énumération exhaustive de tous les fils possibles — et son niveau de plancher reste à
+    décider politiquement. Aucun jeu de données public ne permet de la calculer : il y faudrait
+    le rang servi **et** une étiquette de point de vue interprétable, et aucun ne porte les
+    deux. → [journaux qui enregistrent le rang](rang-servi.md) ·
+    [demande au titre de l'article 40](article-40.md)
+
+## La forme d'origine, et ce qu'elle mesurait
+
+Le fil de travail définissait l'index sur les **étiquettes** d'un fil, sans regarder le rang :
+
+$$H_{\text{norm}} = \frac{H(X)}{\log_2 k}$$
+
+C'est ce que calcule `ide.entropy.label_diversity_index`, dont le nom dit désormais la portée.
+Cette forme reste utile là où le rang n'existe pas — le [modèle à agents](notebooks/08_abm_compas_politique.ipynb)
+décrit ainsi l'exposition d'un individu — mais elle **ne peut pas servir de norme** : c'est elle
+que le test adverse met en défaut.
 
 ## Pourquoi la normalisation est le point essentiel
 
@@ -120,10 +152,15 @@ l'[audit critique](limites.md).
 * **La discrétisation en points de vue est un choix politique.** Qui définit les
   modalités définit l'index. Découper l'espace des opinions en 4, 40 ou 400 catégories
   change la valeur mesurée, et ce découpage n'est pas un acte technique neutre.
-* **L'index est manipulable.** Une plateforme contrainte de maintenir un IDE
-  au-dessus d'un seuil peut y parvenir en servant des contenus formellement divergents
-  mais substantiellement vides : de la diversité d'étiquette sans diversité
-  d'argument. Toute métrique imposée devient une cible.
+* **L'index est manipulable, et cela a été mesuré.** Sur la forme d'origine, l'attaque est
+  totale : 1,000 pour une diversité de contenu nulle, sans céder un point d'engagement. La
+  forme retenue ferme cette voie et l'enterrement avec, mais **toute métrique imposée reste une
+  cible** : une plateforme peut encore servir des contenus formellement divergents et
+  substantiellement vides — de la diversité de bac sans diversité d'argument. Aucune mesure
+  automatique ne distingue les deux. → [test adverse](gaming.md)
+* **Le niveau du plancher n'est pas déductible de la mesure.** Le dépôt établit la *forme* de
+  la norme et son *prix*, pas sa valeur. Fixer 0,60 plutôt que 0,40 est une décision politique
+  qu'aucun calcul de ce dépôt ne tranche.
 * **Un seuil sur l'IDE est une contrainte sur ce que les gens voient.** C'est
   défendable, mais c'est une intervention sur le débat public, et la présenter comme
   une simple mesure technique serait malhonnête.

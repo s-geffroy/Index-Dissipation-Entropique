@@ -14,6 +14,14 @@ garde plusieurs opinions ouvertes n'est pas encore désordonnée : elle est disp
 
 Le désordre naît du **contact avec un environnement** qui fixe les positions.
 
+!!! failure "Le parallèle ci-dessous est un échafaudage, et il n'a pas tenu"
+    Le rapprochement entre entropie de von Neumann et entropie de Shannon a produit l'index —
+    c'est son mérite. Mais les affirmations propres de l'analogie ont été **réfutées une à
+    une** : l'entropie globale ne croît pas sous décohérence (c'est celle du sous-système
+    réduit), l'entropie de configuration et le bruit de la variable macroscopique varient en
+    sens contraires avec $N$, et $\tau_D \propto \tau_R/N$ n'est pas le résultat de Zurek.
+    Ce qui subsiste du formalisme est **classique**. → [audit critique](../limites.md)
+
 ## Les deux entropies
 
 ### Von Neumann : la pureté d'un état quantique
@@ -62,10 +70,17 @@ l'analogie en une phrase. → [audit, point 8](../limites.md)
 L'entropie de Shannon brute ne se compare pas d'une plateforme à l'autre : sa valeur
 dépend du nombre de modalités disponibles. L'**IDE** la normalise :
 
-$$\mathrm{IDE} = \frac{H(X)}{\log_2 k}$$
+$$\mathrm{IDE} = \frac{H(q)}{\log_2 k}$$
 
 Cette normalisation est ce qui en fait un instrument réglementaire — un seuil exprimé
-en pourcentage a un sens, un seuil exprimé en bits n'en a pas. → [IDE](../ide.md)
+en pourcentage a un sens, un seuil exprimé en bits n'en a pas.
+
+!!! danger "Mais la distribution sur laquelle porte $H$ n'est pas celle qu'on écrirait d'abord"
+    Deux attaques ont réussi contre la version naïve, et chacune a imposé une correction :
+    $q$ porte sur les **contenus servis** projetés sur le catalogue déclaré — non sur leurs
+    étiquettes, qu'une plateforme choisit — et chaque rang y est pondéré par l'**attention**
+    qu'il reçoit, faute de quoi la norme se satisfait en enterrant les contenus divergents.
+    → [IDE](../ide.md) · [test adverse](../gaming.md) · [rang adverse](../rang-adverse.md)
 
 ## Un avertissement d'échelle
 

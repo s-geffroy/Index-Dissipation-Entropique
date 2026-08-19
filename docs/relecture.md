@@ -6,28 +6,38 @@ formalité, c'est ce qui décidera s'il vaut quelque chose.
 
 ## Les retours les plus utiles
 
-Par ordre décroissant d'utilité :
+L'état du travail a changé : l'analogie de départ est [réfutée](limites.md), l'écart empirique
+qui devait l'ancrer [n'existe pas](corpus-etendu.md), et ce qui tient est l'**instrumentation**.
+Les retours utiles ont donc changé aussi, par ordre décroissant :
 
-1. **La calibration empirique.** C'est la faiblesse principale. Les paramètres $J$,
-   $T$, $\gamma$, $\alpha$ n'ont aucune procédure d'estimation sur données réelles.
-   Toute piste — jeu de données, protocole d'inférence, travail existant — vaut plus que
-   n'importe quelle amélioration du formalisme.
-2. **La viabilité de l'IDE comme instrument.** L'index est-il manipulable au point
-   d'être inutile ? La discrétisation en points de vue peut-elle être définie sans
-   arbitraire politique ? Un protocole d'audit préservant la vie privée est-il
-   concevable ?
-3. **Le formalisme.** L'énergie libre de champ moyen est-elle le bon objet ? Le
-   couplage entre l'équation de résonance et la dynamique d'opinion est-il légitime, ou
-   les deux échelles de temps sont-elles incompatibles ?
-4. **Les analogies restantes.** L'[audit](limites.md) en a requalifié plusieurs. Il en
-   reste probablement d'autres qui ne tiennent pas.
+1. **La forme retenue de l'index, et son niveau.** L'IDE mesure désormais l'entropie des
+   contenus servis, pondérée par l'attention de chaque rang, sur un catalogue déclaré. Est-elle
+   la bonne ? Un plancher exprimé sur cette grandeur est-il applicable, et à quel niveau ? Le
+   dépôt établit la forme et le prix, **pas la valeur**. → [IDE](ide.md)
+2. **Les instruments de mesure.** Le test d'échangeabilité, l'estimation de la sévérité du biais
+   de position, les estimateurs contrefactuels et la [spécification agrégée](article-40.md) sont
+   ce qui survit à tout le reste. Une erreur méthodologique là serait la plus coûteuse.
+   → [MIND](mind.md) · [journaux qui enregistrent le rang](rang-servi.md)
+3. **La discrétisation en points de vue.** Peut-elle être définie sans arbitraire politique ?
+   C'est la question que la mesure rend explicite au lieu de l'enfouir, et elle n'est pas
+   technique.
+4. **Un accès aux données.** La demande au titre de l'article 40 est écrite et vérifiée, mais
+   elle exige un **organisme de recherche** déposant. C'est le seul verrou que ce dépôt ne peut
+   pas lever seul. → [demande au titre de l'article 40](article-40.md)
+5. **Le formalisme résiduel.** L'énergie libre de champ moyen est-elle le bon objet ? Le
+   couplage entre équation de résonance et dynamique d'opinion est-il légitime ? Cette question
+   compte moins qu'avant : le formalisme est cohérent, mais ce n'est plus lui qui porte les
+   résultats.
+6. **Des annotateurs humains.** Les trois codeurs du corpus sont des instances du même modèle de
+   langue ; leur accord surestime ce que produiraient des juges indépendants.
+   → [annotation en aveugle](annotation.md)
 
 ## Ce qui a déjà été corrigé
 
-Merci de consulter l'[audit critique](limites.md) et les [errata](errata.md) avant de
-signaler une erreur : quatorze corrections y sont déjà documentées, dont les cinq
-formules invalides du raisonnement d'origine. Cela évitera de refaire un travail déjà
-fait.
+Merci de consulter l'[audit critique](limites.md) et les [errata](errata.md) avant de signaler
+une erreur : **dix-sept corrections** y sont documentées, dont les cinq formules invalides du
+raisonnement d'origine, deux découvertes en tentant de mesurer, et le renommage de l'index
+lui-même. Six résultats négatifs y sont publiés comme tels.
 
 ## Comment contribuer
 
@@ -48,7 +58,8 @@ Le travail se situe à l'intersection de trois champs :
 |---|---|
 | **Sociophysique / physique statistique** | validité des modèles d'Ising, de Fokker-Planck et du traitement de champ moyen |
 | **Sciences des réseaux / sociologie computationnelle** | pertinence de l'application aux algorithmes de recommandation réels |
-| **Régulation du numérique** | faisabilité juridique et technique du cadre métrologique proposé |
+| **Régulation du numérique** | faisabilité juridique et technique du cadre métrologique proposé, et [demande d'accès aux données](article-40.md) au titre de l'article 40 du DSA |
+| **Recommandation et évaluation hors ligne** | validité du test d'échangeabilité, de l'estimation du biais de position et des estimateurs contrefactuels |
 
 ---
 
@@ -57,33 +68,33 @@ Le travail se situe à l'intersection de trois champs :
 Le texte ci-dessous est un modèle réutilisable. Les crochets sont à compléter ; aucune
 coordonnée personnelle n'est incluse dans ce dépôt.
 
-> **Objet** — Proposition de relecture : modélisation thermodynamique de la
-> polarisation algorithmique (Ising / Fokker-Planck)
+> **Objet** — Proposition de relecture : mesurer la diversité qu'un fil algorithmique expose
+> réellement (métrologie de l'audit algorithmique)
 >
 > Madame, Monsieur,
 >
-> Je me permets de solliciter votre expertise pour la relecture d'une note de synthèse
-> originale intitulée « De la décohérence quantique à la polarisation sociale :
-> modélisation thermodynamique de l'opinion publique ».
+> Je me permets de solliciter votre expertise pour la relecture d'un travail ouvert portant sur
+> la **mesure de la diversité réellement exposée** par un fil de recommandation, et sur les
+> conditions auxquelles cette mesure est possible sur données réelles.
 >
-> **Résumé.** Le travail formalise une analogie structurelle entre décohérence
-> quantique et effondrement du consensus dans une population soumise à des flux
-> informationnels algorithmiques. Il en dérive deux instruments : un *Index de
-> Diversité Exposée* (IDE), métrique auditable de la diversité informationnelle
-> d'un fil d'actualité, et un *Algorithme de Diversité Exposée* (ADE), filtre de
-> recommandation qui optimise cet index plutôt que l'engagement brut. L'objectif est de
-> proposer un cadre métrologique concret pour l'audit algorithmique, dans l'esprit du
-> *Digital Services Act*.
+> **Résumé.** Le travail définit un *Indice de Diversité Exposée* (IDE) — l'entropie des
+> contenus servis sur un catalogue de points de vue déclaré, pondérée par l'attention de chaque
+> rang — et un filtre de recommandation qui l'optimise. Il est parti d'une analogie avec la
+> décohérence quantique, que son propre audit a **réfutée** ; ce qui subsiste relève de la
+> mécanique statistique classique, et l'essentiel des résultats est **métrologique** : un test
+> exact qui dit si un journal de recommandation permet seulement une correction d'exposition,
+> l'estimation de la sévérité du biais de position au lieu de sa supposition, et des estimateurs
+> contrefactuels confrontés à une vérité terrain.
 >
-> **Ce que je sollicite en particulier.** Le dépôt contient une section d'audit
-> critique qui recense quatorze corrections apportées au raisonnement initial et les
-> limites qui subsistent — notamment l'absence de calibration empirique des paramètres,
-> qui est la faiblesse principale du travail. Un avis sur ce point, ou sur la viabilité
-> de l'index comme instrument réglementaire, me serait bien plus précieux qu'une
-> validation d'ensemble.
+> **Ce que je sollicite en particulier.** Le dépôt publie **six résultats négatifs** et
+> **dix-sept corrections** de son propre raisonnement, dont plusieurs invalidaient une formule.
+> Les avis les plus utiles porteraient sur la forme retenue de l'indice et sur le niveau d'un
+> éventuel plancher — que la mesure ne détermine pas —, ou sur les instruments de mesure
+> eux-mêmes, où une erreur méthodologique serait la plus coûteuse. Une validation d'ensemble me
+> serait bien moins utile.
 >
-> L'intégralité du travail est en libre accès : équations, code de simulation
-> reproductible en conteneur, suite de tests et figures régénérables.
+> L'intégralité du travail est en libre accès : équations, code reproductible en conteneur,
+> suite de tests, figures régénérables, et jeux de données dérivés.
 >
 > [lien vers le dépôt]
 >

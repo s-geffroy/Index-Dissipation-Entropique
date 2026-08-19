@@ -15,9 +15,9 @@
 
 \graphicspath{{figures/}}
 
-\title{\textbf{De la décohérence quantique à la polarisation sociale}\\[2mm]
-       \large Modélisation thermodynamique de l'opinion publique\\
-       et proposition d'un index métrologique}
+\title{\textbf{Mesurer la diversité qu'un fil algorithmique expose réellement}\\[2mm]
+       \large Modélisation thermodynamique de l'opinion publique,\\
+       et ce que sa mise à l'épreuve a réfuté}
 \author{Sylvain Geffroy}
 \date{Août 2026 --- \emph{document de travail ouvert à la relecture}}
 
@@ -51,8 +51,12 @@ même coup que le critère d'instabilité est satisfait par construction pour to
 observable : sa vérification n'apprend rien, et la recommandation réglementaire
 correspondante doit porter sur un plafond du rapport.
 
-La section~\ref{sec:limites} énonce les limites du travail. L'intégralité du code, des
-tests et des figures est reproductible en conteneur.
+La section~\ref{sec:posterieur} rend compte des mesures postérieures à la rédaction de
+cette note, qui en ont invalidé une partie : l'index proposé ici se sature à coût nul,
+l'analogie quantique dont il tire son nom d'origine ne survit à aucun de ses transferts,
+et le jeu de données de référence sur lequel l'évaluation était prévue n'enregistre pas
+l'ordre d'affichage. La section~\ref{sec:limites} énonce les limites du travail.
+L'intégralité du code, des tests et des figures est reproductible en conteneur.
 \end{abstract}
 
 \section{Introduction et hypothèse}
@@ -447,6 +451,77 @@ par registre émotionnel ; la sensibilité de la médiane au choix d'estimateur 
 de fenêtre qui a imposé l'estimateur à horizon fixe.}
 \label{fig:calibration}
 \end{figure}
+
+
+\section{Ce que les mesures postérieures ont établi}
+\label{sec:posterieur}
+
+Les sections précédentes reflètent l'état du travail au moment de leur rédaction. Six
+mesures menées depuis en ont invalidé une partie ; elles sont résumées ici, et documentées
+en détail dans le dépôt.
+
+\subsection{L'index proposé n'est pas une norme tenable}
+
+Soumis à une optimisation adverse sous contrainte, un plancher portant sur les
+\emph{étiquettes} d'un fil est saturé à coût nul : une plateforme capable de dissocier
+l'étiquette du contenu obtient $\mathrm{IDE} = 1{,}000$ pour une diversité de contenu
+strictement nulle, sans céder un point d'engagement. Le premier remplaçant envisagé,
+l'entropie quadratique de Rao, s'est révélé pire : son optimum sous contrainte d'engagement
+est \emph{bimodal}, c'est-à-dire qu'il prescrirait la polarisation qu'il prétend mesurer.
+La forme retenue porte sur l'entropie des \textbf{contenus servis}, projetés sur les bacs
+d'un catalogue de référence déclaré.
+
+\subsection{Une norme aveugle au rang se contourne par l'enterrement}
+
+Reprises sur des fils \emph{ordonnés} plutôt que sur des compositions, et par énumération
+exhaustive des $4^8 = 65\,536$ fils possibles, les quatre mesures de diversité candidates
+se laissent toutes satisfaire en reléguant les contenus divergents aux derniers rangs : une
+plateforme certifiée à $0{,}70$ n'expose que $0{,}36$ de diversité réelle. Fermer
+l'échappatoire par une mesure pondérée par l'attention double le coût d'engagement, de
+$8{,}2\,\%$ à $18{,}9\,\%$ selon la mesure. La norme doit donc être \textbf{consciente du
+rang}, et la grandeur de contrôle associée est l'écart entre les deux mesures du même fil.
+
+\subsection{L'évaluation hors ligne exigeait deux corrections}
+
+Évaluer un réordonnancement sur des clics enregistrés par une autre politique --- le
+\emph{replay} --- se trompe de $201\,\%$ en médiane, jusqu'à $851\,\%$, et le signe de
+l'erreur n'est pas garanti. La correction passe par des estimateurs à pondération
+d'importance, dont la validité exige de connaître la sévérité $\eta$ du biais de position ;
+poser cette valeur au lieu de l'estimer coûte jusqu'à $+179\,\%$ sur le chiffre publié.
+
+\subsection{Le jeu de données de référence ne permet pas cette évaluation}
+
+Dans MIND, jeu de référence de la recommandation d'actualité, l'ordre des contenus est
+\emph{mélangé} : un test d'échangeabilité intra-fil, exact et étalonné en puissance, n'y
+détecte aucune dépendance entre position enregistrée et clic ($z = +0{,}12$, $p = 0{,}91$)
+là où il détecterait $\eta = 0{,}02$ à douze écarts-types. La courbe de taux de clic par
+position qu'on y trace pourtant décroît de $0{,}108$ à $0{,}038$ et s'ajuste à
+$\hat\eta = 0{,}39$ : c'est un artefact de composition, la position profonde n'existant que
+dans les fils longs. Mélanger l'ordre ne débiaise pas les clics ; cela détruit la variable
+qui permettrait de les corriger.
+
+\subsection{Deux journaux publics l'enregistrent, et la sévérité s'y mesure}
+
+Sur Baidu-ULTR, le même test rejette à $z = -206$ et du côté prescrit par la théorie, et la
+sévérité vaut $\hat\eta = 1{,}10 \pm 0{,}09$ par effets fixes de document. Sur l'Open Bandit
+Dataset, dont le seau aléatoire rend la mesure causale, l'effet de position d'un bandeau de
+trois vignettes horizontales est dix fois plus faible : $\eta$ est une propriété de la
+\emph{surface}, non une constante. Ce jeu publie en outre les propensions vraies, ce qui
+permet la seule confrontation de ce travail à une vérité terrain : la valeur d'une politique
+jamais déployée, estimée sur les seules données d'une autre, tombe à $2{,}5\,\%$ de sa valeur
+mesurée, contre $31{,}6\,\%$ pour l'estimation naïve --- pour une taille d'échantillon
+effective de $1\,513$ sur $4\,077\,727$ impressions.
+
+\subsection{Conséquence sur l'analogie de départ}
+
+Aucun des transferts propres à l'analogie quantique n'a résisté : l'entropie globale ne
+croît pas sous décohérence, l'entropie de configuration et le bruit de la variable
+macroscopique varient en sens contraires avec $N$, $\tau_D \propto \tau_R/N$ est une
+heuristique et non le résultat de Zurek, l'effet tunnel social est une métaphore, et
+$1/k^N$ décrit un état initial. Ce qui subsiste --- paysage d'énergie libre, transition de
+phase, hystérésis, franchissement de barrière par activation --- relève de la mécanique
+statistique classique. L'index a été renommé en conséquence : \emph{Indice de Diversité
+Exposée}, ce qui est exactement ce que la forme retenue mesure.
 
 \section{Limites}
 \label{sec:limites}

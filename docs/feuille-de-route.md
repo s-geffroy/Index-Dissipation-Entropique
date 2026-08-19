@@ -351,30 +351,32 @@ Ces points n'ont pas d'enjeu scientifique, mais ils conditionnent la relecture.
 
 ## Si une seule chose devait être faite
 
-**Faire coder le corpus par des annotateurs humains.**
+**Faire déposer la demande d'accès aux données par un organisme de recherche.**
 
-L'annotation manuelle du registre — priorité n° 1 de la version précédente de cette page — a
-été [menée sur les 440 sujets](annotation.md) et a tranché la question qu'elle devait trancher.
-Le bruit d'étiquetage était massif (40 % des sujets hors registre, 59,5 % d'accord seulement)
-et il portait la totalité de l'écart de taux de basculement, qui tombe de 8,6 % contre 2,7 % à
-4,8 % contre 5,1 %. **L'écart n'était pas dilué, il n'existe pas.**
+C'est le seul verrou que ce dépôt ne peut pas lever seul, et c'est celui qui commande tous les
+autres. La [demande](article-40.md) est écrite, spécifiée article par article du règlement
+délégué (UE) 2025/2050, et **vérifiée** : les quatre tableaux agrégés qu'elle réclame
+recalculent à l'identique le test d'échangeabilité, la sévérité du biais de position et les deux
+mesures de diversité, pour 95 fois moins de lignes que le journal brut et sans aucune donnée
+personnelle. Il ne lui manque qu'un déposant éligible au sens de l'article 40(8)(a).
 
-**Quatre mesures ont donc été menées, et aucune ne distingue les registres émotionnels** : le
-taux d'amplification, la persistance sur corpus pilote puis étendu, et le taux de basculement.
-Le mécanisme de la charge émotionnelle $\alpha$ reste sans appui empirique, et ce n'est plus
-faute d'avoir cherché.
+Sans elle, trois choses restent hors de portée, et le resteront quels que soient les progrès de
+méthode :
 
-Le double codage à l'aveugle a été mené : $\kappa$ de Fleiss de **0,921**, unanimité sur 92 %
-des sujets, et un résultat inchangé sous le codage consensuel. La grille est donc
-**reproductible** — les consignes écrites suffisent à produire un codage stable.
+* **mesurer l'IDE sur un fil réel** — la forme retenue n'a jamais été calculée ailleurs qu'en
+  simulation ;
+* **évaluer le coût d'engagement de l'ADE** autrement que sur son propre modèle ;
+* **vérifier que l'enterrement se produit vraiment** sur une plateforme, plutôt que sur des fils
+  de huit positions énumérés exhaustivement.
 
-Mais les trois codeurs sont des instances du **même modèle de langue**, et l'accord entre elles
+### Ce qui vient juste après
+
+**Des annotateurs humains.** Les trois codeurs du corpus sont des instances du même modèle de
+langue : leur accord — $\kappa$ de Fleiss de **0,921**, unanimité sur 92 % des sujets —
 surestime nécessairement ce que produiraient des juges indépendants. C'est la dernière réserve
-de méthode identifiable, et la seule qui ne se lève pas par le calcul : elle demande des
-annotateurs humains.
+de méthode qui ne se lève pas par le calcul. Elle ne changerait toutefois pas la conclusion :
+l'annotation en aveugle a **éliminé** l'écart de registre, et quatre mesures indépendantes n'en
+retrouvent aucune trace.
 
-**Ce qu'il ne faut probablement pas faire**, en revanche, c'est une cinquième mesure du même
-objet. Trois quantités tirées de la même série d'attention agrégée ont été testées sans succès,
-et l'annotation a montré au passage que le plan d'expérience lui-même est contraint : les deux
-registres, correctement étiquetés, ne portent presque pas sur les mêmes types de sujets. Si le
-mécanisme existe, c'est ailleurs qu'il faut le chercher — voir §3.1 et §3.2.
+**Des lignes de base réglées** — MMR, réordonnancement aléatoire, popularité. C'est la dette la
+plus ancienne du programme d'évaluation, et elle ne demande aucune donnée nouvelle.

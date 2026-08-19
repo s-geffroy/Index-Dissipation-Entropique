@@ -1,7 +1,6 @@
 # Indice de Diversité Exposée (IDE)
 
-**De la décohérence quantique à la polarisation algorithmique : modélisation
-thermodynamique de l'opinion publique.**
+**Mesurer la diversité qu'un fil algorithmique expose réellement — et éprouver ce qu'on croit en savoir.**
 
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
@@ -15,77 +14,57 @@ thermodynamique de l'opinion publique.**
 
 ## Résumé
 
-Plus un système quantique est grand, plus sa décohérence est rapide. Plus une population
-est grande, plus il est difficile d'y trouver un accord. Ce dépôt prend cette analogie au
-sérieux : il la formalise, en teste les conséquences numériquement, et **corrige ce
-qu'elle contient de faux**.
+Ce dépôt construit un **instrument** — une mesure de la diversité qu'un fil d'actualité expose
+réellement à son lecteur, calculable sans accès au code de la plateforme — et la **méthode
+adverse** qui l'a mis à l'épreuve : chaque proposition y est attaquée, et ce qui tombe est
+publié comme tel.
 
-Trois résultats, chacun adossé à du code exécutable :
+### Le verdict
 
-- **Une transition de phase, pas une dégradation continue.** Avec l'énergie libre
-  $F = E - TS$ correctement écrite, la distribution des opinions passe brusquement d'un
-  pic centré sur la modération à deux pics extrêmes, de part et d'autre d'une température
-  sociale critique. Une société ne se polarise pas graduellement : elle bascule.
-- **Un démenti ne suffit pas.** Sous cette température, couper le champ médiatique ne
-  ramène pas l'opinion à la neutralité — le conformisme de groupe prend le relais. C'est
-  une hystérésis, elle est mesurable, et elle explique l'échec du *debunking* passif.
-- **L'amplification a un seuil net, et l'écosystème est au-dessus.** Quand le gain
-  algorithmique dépasse le taux d'oubli naturel d'un contenu ($\gamma\alpha > \lambda$),
-  l'amortissement effectif devient négatif : le système accumule l'énergie au lieu de la
-  dissiper. La **[mesure sur données publiques](docs/calibration.md)** situe le rapport entre
-  **1,5 et 12** sur 19 épisodes d'attention — et montre du même coup que vérifier le *signe*
-  de ce critère n'apprend rien, ce qui a obligé à réécrire une recommandation du mémorandum.
-- **Les basculements durables se datent, mais ne distinguent pas les registres.** La
-  **[détection de changement de régime](docs/regimes.md)** retrouve des basculements datés —
-  QAnon en mars 2020, l'affaire Benalla le 20 juillet 2018. Un écart de persistance entre
-  registres émotionnels y semblait acquis (×9,2 contre ×2,9) ; la vérification sur
-  **[440 sujets](docs/corpus-etendu.md)** l'a ramené à ×3,04 contre ×2,90 ($p = 0{,}53$).
-  C'était un artefact de sélection manuelle, et l'**[annotation en aveugle](docs/annotation.md)**
-  du registre a éliminé la dernière hypothèse de sauvetage : l'écart de taux de basculement
-  passe de 8,6 % contre 2,7 % à **4,8 % contre 5,1 %** ($p = 1{,}00$) une fois l'étiquette
-  corrigée. **Aucune différence entre registres ne résiste à sa vérification.**
+| Objet | État |
+|---|---|
+| l'analogie décohérence quantique ↔ effondrement du consensus, dont le projet est parti | **réfutée**, transfert par transfert → [audit](docs/limites.md) |
+| le formalisme classique qu'elle a fait emprunter | **cohérent**, un seul paramètre calibré, et sa seule prédiction propre testée quatre fois **sans effet** |
+| l'index tel qu'il était proposé | **intenable** : saturable à coût nul, puis contournable par l'enterrement |
+| la forme retenue de l'index | **définie et chiffrée**, jamais éprouvée sur un fil réel |
+| l'algorithme (ADE) | **non évalué**, et non évaluable sur données publiques en l'état |
+| l'écart de persistance entre registres émotionnels | **n'existe pas** |
+| les instruments de mesure construits en chemin | **valides**, dont un confronté à une vérité terrain |
 
-- **Et l'index proposé n'est pas une norme tenable en l'état.** Le
-  **[test adverse](docs/gaming.md)** montre qu'une plateforme capable de dissocier l'étiquette
-  du contenu obtient un IDE de **1,000 pour une diversité de contenu nulle**, à coût nul. Le
-  premier remplaçant proposé — l'entropie de Rao — s'est révélé pire : son optimum sous
-  contrainte est **bimodal**, donc il prescrirait la polarisation. Le plancher retenu porte sur
-  une entropie calculée sur les **contenus** servis, et il doit être **conscient du rang** :
-  sinon la plateforme s'y conforme en enterrant les contenus divergents.
-- **Et l'évaluation hors ligne de l'algorithme demandait d'abord d'être corrigée.** Sur des
-  clics enregistrés, l'estimation naïve du coût d'un filtre de diversité se trompe de **201 %
-  en médiane** — et rien ne garantit le sens de l'erreur.
-  → **[Rang et contrefactuel](docs/evaluation.md)**
-- **Et une norme aveugle au rang laisse passer l'essentiel.** Reprises sur des fils ordonnés,
-  les quatre mesures se laissent contourner par l'**enterrement** — une plateforme certifiée à
-  0,70 n'expose que **0,36** — et la sévérité du biais de position, jusqu'ici posée, **s'estime**
-  à ±0,02. → **[Rang adverse et sévérité](docs/rang-adverse.md)**
-- **Et le jeu de données sur lequel tout cela devait être évalué n'enregistre pas l'ordre.**
-  Dans MIND, l'ordre des contenus est **mélangé** : le test d'échangeabilité n'y détecte rien
-  ($z = +0{,}12$) là où il verrait $\eta = 0{,}02$ à douze écarts-types, la courbe de biais de
-  position qu'on y trace n'est qu'un **artefact de composition**, et l'estimateur de ce dépôt y
-  renvoie **cinq sévérités incompatibles**. Mélanger l'ordre ne débiaise pas les clics : cela
-  détruit la variable qui permettrait de les corriger.
-  → **[Exploration réelle de MIND](docs/mind.md)**
-- **Deux journaux publics l'enregistrent, eux.** Sur **Baidu-ULTR** le même test rejette à
-  $z = -206$, du bon côté, et la sévérité vaut $\hat\eta = 1{,}10 \pm 0{,}09$ ; sur l'**Open
-  Bandit Dataset**, à allocation aléatoire, l'effet de position d'un bandeau de trois vignettes
-  est **dix fois plus faible**. Et l'estimateur contrefactuel, confronté pour la première fois à
-  une vérité terrain, tombe à **2,5 %** contre **+32 %** pour l'estimation naïve — sur une taille
-  d'échantillon **effective** de 1 513 pour 4 millions d'impressions.
-  → **[Journaux qui enregistrent le rang](docs/rang-servi.md)**
-- **Et pour ce qui manque encore, la demande est écrite.** Aucun jeu public ne porte à la fois le
-  rang servi et une étiquette de point de vue. La **[demande au titre de l'article
-  40](docs/article-40.md)** du DSA ne réclame ni journal ni donnée personnelle mais **quatre
-  tableaux agrégés**, dont il est *vérifié* qu'ils recalculent les mesures à l'identique — pour
-  **95 fois moins de lignes** que le journal brut.
+**La théorie n'a pas tenu, la métrologie oui.**
 
-Le travail en dérive deux instruments :
+### Ce qui tient
 
-| | Objet | Destinataire |
+- **Un contrôle qui dit si un journal de recommandation est corrigible.** Le test
+  d'échangeabilité ne détecte rien dans MIND ($z = +0{,}12$, ordre mélangé) et rejette à
+  $z = -206$ sur Baidu-ULTR, du côté que la théorie prescrit.
+  → **[MIND](docs/mind.md)** · **[Journaux qui enregistrent le rang](docs/rang-servi.md)**
+- **Une sévérité de biais de position estimée au lieu d'être posée.** $1{,}10 \pm 0{,}09$ sur une
+  page de résultats, **dix fois moins** sur un bandeau de trois vignettes où l'allocation
+  aléatoire rend la mesure causale : $\eta$ est une propriété de la surface.
+  → **[Rang adverse](docs/rang-adverse.md)**
+- **Des estimateurs contrefactuels vérifiés contre une vérité terrain.** +2,5 % d'écart sur la
+  valeur d'une politique jamais déployée, contre +32 % pour l'estimation naïve — avec une taille
+  d'échantillon **effective** de 1 513 sur 4 millions, qui interdit d'en tirer gloire.
+- **Une demande d'accès aux données qui se vérifie au lieu de se plaider.** Quatre tableaux
+  agrégés, sans donnée personnelle, prouvés suffisants — 95 fois moins de lignes que le journal.
+  → **[Article 40](docs/article-40.md)**
+
+### Ce qui est tombé
+
+Six résultats négatifs, publiés avec ce qui les établit : le critère $\gamma\alpha > \lambda$
+[ne veut rien dire](docs/calibration.md) ; l'écart de persistance entre registres
+[n'existe pas](docs/corpus-etendu.md) et [n'était pas dilué](docs/annotation.md) par
+l'étiquetage ; un plancher d'index [se sature à coût nul](docs/gaming.md) ; le premier correctif
+[prescrivait la polarisation](docs/gaming.md) ; et le jeu de données de référence
+[ne permet pas l'évaluation annoncée](docs/mind.md).
+
+### Les deux instruments
+
+| | Objet | État |
 |---|---|---|
-| **IDE** | *Indice de Diversité Exposée* — métrique de la diversité informationnelle d'un fil, dans $[0,1]$, mesurable **sans accès au code** de la plateforme | le régulateur |
-| **ADE** | *Algorithme de Diversité Exposée* — filtre de recommandation qui optimise cet index plutôt que l'engagement brut | la plateforme |
+| **IDE** | *Indice de Diversité Exposée* — entropie des contenus servis sur un catalogue déclaré, **pondérée par l'attention de chaque rang**, dans $[0,1]$, mesurable sans accès au code | forme retenue **définie**, non éprouvée sur données réelles |
+| **ADE** | *Algorithme de Diversité Exposée* — filtre de recommandation qui optimise cet indice plutôt que l'engagement brut | **non évalué** : le jeu de données qui le permettrait n'existe pas publiquement |
 
 ## À lire d'abord : ce que le travail ne prétend pas
 
@@ -100,8 +79,13 @@ Rien ici ne démontre que les opinions humaines *obéissent* à une mécanique s
 travail établit qu'un formalisme emprunté à la physique **reproduit** certains comportements
 observés et en tire des quantités mesurables. **Un seul de ses paramètres est calibré sur
 données réelles** — et cette calibration a montré qu'une de ses recommandations réglementaires
-ne voulait rien dire. L'ancrage empirique n'est qu'entamé : c'est la faiblesse principale, et
-la [feuille de route](docs/feuille-de-route.md) dit comment y remédier.
+ne voulait rien dire.
+
+L'ancrage empirique reste la faiblesse principale, mais son obstacle a changé de nature : ce
+n'est plus une méthode qui manque, c'est une **donnée**. Mesurer l'indice sur un fil réel exige
+un journal portant à la fois le rang servi et une étiquette de point de vue, et aucun jeu public
+n'en porte les deux. La [feuille de route](docs/feuille-de-route.md) dit ce qui reste faisable
+sans, et la [demande d'accès](docs/article-40.md) ce qu'il faudrait pour le reste.
 
 ## Démarrer
 
