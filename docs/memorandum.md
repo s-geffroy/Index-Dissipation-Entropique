@@ -14,7 +14,7 @@ recommandations chiffrées.
 ## Préambule : ce que ce mémorandum peut et ne peut pas prétendre
 
 Le raisonnement qui le sous-tend est formalisé et vérifié numériquement
-([modèles](theorie/fokker-planck.md), [tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)).
+([modèles](theorie/fokker-planck.md), [tests](https://github.com/s-geffroy/Indice-Diversite-Exposee/tree/main/tests)).
 Une seule de ses grandeurs a fait l'objet d'une mesure sur données réelles — le rapport
 $\gamma\alpha/\lambda$, [estimé](calibration.md) sur des séries d'attention publiques ; les
 autres paramètres ne sont pas calibrés. Ce mémorandum propose donc un *cadre métrologique* et

@@ -183,7 +183,7 @@ REPLICATION_PATH = (
 )
 
 _ENDPOINT = "https://en.wikipedia.org/w/api.php"
-_USER_AGENT = "IDE-research/0.1 (https://github.com/s-geffroy/Index-Dissipation-Entropique)"
+_USER_AGENT = "IDE-research/0.1 (https://github.com/s-geffroy/Indice-Diversite-Exposee)"
 _DELAY_SECONDS = 0.4
 
 #: Longueur retenue du chapeau. Assez pour savoir de quoi il s'agit, assez court pour que

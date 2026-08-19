@@ -71,7 +71,7 @@ _VALID_AGENTS = ("user", "all-agents", "spider", "automated")
 
 # L'API de Wikimedia demande un agent utilisateur descriptif et limite le débit ; les
 # requêtes anonymes trop rapprochées reçoivent un code 429.
-_USER_AGENT = "IDE-research/0.1 (https://github.com/s-geffroy/Index-Dissipation-Entropique)"
+_USER_AGENT = "IDE-research/0.1 (https://github.com/s-geffroy/Indice-Diversite-Exposee)"
 
 
 @dataclass(frozen=True)

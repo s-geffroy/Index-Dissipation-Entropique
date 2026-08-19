@@ -14,7 +14,7 @@ algorithmic resonance of false information
 
 The underlying reasoning is formalised and numerically verified
 ([models](theorie/fokker-planck.md),
-[tests](https://github.com/s-geffroy/Index-Dissipation-Entropique/tree/main/tests)). Exactly
+[tests](https://github.com/s-geffroy/Indice-Diversite-Exposee/tree/main/tests)). Exactly
 one of its quantities has been measured on real data — the ratio $\gamma\alpha/\lambda$,
 [estimated](calibration.en.md) on public attention series; the other parameters are not
 calibrated. It therefore proposes a *metrological framework* and *quantities to measure*, not

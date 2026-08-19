@@ -7,6 +7,21 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Modifié — le dépôt et l'adresse du site renommés
+
+- `Index-Dissipation-Entropique` devient **`Indice-Diversite-Exposee`**. Le site publié passe
+  de `s-geffroy.github.io/Index-Dissipation-Entropique/` à
+  **`s-geffroy.github.io/Indice-Diversite-Exposee/`**.
+- **Ce qui suit le renommage** : GitHub redirige les opérations `git` — `clone`, `fetch`,
+  `push` — de l'ancien nom vers le nouveau, ainsi que les URL du dépôt lui-même.
+- **Ce qui casse** : les adresses des pages publiées ne sont **pas** redirigées. Tout lien vers
+  `s-geffroy.github.io/Index-Dissipation-Entropique/…` renvoie désormais une erreur 404. C'était
+  connu avant de renommer, et accepté : un nom qui annonce une analogie réfutée coûtait plus
+  cher que des liens à refaire.
+- Les 35 occurrences de l'ancien nom sont mises à jour dans le README, la documentation
+  bilingue, `mkdocs.yml`, `CITATION.cff`, les deux notes LaTeX — recompilées — et les
+  *user-agents* des trois clients d'API du dépôt.
+
 ### Modifié — la note de synthèse réécrite en partant de la mesure
 
 La note LaTeX suivait l'ordre historique : l'analogie quantique, le formalisme, puis les
@@ -92,8 +107,8 @@ son état. Revue de fond, page par page.
 - **`entropic_dissipation_index` devient `label_diversity_index`** : la fonction calcule la
   diversité des **étiquettes**, aveugle aux contenus et au rang, et son nom le dit maintenant.
   Son module porte l'avertissement correspondant.
-- **Inchangés, délibérément** : le sigle IDE/ADE, le paquet Python `ide`, le dépôt GitHub et
-  l'adresse du site — pour ne casser aucun lien entrant ni aucune citation déjà publiée. Les
+- **Inchangés à cette étape** : le sigle IDE/ADE, le paquet Python `ide`, le dépôt GitHub et
+  l'adresse du site — le dépôt et l'URL ont été renommés ensuite, voir l'entrée ci-dessus. Les
   citations du fil d'origine dans l'[audit](docs/limites.md) et les [errata](docs/errata.md)
   conservent le nom historique : ce sont des pièces, pas du texte courant.
 
@@ -762,5 +777,5 @@ Le fil de travail source est une impression Gmail rasterisée, sans couche de te
 pas été commité : il contient des adresses électroniques personnelles et
 professionnelles. Son contenu a été réécrit, non copié.
 
-[Non publié]: https://github.com/s-geffroy/Index-Dissipation-Entropique/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/s-geffroy/Index-Dissipation-Entropique/releases/tag/v0.1.0
+[Non publié]: https://github.com/s-geffroy/Indice-Diversite-Exposee/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/s-geffroy/Indice-Diversite-Exposee/releases/tag/v0.1.0

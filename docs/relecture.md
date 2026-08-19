@@ -41,14 +41,14 @@ lui-même. Six résultats négatifs y sont publiés comme tels.
 
 ## Comment contribuer
 
-* **Ouvrir une [issue](https://github.com/s-geffroy/Index-Dissipation-Entropique/issues)** —
+* **Ouvrir une [issue](https://github.com/s-geffroy/Indice-Diversite-Exposee/issues)** —
   y compris pour une objection de fond, qui n'a pas besoin d'être accompagnée d'un
   correctif.
 * **Proposer une *pull request*** — les corrections de formalisme sont bienvenues ;
   merci d'y joindre le test qui échouait avant et passe après.
 * **Écrire directement**, si l'objection est trop large pour une issue.
 
-Tout retour intégré est crédité dans le [CHANGELOG](https://github.com/s-geffroy/Index-Dissipation-Entropique/blob/main/CHANGELOG.md).
+Tout retour intégré est crédité dans le [CHANGELOG](https://github.com/s-geffroy/Indice-Diversite-Exposee/blob/main/CHANGELOG.md).
 
 ## Communautés visées
 

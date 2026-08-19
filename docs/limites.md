@@ -57,9 +57,11 @@ Algorithm* (EDA).
     mécanique statistique classique.
 
     Garder ce nom aurait été garder une revendication réfutée dans l'intitulé de l'instrument.
-    Le sigle est conservé — il est cité dans des pages publiées et sert de nom de paquet — mais
-    il se lit désormais **Indice de Diversité Exposée**, ce qui est exactement ce que la mesure
-    retenue calcule : la répartition de l'attention servie entre les points de vue déclarés.
+    Le sigle **IDE** est conservé — il sert de nom de paquet — mais il se lit désormais **Indice
+    de Diversité Exposée**, ce qui est exactement ce que la mesure retenue calcule : la
+    répartition de l'attention servie entre les points de vue déclarés. Le dépôt et l'adresse du
+    site ont suivi, au prix connu d'avance : GitHub ne redirige pas les pages publiées, et les
+    anciens liens `Index-Dissipation-Entropique` ne fonctionnent plus.
     La fonction historique, elle, s'appelle `label_diversity_index`, parce qu'elle mesure la
     diversité des **étiquettes** et rien de plus.
 
@@ -343,7 +345,7 @@ sociologiques, peut confirmer que l'implémentation est correcte.
 ### 14. Cinq défauts du code du fil
 
 Le prototype `pygame` est conservé tel quel dans
-[`legacy/simulation_thread_2026-08.py`](https://github.com/s-geffroy/Index-Dissipation-Entropique/blob/main/legacy/simulation_thread_2026-08.py),
+[`legacy/simulation_thread_2026-08.py`](https://github.com/s-geffroy/Indice-Diversite-Exposee/blob/main/legacy/simulation_thread_2026-08.py),
 et réimplémenté proprement dans `ide.abm`.
 
 1. **Aucune température sociale.** C'est le défaut le plus lourd, et il est

@@ -49,10 +49,12 @@ would be both unenforceable and counterproductive.
     transfer, and the conclusion is that none of its specifically quantum borrowings survived:
     what holds is classical statistical mechanics.
 
-    Keeping that name would have kept a refuted claim in the instrument's title. The acronym is
-    kept — it appears in published pages and names the Python package — but it now reads
-    **Exposed Diversity Index**, which is exactly what the retained measure computes: the spread
-    of served attention across the declared viewpoints. The historical function is now called
+    Keeping that name would have kept a refuted claim in the instrument's title. The acronym
+    **EDI / IDE** is kept — it names the Python package — but it now reads **Exposed Diversity
+    Index**, which is exactly what the retained measure computes: the spread of served attention
+    across the declared viewpoints. The repository and site address followed, at a price known in
+    advance: GitHub does not redirect published pages, and old `Index-Dissipation-Entropique`
+    links no longer work. The historical function is now called
     `label_diversity_index`, because it measures the diversity of **labels** and nothing more.
 
 ---

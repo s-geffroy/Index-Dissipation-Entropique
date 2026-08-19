@@ -153,8 +153,8 @@ note. Chacun se lit indépendamment.
 Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine hôte.
 
 ```bash
-git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
-cd Index-Dissipation-Entropique
+git clone git@github.com:s-geffroy/Indice-Diversite-Exposee.git
+cd Indice-Diversite-Exposee
 
 docker compose run --rm test          # 556 tests
 docker compose run --rm notebooks     # régénère les figures
@@ -172,4 +172,4 @@ utiles. → [Appel à relecture](relecture.md)
 ---
 
 *Code sous licence MIT · Contenus rédactionnels sous licence CC BY 4.0 ·
-[Dépôt GitHub](https://github.com/s-geffroy/Index-Dissipation-Entropique)*
+[Dépôt GitHub](https://github.com/s-geffroy/Indice-Diversite-Exposee)*

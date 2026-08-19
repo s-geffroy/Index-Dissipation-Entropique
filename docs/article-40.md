@@ -147,7 +147,7 @@ choix.
 recalcule ces mesures deux fois — directement sur un journal complet, puis sur les seuls
 tableaux — et publie l'écart. Il est de $3 \times 10^{-12}$ pour le test d'échangeabilité et
 **exactement nul** pour la sévérité. Le code qui consomme les tableaux est
-[`ide.aggregates`](https://github.com/s-geffroy/Index-Dissipation-Entropique/blob/main/src/ide/aggregates.py),
+[`ide.aggregates`](https://github.com/s-geffroy/Indice-Diversite-Exposee/blob/main/src/ide/aggregates.py),
 et onze tests le verrouillent.
 
 **Ce que cela pèse.** Sur Baidu-ULTR, 524 164 documents servis donnent **5 543 lignes**

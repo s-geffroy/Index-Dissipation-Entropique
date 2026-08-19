@@ -86,7 +86,7 @@ MIN_ARTICLE_BYTES = 10_000
 CATALOGUE_PATH = Path(__file__).resolve().parents[2] / "data" / "catalogue.json"
 
 _ENDPOINT = "https://en.wikipedia.org/w/api.php"
-_USER_AGENT = "IDE-research/0.1 (https://github.com/s-geffroy/Index-Dissipation-Entropique)"
+_USER_AGENT = "IDE-research/0.1 (https://github.com/s-geffroy/Indice-Diversite-Exposee)"
 
 # L'API MediaWiki tolère un rythme soutenu, mais la courtoisie veut qu'on l'espace.
 _DELAY_SECONDS = 0.4

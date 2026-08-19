@@ -17,8 +17,8 @@ version: 0.1.0
 date-released: "2026-08-17"
 license: MIT
 license-url: "https://opensource.org/licenses/MIT"
-repository-code: "https://github.com/s-geffroy/Index-Dissipation-Entropique"
-url: "https://s-geffroy.github.io/Index-Dissipation-Entropique/"
+repository-code: "https://github.com/s-geffroy/Indice-Diversite-Exposee"
+url: "https://s-geffroy.github.io/Indice-Diversite-Exposee/"
 keywords:
   - sociophysique
   - dynamique des opinions

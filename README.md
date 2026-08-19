@@ -4,11 +4,11 @@
 
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
-[![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Index-Dissipation-Entropique/)
+[![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Indice-Diversite-Exposee/)
 [![Tests : 556](https://img.shields.io/badge/tests-556-brightgreen.svg)](tests/)
 
-📖 **[Documentation complète](https://s-geffroy.github.io/Index-Dissipation-Entropique/)**
-· [English](https://s-geffroy.github.io/Index-Dissipation-Entropique/en/)
+📖 **[Documentation complète](https://s-geffroy.github.io/Indice-Diversite-Exposee/)**
+· [English](https://s-geffroy.github.io/Indice-Diversite-Exposee/en/)
 
 ---
 
@@ -92,8 +92,8 @@ sans, et la [demande d'accès](docs/article-40.md) ce qu'il faudrait pour le res
 Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 
 ```bash
-git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
-cd Index-Dissipation-Entropique
+git clone git@github.com:s-geffroy/Indice-Diversite-Exposee.git
+cd Indice-Diversite-Exposee
 
 docker compose run --rm test          # 556 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff

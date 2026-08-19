@@ -20,9 +20,14 @@
     rank](rang-adverse.en.md), where a platform certified at 0.70 by a rank-blind measure
     exposes only 0.36.
 
-    The repository name and the site address are unchanged, so no incoming link breaks — and the
-    historical function is now called `label_diversity_index`, because that is what it computes:
-    the diversity of **labels**, looking at neither the items nor the rank.
+The historical function is now called `label_diversity_index`, because that is what it
+    computes: the diversity of **labels**, looking at neither the items nor the rank.
+
+    **The repository and the site address followed**, in a second step: they were called
+    `Index-Dissipation-Entropique`. GitHub redirects `git` operations from the old name to the
+    new one, but **not** published page addresses: old
+    `s-geffroy.github.io/Index-Dissipation-Entropique/…` links no longer work. That was the
+    price of a coherent name, and it was paid knowingly.
 
 ## Definition — the retained form
 

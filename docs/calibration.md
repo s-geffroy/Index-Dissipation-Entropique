@@ -146,7 +146,7 @@ glissant suit ce palier, et le critère de proéminence n'est alors jamais franc
 ne les rejette pas — elle **ne les voit pas**.
 
 C'est une limite de premier ordre : la procédure sélectionne contre le phénomène même que la
-théorie cherche à décrire. Un [test](https://github.com/s-geffroy/Index-Dissipation-Entropique/blob/main/tests/test_calibration.py)
+théorie cherche à décrire. Un [test](https://github.com/s-geffroy/Indice-Diversite-Exposee/blob/main/tests/test_calibration.py)
 le vérifie explicitement sur un changement de régime synthétique, pour que cette limite ne
 puisse pas être oubliée.
 

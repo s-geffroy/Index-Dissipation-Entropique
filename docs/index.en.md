@@ -156,8 +156,8 @@ Notebook prose is in French; code, variable names and API are in English through
 Everything runs in containers. Nothing is installed on the host.
 
 ```bash
-git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
-cd Index-Dissipation-Entropique
+git clone git@github.com:s-geffroy/Indice-Diversite-Exposee.git
+cd Indice-Diversite-Exposee
 
 docker compose run --rm test          # 556 tests
 docker compose run --rm notebooks     # regenerate every figure
@@ -177,4 +177,4 @@ valuable. → [Call for review](relecture.md)
 ---
 
 *Code under MIT · Written content under CC BY 4.0 ·
-[GitHub repository](https://github.com/s-geffroy/Index-Dissipation-Entropique)*
+[GitHub repository](https://github.com/s-geffroy/Indice-Diversite-Exposee)*

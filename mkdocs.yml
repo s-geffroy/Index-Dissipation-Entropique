@@ -3,9 +3,9 @@ site_description: >-
   Mesurer la diversité qu'un fil algorithmique expose réellement — et éprouver ce
   qu'on croit en savoir.
 site_author: Sylvain Geffroy
-site_url: https://s-geffroy.github.io/Index-Dissipation-Entropique/
-repo_url: https://github.com/s-geffroy/Index-Dissipation-Entropique
-repo_name: s-geffroy/Index-Dissipation-Entropique
+site_url: https://s-geffroy.github.io/Indice-Diversite-Exposee/
+repo_url: https://github.com/s-geffroy/Indice-Diversite-Exposee
+repo_name: s-geffroy/Indice-Diversite-Exposee
 copyright: >-
   Code sous licence MIT · contenus rédactionnels sous licence CC BY 4.0
 
@@ -114,7 +114,7 @@ extra_javascript:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/s-geffroy/Index-Dissipation-Entropique
+      link: https://github.com/s-geffroy/Indice-Diversite-Exposee
 
 nav:
   - Introduction: index.md

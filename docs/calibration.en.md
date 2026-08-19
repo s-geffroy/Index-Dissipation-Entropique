@@ -142,7 +142,7 @@ that plateau, so the prominence criterion is never met. The method does not reje
 **does not see them**.
 
 This is a first-order limitation: the procedure selects against the very phenomenon the
-theory is about. A [test](https://github.com/s-geffroy/Index-Dissipation-Entropique/blob/main/tests/test_calibration.py)
+theory is about. A [test](https://github.com/s-geffroy/Indice-Diversite-Exposee/blob/main/tests/test_calibration.py)
 verifies it explicitly on a synthetic regime shift, so that the limitation cannot be
 forgotten.
 

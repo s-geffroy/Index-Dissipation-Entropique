@@ -142,7 +142,7 @@ not its choice.
 recomputes these measurements twice — directly on a complete log, then on the tables alone — and
 publishes the gap. It is $3 \times 10^{-12}$ for the exchangeability test and **exactly zero**
 for severity. The code that consumes the tables is
-[`ide.aggregates`](https://github.com/s-geffroy/Index-Dissipation-Entropique/blob/main/src/ide/aggregates.py),
+[`ide.aggregates`](https://github.com/s-geffroy/Indice-Diversite-Exposee/blob/main/src/ide/aggregates.py),
 and eleven tests lock it.
 
 **What it weighs.** On Baidu-ULTR, 524,164 documents served yield **5,543 rows** requested, a

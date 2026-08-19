@@ -20,9 +20,14 @@
     adverse](rang-adverse.md), une plateforme certifiée à 0,70 par une mesure aveugle au rang
     n'exposant que 0,36.
 
-    Le nom du dépôt et l'adresse du site restent inchangés, pour ne casser aucun lien entrant —
-    et la fonction historique s'appelle maintenant `label_diversity_index`, parce que c'est ce
+La fonction historique s'appelle maintenant `label_diversity_index`, parce que c'est ce
     qu'elle calcule : la diversité des **étiquettes**, sans regarder ni les contenus ni le rang.
+
+    **Le dépôt et l'adresse du site ont suivi**, dans un second temps : ils s'appelaient
+    `Index-Dissipation-Entropique`. GitHub redirige les opérations `git` de l'ancien nom vers le
+    nouveau, mais **pas** les adresses des pages publiées : les anciens liens
+    `s-geffroy.github.io/Index-Dissipation-Entropique/…` ne fonctionnent plus. C'était le prix
+    d'un nom cohérent, et il a été payé sciemment.
 
 ## Définition — la forme retenue
 
