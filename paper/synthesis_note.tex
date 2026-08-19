@@ -14,10 +14,8 @@
 \bibliographystyle{plainnat}
 
 \graphicspath{{figures/}}
-
 \title{\textbf{Measuring the Diversity a Feed Actually Exposes}\\[2mm]
-       \large A Thermodynamic Model of Public Opinion,\\
-       and What Testing It Refuted}
+       \large A standard, its attacks, and what it takes to verify it}
 \author{Sylvain Geffroy}
 \date{August 2026 --- \emph{working paper, open to review}}
 
@@ -26,63 +24,463 @@
 
 \begin{abstract}
 \noindent
-The larger a quantum system, the faster it decoheres. The larger a population, the harder
-it is to reach agreement. This note formalises the structural analogy between these two
-phenomena and tests its consequences numerically.
+A regulator seeking to constrain a recommender algorithm needs a quantity it can observe
+without access to the platform's code. This note proposes one --- the \textbf{Exposed
+Diversity Index} (EDI), the entropy of the items served, projected onto a declared catalogue
+of viewpoints and weighted by the attention each rank commands --- and then subjects it to the
+attacks it must withstand to serve as a standard.
 
-With the Helmholtz free energy $F = E - TS$ written out in full, the stationary opinion
-distribution exhibits a \emph{phase transition}: above a critical social temperature, a
-single peak centred on moderation; below it, two extreme peaks. Below that temperature,
-removing the media field does not restore neutrality --- group conformity sustains a
-\emph{hysteresis}, which explains the ineffectiveness of passive retraction. Finally, when
-algorithmic gain exceeds a piece of content's natural damping rate
-($\gamma\alpha > \lambda$), effective damping becomes negative and the system enters
-resonance --- an informational Larsen effect.
+Three of those attacks succeed against the naive formulations, and each forces a correction. A
+floor bearing on a feed's \emph{labels} is saturated at zero cost: a platform able to decouple
+label from content obtains full marks for strictly zero content diversity. Rao's quadratic
+entropy, the first replacement considered, has a \emph{bimodal} constrained optimum: it would
+prescribe the very polarisation it claims to measure. And any rank-blind measure is satisfied
+by \emph{burying} the divergent items --- a platform certified at $0.70$ exposes only $0.36$ of
+real diversity, and closing the loophole doubles the engagement cost.
 
-We derive two instruments: the \textbf{Exposed Diversity Index} (EDI), an auditable
-metric of a feed's informational diversity, and the \textbf{Exposed Diversity
-Algorithm} (EDA), a recommender filter that optimises this index rather than raw
-engagement.
+Verifying such a standard on real data requires knowing \emph{exposure}. We give an exact
+within-feed test that decides whether a recommender log permits any exposure correction at
+all, and an estimator of position-bias severity. Applied to three public logs, they establish
+that MIND does not preserve the served order --- the estimator returns five incompatible
+severities there --- while Baidu-ULTR does ($\hat\eta = 1.10 \pm 0.09$), and the Open Bandit
+Dataset permits this work's only confrontation with a ground truth: the value of a
+never-deployed policy is recovered to within $2.5\%$, against $31.6\%$ error for the naive
+estimate.
 
-A calibration on public attention series (\S\ref{sec:calibration}) places the ratio
-$\gamma\alpha/\lambda$ between $1.5$ and $12$ across nineteen episodes. It also shows that
-the instability criterion holds by construction for any observable episode: checking it tells
-you nothing, and the corresponding regulatory recommendation must instead cap the ratio.
+No public dataset carries both the served rank and an interpretable viewpoint label. We
+therefore specify, under Article~40 of the \emph{Digital Services Act}, four aggregate tables
+containing no personal data, verified to recompute the measurements identically for a hundred
+times fewer rows than a raw log.
 
-Section~\ref{sec:limits} states the work's limitations. All code, tests and figures are
-reproducible in containers.
-
-Section~\ref{sec:posterior} reports measurements made after this note was written, which
-invalidated part of it: the index proposed here saturates at zero cost, the quantum analogy
-from which it originally took its name survives none of its transfers, and the reference
-dataset on which evaluation was planned does not record display order.
-
+Part~\ref{part:model} presents the thermodynamic model the index came from, and
+\S\ref{sec:analogy} reports what remains of it: the quantum decoherence analogy that started
+this work survives none of its transfers. All code, tests and figures are reproducible in
+containers.
 \end{abstract}
 
-\section{Introduction and hypothesis}
+\part{The measurement}
+\label{part:measure}
 
-Sociophysics has applied the tools of statistical physics to opinion dynamics since the
-1980s \citep{galam2004,castellano2009}. This note starts from a narrower and more precise
-observation.
+\section{The metrological problem}
+\label{sec:problem}
 
-In quantum mechanics, an isolated system exists in a superposition of states. On contact
-with an environment it becomes entangled with it and the interference terms vanish: this is
-decoherence \citep{zeh1970,zurek2003}. The more massive the environment, the faster the
-process.
-
-The working hypothesis is:
+Regulating a recommender algorithm presupposes an observable quantity. Counting problematic
+items will not do: the indicator lags, it is gameable, and it requires ruling on the substance
+of every item. The quantity adopted here is of a different nature --- it bears on the
+\emph{shape} of exposure, not on the content of messages:
 
 \begin{quote}
-Increasing the size of a system ($N \to \infty$) destroys the coherence of its initial
-state --- in quantum physics by accelerating decoherence, in opinion dynamics by making
-organic consensus unreachable.
+What share of the attention served to a reader goes to each of the viewpoints the platform
+could have served?
 \end{quote}
 
-The hypothesis is \emph{structural}: it claims that one formalism describes both
-situations, not that human opinion obeys physical law. Its value lies in yielding
-measurable quantities. As we shall see (\S\ref{sec:limits}), it nonetheless requires an
-important reformulation: the effect of $N$ is not to add disorder, but to remove
-plasticity.
+The question has three virtues: it can be measured from outside, it requires no judgement on
+the truth of any item, and it admits a threshold expressed as a percentage, hence transferable
+across platforms.
+
+It also has three traps, and this note is organised around them.
+
+\begin{enumerate}
+\item \textbf{A label is not an item.} Measuring the diversity of \emph{announced categories}
+      leaves the platform to choose what is announced.
+\item \textbf{A composition is not an exposure.} A feed may contain the required diversity and
+      place it where nobody looks.
+\item \textbf{A logged click is not a preference.} Observed clicks were produced by the
+      platform's ranking, not by the one under evaluation.
+\end{enumerate}
+
+Each trap is measurable, and each was measured. What survives all three is the retained
+definition.
+
+\section{The exposed diversity index}
+\label{sec:index}
+
+Given a feed of $n$ positions, a reference catalogue of $k$ viewpoints declared by the
+regulator, and an attention discount $w_R$ attached to rank $R$, the \emph{exposed}
+distribution is
+\begin{equation}
+q_i = \frac{\sum_{R=1}^{n} w_R \, \mathbb{1}\!\left[\text{the item served at rank } R
+      \text{ falls in bin } i\right]}{\sum_{R=1}^{n} w_R},
+\label{eq:distribution}
+\end{equation}
+and the index is its normalised Shannon entropy:
+\begin{equation}
+\mathrm{EDI} = \frac{H(q)}{\log_2 k}, \qquad H(q) = -\sum_{i=1}^{k} q_i \log_2 q_i .
+\label{eq:edi}
+\end{equation}
+
+Three choices distinguish \eqref{eq:distribution} from the entropy one would write
+spontaneously, and each follows from an attack that succeeded (\S\ref{sec:adversarial}).
+
+\begin{center}
+\begin{tabular}{@{}p{0.30\linewidth}p{0.30\linewidth}p{0.32\linewidth}@{}}
+\toprule
+\textbf{Choice} & \textbf{Reason} & \textbf{Without it} \\
+\midrule
+$q$ bears on the items served, projected onto the catalogue's bins & a label is chosen, an item
+is observed & the index reaches $1.000$ for zero content diversity, at zero cost \\[2mm]
+each rank is weighted by $w_R$ & a reader consults the first item far more often than the last
+& the standard is satisfied by burial: $0.70$ certified, $0.36$ exposed \\[2mm]
+the denominator $\log_2 k$ comes from the declared catalogue & comparing platforms requires the
+same unit & a closed feed shows one modality, the denominator degenerates and the index
+flatters \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Attention discount.} The results below use $w_R = 1/R$, the reciprocal-rank
+discount standard in ranking evaluation. The choice of $w$ belongs to the regulator, as does
+the catalogue; what matters here is that it be \emph{declared}, since it is what makes the
+standard non-circumventable by order.
+
+\paragraph{Associated control quantity.} The gap between \eqref{eq:edi} computed on the feed's
+composition ($w_R$ constant) and on its exposed distribution ($w_R = 1/R$) is zero for a
+platform that does not relegate, and grows with burial. It is the only quantity in this work
+that compares a measure \emph{with itself}, and hence the only one that thresholds without an
+external reference.
+
+\paragraph{Protocol.} The unit is the item \emph{served}, not the item consulted: the platform
+is audited, not the reader. The index is computed per reader over a sliding window and then
+aggregated; the regulatory quantity is the \emph{share of the population below the threshold},
+not the mean, since a satisfactory mean can hide an entirely enclosed minority.
+
+\section{The adversarial test}
+\label{sec:adversarial}
+
+A standard is judged by what it forces a rational adversary to do. We therefore place the
+platform in the role it will occupy: maximising engagement \emph{subject to} the constraint,
+rather than complying in good faith.
+
+\paragraph{Method.} A feed has $n$ positions to fill from a catalogue of $k$ viewpoints, hence
+$k^n$ possible feeds. For $n = 8$ and $k = 4$, all $65{,}536$ feeds are \emph{enumerated}: the
+optimum obtained is exact, not the output of a heuristic. This is not a luxury. These are
+negative results --- standards that fail --- and an optimum missed by a solver would look
+exactly like a standard that holds.
+
+\subsection{A label-based standard saturates at zero cost}
+
+If the platform controls the label independently of the item, the entropy of labels stops
+constraining the entropy of items. Optimisation confirms it without nuance: under full
+decoupling the platform obtains an index of $1.000$ --- full marks --- for strictly zero content
+diversity, without giving up a point of engagement. One need not go that far: at half
+decoupling, the constraint retains only $36\%$ of its force.
+
+The consequence is direct: \textbf{the measure must bear on the items served}. It calls for a
+complementary diagnostic, the \emph{signature excess} --- the gap between two indices computed
+on the same feed, relative to what an honest catalogue would show at the same index --- which is
+zero for an honest platform and grows with decoupling.
+
+\subsection{The first replacement prescribed polarisation}
+
+Rao's quadratic entropy \citep{rao1982} --- the mean distance between two items drawn from the
+feed, known in recommendation as \emph{intra-list distance} --- appeared to answer the
+objection: it sees items, not labels. Yet its engagement-constrained optimum is
+\textbf{bimodal}: at a given required diversity, the cheapest way to supply it is to serve two
+extreme blocks and empty the centre. A standard built on it would prescribe the polarisation it
+claims to measure. The defect is known in the diversification literature
+\citep{ohsaka2023}; it is recovered here as a direct consequence of constrained optimisation.
+
+The retained floor therefore bears on an \emph{entropy}, computed on the items served projected
+onto the catalogue's bins --- a measure whose constrained optimum is spread rather than bimodal.
+
+\subsection{A rank-blind standard is circumvented by burial}
+
+The measures above bear on the feed's \emph{composition}. Retested on \emph{ordered} feeds, all
+four candidate diversity measures are circumvented the same way: serve the divergent items at
+the last ranks, where attention no longer goes.
+
+\begin{center}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Measure} & \textbf{Cost} & \textbf{Displayed} & \textbf{Exposed} & \textbf{Cost if rank-aware} \\
+\midrule
+Rao's entropy & $8.2\%$ & $0.750$ & $\mathbf{0.355}$ & $18.9\%$ \\
+Position entropy & $10.7\%$ & $0.774$ & $\mathbf{0.443}$ & $20.9\%$ \\
+Gaussian ILD & \multicolumn{4}{l}{floor unattainable} \\
+Target proximity & $5.9\%$ & $0.750$ & $\mathbf{0.628}$ & $10.6\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The optimal feed always has the same shape: items of the preferred viewpoint on top, divergent
+ones relegated. \textbf{A platform certified at $0.70$ exposes only $0.36$.} A rank-aware floor
+closes the loophole and \emph{doubles} the engagement cost: a standard that cost no more would
+close nothing.
+
+The gap grows with the requirement --- $0.262$ at a floor of $0.40$, $0.395$ at $0.70$ for Rao's
+entropy: the more diversity a rank-blind standard demands, the more profitable burial becomes.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig15_rang_adverse.png}
+\caption{Displayed versus exposed diversity under a rank-blind floor; the gap by floor level;
+position-bias severity recovered by fixed effects, and the exploration threshold below which it
+ceases to be identifiable; the cost of a posited $\eta$.}
+\label{fig:adversarial}
+\end{figure}
+
+\section{Measuring exposure}
+\label{sec:exposure}
+
+Everything above presupposes knowing what attention goes to which rank. The standard model
+posits an examination probability decreasing with rank \citep{joachims2017},
+\begin{equation}
+e(R) = R^{-\eta},
+\label{eq:examination}
+\end{equation}
+whose severity $\eta$ was, in the first version of this work, \emph{posited}. It can be
+estimated.
+
+\subsection{Estimation by item fixed effects}
+
+Under \eqref{eq:examination}, click probability factorises as $P(\text{click} \mid i, R) =
+g(i)\, R^{-\eta}$, hence
+\begin{equation}
+\log \mathrm{CTR}(i, R) = \log g(i) - \eta \log R .
+\label{eq:fixedeffects}
+\end{equation}
+Relevance $g(i)$ is an item fixed effect: it is not estimated but eliminated by within-item
+centring. What remains is the only variation that identifies $\eta$ --- that of the \emph{same
+item seen at different ranks}. This is the simplest form of intervention harvesting
+\citep{agarwal2019}: it requires no experiment, only that the platform did not always rank the
+same items in the same places.
+
+On simulated data the estimator recovers $\eta$ from $0.4$ to $1.6$. Under a deterministic
+policy it \emph{refuses} to answer rather than invent a figure: no item changes rank, and the
+severity is not in the data.
+
+Positing $\eta$ instead of estimating it is not innocuous: where the true cost of a diversity
+filter is $6.6\%$, a posited $\eta$ of $0.5$ understates it by $59\%$ and a posited $\eta$ of
+$2.0$ overstates it by $179\%$ --- the very order of magnitude of the bias one claimed to
+correct.
+
+\subsection{The check that must come first: exchangeability}
+
+The refusal described above catches the visible case --- no rank variation --- and misses the
+invisible one: \emph{abundant and artificial} variation. What is needed is a check that counts
+not the variation but the \emph{informativeness} of the order.
+
+For a feed of length $L$ carrying $k$ clicks, let $u_R = (R - 1/2)/L$ be the normalised rank.
+Under the hypothesis that clicks are indifferent to position \emph{given the feed}, the clicked
+positions are a draw without replacement among the $L$ positions, with exactly known expectation
+and variance:
+\begin{equation}
+\mathbb{E}\Big[\sum_{\text{clicks}} u_R\Big] = k\,\bar{u}, \qquad
+\mathbb{V}\Big[\sum_{\text{clicks}} u_R\Big] = \frac{k(L-k)}{L-1}\,\sigma^2_u .
+\label{eq:exchangeability}
+\end{equation}
+Conditioning on the feed immunises the test against the mixture of feed lengths, the mean
+quality of a feed's items, and its reader's appetite for clicking. Position bias concentrates
+clicks at the top: it makes the standardised deviation \emph{negative}, so the sign of the
+rejection is itself a verification.
+
+A test that rejects nothing says nothing until one knows what it would reject. Calibration is
+done by simulation at identical feed structure: on MIND's, the test detects $\eta = 0.02$ at
+twelve standard deviations, and the minimum detectable severity is $\eta \approx 0.004$.
+
+\section{Evaluating a re-ranking}
+\label{sec:evaluation}
+
+Measuring a feed is one thing; estimating what a different ranking would cost is another. The
+available clicks were produced by the platform's policy, not by the one under evaluation.
+
+\paragraph{Replay is wrong, by a considerable margin.} Replaying logged clicks on a re-ranked
+feed is off by $201\%$ at the median, up to $851\%$, and the sign of the error is not
+guaranteed: across sixty draws at identical configuration it overstates in fifty-six cases and
+understates in four. A naive figure is therefore not even an upper bound.
+
+\paragraph{The correction and its price.} Inverse propensity weighting is unbiased provided the
+logging policy is known and gives every action the target policy might choose a chance. Its
+price is variance, hence the usual variants --- self-normalisation \citep{swaminathan2015},
+weight clipping --- and the diagnostic that must accompany any figure: the \textbf{effective
+sample size}, which states how many observations actually carry the estimate.
+
+\paragraph{A confrontation with ground truth.} The Open Bandit Dataset \citep{saito2020}
+contains two buckets served in parallel by two different policies, and publishes the true
+propensities. One can therefore estimate the value of the uniform policy \emph{from another
+policy's data alone}, and compare it with its value measured where it actually served.
+
+\begin{center}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Estimator} & \textbf{Value} & \textbf{Error} \\
+\midrule
+Ground truth (measured, $452{,}949$ impressions) & $0.005124$ & --- \\
+Naive (observed click rate) & $0.006743$ & $+31.6\%$ \\
+IPS & $0.005253$ & $\mathbf{+2.5\%}$ \\
+Self-normalised & $0.004768$ & $-7.0\%$ \\
+IPS clipped at $10$ & $0.004473$ & $-12.7\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The correction works. The diagnostic forbids celebrating it: the effective sample size is
+$1{,}513$ for $4{,}077{,}727$ impressions, i.e. $0.04\%$. The estimate is unbiased and rests on
+the equivalent of fifteen hundred observations; that the error lands at $2.5\%$ owes as much to
+luck as to method. This is the real case that justifies the rule: publish the effective size
+next to the figure.
+
+\section{Three public logs}
+\label{sec:logs}
+
+The instruments of \S\ref{sec:exposure} and \S\ref{sec:evaluation} decide whether a dataset
+permits the measurement. Applied to three public logs, they give three different answers.
+
+\subsection{MIND: an order that is not one}
+
+The reference dataset for news recommendation \citep{wu2020} shows ideal rank coverage: a median
+item appears at sixteen distinct positions. Yet test \eqref{eq:exchangeability} detects nothing
+--- $z = +0.12$ ($p = 0.91$) across $156{,}965$ feeds, replicated at $z = +0.28$ on the second
+split --- in a dataset where it would detect $\eta = 0.02$ at twelve standard deviations. The
+recorded order is indistinguishable from a shuffle.
+
+The click-rate curve by position nonetheless falls from $0.108$ to $0.038$ and fits
+$\hat\eta = 0.39$: a \emph{composition artefact}, deep positions existing only in long feeds,
+whose click rate per item is mechanically lower. At fixed feed length the slope is zero and
+changes sign from one length to the next.
+
+Finally, estimator \eqref{eq:fixedeffects} accepts the dataset, declares itself identifiable,
+and returns a severity that is an increasing function of a mere nuisance threshold: $-0.131$ at
+five impressions, $+0.053$ at twenty, $+0.255$ at a hundred, each with a standard error below
+$0.007$. \textbf{Five confident and incompatible figures from one dataset.}
+
+Shuffling does not debias the clicks: they were produced under the real order and carry its bias
+in full. What the shuffle removes is the \emph{rank}, the only regressor that would allow
+correction. On a simulated log of true severity $1.00$, the estimate moves from $1.003$ to
+$-0.003$ after shuffling, at identical clicks; evaluating a re-ranking becomes vacuous by
+construction.
+
+\subsection{Baidu-ULTR: the positive control}
+
+On a slice of $524{,}164$ documents served across $64{,}200$ search sessions \citep{zou2022},
+the same test rejects at $z = -205.7$ ($p < 10^{-12}$) and on the side theory prescribes.
+Severity is $\hat\eta = 1.10 \pm 0.09$ by document fixed effects, against $1.49$ by aggregate
+fit --- the gap being the quality confounder, the platform placing the best documents on top.
+Coverage remains thin: $55$ documents carry the estimate, out of $444{,}709$, because the same
+URL rarely reappears.
+
+\subsection{Open Bandit Dataset: position measured without a model}
+
+The random bucket allocates items to positions by chance: the click-rate difference between
+positions is a \emph{causal} effect, with no examination model to posit. On a three-thumbnail
+horizontal banner it is $\hat\eta = 0.037$ ("all" campaign, $1.37$ million impressions) to
+$\hat\eta = 0.105$ ("men" campaign).
+
+\textbf{$\eta$ is therefore a property of the surface, not a constant}: an order of magnitude
+separates a vertical results page from a three-thumbnail banner. Transporting one to the other
+is exactly the error whose cost \S\ref{sec:exposure} quantifies.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig17_rang_servi.png}
+\caption{What a genuinely served rank does to the click-rate curve; the exchangeability test on
+MIND and on Baidu-ULTR; the position effect measured without a model on the Open Bandit
+Dataset's random bucket; the counterfactual estimator judged against the value it estimates.}
+\label{fig:logs}
+\end{figure}
+
+\subsection{What these three logs do not permit}
+
+None carries both the \emph{served rank} and an \emph{interpretable viewpoint label}. MIND has
+editorial categories without the rank; Baidu-ULTR has the rank without labels; the Open Bandit
+Dataset has rank, propensity and three categorical attributes, but anonymised --- and a diversity
+computed over hashes says nothing, the reference catalogue being a political declaration.
+
+The index of \S\ref{sec:index} has therefore never been measured on a real feed. This is not a
+gap in method: it is a gap in data.
+
+\section{What to ask for}
+\label{sec:request}
+
+Article~40 of the \emph{Digital Services Act} \citep{dsa2022}, made operational by Delegated
+Regulation (EU) 2025/2050 \citep{delegue2025}, opens platform data to vetted researchers. A
+request is admissible only if it is \emph{necessary and proportionate}. "Give us your logs" is
+neither: it demands personal data the analysis has no need of, and it hands over the easiest
+ground for refusal --- service security and trade secrets.
+
+We therefore specify the request as \textbf{four aggregate tables}:
+
+\begin{enumerate}
+\item \textbf{feed profiles} --- for each served feed shape (the list of ranks it occupies) and
+      each click count, the number of feeds;
+\item \textbf{clicks by rank} --- for each profile, each feed click count and each rank, the
+      number of clicks;
+\item \textbf{(item, rank) cells} --- impressions and clicks, and the service propensity if the
+      platform knows it;
+\item \textbf{exposure by (rank, viewpoint)} --- impressions and clicks, over the catalogue
+      declared by the regulator.
+\end{enumerate}
+
+No row designates a reader: a feed appears only by its shape and by the number of clicks it
+received.
+
+\paragraph{Sufficiency verified, not asserted.} Test \eqref{eq:exchangeability} is recomputed
+from tables 1 and 2 alone to within $3 \times 10^{-12}$ on MIND as on Baidu-ULTR; severity
+\eqref{eq:fixedeffects} is recomputed \emph{exactly} from table 3; both diversity measures from
+table 4, which therefore suffices to observe burial --- at identical composition, a feed
+compliant with the rank-blind floor exposes only $0.160$ of attention to minority viewpoints,
+against $0.375$ in composition.
+
+\paragraph{Proportionality quantified.} What is asked weighs $5{,}543$ rows for the $524{,}164$
+documents served in the Baidu-ULTR slice (ratio $95$) and $57{,}906$ rows for MIND's
+$5{,}843{,}444$ served items (ratio $101$).
+
+\paragraph{The confidentiality threshold is not neutral.} Suppressing low-count cells protects
+readers and moves the estimates: going from $5$ to $20$ impressions per cell moves the estimated
+severity from $1.10$ to $1.40$, i.e. $+27\%$, because rare cells are those of deep ranks. The
+threshold must be fixed in the request and published with the result.
+
+\paragraph{Two simpler aggregation keys were discarded} because they were wrong without being
+visible: indexing feeds by length rather than by rank profile --- wrong as soon as a surface skips
+ranks --- and omitting the feed click count, which prevents excluding fully clicked feeds and
+shifts the standardised deviation from $-205.7$ to $-203.9$. Both produced figures of the right
+order of magnitude.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig18_demande_article_40.png}
+\caption{What the request weighs against the log; the gap between direct and aggregate
+measurement; the effect of the confidentiality threshold on estimated severity; burial observed
+from the exposure table alone.}
+\label{fig:request}
+\end{figure}
+
+\section{A filter that optimises the index}
+\label{sec:filter}
+
+A classical recommender orders items by estimated relevance. The filter proposed here adds a
+term:
+\begin{equation}
+S(i, c) = \text{Relevance}(i, c) + \mu \, \Delta H(i, c), \qquad \mu \geq 0,
+\label{eq:score}
+\end{equation}
+where $\Delta H$ is the change in index item $i$ would bring to feed $c$. At $\mu = 0$ the
+ranking is \emph{identical} to an engagement filter's: the transformation is a parameterised
+addition, not a redesign. The parameter $\mu$ follows an annealing schedule --- rising when the
+index falls below the threshold, falling once it is restored --- so that intervention is
+intermittent.
+
+\paragraph{Status.} This filter is validated against its own model, with synthetic relevance and
+four viewpoints. Its real cost in perceived relevance is not measured, and cannot be on public
+data as things stand (\S\ref{sec:logs}). What bounds the discussion is the figure of
+\S\ref{sec:adversarial}: a rank-aware floor costs $10.6$ to $20.9\%$ of engagement depending on
+the measure, on eight-slot feeds enumerated exhaustively.
+
+\part{The background model}
+\label{part:model}
+
+What precedes stands without what follows. The index, its attacks, the exchangeability test and
+the counterfactual estimators depend on no hypothesis about opinion dynamics: they are
+measurements on served feeds and observed clicks.
+
+This part presents the model the index \emph{came from}. It has two functions, and only one is
+scientific. The first is to account for provenance: the quantity adopted in \S\ref{sec:index}
+was not picked at random among possible diversity measures, it comes from a formalism that
+describes opinion as a system with a temperature. The second is to state what that formalism is
+worth once measured --- and \S\ref{sec:analogy} concludes that the analogy which suggested it
+survives none of its transfers.
+
+No result in Part~\ref{part:measure} rests on this part.
 
 \section{Entropic formalism}
 
@@ -334,43 +732,6 @@ disinformation in order to amplify it selectively: the bias is mechanical. This 
 makes measuring $\gamma$ more relevant, and more enforceable, than auditing editorial
 intent.
 
-\section{Two instruments}
-
-\subsection{The Exposed Diversity Index}
-
-The index is the Shannon entropy of the viewpoints served to a user, normalised by its
-theoretical maximum:
-\begin{equation}
-\mathrm{EDI} = \frac{H(X)}{\log_2 k} \in [0,1].
-\label{eq:edi}
-\end{equation}
-Normalisation is the essential point: it makes the index dimensionless and comparable across
-platforms, which a threshold in bits does not. The denominator $k$ --- the number of
-viewpoints the platform is \emph{able} to serve --- must be imposed by the regulator, failing
-which a perfectly closed feed would obtain a flattering index.
-
-A collapsed index is the signature of a zero local social temperature, that is, a frozen
-state in the Ising sense --- the regime in which hysteresis makes false beliefs persistent.
-
-\subsection{The Exposed Diversity Algorithm}
-
-A conventional recommender maximises immediate engagement; by \eqref{eq:criterion}, that
-cost function is the one producing negative damping. The algorithm replaces it with
-\begin{equation}
-S(i,c) = \mathrm{Relevance}(i,c) + \mu \cdot \Delta H(i,c),
-\qquad \mu \geq 0,
-\label{eq:eda}
-\end{equation}
-where $\Delta H = H_{\mathrm{future}} - H_{\mathrm{current}}$ measures the item's impact on
-the feed's index. The positive sign is essential: it rewards diversification. The relevance
-term is retained --- an algorithm serving diversity without relevance would be abandoned by
-its users, dissipating no entropy at all.
-
-The coefficient $\mu$ is not constant. It stays at a resting value while the index is
-satisfactory, and rises progressively once the index falls below the critical threshold: this
-transposes simulated annealing, a temperature spike to break a frozen state followed by
-cooling. At $\mu = 0$ the algorithm is indistinguishable from an engagement filter, which
-makes it a parameterised addition rather than a redesign.
 
 \section{Empirical calibration of the amplification ratio}
 \label{sec:calibration}
@@ -443,125 +804,163 @@ forced the fixed-horizon estimator.}
 \end{figure}
 
 
-\section{What Later Measurements Established}
-\label{sec:posterior}
 
-The preceding sections reflect the state of the work when they were written. Six
-measurements made since have invalidated part of it; they are summarised here and
-documented in full in the repository.
+\section{The founding analogy, and its verdict}
+\label{sec:analogy}
 
-\subsection{The proposed index is not a tenable standard}
+This work started from an analogy: the larger a quantum system, the faster it decoheres; the
+larger a population, the harder agreement becomes. It produced measurable quantities --- a
+diversity index, an amplification threshold, a critical temperature --- and that is its merit.
+Its own claims were checked one by one, and none held.
 
-Under adversarial constrained optimisation, a floor bearing on a feed's \emph{labels} is
-saturated at zero cost: a platform able to decouple label from content obtains
-$\mathrm{EDI} = 1.000$ for strictly zero content diversity, without giving up a point of
-engagement. The first replacement considered, Rao's quadratic entropy, proved worse: its
-engagement-constrained optimum is \emph{bimodal}, i.e. it would prescribe the very
-polarisation it claims to measure. The retained form bears on the entropy of the
-\textbf{items served}, projected onto the bins of a declared reference catalogue.
+\begin{center}
+\begin{tabular}{@{}p{0.46\linewidth}p{0.48\linewidth}@{}}
+\toprule
+\textbf{What the analogy claimed} & \textbf{Verdict} \\
+\midrule
+The larger the system, the more disordered & \textbf{false, and backwards}: the retained
+diffusion term, $B(x) = k_B T (1-x^2)/N$, makes the macroscopic variable \emph{more}
+deterministic at large $N$. Two objects were conflated --- configuration entropy, extensive, and
+the noise of the macroscopic variable, in $1/N$ \\[2mm]
+Decoherence increases entropy & \textbf{false}: a closed system evolves unitarily. It is the
+\emph{reduced} subsystem's entropy that grows \\[2mm]
+$\tau_D \propto \tau_R / N$ & a \textbf{heuristic} scaling law, not Zurek's result, which
+involves spatial separation and the thermal wavelength \\[2mm]
+"Social tunnelling" & \textbf{metaphor}: the correct analogue is activated barrier crossing
+\citep{kramers1940}, which is classical \\[2mm]
+$1/k^N$ measures the improbability of consensus & describes a randomly drawn \textbf{initial
+state}, not a dynamics \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\subsection{A rank-blind standard is circumvented by burial}
+To which is added an error that is not physical: the original account attributed fragmentation
+to the connectivity of "small-world" networks \citep{watts1998}. In mean field the Voter Model
+converges in $O(N)$: connectivity \emph{accelerates} consensus. Fragmentation comes from the
+bias $H_i$ and from homophily, not from topology alone.
 
-Retested on \emph{ordered} feeds rather than compositions, by exhaustive enumeration of all
-$4^8 = 65{,}536$ possible feeds, all four candidate diversity measures are satisfied by
-relegating divergent items to the last ranks: a platform certified at $0.70$ exposes only
-$0.36$ of real diversity. Closing the loophole with an attention-weighted measure doubles the
-engagement cost, from $8.2\%$ to $18.9\%$ depending on the measure. The standard must
-therefore be \textbf{rank-aware}, and the associated control quantity is the gap between the
-two measures of the same feed.
+What survives --- free-energy landscape, phase transition, hysteresis, barrier crossing ---
+belongs to classical statistical mechanics, in the Ising and sociophysics lineage
+\citep{galam2004,castellano2009}. Nothing specifically quantum came through.
 
-\subsection{Offline evaluation required two corrections}
+The analogy therefore worked as \textbf{scaffolding}: it suggested measurable quantities that
+outlive it. That is a real role, and it is not the same as being true. Calling it "fruitful
+hence sound" would be dishonest: it suggested measurements, and none of its claims survived
+verification. The index was renamed accordingly --- it was the \emph{Entropic Dissipation
+Index}, after decoherence, and is now the \emph{Exposed Diversity Index}, after what it
+measures.
 
-Evaluating a re-ranking on clicks logged by a different policy --- \emph{replay} --- is off
-by $201\%$ at the median, up to $851\%$, and the sign of the error is not guaranteed. The
-correction runs through importance-weighted estimators, whose validity requires knowing the
-severity $\eta$ of position bias; positing that value instead of estimating it costs up to
-$+179\%$ on the published figure.
-
-\subsection{The reference dataset does not permit that evaluation}
-
-In MIND, the reference dataset for news recommendation, item order is \emph{shuffled}: an
-exact, power-calibrated within-feed exchangeability test detects no dependence between
-recorded position and click ($z = +0.12$, $p = 0.91$) where it would detect $\eta = 0.02$ at
-twelve standard deviations. The click-rate curve one nonetheless plots there falls from
-$0.108$ to $0.038$ and fits $\hat\eta = 0.39$: a composition artefact, deep positions existing
-only in long feeds. Shuffling the order does not debias the clicks; it destroys the variable
-that would allow them to be corrected.
-
-\subsection{Two public logs do record it, and severity can be measured there}
-
-On Baidu-ULTR the same test rejects at $z = -206$, on the side theory prescribes, and severity
-is $\hat\eta = 1.10 \pm 0.09$ by document fixed effects. On the Open Bandit Dataset, whose
-random bucket makes the measurement causal, the position effect of a three-thumbnail
-horizontal banner is ten times weaker: $\eta$ is a property of the \emph{surface}, not a
-constant. That dataset also publishes true propensities, allowing this work's only
-confrontation with a ground truth: the value of a never-deployed policy, estimated from
-another policy's data alone, lands within $2.5\%$ of its measured value, against $31.6\%$ for
-the naive estimate --- on an effective sample size of $1{,}513$ out of $4{,}077{,}727$
-impressions.
-
-\subsection{Consequence for the founding analogy}
-
-None of the transfers proper to the quantum analogy survived: global entropy does not grow
-under decoherence, configuration entropy and the noise of the macroscopic variable move in
-opposite directions with $N$, $\tau_D \propto \tau_R/N$ is a heuristic rather than Zurek's
-result, social tunnelling is a metaphor, and $1/k^N$ describes an initial state. What
-survives --- free-energy landscape, phase transition, hysteresis, activated barrier crossing
---- belongs to classical statistical mechanics. The index was renamed accordingly:
-\emph{Exposed Diversity Index}, which is exactly what the retained form measures.
+\part{Caveats}
 
 \section{Limitations}
 \label{sec:limits}
 
 These are stated here rather than left to reviewers.
 
-\paragraph{Empirical calibration barely begun.} This is the principal weakness. A single
-composite parameter is estimated (\S\ref{sec:calibration}); $J$, $T$, $\gamma$ and $\alpha$
-taken separately have no estimation procedure. The most promising route would be
-Kramers-Moyal inference on long opinion series, which would allow \emph{testing} the drift
-\eqref{eq:drift} rather than fitting it.
+\subsection{On the index and the standard}
 
-\paragraph{An analogy is not an explanation.} Nothing here demonstrates that opinion
-\emph{obeys} statistical mechanics. The work establishes that a formalism borrowed from
-physics \emph{reproduces} certain observed behaviours. Kramers' prediction on the temperature
-dependence of switching rates would offer a falsifiable test; it has not been carried out.
+\paragraph{The retained form has never been measured on a real feed.} It is defined
+\eqref{eq:edi}, its cost is quantified by exhaustive enumeration, and that is all. The gap is
+one of \emph{data}, not of method (\S\ref{sec:logs}), and \S\ref{sec:request} states what would
+close it.
 
-\paragraph{Individuals are not spins.} Intentionality, irony and strategic contrarianism have
-no counterpart in a spin model. Opinions are multidimensional --- the agent model uses two
-continuous axes, which mitigates the problem without solving it \citep{deffuant2000}.
-Finally, the environment is not passive: an algorithm optimises a cost function, making it a
-strategic actor rather than a thermal bath. This is the analogy's weakest point, and it is
-also what makes the algorithm conceivable --- a cost function can be changed.
+\paragraph{The floor level cannot be deduced from the measurement.} This work establishes the
+form of the standard and its price, not its value. Setting $0.60$ rather than $0.40$ is a
+political decision no computation presented here settles.
 
-\paragraph{Limitations specific to the index as an instrument.} Discretisation into viewpoints
-is a political choice: whoever defines the modalities defines the index. The index is
-gameable, since a platform can serve formally divergent but substantively empty content.
-Measuring it on individual feeds raises a privacy question this work does not answer. And
-imposing an index floor is a constraint on what citizens see: defensible, but an intervention
-in public debate, and presenting it as a neutral technical measure would be dishonest.
+\paragraph{Discretisation into viewpoints is a political choice.} Whoever defines the modalities
+defines the index. Measuring by divergence to a declared catalogue makes the choice explicit
+rather than burying it; it does not remove it.
+
+\paragraph{The index remains gameable beyond what any automatic measure detects.} The attacks of
+\S\ref{sec:adversarial} are closed, but a platform can still serve formally divergent,
+substantively empty items --- bin diversity without argument diversity. Any mandated metric
+becomes a target.
+
+\paragraph{A floor is a constraint on what citizens see.} Defensible, but an intervention in
+public debate, and presenting it as a neutral technical measure would be dishonest. Measuring
+individual feeds also raises a privacy question that \S\ref{sec:request} answers only in part,
+by aggregation.
+
+\subsection{On the exposure measurements}
+
+\paragraph{The form $e(R) = R^{-\eta}$ is posited.} Only its severity is estimated. A cascade
+examination model, or one depending on the item, would produce a different rank dependence ---
+which test \eqref{eq:exchangeability} would detect just as well, since it only tests
+independence, but which the minimum detectable severity would no longer summarise.
+
+\paragraph{Exhaustive enumeration bounds feed size.} Eight positions over four viewpoints.
+Nothing guarantees that burial behaves the same on a fifty-item feed, and asserting it would
+require an approximate optimisation that would itself have to be shown not to invent the result.
+
+\paragraph{The measured datasets are slices.} A slice of Baidu-ULTR is not Baidu-ULTR; the Open
+Bandit Dataset measures a fashion recommendation on three horizontal thumbnails, and
+transporting its figures to a news feed is precisely the operation \S\ref{sec:logs} warns
+against.
+
+\paragraph{The ground-truth confrontation concerns a uniform target policy}, the only one this
+dataset has a bucket for. Nothing guarantees importance weighting behaves as well for a target
+further from the logging policy --- on the contrary, the effective sample size would be smaller
+still.
+
+\subsection{On the model}
+
+\paragraph{Calibration barely begun.} A single composite parameter is estimated
+(\S\ref{sec:calibration}); $J$, $T$, $\gamma$ and $\alpha$ taken separately have no estimation
+procedure. The most promising route would be inference of Kramers-Moyal coefficients on long
+opinion series, which would allow the drift to be \emph{tested} rather than fitted.
+
+\paragraph{The model's one proper prediction is not verified.} The emotional-charge mechanism
+$\alpha$ predicts a difference between registers --- amplification, persistence, switching rate.
+Four independent measurements, including a replication across $440$ subjects and a blind
+double-coded annotation, find no trace of it. The apparent gap in the pilot corpus was a
+selection artefact.
+
+\paragraph{An analogy is not an explanation.} Nothing here demonstrates that opinions
+\emph{obey} statistical mechanics; the work establishes that a formalism borrowed from physics
+\emph{reproduces} some of its behaviours. On the founding analogy itself, the verdict is
+sharper still (\S\ref{sec:analogy}).
+
+\paragraph{Individuals are not spins.} Intentionality, irony and strategic anticonformism have
+no equivalent in a spin model; opinions are multidimensional \citep{deffuant2000}. Above all,
+the environment is not passive: an algorithm optimises a cost function, which makes it a
+strategic actor rather than a thermal bath. That is the analogy's weakest point --- and it is
+also what makes the filter of \S\ref{sec:filter} conceivable: a cost function can be changed.
 
 \paragraph{Scope of the simulations.} The regimes explored were chosen for legibility. No
-systematic sensitivity study was carried out, system sizes are modest, and no result is
-compared against real data. The conclusions are qualitative: they concern the existence of
-regimes and the direction of dependencies, never transposable numerical values.
+systematic sensitivity study was carried out, system sizes are modest, and the conclusions of
+Part~\ref{part:model} are qualitative: they concern the existence of regimes and the direction
+of dependencies, never transferable numerical values.
+
+\subsection{On the annotation}
+
+\paragraph{The coders are not independent.} Blind double coding of the corpus yields a Fleiss
+$\kappa$ of $0.921$, but the three coders are instances of the same language model: their
+agreement necessarily overstates what independent human judges would produce. It is the last
+methodological reservation that no computation lifts.
 
 \section{Reproducibility}
 
-The complete work is openly available, runnable in containers, with $203$ automated tests.
-The structuring verifications cover Onsager's critical temperature~\eqref{eq:onsager}, exact
-conservation of probability mass, the exponents of consensus-time scaling laws, the strict
-positivity of the hysteresis cycle area below $T_c$, and the equivalence of the algorithm
-with an engagement filter at $\mu = 0$. Every figure in this note is regenerated by a
-notebook.
+The entire work is openly available and runs in containers, with $556$ automated tests. The
+structural checks cover Onsager's critical temperature \eqref{eq:onsager}, exact conservation of
+probability mass, the scaling exponents of consensus time, the strict positivity of the
+hysteresis loop area below $T_c$, the equivalence of filter \eqref{eq:score} with an engagement
+filter at $\mu = 0$, the sign of the exchangeability test's rejection on a genuinely ordered
+log, and the exactness of the measurements recomputed from the aggregate tables of
+\S\ref{sec:request}.
+
+The impression logs used are not redistributed --- they weigh $135$ MB to $2.2$ GB and each
+carries its own licence --- but the repository keeps verified digests of them, which reproduce
+every figure published here identically. Every figure is regenerated by a notebook.
 
 \begin{center}
 \url{https://github.com/s-geffroy/Index-Dissipation-Entropique}\\
-\url{https://s-geffroy.github.io/Index-Dissipation-Entropique/en/}
+\url{https://s-geffroy.github.io/Index-Dissipation-Entropique/}
 \end{center}
 
-This work is open to critical review. Feedback on empirical calibration, on the index's
-viability as a regulatory instrument, or on remaining analogies that do not hold, is the most
-valuable.
+This work is open to critical review. The most useful feedback would concern the retained form
+of the index and the level of any floor, or the measurement instruments of \S\ref{sec:exposure}
+and \S\ref{sec:evaluation}, where a methodological error would be the most costly.
 
 \bibliography{refs}
 

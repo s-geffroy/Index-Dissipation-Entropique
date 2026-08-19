@@ -7,6 +7,31 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Modifié — la note de synthèse réécrite en partant de la mesure
+
+La note LaTeX suivait l'ordre historique : l'analogie quantique, le formalisme, puis les
+instruments en fin de parcours — et les six chantiers de mesure y avaient été ajoutés en
+appendice. Elle est réécrite dans l'ordre inverse.
+
+- **Partie I — La mesure** (nouvelle, huit sections) : le problème métrologique et ses trois
+  pièges ; la définition de l'indice, avec le tableau des trois choix et l'attaque qui a imposé
+  chacun ; l'épreuve adverse par énumération exhaustive ; l'estimation de l'exposition et le
+  test d'échangeabilité, avec l'espérance et la variance exactes sous l'hypothèse nulle ;
+  l'évaluation contrefactuelle et sa confrontation à une vérité terrain ; les trois journaux
+  publics ; la demande au titre de l'article 40 ; le filtre, avec son état.
+- **Partie II — Le modèle d'arrière-plan** : le formalisme thermodynamique et la calibration,
+  précédés d'un avertissement — aucun résultat de la partie I n'en dépend — et suivis du
+  **verdict sur l'analogie**, avec le tableau des cinq transferts et leur réfutation.
+- **Partie III — Réserves** : limites réorganisées en quatre familles (indice et norme, mesures
+  d'exposition, modèle, annotation), dont plusieurs entrées nouvelles : la forme retenue jamais
+  mesurée sur un fil réel, la borne de l'énumération exhaustive, la politique cible unique de la
+  confrontation, et la non-indépendance des codeurs.
+- **Neuf références ajoutées** — Rao (1982), Ohsaka & Togashi (2023), Joachims *et al.* (2017),
+  Agarwal *et al.* (2019), Swaminathan & Joachims (2015), Saito *et al.* (2020), Wu *et al.*
+  (2020), Zou *et al.* (2022), et le règlement délégué (UE) 2025/2050.
+- Les deux notes compilent sans référence ni citation indéfinie et sans boîte débordante :
+  **20 pages** en français, **19** en anglais.
+
 ### Modifié — revue complète des pages à l'état des derniers résultats
 
 Les pages avaient grossi par accrétion : chaque chantier ajoutait un paragraphe « Et… » à la
