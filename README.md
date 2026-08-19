@@ -6,7 +6,7 @@ thermodynamique de l'opinion publique.**
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Index-Dissipation-Entropique/)
-[![Tests : 545](https://img.shields.io/badge/tests-545-brightgreen.svg)](tests/)
+[![Tests : 556](https://img.shields.io/badge/tests-556-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Index-Dissipation-Entropique/)**
 · [English](https://s-geffroy.github.io/Index-Dissipation-Entropique/en/)
@@ -74,6 +74,11 @@ Trois résultats, chacun adossé à du code exécutable :
   une vérité terrain, tombe à **2,5 %** contre **+32 %** pour l'estimation naïve — sur une taille
   d'échantillon **effective** de 1 513 pour 4 millions d'impressions.
   → **[Journaux qui enregistrent le rang](docs/rang-servi.md)**
+- **Et pour ce qui manque encore, la demande est écrite.** Aucun jeu public ne porte à la fois le
+  rang servi et une étiquette de point de vue. La **[demande au titre de l'article
+  40](docs/article-40.md)** du DSA ne réclame ni journal ni donnée personnelle mais **quatre
+  tableaux agrégés**, dont il est *vérifié* qu'ils recalculent les mesures à l'identique — pour
+  **95 fois moins de lignes** que le journal brut.
 
 Le travail en dérive deux instruments :
 
@@ -106,7 +111,7 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 545 tests, dont les exemples de docstrings
+docker compose run --rm test          # 556 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
 docker compose run --rm notebooks     # régénère les 11 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
@@ -140,10 +145,11 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── logs.py         journaux d'impressions : test d'échangeabilité, condensés versionnables
 ├── mind.py         lecture de MIND et son condensé
 ├── exposure.py     Baidu-ULTR et Open Bandit Dataset : le rang servi, et sa confrontation
+├── aggregates.py   les quatre tableaux à demander au titre de l'article 40 du DSA
 └── abm/            modèle à agents « compas politique »
 
-tests/              545 tests — validation physique, numérique et statistique
-notebooks/          01 à 17, un par bloc théorique, exécutables
+tests/              556 tests — validation physique, numérique et statistique
+notebooks/          01 à 18, un par bloc théorique, exécutables
 data/pageviews/     464 séries de consultation, versionnées pour la reproductibilité
 data/catalogue.json manifeste pré-enregistré du corpus étendu (440 sujets)
 data/mind_digest.npz  condensé de MIND-small (1,5 Mo) — le jeu brut n'est pas versionné
@@ -176,6 +182,7 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 | un ordre mélangé passe le contrôle d'identifiabilité et donne cinq sévérités | fige l'erreur que ce contrôle laissait passer |
 | le test d'échangeabilité **rejette** sur Baidu-ULTR, et du côté négatif | un test qui ne rejette jamais rien ne dirait rien de MIND |
 | l'IPS retrouve à 2,5 % la valeur d'une politique jamais déployée | seule confrontation du dépôt à une vérité terrain mesurée |
+| les mesures se recalculent **à l'identique** depuis les tableaux agrégés | c'est ce qui rend une demande d'accès proportionnée plutôt que plaidée |
 
 ## Contenu du dépôt
 
@@ -200,6 +207,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   d'un mélange, et cinq sévérités incompatibles tirées du même jeu.
 - [`docs/rang-servi.md`](docs/rang-servi.md) — **deux journaux qui enregistrent le rang** :
   la sévérité mesurée, et l'estimateur contrefactuel jugé contre une vérité terrain.
+- [`docs/article-40.md`](docs/article-40.md) — **la demande d'accès aux données**, rédigée comme
+  une spécification : quatre tableaux agrégés, et la preuve qu'ils suffisent.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

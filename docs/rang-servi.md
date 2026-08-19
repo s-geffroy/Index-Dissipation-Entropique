@@ -166,7 +166,8 @@ publiquement.** Ce qui reste possible tient en trois lignes, et la
 1. mesurer sur MIND ce qui ne dépend pas de l'exposition, en le disant ;
 2. mesurer sur Baidu-ULTR et l'Open Bandit Dataset ce qui ne dépend pas des points de vue ;
 3. pour le reste, **demander la donnée** — ce qui, sous l'article 40 du DSA, est une démarche
-   prévue et non un vœu. → [mémorandum](memorandum.md)
+   prévue et non un vœu. → **[la demande, rédigée](article-40.md)** ·
+   [mémorandum](memorandum.md)
 
 ## Provenance des données
 

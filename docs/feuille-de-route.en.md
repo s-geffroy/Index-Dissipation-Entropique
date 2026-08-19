@@ -234,6 +234,20 @@ And it requires no privileged data access.
     3. for the rest, **ask for the data** under Article 40 of the DSA — the only route left, and
        a provided-for one.
 
+!!! success "And the request is written, specified and verified"
+    → **[Article 40 data request](article-40.en.md)**. It asks for no logs and no personal data,
+    but **four aggregate tables** which [notebook 18](notebooks/18_demande_article_40.ipynb)
+    verifies recompute **identically** the exchangeability test, severity $\eta$ and both
+    diversity measures — a gap of $3 \times 10^{-12}$ for one, exactly zero for the other.
+
+    What is asked weighs **95 times fewer rows** than the raw log on Baidu-ULTR, 101 times fewer
+    on MIND. A request of this form cannot be set aside for disproportion without the ground
+    bearing on something other than its size.
+
+    What remains is the non-technical obstacle: Article 40(8)(a) requires **affiliation to a
+    research organisation**, which this repository lacks. The document is therefore a template
+    ready to file, and that is the most useful form it could take.
+
 ### 3.2 Formulate a falsifiable prediction
 
 **The limitation.** Nothing shows opinion *obeys* this mechanics; the work shows it

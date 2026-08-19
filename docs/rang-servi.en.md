@@ -163,7 +163,8 @@ remains possible fits in three lines, and the [roadmap](feuille-de-route.en.md) 
 1. measure on MIND whatever does not depend on exposure, and say so;
 2. measure on Baidu-ULTR and the Open Bandit Dataset whatever does not depend on viewpoints;
 3. for the rest, **ask for the data** — which, under Article 40 of the DSA, is a provided-for
-   procedure and not a wish. → [memorandum](memorandum.en.md)
+   procedure and not a wish. → **[the request, drafted](article-40.en.md)** ·
+   [memorandum](memorandum.en.md)
 
 ## Data provenance
 

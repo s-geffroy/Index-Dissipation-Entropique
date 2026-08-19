@@ -92,6 +92,12 @@ truth for the first time, lands within **2.5 %** where the naive estimate is off
 **effective** sample size of 1,513 out of 4 million.
 → [Logs that record the rank](rang-servi.en.md)
 
+**And for what is still missing, the request is written.** No public dataset carries both the
+served rank and a viewpoint label: Article 40 DSA remains. The [request](article-40.en.md) asks
+for no logs and no personal data but **four aggregate tables**, verified to recompute the
+measurements **identically** — for 95 times fewer rows than the log.
+→ [Article 40 data request](article-40.en.md)
+
 ## What the work proposes
 
 | | Object | Intended for |
@@ -123,7 +129,7 @@ the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The seventeen notebooks are executable and produce every figure in the paper. Each stands
+The eighteen notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -145,6 +151,7 @@ on its own.
 | [15 — Adversarial rank](notebooks/15_rang_adverse_et_severite.ipynb) | all four measures circumvented by order, and position-bias severity estimated |
 | [16 — MIND's exploration](notebooks/16_exploration_mind.ipynb) | an order indistinguishable from a shuffle, and five severities from one dataset |
 | [17 — Served rank](notebooks/17_rang_servi.ipynb) | two logs that record the rank, and an estimator judged against the truth |
+| [18 — Article 40 request](notebooks/18_demande_article_40.ipynb) | four aggregate tables that suffice, and the proof that they do |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 
@@ -156,7 +163,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 545 tests
+docker compose run --rm test          # 556 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

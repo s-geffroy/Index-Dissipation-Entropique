@@ -309,6 +309,18 @@ the price, low and quantifiable, of auditability.
 estimate. It states how many observations actually carry the figure, and it alone tells a
 measurement from a coincidence.
 
+**Further provision: standardise the form of the request.** What an audit requires fits in
+**four aggregate tables** — feed profiles, clicks by rank, (item, rank) cells, exposure by
+declared viewpoint — which are [verified](article-40.en.md) to recompute identically the
+exchangeability test, position-bias severity and both diversity measures. None contains personal
+data, and together they weigh about a hundred times fewer rows than the corresponding log.
+
+Standardising this format would serve both sides: it removes the platform's Article 40(5) ground
+for refusal — counts by rank reveal neither the ranking nor its parameters — and it gives the
+regulator a deliverable whose compliance can be checked, instead of an access whose scope is
+negotiated. The **low-count suppression threshold** must be fixed and published there: on real
+data, moving from 5 to 20 impressions per cell shifts the estimated severity by 27 %.
+
 ### What is missing to make this operational
 
 | Gap | Nature |
@@ -331,6 +343,8 @@ measurement from a coincidence.
 | requiring the **served rank** in supplied logs | proposed here, not instrumented on the regulator's side — but [a public dataset already meets it](rang-servi.en.md) |
 | value of $\eta$ to adopt for a news feed | **measured elsewhere, not transportable**: 1.10 on a results page, 0.04 to 0.11 on a three-thumbnail banner |
 | fraction of random exploration to require of a platform | proposed here; without it an audit's effective sample size falls to 0.04 % |
+| **standardised format** for a data access request | **done** — [four aggregate tables](article-40.en.md), verified sufficient, with no personal data |
+| actually filing an Article 40 request | **beyond this repository**: Art. 40(8)(a) requires affiliation to a research organisation |
 
 This memorandum should therefore be read as a **framework to harden**, not a ready-to-use
 mechanism. Its contribution is to name measurable quantities where regulatory debate still

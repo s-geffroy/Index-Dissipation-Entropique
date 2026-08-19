@@ -322,6 +322,20 @@ façon **délibérément aléatoire** — c'est le prix, faible et chiffrable, d
 estimation contrefactuelle. Elle dit combien d'observations portent réellement le chiffre, et
 elle est la seule à distinguer une mesure d'une coïncidence.
 
+**Disposition complémentaire : normaliser la forme de la demande.** Ce que l'audit exige tient
+en **quatre tableaux agrégés** — profils de fils, clics par rang, cellules (contenu, rang),
+exposition par point de vue déclaré — dont il est [vérifié](article-40.md) qu'ils recalculent à
+l'identique le test d'échangeabilité, la sévérité du biais de position et les deux mesures de
+diversité. Aucun ne contient de donnée personnelle, et l'ensemble pèse une centaine de fois
+moins de lignes que le journal correspondant.
+
+Standardiser ce format servirait les deux parties : il retire à la plateforme le motif de refus
+de l'article 40(5) — des comptages par rang ne révèlent ni le classement ni ses paramètres — et
+il donne au régulateur un livrable dont la conformité se vérifie, au lieu d'un accès dont
+l'étendue se négocie. Le **seuil de suppression des faibles effectifs** doit y être fixé et
+publié : sur données réelles, passer de 5 à 20 impressions par cellule déplace la sévérité
+estimée de 27 %.
+
 ### Ce qui manque pour rendre ce cadre opérationnel
 
 Ces manques sont réels et il serait malhonnête de les taire :
@@ -346,6 +360,8 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | exigence de publication du **rang servi** dans les journaux transmis | proposée ici, non instrumentée côté régulateur — mais [un jeu public la satisfait déjà](rang-servi.md) |
 | valeur de $\eta$ à retenir pour un fil d'actualité | **mesurée ailleurs, non transportable** : 1,10 sur une page de résultats, 0,04 à 0,11 sur un bandeau de trois vignettes |
 | fraction d'exploration aléatoire exigible d'une plateforme | proposée ici ; sans elle la taille d'échantillon effective d'un audit tombe à 0,04 % |
+| **format normalisé** d'une demande d'accès aux données | **fait** — [quatre tableaux agrégés](article-40.md), vérifiés suffisants, sans donnée personnelle |
+| dépôt effectif d'une demande au titre de l'article 40 | **hors de portée de ce dépôt** : l'art. 40(8)(a) exige une affiliation à un organisme de recherche |
 
 Le mémorandum doit donc être lu comme une **proposition de cadre à durcir**, pas comme
 un dispositif prêt à l'emploi. Sa contribution est de nommer des grandeurs mesurables

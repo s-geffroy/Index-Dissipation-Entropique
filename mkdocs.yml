@@ -76,6 +76,7 @@ plugins:
             Rang adverse et sévérité: Adversarial rank and severity
             Exploration réelle de MIND: MIND's real exploration
             Journaux qui enregistrent le rang: Logs that record the rank
+            Demande au titre de l'article 40: Article 40 data request
             Mémorandum de régulation: Regulatory memorandum
             Réserves: Caveats
             Audit critique et limites: Critical audit and limitations
@@ -134,6 +135,7 @@ nav:
       - Rang adverse et sévérité: rang-adverse.md
       - Exploration réelle de MIND: mind.md
       - Journaux qui enregistrent le rang: rang-servi.md
+      - Demande au titre de l'article 40: article-40.md
       - Mémorandum de régulation: memorandum.md
   - Réserves:
       - Audit critique et limites: limites.md
@@ -158,3 +160,4 @@ nav:
       - 15 — Rang adverse: notebooks/15_rang_adverse_et_severite.ipynb
       - 16 — Exploration de MIND: notebooks/16_exploration_mind.ipynb
       - 17 — Rang servi: notebooks/17_rang_servi.ipynb
+      - 18 — Demande article 40: notebooks/18_demande_article_40.ipynb

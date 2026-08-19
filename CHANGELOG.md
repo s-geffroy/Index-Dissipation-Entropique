@@ -7,6 +7,50 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — la demande d'accès aux données, écrite comme une spécification
+
+Seule voie restante après le constat qu'aucun jeu public ne porte à la fois le rang servi et une
+étiquette de point de vue. Détail : [`docs/article-40.md`](docs/article-40.md) et le
+[notebook 18](notebooks/18_demande_article_40.ipynb).
+
+- **`ide.aggregates`** — les **quatre tableaux agrégés** dont les mesures de ce dépôt ont
+  réellement besoin : profils de fils, clics par rang, cellules (contenu, rang) avec propension,
+  exposition par point de vue déclaré. Le module sait les construire depuis un journal, les
+  consommer, et mesurer ce que leur seuil de confidentialité coûte aux estimations.
+- **`docs/article-40.md`** — la demande elle-même, rédigée article par article du règlement
+  délégué (UE) 2025/2050 : objet, données, nécessité et proportionnalité, risques, publication,
+  calendrier et voies de recours.
+- **`notebooks/18_demande_article_40.ipynb`**, `paper/figures/fig18_demande_article_40.png` et
+  11 tests supplémentaires (556 au total).
+
+### Résultats — les quatre tableaux suffisent, et c'est vérifié
+
+- **Le test d'échangeabilité se recalcule à $3 \times 10^{-12}$ près** depuis les seuls tableaux
+  1 et 2, sur MIND comme sur Baidu-ULTR — donc le contrôle qui décide si un journal est
+  corrigible n'exige **aucune donnée individuelle**.
+- **La sévérité $\eta$ se recalcule exactement** — écart nul — depuis le seul tableau 3.
+- **Les deux mesures de diversité** — composée et exposée — se recalculent depuis le seul
+  tableau 4, qui suffit donc à constater l'**enterrement** : à composition identique, un fil
+  conforme au plancher aveugle n'expose que 0,160 d'attention aux points de vue minoritaires,
+  contre 0,337 pour le même fil entrelacé et 0,375 en composition.
+- **Ce qui est demandé pèse 95 fois moins de lignes** que le journal brut sur Baidu-ULTR (5 543
+  contre 524 164) et 101 fois moins sur MIND (57 906 contre 5 843 444).
+- **Le seuil de confidentialité n'est pas neutre** : passer de 5 à 20 impressions par cellule
+  déplace la sévérité estimée de 1,10 à 1,40, soit +27 %, parce que les cellules rares sont
+  celles des rangs profonds. Il doit être publié avec le résultat.
+- **Deux clés d'agrégation plus simples ont été écartées parce qu'elles étaient fausses** :
+  indexer les fils par leur longueur plutôt que par leur profil de rangs, et omettre le nombre de
+  clics du fil — qui empêche d'écarter les fils entièrement cliqués et décale l'écart réduit de
+  $-205{,}7$ à $-203{,}9$. Les deux erreurs produisaient des chiffres du bon ordre de grandeur.
+
+### Modifié
+
+- [`docs/feuille-de-route.md`](docs/feuille-de-route.md) §3.1 — la troisième voie est désormais
+  outillée, avec sa réserve : l'art. 40(8)(a) exige une affiliation à un organisme de recherche,
+  que ce dépôt n'a pas. Le document est un modèle prêt à déposer.
+- [`docs/memorandum.md`](docs/memorandum.md) — nouvelle disposition : **normaliser la forme de
+  la demande d'accès**, et y fixer le seuil de suppression des faibles effectifs.
+
 ### Ajouté — deux journaux publics qui enregistrent le rang servi
 
 Suite directe de l'exigence sur laquelle s'était terminée la mesure sur MIND. Détail :

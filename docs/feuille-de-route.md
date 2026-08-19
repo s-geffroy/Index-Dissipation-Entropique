@@ -259,6 +259,21 @@ C'est ce qui permettrait de répondre à la seule objection sérieuse d'une plat
     3. pour le reste, **demander la donnée** au titre de l'article 40 du DSA — la seule voie qui
        reste, et une voie prévue.
 
+!!! success "Et la demande est écrite, spécifiée et vérifiée"
+    → **[Demande au titre de l'article 40](article-40.md)**. Elle ne réclame ni journal ni
+    donnée personnelle, mais **quatre tableaux agrégés** dont le
+    [notebook 18](notebooks/18_demande_article_40.ipynb) vérifie qu'ils recalculent **à
+    l'identique** le test d'échangeabilité, la sévérité $\eta$ et les deux mesures de diversité
+    — écart de $3 \times 10^{-12}$ pour l'un, exactement nul pour l'autre.
+
+    Ce qui est demandé pèse **95 fois moins de lignes** que le journal brut sur Baidu-ULTR, 101
+    fois moins sur MIND. Une demande de cette forme ne peut être écartée pour disproportion sans
+    que le motif porte sur autre chose que sa taille.
+
+    Reste l'obstacle qui n'est pas technique : l'article 40(8)(a) exige une **affiliation à un
+    organisme de recherche**, que ce dépôt n'a pas. Le document est donc un modèle prêt à
+    déposer, et c'est la forme la plus utile qu'il pouvait prendre.
+
 ### 3.2 Formuler une prédiction falsifiable
 
 **La limite.** Rien ne démontre que les opinions *obéissent* à cette mécanique ; le

@@ -94,6 +94,12 @@ pour la première fois à une vérité terrain, tombe à **2,5 %** là où l'est
 de 32 % — pour une taille d'échantillon **effective** de 1 513 sur 4 millions.
 → [Journaux qui enregistrent le rang](rang-servi.md)
 
+**Et pour ce qui manque encore, la demande est écrite.** Aucun jeu public ne porte à la fois le
+rang servi et une étiquette de point de vue : reste l'article 40 du DSA. La
+[demande](article-40.md) ne réclame ni journal ni donnée personnelle mais **quatre tableaux
+agrégés**, dont il est vérifié qu'ils recalculent les mesures **à l'identique** — pour 95 fois
+moins de lignes que le journal. → [Demande au titre de l'article 40](article-40.md)
+
 ## Ce que le travail propose
 
 | | Objet | Destinataire |
@@ -126,7 +132,7 @@ faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment 
 
 ## Explorer
 
-Les dix-sept notebooks sont exécutables et produisent l'intégralité des figures de la
+Les dix-huit notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -148,6 +154,7 @@ note. Chacun se lit indépendamment.
 | [15 — Rang adverse](notebooks/15_rang_adverse_et_severite.ipynb) | les quatre mesures contournées par l'ordre, et la sévérité du biais estimée |
 | [16 — Exploration de MIND](notebooks/16_exploration_mind.ipynb) | un ordre indiscernable d'un mélange, et cinq sévérités tirées du même jeu |
 | [17 — Rang servi](notebooks/17_rang_servi.ipynb) | deux journaux qui enregistrent le rang, et un estimateur jugé contre la vérité |
+| [18 — Demande article 40](notebooks/18_demande_article_40.ipynb) | quatre tableaux agrégés qui suffisent, et la preuve qu'ils suffisent |
 
 ## Reproduire
 
@@ -157,7 +164,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 545 tests
+docker compose run --rm test          # 556 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000
