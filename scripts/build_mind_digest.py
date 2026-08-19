@@ -40,7 +40,7 @@ def main() -> int:
         print(f"  cellules retenues  : {arrays['cell_items'].size} "
               f"(≥ {digest.minimum_impressions} impressions)")
 
-    path = save_digest(digest)
+    path = save_digest(digest, DIGEST_PATH)
     print(f"\nÉcrit : {path} ({path.stat().st_size / 1e6:.1f} Mo)")
     return 0
 

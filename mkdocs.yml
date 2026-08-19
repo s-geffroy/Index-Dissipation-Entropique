@@ -75,6 +75,7 @@ plugins:
             Rang et contrefactuel: Rank and counterfactual
             Rang adverse et sévérité: Adversarial rank and severity
             Exploration réelle de MIND: MIND's real exploration
+            Journaux qui enregistrent le rang: Logs that record the rank
             Mémorandum de régulation: Regulatory memorandum
             Réserves: Caveats
             Audit critique et limites: Critical audit and limitations
@@ -132,6 +133,7 @@ nav:
       - Rang et contrefactuel: evaluation.md
       - Rang adverse et sévérité: rang-adverse.md
       - Exploration réelle de MIND: mind.md
+      - Journaux qui enregistrent le rang: rang-servi.md
       - Mémorandum de régulation: memorandum.md
   - Réserves:
       - Audit critique et limites: limites.md
@@ -155,3 +157,4 @@ nav:
       - 14 — Rang et contrefactuel: notebooks/14_rang_et_contrefactuel.ipynb
       - 15 — Rang adverse: notebooks/15_rang_adverse_et_severite.ipynb
       - 16 — Exploration de MIND: notebooks/16_exploration_mind.ipynb
+      - 17 — Rang servi: notebooks/17_rang_servi.ipynb

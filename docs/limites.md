@@ -7,7 +7,7 @@ journée, par accumulation d'analogies. Cette méthode produit des intuitions ju
 et des raccourcis qui ne tiennent pas. Publier le fil tel quel exposerait
 l'ensemble à être écarté sur un détail, alors que l'intuition de départ mérite mieux.
 
-Seize points sont documentés. Chacun suit la même structure : ce que le fil affirmait, pourquoi
+Dix-sept points sont documentés. Chacun suit la même structure : ce que le fil affirmait, pourquoi
 c'est un problème, et la formulation retenue. Les corrections sont **traçables** :
 chacune est implémentée dans `src/`, vérifiée dans `tests/`, et illustrée dans un
 notebook.
@@ -414,6 +414,33 @@ puissance, sans lequel un test qui ne rejette rien ne dit rien.
 suffisant. Celui-ci a été écrit pour attraper le cas visible — une plateforme déterministe, qui
 ne produit aucune variation — et il laissait passer le cas invisible, une variation abondante
 et fausse. Un contrôle ne vaut que confronté au cas qu'il n'a pas été conçu pour voir.
+
+
+### 17. Un condensé qui supposait au lieu de vérifier
+
+**Ce que ce dépôt avait construit.** Les journaux d'impressions mesurés ici pèsent de 135 Mo à
+2,2 Go et ne peuvent pas être versionnés : le dépôt n'en porte qu'un **condensé**, dont un test
+vérifie qu'il rend les mêmes chiffres que le journal brut. Pour MIND, ce condensé résumait la
+structure d'un fil à sa **longueur**, en supposant qu'un fil de longueur $L$ occupe exactement
+les rangs 1 à $L$.
+
+**Le problème, révélé par [Baidu-ULTR](rang-servi.md).** L'hypothèse est vraie de MIND et fausse
+d'une page de résultats de recherche, qui **saute des rangs** — vingt positions distinctes pour
+des sessions d'au plus dix-neuf documents. Le condensé reconstruisait alors des rangs qui
+n'avaient pas été servis.
+
+**Ce qui rend ce défaut instructif, c'est qu'il était indolore.** Il ne produisait ni erreur ni
+valeur absurde : $z = -200$ au lieu de $-206$, une sévérité de 1,32 au lieu de 1,49. Des
+chiffres du bon ordre de grandeur, du bon signe, avec la bonne conclusion. Sans la comparaison
+systématique au journal brut, il n'y avait rien à voir.
+
+**Retenu.** Le condensé **vérifie** désormais la structure au lieu de la supposer, et conserve
+les rangs servis un par un lorsque l'hypothèse tombe. Un test fige les deux cas.
+
+**Ce que cet épisode enseigne sur la méthode.** Une optimisation de stockage est une hypothèse
+sur les données, et elle doit être traitée comme telle. La garde qui l'a attrapée n'est pas une
+relecture : c'est la règle, posée au chantier précédent, qu'un condensé doit être comparé au
+journal brut à chaque construction.
 
 ---
 

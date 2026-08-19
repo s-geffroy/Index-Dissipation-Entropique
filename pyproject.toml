@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-lab = ["matplotlib>=3.8", "jupyterlab>=4.0", "pandas>=2.1"]
+lab = ["matplotlib>=3.8", "jupyterlab>=4.0", "pandas>=2.1", "pyarrow>=16.0"]
 dev = ["pytest>=8.0", "ruff>=0.6"]
 
 [tool.setuptools.packages.find]

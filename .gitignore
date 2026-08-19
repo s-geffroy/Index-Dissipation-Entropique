@@ -16,9 +16,11 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
-# Jeu MIND — licence de recherche Microsoft, 135 Mo. Récupéré par scripts/fetch_mind.py,
-# vérifié contre les empreintes de src/ide/mind.py, jamais versionné.
+# Jeux d'impressions bruts — trop volumineux et sous licences propres. Récupérés par les
+# scripts de data/, vérifiés contre les empreintes des modules, jamais versionnés.
 data/mind/
+data/obd/
+data/baidu/
 
 # Sorties de simulation
 out/

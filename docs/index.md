@@ -85,6 +85,15 @@ n'est qu'un artefact de composition, et l'estimateur de ce dépôt y renvoie **c
 incompatibles**. Mélanger l'ordre ne débiaise pas les clics : cela détruit la variable qui
 permettrait de les corriger. → [Exploration réelle de MIND](mind.md)
 
+**Deux journaux publics l'enregistrent, eux — et la sévérité s'y mesure.** Sur
+[Baidu-ULTR](rang-servi.md), le même test rejette à $z = -206$, du bon côté, et
+$\hat\eta = 1{,}10 \pm 0{,}09$. Sur l'Open Bandit Dataset, où l'allocation est **aléatoire**,
+l'effet de position d'un bandeau de trois vignettes est **dix fois plus faible** : $\eta$ est une
+propriété de la surface, pas une constante. Et l'estimateur contrefactuel de ce dépôt, confronté
+pour la première fois à une vérité terrain, tombe à **2,5 %** là où l'estimation naïve se trompe
+de 32 % — pour une taille d'échantillon **effective** de 1 513 sur 4 millions.
+→ [Journaux qui enregistrent le rang](rang-servi.md)
+
 ## Ce que le travail propose
 
 | | Objet | Destinataire |
@@ -102,7 +111,7 @@ Services Act*.
 ## Ce que le travail ne prétend pas
 
 L'[**audit critique**](limites.md) est la page qu'il faut lire avant les autres. Il
-recense **seize corrections** apportées au raisonnement d'origine — dont cinq qui
+recense **dix-sept corrections** apportées au raisonnement d'origine — dont cinq qui
 invalidaient une formule, et une découverte en tentant de mesurer — et énumère les limites
 qui subsistent, y compris celles qui touchent à l'usage réglementaire de l'index : l'IDE est
 manipulable, sa discrétisation en points de vue est un choix politique, et un seuil imposé sur
@@ -117,7 +126,7 @@ faiblesse du travail, et la [feuille de route](feuille-de-route.md) dit comment 
 
 ## Explorer
 
-Les seize notebooks sont exécutables et produisent l'intégralité des figures de la
+Les dix-sept notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -138,6 +147,7 @@ note. Chacun se lit indépendamment.
 | [14 — Rang et contrefactuel](notebooks/14_rang_et_contrefactuel.ipynb) | l'enterrement de la diversité, et l'évaluation hors ligne fausse de 201 % |
 | [15 — Rang adverse](notebooks/15_rang_adverse_et_severite.ipynb) | les quatre mesures contournées par l'ordre, et la sévérité du biais estimée |
 | [16 — Exploration de MIND](notebooks/16_exploration_mind.ipynb) | un ordre indiscernable d'un mélange, et cinq sévérités tirées du même jeu |
+| [17 — Rang servi](notebooks/17_rang_servi.ipynb) | deux journaux qui enregistrent le rang, et un estimateur jugé contre la vérité |
 
 ## Reproduire
 
@@ -147,7 +157,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 531 tests
+docker compose run --rm test          # 545 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

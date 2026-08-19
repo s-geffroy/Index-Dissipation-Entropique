@@ -207,6 +207,33 @@ And it requires no privileged data access.
     The check is now tooled: `ide.mind.exchangeability_test` and its power calibration, to be
     run on any public log **before** drawing a figure from it.
 
+!!! success "Two public logs record the rank — the criterion is settled, the path is not"
+    → **[Logs that record the rank](rang-servi.en.md)**. **Baidu-ULTR** records display rank: the
+    test rejects at $z = -206$, on the right side, and severity is
+    $\hat\eta = 1.10 \pm 0.09$. The **Open Bandit Dataset** additionally publishes true
+    propensities and contains a randomly served bucket: this repository's IPS estimator recovers
+    the value of a never-deployed policy to within **2.5 %**, against **+32 %** for the naive
+    estimate.
+
+    Three gains and one blocker:
+
+    * the **criterion for choosing a dataset** is established, and checkable before any
+      measurement;
+    * **severity can be measured** — but it depends on the surface: ten times weaker on a
+      three-thumbnail banner than on a results page. It does not transport;
+    * **counterfactual estimators hold** against a ground truth, on an effective sample size of
+      1,513 out of 4 million impressions — the figure to publish;
+    * **no public dataset carries both the served rank and an interpretable viewpoint label.**
+      MIND has categories without rank, Baidu-ULTR rank without labels, the Open Bandit Dataset
+      rank with anonymised attributes.
+
+    What remains feasible, replacing the initial protocol:
+
+    1. measure on MIND whatever does not depend on exposure, and say so;
+    2. measure on Baidu-ULTR and the Open Bandit Dataset whatever does not depend on viewpoints;
+    3. for the rest, **ask for the data** under Article 40 of the DSA — the only route left, and
+       a provided-for one.
+
 ### 3.2 Formulate a falsifiable prediction
 
 **The limitation.** Nothing shows opinion *obeys* this mechanics; the work shows it

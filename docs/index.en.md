@@ -83,6 +83,15 @@ composition artefact, and this repository's own estimator returns **five incompa
 severities**. Shuffling the order does not debias the clicks: it destroys the variable that would
 allow them to be corrected. → [MIND's real exploration](mind.en.md)
 
+**Two public logs do record it — and severity can be measured there.** On
+[Baidu-ULTR](rang-servi.en.md) the same test rejects at $z = -206$, on the right side, and
+$\hat\eta = 1.10 \pm 0.09$. On the Open Bandit Dataset, where allocation is **random**, the
+position effect of a three-thumbnail banner is **ten times weaker**: $\eta$ is a property of the
+surface, not a constant. And this repository's counterfactual estimator, confronted with a ground
+truth for the first time, lands within **2.5 %** where the naive estimate is off by 32 % — on an
+**effective** sample size of 1,513 out of 4 million.
+→ [Logs that record the rank](rang-servi.en.md)
+
 ## What the work proposes
 
 | | Object | Intended for |
@@ -99,7 +108,7 @@ national and European regulators under the Digital Services Act.
 ## What the work does not claim
 
 The [**critical audit**](limites.en.md) is the page to read before the others. It records
-**sixteen corrections** to the original reasoning — five of which invalidated a formula
+**seventeen corrections** to the original reasoning — five of which invalidated a formula
 outright, and one discovered by trying to measure — and lists the limitations that remain,
 including those bearing on regulatory use of the index: the index is gameable, its
 discretisation into viewpoints is a political choice, and imposing a floor on its value is an
@@ -114,7 +123,7 @@ the [roadmap](feuille-de-route.en.md) sets out how to address it.
 
 ## Explore
 
-The sixteen notebooks are executable and produce every figure in the paper. Each stands
+The seventeen notebooks are executable and produce every figure in the paper. Each stands
 on its own.
 
 | Notebook | What it shows |
@@ -135,6 +144,7 @@ on its own.
 | [14 — Rank and counterfactual](notebooks/14_rang_et_contrefactuel.ipynb) | burying diversity, and offline evaluation wrong by 201 % |
 | [15 — Adversarial rank](notebooks/15_rang_adverse_et_severite.ipynb) | all four measures circumvented by order, and position-bias severity estimated |
 | [16 — MIND's exploration](notebooks/16_exploration_mind.ipynb) | an order indistinguishable from a shuffle, and five severities from one dataset |
+| [17 — Served rank](notebooks/17_rang_servi.ipynb) | two logs that record the rank, and an estimator judged against the truth |
 
 Notebook prose is in French; code, variable names and API are in English throughout.
 
@@ -146,7 +156,7 @@ Everything runs in containers. Nothing is installed on the host.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 531 tests
+docker compose run --rm test          # 545 tests
 docker compose run --rm notebooks     # regenerate every figure
 docker compose up lab                 # JupyterLab on :8888
 docker compose up site                # this documentation on :8000

@@ -220,9 +220,10 @@ minimale détectable ne résumerait plus.
 
 ## Pistes ouvertes
 
-1. **Trouver un jeu public qui enregistre le rang servi.** Baidu-ULTR publie la position
-   d'affichage et l'entourage de page ; c'est un jeu de recherche, non de recommandation
-   d'actualité, et la transposition n'est pas gratuite.
+1. ~~**Trouver un jeu public qui enregistre le rang servi.**~~ → **[fait](rang-servi.md)** :
+   Baidu-ULTR l'enregistre et le test y rejette à $z = -206$ ; l'Open Bandit Dataset publie en
+   outre la propension vraie. Aucun des deux ne porte d'étiquette de point de vue exploitable,
+   et la transposition n'est donc pas gratuite.
 2. **Évaluer sur MIND ce qui ne dépend pas de l'exposition**, en le disant : composition,
    diversité servie, frontière de compromis en pertinence déclarée.
 3. **Faire du test d'échangeabilité un contrôle d'acceptation** des journaux transmis au titre

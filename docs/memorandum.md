@@ -304,6 +304,24 @@ se déclare identifiable et produit **cinq sévérités incompatibles** selon un
 nuisance, de $-0{,}13$ à $+0{,}25$, toutes assorties d'une erreur type inférieure à 0,007. Un
 audit fondé sur l'une d'elles serait indiscernable d'un audit correct.
 
+**L'exigence n'est pas utopique : un jeu public la satisfait déjà.** L'[Open Bandit
+Dataset](rang-servi.md) publie la position servie **et** la propension vraie de chaque
+affichage, et contient un seau où la politique de service est uniformément aléatoire. Sur ce
+jeu, l'estimation contrefactuelle de la valeur d'une politique jamais déployée tombe à **2,5 %**
+de sa valeur mesurée directement, là où l'estimation naïve se trompe de 32 %. Ce qui est demandé
+ici a donc un précédent industriel, publié sous licence libre par la plateforme elle-même.
+
+**Disposition complémentaire : exiger une fraction d'exploration.** Le même jeu montre pourquoi
+publier les propensions ne suffit pas. Sur 4 077 727 impressions servies par une politique
+optimisée, la **taille d'échantillon effective** de l'estimation tombe à **1 513**, soit 0,04 % :
+une politique très sûre d'elle rend ses propres journaux presque inexploitables pour évaluer
+autre chose qu'elle-même. Un audit sérieux suppose donc qu'une fraction du trafic soit servie de
+façon **délibérément aléatoire** — c'est le prix, faible et chiffrable, de l'auditabilité.
+
+**Grandeur de contrôle associée** : la taille d'échantillon effective, publiée avec toute
+estimation contrefactuelle. Elle dit combien d'observations portent réellement le chiffre, et
+elle est la seule à distinguer une mesure d'une coïncidence.
+
 ### Ce qui manque pour rendre ce cadre opérationnel
 
 Ces manques sont réels et il serait malhonnête de les taire :
@@ -325,7 +343,9 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | choix de la **cible d'exposition** | question politique non tranchée, que la mesure par divergence rend explicite au lieu de l'enfouir |
 | coût en pertinence perçue d'un plancher d'IDE | non évalué |
 | évaluation contrefactuelle sur un jeu de données public | **fait, et négatif** — [MIND](mind.md) ne conserve pas le rang d'affichage : l'exposition n'y est pas identifiable, et l'estimation qu'on y mène quand même renvoie cinq sévérités incompatibles |
-| exigence de publication du **rang servi** dans les journaux transmis | proposée ici, non instrumentée côté régulateur |
+| exigence de publication du **rang servi** dans les journaux transmis | proposée ici, non instrumentée côté régulateur — mais [un jeu public la satisfait déjà](rang-servi.md) |
+| valeur de $\eta$ à retenir pour un fil d'actualité | **mesurée ailleurs, non transportable** : 1,10 sur une page de résultats, 0,04 à 0,11 sur un bandeau de trois vignettes |
+| fraction d'exploration aléatoire exigible d'une plateforme | proposée ici ; sans elle la taille d'échantillon effective d'un audit tombe à 0,04 % |
 
 Le mémorandum doit donc être lu comme une **proposition de cadre à durcir**, pas comme
 un dispositif prêt à l'emploi. Sa contribution est de nommer des grandeurs mesurables

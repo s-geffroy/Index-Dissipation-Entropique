@@ -234,6 +234,31 @@ C'est ce qui permettrait de répondre à la seule objection sérieuse d'une plat
     Le contrôle est désormais outillé : `ide.mind.exchangeability_test` et son étalonnage de
     puissance, à passer sur tout journal public **avant** d'en tirer un chiffre.
 
+!!! success "Deux journaux publics enregistrent le rang — le critère est réglé, la piste ne l'est pas"
+    → **[Journaux qui enregistrent le rang](rang-servi.md)**. **Baidu-ULTR** enregistre le rang
+    d'affichage : le test y rejette à $z = -206$, du bon côté, et la sévérité vaut
+    $\hat\eta = 1{,}10 \pm 0{,}09$. L'**Open Bandit Dataset** publie en outre la propension
+    vraie et contient un seau à politique aléatoire : l'estimateur IPS de ce dépôt y retrouve à
+    **2,5 %** la valeur d'une politique jamais déployée, contre **+32 %** pour l'estimation naïve.
+
+    Trois acquis et un blocage :
+
+    * le **critère de choix** d'un jeu de données est établi, et vérifiable avant toute mesure ;
+    * la **sévérité se mesure** — mais elle dépend de la surface : dix fois plus faible sur un
+      bandeau de trois vignettes que sur une page de résultats. Elle ne se transporte pas ;
+    * les **estimateurs contrefactuels tiennent** devant une vérité terrain, avec une taille
+      d'échantillon effective de 1 513 pour 4 millions d'impressions — le chiffre à publier ;
+    * **aucun jeu public ne porte à la fois le rang servi et une étiquette de point de vue
+      interprétable.** MIND a les catégories sans le rang, Baidu-ULTR le rang sans étiquette,
+      l'Open Bandit Dataset le rang avec des attributs anonymisés.
+
+    Ce qui reste faisable, et qui remplace le protocole initial :
+
+    1. mesurer sur MIND ce qui ne dépend pas de l'exposition, en le disant ;
+    2. mesurer sur Baidu-ULTR et l'Open Bandit Dataset ce qui ne dépend pas des points de vue ;
+    3. pour le reste, **demander la donnée** au titre de l'article 40 du DSA — la seule voie qui
+       reste, et une voie prévue.
+
 ### 3.2 Formuler une prédiction falsifiable
 
 **La limite.** Rien ne démontre que les opinions *obéissent* à cette mécanique ; le

@@ -7,6 +7,66 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — deux journaux publics qui enregistrent le rang servi
+
+Suite directe de l'exigence sur laquelle s'était terminée la mesure sur MIND. Détail :
+[`docs/rang-servi.md`](docs/rang-servi.md) et le
+[notebook 17](notebooks/17_rang_servi.ipynb).
+
+- **`ide.logs`** — la représentation commune d'un journal d'impressions et les mesures qui s'y
+  appliquent, extraites de `ide.mind` : trois jeux de données les partagent désormais. Le
+  condensé versionnable y vit aussi, et **vérifie** la structure des fils au lieu de la supposer.
+- **`ide.exposure`** — lecture de **Baidu-ULTR** (rang d'affichage, session, clic) et de
+  l'**Open Bandit Dataset** (position, propension vraie, seau à politique aléatoire), et
+  confrontation d'une estimation contrefactuelle à une vérité terrain mesurée.
+- **`scripts/fetch_exposure.py`**, **`scripts/build_exposure_digest.py`** et
+  **`data/exposure_digest.npz`** — 0,7 Mo versionnés pour 3,1 Go de journaux bruts, sous deux
+  licences distinctes, avec vérification de taille et d'empreinte à la récupération.
+- **`notebooks/17_rang_servi.ipynb`**, `paper/figures/fig17_rang_servi.png` et 14 tests
+  supplémentaires (545 au total). `pyarrow` rejoint les dépendances de laboratoire.
+
+### Résultats — la sévérité se mesure, et elle dépend de la surface
+
+- **Le contrôle positif passe.** Sur Baidu-ULTR, le test d'échangeabilité rejette à
+  $z = -205{,}7$ ($p < 10^{-12}$) et **du bon côté** : les clics se concentrent en haut. Un test
+  qui ne rejetterait jamais rien ne dirait rien de MIND.
+- **$\hat\eta = 1{,}10 \pm 0{,}09$** par effets fixes de document, contre 1,49 par ajustement
+  agrégé : l'écart est le confondant de qualité, la plateforme plaçant les meilleurs documents
+  en tête. La couverture reste mince — 55 documents portent l'estimation, sur 444 709.
+- **Dix fois plus faible sur une autre surface.** Sur l'Open Bandit Dataset, à allocation
+  **aléatoire** donc à effet causal, un bandeau de trois vignettes horizontales décroît en
+  $R^{-0{,}04}$ (campagne « all ») à $R^{-0{,}11}$ (campagne « men »). $\eta$ est une propriété
+  de la surface, pas une constante, et le transporter coûte l'ordre de grandeur que le rang
+  adverse avait chiffré.
+- **Première confrontation à une vérité terrain.** La valeur d'une politique jamais déployée,
+  estimée sur les seules données d'une autre politique : IPS à **+2,5 %** de la valeur mesurée
+  directement, contre **+31,6 %** pour l'estimation naïve, **−7,0 %** pour SNIPS et **−12,7 %**
+  pour un plafond à 10.
+- **Et le diagnostic qui l'accompagne** : taille d'échantillon **effective** de **1 513** pour
+  4 077 727 impressions, soit 0,04 %. L'estimation est sans biais et repose sur l'équivalent de
+  mille cinq cents observations.
+- **Troisième résultat négatif de la série** : aucun jeu public ne porte à la fois le rang servi
+  et une étiquette de point de vue interprétable. L'évaluation de l'ADE annoncée par la feuille
+  de route ne peut pas être faite sur données publiques en l'état.
+
+### Corrigé — un condensé qui supposait au lieu de vérifier
+
+- Le condensé résumait la structure d'un fil à sa **longueur**, en supposant qu'un fil de
+  longueur $L$ occupe les rangs 1 à $L$. Vrai de MIND, **faux** d'une page de résultats qui saute
+  des rangs. Le défaut était indolore — $z = -200$ au lieu de $-206$ — ce qui est la façon dont
+  ce genre d'erreur survit. Dix-septième entrée de l'[audit critique](docs/limites.md).
+
+### Modifié
+
+- [`docs/feuille-de-route.md`](docs/feuille-de-route.md) §3.1 — le critère de choix d'un jeu de
+  données est réglé, la piste ne l'est pas : trois mesures restent faisables, la quatrième passe
+  par une demande au titre de l'article 40 du DSA.
+- [`docs/memorandum.md`](docs/memorandum.md) — l'exigence de publication du rang servi a
+  désormais un **précédent industriel** ; nouvelle disposition exigeant une **fraction
+  d'exploration aléatoire**, sans laquelle la taille d'échantillon effective d'un audit tombe à
+  0,04 % ; cette taille devient une grandeur de contrôle à publier.
+- [`docs/mind.md`](docs/mind.md) — piste ouverte 1 réglée.
+
 ### Ajouté — l'exploration réellement enregistrée dans MIND
 
 Le préalable inscrit à la feuille de route §3.1 : mesurer l'exploration d'un jeu de données

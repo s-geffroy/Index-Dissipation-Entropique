@@ -18,6 +18,7 @@ RUN pip install --no-cache-dir \
         "scipy>=1.11" \
         "matplotlib>=3.8" \
         "pandas>=2.1" \
+        "pyarrow>=16.0" \
         "jupyterlab>=4.0" \
         "nbconvert>=7.10" \
         "pytest>=8.0" \

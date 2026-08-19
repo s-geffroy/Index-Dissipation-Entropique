@@ -7,7 +7,7 @@ analogies. That method produces sound intuitions alongside shortcuts that do not
 Publishing the thread as-is would expose the whole to being dismissed over a detail,
 when the starting intuition deserves better.
 
-Sixteen points are documented. Each follows the same structure: what the thread claimed, why it is a
+Seventeen points are documented. Each follows the same structure: what the thread claimed, why it is a
 problem, and the formulation adopted. Every correction is **traceable** — implemented in
 `src/`, verified in `tests/`, illustrated in a notebook.
 
@@ -352,6 +352,30 @@ rejects nothing says nothing.
 sufficient. This one was written to catch the visible case — a deterministic platform, producing
 no variation at all — and it let through the invisible one, variation both abundant and false. A
 check is worth only what it is worth against the case it was not designed to see.
+
+
+### 17. A digest that assumed instead of verifying
+
+**What this repository had built.** The impression logs measured here weigh 135 MB to 2.2 GB and
+cannot be versioned: the repository carries only a **digest**, which a test checks returns the
+same figures as the raw log. For MIND, that digest summarised a feed's structure by its
+**length**, assuming a feed of length $L$ occupies exactly ranks 1 to $L$.
+
+**The problem, revealed by [Baidu-ULTR](rang-servi.en.md).** The assumption is true of MIND and
+false of a search results page, which **skips ranks** — twenty distinct positions for sessions of
+at most nineteen documents. The digest then reconstructed ranks that had never been served.
+
+**What makes this defect instructive is that it was painless.** It produced neither error nor
+absurd value: $z = -200$ instead of $-206$, a severity of 1.32 instead of 1.49. Figures of the
+right order, the right sign, with the right conclusion. Without the systematic comparison against
+the raw log, there was nothing to see.
+
+**Adopted.** The digest now **verifies** the structure instead of assuming it, and keeps served
+ranks one by one when the assumption fails. A test locks both cases.
+
+**What this episode teaches about method.** A storage optimisation is an assumption about the
+data and must be treated as one. What caught it was not a re-reading: it was the rule, laid down
+at the previous stage, that a digest must be compared against the raw log at every build.
 
 ---
 

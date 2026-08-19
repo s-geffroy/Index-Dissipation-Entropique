@@ -6,7 +6,7 @@ thermodynamique de l'opinion publique.**
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Index-Dissipation-Entropique/)
-[![Tests : 531](https://img.shields.io/badge/tests-531-brightgreen.svg)](tests/)
+[![Tests : 545](https://img.shields.io/badge/tests-545-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Index-Dissipation-Entropique/)**
 · [English](https://s-geffroy.github.io/Index-Dissipation-Entropique/en/)
@@ -67,6 +67,13 @@ Trois résultats, chacun adossé à du code exécutable :
   renvoie **cinq sévérités incompatibles**. Mélanger l'ordre ne débiaise pas les clics : cela
   détruit la variable qui permettrait de les corriger.
   → **[Exploration réelle de MIND](docs/mind.md)**
+- **Deux journaux publics l'enregistrent, eux.** Sur **Baidu-ULTR** le même test rejette à
+  $z = -206$, du bon côté, et la sévérité vaut $\hat\eta = 1{,}10 \pm 0{,}09$ ; sur l'**Open
+  Bandit Dataset**, à allocation aléatoire, l'effet de position d'un bandeau de trois vignettes
+  est **dix fois plus faible**. Et l'estimateur contrefactuel, confronté pour la première fois à
+  une vérité terrain, tombe à **2,5 %** contre **+32 %** pour l'estimation naïve — sur une taille
+  d'échantillon **effective** de 1 513 pour 4 millions d'impressions.
+  → **[Journaux qui enregistrent le rang](docs/rang-servi.md)**
 
 Le travail en dérive deux instruments :
 
@@ -77,7 +84,7 @@ Le travail en dérive deux instruments :
 
 ## À lire d'abord : ce que le travail ne prétend pas
 
-L'**[audit critique](docs/limites.md)** recense **seize corrections** apportées au
+L'**[audit critique](docs/limites.md)** recense **dix-sept corrections** apportées au
 raisonnement d'origine — dont **cinq formules invalides**, et une découverte en tentant de
 mesurer — et énumère les limites qui subsistent, y compris celles qui touchent à l'usage
 réglementaire de l'index : il est manipulable, sa discrétisation en points de vue est un choix
@@ -99,7 +106,7 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Index-Dissipation-Entropique.git
 cd Index-Dissipation-Entropique
 
-docker compose run --rm test          # 531 tests, dont les exemples de docstrings
+docker compose run --rm test          # 545 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
 docker compose run --rm notebooks     # régénère les 11 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
@@ -130,14 +137,17 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── radio.py        divergences conscientes du rang (RADio) et métriques DART
 ├── offpolicy.py    estimateurs contrefactuels et sévérité du biais de position
 ├── ranking.py      test adverse sur fils ordonnés, énumération exhaustive
-├── mind.py         exploration réellement enregistrée dans MIND, test d'échangeabilité
+├── logs.py         journaux d'impressions : test d'échangeabilité, condensés versionnables
+├── mind.py         lecture de MIND et son condensé
+├── exposure.py     Baidu-ULTR et Open Bandit Dataset : le rang servi, et sa confrontation
 └── abm/            modèle à agents « compas politique »
 
-tests/              531 tests — validation physique, numérique et statistique
-notebooks/          01 à 16, un par bloc théorique, exécutables
+tests/              545 tests — validation physique, numérique et statistique
+notebooks/          01 à 17, un par bloc théorique, exécutables
 data/pageviews/     464 séries de consultation, versionnées pour la reproductibilité
 data/catalogue.json manifeste pré-enregistré du corpus étendu (440 sujets)
 data/mind_digest.npz  condensé de MIND-small (1,5 Mo) — le jeu brut n'est pas versionné
+data/exposure_digest.npz  condensé de Baidu-ULTR et de l'Open Bandit Dataset (0,7 Mo)
 scripts/            collecte des données (seul point d'accès réseau du dépôt)
 paper/              note de synthèse LaTeX (FR + EN) et figures générées
 docs/               documentation du site, bilingue
@@ -164,10 +174,12 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 | reproductibilité à la graine du modèle à agents | condition minimale pour qu'un chiffre du dépôt soit citable |
 | le condensé de MIND rend **exactement** les chiffres du journal brut | sans quoi le dépôt publierait des mesures que personne ne pourrait refaire |
 | un ordre mélangé passe le contrôle d'identifiabilité et donne cinq sévérités | fige l'erreur que ce contrôle laissait passer |
+| le test d'échangeabilité **rejette** sur Baidu-ULTR, et du côté négatif | un test qui ne rejette jamais rien ne dirait rien de MIND |
+| l'IPS retrouve à 2,5 % la valeur d'une politique jamais déployée | seule confrontation du dépôt à une vérité terrain mesurée |
 
 ## Contenu du dépôt
 
-- [`docs/limites.md`](docs/limites.md) — **audit critique** : les seize corrections et les
+- [`docs/limites.md`](docs/limites.md) — **audit critique** : les dix-sept corrections et les
   limites qui subsistent.
 - [`docs/calibration.md`](docs/calibration.md) — **la mesure de $\gamma\alpha/\lambda$** sur
   données publiques, ses trois enseignements et ses réserves.
@@ -186,6 +198,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   mesures contournées par l'ordre, et l'estimation du biais de position.
 - [`docs/mind.md`](docs/mind.md) — **l'exploration réelle de MIND** : un ordre indiscernable
   d'un mélange, et cinq sévérités incompatibles tirées du même jeu.
+- [`docs/rang-servi.md`](docs/rang-servi.md) — **deux journaux qui enregistrent le rang** :
+  la sévérité mesurée, et l'estimateur contrefactuel jugé contre une vérité terrain.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

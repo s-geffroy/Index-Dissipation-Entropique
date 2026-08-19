@@ -219,8 +219,9 @@ severity would no longer summarise.
 
 ## Open leads
 
-1. **Find a public dataset that records the served rank.** Baidu-ULTR publishes display position
-   and whole-page context; it is a search dataset, not a news recommendation one, and the
+1. ~~**Find a public dataset that records the served rank.**~~ → **[done](rang-servi.en.md)**:
+   Baidu-ULTR records it and the test rejects there at $z = -206$; the Open Bandit Dataset
+   additionally publishes true propensities. Neither carries a usable viewpoint label, so the
    transposition is not free.
 2. **Evaluate on MIND whatever does not depend on exposure**, and say so: composition, diversity
    served, trade-off frontier in declared relevance.

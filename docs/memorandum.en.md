@@ -291,6 +291,24 @@ produces **five incompatible severities** depending on a mere nuisance parameter
 $+0.25$, each with a standard error below 0.007. An audit resting on any one of them would be
 indistinguishable from a correct one.
 
+**The requirement is not utopian: a public dataset already meets it.** The [Open Bandit
+Dataset](rang-servi.en.md) publishes the served position **and** the true propensity of every
+display, and contains a bucket served by a uniformly random policy. On it, the counterfactual
+estimate of a never-deployed policy's value lands within **2.5 %** of its directly measured
+value, where the naive estimate is off by 32 %. What is asked here therefore has an industrial
+precedent, published under a free licence by the platform itself.
+
+**Further provision: require a fraction of exploration.** The same dataset shows why publishing
+propensities is not enough. Over 4,077,727 impressions served by an optimised policy, the
+estimate's **effective sample size** falls to **1,513**, i.e. 0.04 %: a policy very sure of
+itself renders its own logs nearly unusable for evaluating anything but itself. A serious audit
+therefore presupposes that a fraction of traffic be served **deliberately at random** — that is
+the price, low and quantifiable, of auditability.
+
+**Associated control quantity**: effective sample size, published with any counterfactual
+estimate. It states how many observations actually carry the figure, and it alone tells a
+measurement from a coincidence.
+
 ### What is missing to make this operational
 
 | Gap | Nature |
@@ -310,7 +328,9 @@ indistinguishable from a correct one.
 | choice of the **exposure target** | an unsettled political question, which a divergence measure makes explicit instead of burying |
 | cost in perceived relevance of an index floor | not evaluated |
 | counterfactual evaluation on a public dataset | **done, and negative** — [MIND](mind.en.md) does not retain display rank: exposure is not identifiable there, and estimating it anyway returns five incompatible severities |
-| requiring the **served rank** in supplied logs | proposed here, not instrumented on the regulator's side |
+| requiring the **served rank** in supplied logs | proposed here, not instrumented on the regulator's side — but [a public dataset already meets it](rang-servi.en.md) |
+| value of $\eta$ to adopt for a news feed | **measured elsewhere, not transportable**: 1.10 on a results page, 0.04 to 0.11 on a three-thumbnail banner |
+| fraction of random exploration to require of a platform | proposed here; without it an audit's effective sample size falls to 0.04 % |
 
 This memorandum should therefore be read as a **framework to harden**, not a ready-to-use
 mechanism. Its contribution is to name measurable quantities where regulatory debate still
