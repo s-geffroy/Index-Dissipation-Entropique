@@ -378,5 +378,10 @@ de méthode qui ne se lève pas par le calcul. Elle ne changerait toutefois pas 
 l'annotation en aveugle a **éliminé** l'écart de registre, et quatre mesures indépendantes n'en
 retrouvent aucune trace.
 
-**Des lignes de base réglées** — MMR, réordonnancement aléatoire, popularité. C'est la dette la
-plus ancienne du programme d'évaluation, et elle ne demande aucune donnée nouvelle.
+~~**Des lignes de base réglées** — MMR, réordonnancement aléatoire, popularité.~~ →
+**[fait](lignes-de-base.md)**, et le verdict est mitigé : le filtre du dépôt tient la frontière
+exacte, mais MMR — publié en 1998 — la tient aussi, et le devance au plancher 0,80. Le filtre ne
+se détache qu'à l'exigence haute, où il atteint la contrainte quatre fois plus souvent. La
+mesure a aussi isolé une dépendance que personne n'avait vue : **le prix de la norme dépend du
+lecteur**, de 3,8 % à 17,1 % selon que ses intérêts traversent les points de vue ou s'y
+confondent.

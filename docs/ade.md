@@ -18,6 +18,15 @@
     ([rang adverse](rang-adverse.md)) ; et l'évaluation naïve de ce coût sur des clics
     enregistrés se trompe de **201 % en médiane** ([rang et contrefactuel](evaluation.md)).
 
+!!! failure "Et il n'apporte rien qu'une heuristique de 1998 n'apporte déjà"
+    Comparé pour la première fois à des lignes de base réglées et à la **frontière exacte** du
+    plan (diversité exposée, engagement), le filtre s'y tient — 0,0 à 1,0 % de manque à gagner.
+    Mais **MMR**, publié en 1998, s'y tient aussi, et le devance en duel direct au plancher 0,80.
+
+    Le filtre ne se détache qu'à l'exigence haute : au plancher 0,90, MMR ne trouve aucun réglage
+    conforme dans 47 % des viviers, contre 12 % pour lui. Ce qui distingue ce dépôt n'est donc
+    pas son algorithme. → [Lignes de base](lignes-de-base.md)
+
 ## Le problème que l'ADE résout
 
 Un algorithme de recommandation classique maximise l'engagement immédiat. La

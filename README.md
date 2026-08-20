@@ -5,7 +5,7 @@
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Indice-Diversite-Exposee/)
-[![Tests : 556](https://img.shields.io/badge/tests-556-brightgreen.svg)](tests/)
+[![Tests : 572](https://img.shields.io/badge/tests-572-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Indice-Diversite-Exposee/)**
 · [English](https://s-geffroy.github.io/Indice-Diversite-Exposee/en/)
@@ -27,7 +27,7 @@ publié comme tel.
 | le formalisme classique qu'elle a fait emprunter | **cohérent**, un seul paramètre calibré, et sa seule prédiction propre testée quatre fois **sans effet** |
 | l'index tel qu'il était proposé | **intenable** : saturable à coût nul, puis contournable par l'enterrement |
 | la forme retenue de l'index | **définie et chiffrée**, jamais éprouvée sur un fil réel |
-| l'algorithme (ADE) | **non évalué**, et non évaluable sur données publiques en l'état |
+| l'algorithme (ADE) | **sur la frontière exacte, mais pas premier** : une heuristique de 1998 fait aussi bien |
 | l'écart de persistance entre registres émotionnels | **n'existe pas** |
 | les instruments de mesure construits en chemin | **valides**, dont un confronté à une vérité terrain |
 
@@ -46,6 +46,10 @@ publié comme tel.
 - **Des estimateurs contrefactuels vérifiés contre une vérité terrain.** +2,5 % d'écart sur la
   valeur d'une politique jamais déployée, contre +32 % pour l'estimation naïve — avec une taille
   d'échantillon **effective** de 1 513 sur 4 millions, qui interdit d'en tirer gloire.
+- **Le filtre jugé contre la frontière exacte.** Sur 150 viviers, il laisse **0,0 à 1,0 %**
+  d'engagement sur la table — mais **MMR, publié en 1998, fait aussi bien**. Et le prix de la
+  norme dépend du lecteur : **3,8 %** quand ses intérêts traversent les points de vue, **17,1 %**
+  quand sa préférence *est* un point de vue. → **[Lignes de base](docs/lignes-de-base.md)**
 - **Une demande d'accès aux données qui se vérifie au lieu de se plaider.** Quatre tableaux
   agrégés, sans donnée personnelle, prouvés suffisants — 95 fois moins de lignes que le journal.
   → **[Article 40](docs/article-40.md)**
@@ -95,7 +99,7 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Indice-Diversite-Exposee.git
 cd Indice-Diversite-Exposee
 
-docker compose run --rm test          # 556 tests, dont les exemples de docstrings
+docker compose run --rm test          # 572 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
 docker compose run --rm notebooks     # régénère les 11 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
@@ -130,10 +134,11 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── mind.py         lecture de MIND et son condensé
 ├── exposure.py     Baidu-ULTR et Open Bandit Dataset : le rang servi, et sa confrontation
 ├── aggregates.py   les quatre tableaux à demander au titre de l'article 40 du DSA
+├── baselines.py    lignes de base réglées et frontière exacte (diversité, engagement)
 └── abm/            modèle à agents « compas politique »
 
-tests/              556 tests — validation physique, numérique et statistique
-notebooks/          01 à 18, un par bloc théorique, exécutables
+tests/              572 tests — validation physique, numérique et statistique
+notebooks/          01 à 19, un par bloc théorique, exécutables
 data/pageviews/     464 séries de consultation, versionnées pour la reproductibilité
 data/catalogue.json manifeste pré-enregistré du corpus étendu (440 sujets)
 data/mind_digest.npz  condensé de MIND-small (1,5 Mo) — le jeu brut n'est pas versionné
@@ -167,6 +172,7 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 | le test d'échangeabilité **rejette** sur Baidu-ULTR, et du côté négatif | un test qui ne rejette jamais rien ne dirait rien de MIND |
 | l'IPS retrouve à 2,5 % la valeur d'une politique jamais déployée | seule confrontation du dépôt à une vérité terrain mesurée |
 | les mesures se recalculent **à l'identique** depuis les tableaux agrégés | c'est ce qui rend une demande d'accès proportionnée plutôt que plaidée |
+| aucune méthode ne dépasse la frontière exacte, et le tirage au sort en reste loin | fige la borne contre laquelle le filtre est jugé |
 
 ## Contenu du dépôt
 
@@ -193,6 +199,8 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   la sévérité mesurée, et l'estimateur contrefactuel jugé contre une vérité terrain.
 - [`docs/article-40.md`](docs/article-40.md) — **la demande d'accès aux données**, rédigée comme
   une spécification : quatre tableaux agrégés, et la preuve qu'ils suffisent.
+- [`docs/lignes-de-base.md`](docs/lignes-de-base.md) — **le filtre jugé contre la frontière
+  exacte** et quatre concurrents, dont une heuristique de 1998 qui fait aussi bien.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

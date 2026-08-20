@@ -10,7 +10,7 @@ Un **instrument** — une mesure de la diversité qu'un fil d'actualité expose 
 lecteur, calculable sans accès au code de la plateforme — et la **méthode adverse** qui l'a
 mis à l'épreuve : chaque proposition y est attaquée, et ce qui tombe est publié comme tel.
 
-Il en reste dix-huit notebooks exécutables, 556 tests, dix-sept corrections consignées, et un
+Il en reste dix-neuf notebooks exécutables, 572 tests, dix-sept corrections consignées, et un
 état des lieux qui ne ressemble pas à ce que le projet annonçait.
 
 ![Une plateforme certifiée à 0,70 par une mesure aveugle au rang n'expose que 0,36 de
@@ -31,7 +31,7 @@ certifiée à 0,70 n'expose que 0,36. Figure régénérée par
 | Le formalisme classique qu'elle a fait emprunter | **cohérent et reproduit des comportements**, mais un seul paramètre calibré, et sa seule prédiction propre — l'effet de la charge émotionnelle — **testée quatre fois sans effet** |
 | L'index tel qu'il était proposé au régulateur | **intenable** : saturable à coût nul, puis contournable par l'enterrement → [test adverse](gaming.md) · [rang adverse](rang-adverse.md) |
 | La forme retenue de l'index | **définie et chiffrée** — entropie des contenus servis, pondérée par le rang — mais **jamais éprouvée sur un fil réel** |
-| L'algorithme (ADE) | **non évalué**, et non évaluable sur données publiques en l'état → [journaux qui enregistrent le rang](rang-servi.md) |
+| L'algorithme (ADE) | **sur la frontière exacte, mais pas premier** : une heuristique de 1998 fait aussi bien → [lignes de base](lignes-de-base.md) ; et non évaluable sur données réelles en l'état |
 | L'écart de persistance entre registres émotionnels | **n'existe pas** — c'était un artefact de sélection → [corpus étendu](corpus-etendu.md) · [annotation](annotation.md) |
 | Les instruments de mesure construits en chemin | **valides**, et l'un d'eux confronté à une vérité terrain → [rang servi](rang-servi.md) |
 
@@ -55,6 +55,11 @@ jamais déployée, estimée sur les seules données d'une autre : **+2,5 %** d'�
 **+32 %** pour l'estimation naïve — avec le diagnostic qui interdit d'en tirer gloire, une
 taille d'échantillon effective de 1 513 pour 4 millions d'impressions.
 → [Journaux qui enregistrent le rang](rang-servi.md)
+
+**Une comparaison du filtre à la frontière exacte.** Sur 150 viviers, le filtre du dépôt laisse
+**0,0 à 1,0 %** d'engagement sur la table — mais MMR, publié en 1998, fait aussi bien. Et le prix
+de la norme dépend du lecteur : **3,8 %** quand ses intérêts traversent les points de vue,
+**17,1 %** quand sa préférence *est* un point de vue. → [Lignes de base](lignes-de-base.md)
 
 **Une demande d'accès aux données qui se vérifie au lieu de se plaider.** Quatre tableaux
 agrégés, sans aucune donnée personnelle, dont il est prouvé qu'ils recalculent les mesures **à
@@ -124,7 +129,7 @@ d'énergie libre. Figure régénérée par
 
 ## Explorer
 
-Les dix-huit notebooks sont exécutables et produisent l'intégralité des figures de la
+Les dix-neuf notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -147,6 +152,7 @@ note. Chacun se lit indépendamment.
 | [16 — Exploration de MIND](notebooks/16_exploration_mind.ipynb) | un ordre indiscernable d'un mélange, et cinq sévérités tirées du même jeu |
 | [17 — Rang servi](notebooks/17_rang_servi.ipynb) | deux journaux qui enregistrent le rang, et un estimateur jugé contre la vérité |
 | [18 — Demande article 40](notebooks/18_demande_article_40.ipynb) | quatre tableaux agrégés qui suffisent, et la preuve qu'ils suffisent |
+| [19 — Lignes de base](notebooks/19_lignes_de_base.ipynb) | le filtre jugé contre quatre concurrents et contre la frontière exacte |
 
 ## Reproduire
 
@@ -156,7 +162,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Indice-Diversite-Exposee.git
 cd Indice-Diversite-Exposee
 
-docker compose run --rm test          # 556 tests
+docker compose run --rm test          # 572 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

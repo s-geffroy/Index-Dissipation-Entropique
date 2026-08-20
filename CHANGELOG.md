@@ -7,6 +7,48 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — le filtre jugé contre des lignes de base et contre la frontière exacte
+
+La dette la plus ancienne du programme d'évaluation : le filtre n'avait jamais été comparé qu'au
+classement par pertinence, dont il se distingue par construction. Détail :
+[`docs/lignes-de-base.md`](docs/lignes-de-base.md) et le
+[notebook 19](notebooks/19_lignes_de_base.ipynb).
+
+- **`ide.baselines`** — cinq réordonnanceurs à paramètre balayable (tour de rôle, MMR, Boltzmann,
+  filtre entropique, tirage au sort), la mesure conjointe (diversité exposée, engagement) sous la
+  **même** remise de rang, et la **frontière de Pareto exacte** par énumération des 151 200
+  arrangements ordonnés. Au-delà d'une limite déclarée, le module refuse plutôt que de basculer
+  en silence sur une frontière approchée.
+- **`notebooks/19_lignes_de_base.ipynb`**, `paper/figures/fig19_lignes_de_base.png` et 16 tests
+  supplémentaires (572 au total).
+
+### Résultats — le filtre tient la frontière, et n'est pas premier
+
+- **Le filtre du dépôt se tient sur la frontière exacte** : manque à gagner médian de **0,0 à
+  1,0 %** d'engagement selon le plancher, sur 150 viviers tirés au sort. Ce n'était pas acquis —
+  le tirage au sort atteint les mêmes diversités en laissant **9 à 19 %** sur la table.
+- **Mais MMR, publié en 1998, tient la frontière aussi** — 0,0 à 0,2 % — et devance le filtre en
+  duel direct au plancher 0,80 (35 victoires contre 18). **La nouveauté de ce dépôt n'est pas
+  dans son algorithme.**
+- **Le filtre ne se détache qu'à l'exigence haute** : au plancher 0,90, MMR ne trouve aucun
+  réglage conforme dans **47 %** des viviers — son paramètre sature — contre **12 %** pour le
+  filtre, qui l'emporte alors 72 fois contre 14. Il optimise la grandeur contrainte ; MMR
+  optimise un substitut.
+- **Le prix de la norme dépend du lecteur**, et personne ne l'avait isolé : un plancher de 0,90
+  coûte **3,8 %** d'engagement quand la pertinence est indépendante du point de vue et **17,1 %**
+  quand elle en découle entièrement. **La norme coûte le plus cher là où elle sert le plus.**
+- Cette dépendance **réconcilie** deux chiffres du dépôt qui semblaient se contredire : les
+  10 à 21 % du [rang adverse](docs/rang-adverse.md) correspondaient à un alignement de 1.
+
+### Modifié
+
+- [`docs/ade.md`](docs/ade.md) — encadré : le filtre n'apporte rien qu'une heuristique de 1998
+  n'apporte déjà, sauf aux planchers élevés.
+- [`docs/memorandum.md`](docs/memorandum.md) — deux objections anticipées et ce que la mesure en
+  dit : refondre les moteurs n'est pas nécessaire, et le coût dépend du lecteur.
+- [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — la dette des lignes de base est
+  réglée.
+
 ### Modifié — le dépôt et l'adresse du site renommés
 
 - `Index-Dissipation-Entropique` devient **`Indice-Diversite-Exposee`**. Le site publié passe

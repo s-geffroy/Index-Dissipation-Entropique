@@ -466,6 +466,48 @@ data as things stand (\S\ref{sec:logs}). What bounds the discussion is the figur
 \S\ref{sec:adversarial}: a rank-aware floor costs $10.6$ to $20.9\%$ of engagement depending on
 the measure, on eight-slot feeds enumerated exhaustively.
 
+\subsection{What it is worth, compared with baselines}
+\label{sec:baselines}
+
+A filter is not judged against relevance ranking, from which it differs by construction, but
+against what a practitioner would do without theory. We therefore compare it with four baselines
+--- serving viewpoints in turn, \emph{maximal marginal relevance} \citep{carbonell1998}, a
+Boltzmann draw on relevance, and random selection --- and above all with the \textbf{exact
+frontier} of the (exposed diversity, engagement) plane, obtained by enumerating the $151{,}200$
+ordered arrangements of six items drawn from a pool of ten.
+
+Across $150$ pools, at a fixed floor, the median shortfall is as follows.
+
+\begin{center}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Method} & $0.50$ & $0.60$ & $0.70$ & $0.80$ & $0.90$ \\
+\midrule
+Round robin & $0.0\%$ & $0.0\%$ & $0.0\%$ & $3.8\%$ & $4.8\%$ \\
+MMR & $0.0\%$ & $0.0\%$ & $0.0\%$ & $\mathbf{0.0\%}$ & $\mathbf{0.2\%}$ \\
+Boltzmann & $0.0\%$ & $0.0\%$ & $0.1\%$ & $1.2\%$ & $3.7\%$ \\
+Filter \eqref{eq:score} & $0.0\%$ & $0.0\%$ & $0.0\%$ & $\mathbf{0.0\%}$ & $\mathbf{1.0\%}$ \\
+Random & $9.3\%$ & $9.8\%$ & $11.0\%$ & $12.9\%$ & $19.1\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The filter therefore holds the frontier --- which was not a given, random selection reaching the
+same diversities while leaving a fifth of the engagement on the table --- but \textbf{it is not
+alone there}. A heuristic published in 1998 holds it too, and beats the filter head to head at
+floor $0.80$. The filter only stands out at the high requirement: at floor $0.90$, MMR finds no
+compliant setting in $47\%$ of pools, against $12\%$ for the filter, because the latter optimises
+the constrained quantity where MMR optimises a proxy that saturates.
+
+\paragraph{The price of the standard depends on the reader.} The comparison above draws relevance
+independently of viewpoint. Varying that \emph{alignment}, the cost of the $0.90$ floor moves from
+$3.8\%$ of engagement --- a reader whose interests cut across viewpoints --- to $17.1\%$ --- a
+reader whose preference \emph{is} a viewpoint. The standard therefore costs most exactly where it
+serves most, which predicts where the objection will fall. This dependence reconciles the figures
+of \S\ref{sec:adversarial}, where relevance was attached to the viewpoint, with those of this
+paragraph.
+
+
 \part{The background model}
 \label{part:model}
 

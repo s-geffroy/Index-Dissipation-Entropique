@@ -18,6 +18,15 @@
     ([adversarial rank](rang-adverse.en.md)); and evaluating that cost naively on logged clicks
     is off by **201 % at the median** ([rank and counterfactual](evaluation.en.md)).
 
+!!! failure "And it brings nothing a 1998 heuristic does not already bring"
+    Compared for the first time with tuned baselines and with the **exact frontier** of the
+    (exposed diversity, engagement) plane, the filter holds it — 0.0 to 1.0 % shortfall. But
+    **MMR**, published in 1998, holds it too, and beats the filter head to head at floor 0.80.
+
+    The filter only stands out at the high requirement: at floor 0.90, MMR finds no compliant
+    setting in 47 % of pools, against 12 % for it. What distinguishes this repository is
+    therefore not its algorithm. → [Baselines](lignes-de-base.en.md)
+
 ## The problem it addresses
 
 A conventional recommender maximises immediate engagement. The

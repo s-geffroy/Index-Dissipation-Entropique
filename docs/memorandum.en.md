@@ -66,6 +66,17 @@ observable.
     dataset carrying both the served rank and a viewpoint label.
     → [Article 40 request](article-40.en.md)
 
+    **Two anticipated objections, and what measurement says about them**:
+
+    * *"we would have to redesign our engines"* — **no**. A diversification heuristic published
+      in 1998 holds a floor of 0.80 with no measurable loss of engagement, and relevance ranking
+      remains the limiting case at zero coefficient. What the standard requires is **measuring**,
+      not rebuilding. → [baselines](lignes-de-base.en.md);
+    * *"the cost will be prohibitive"* — **it depends on the reader**, and that must be conceded:
+      from 3.8 % of engagement for a reader whose interests cut across viewpoints to 17.1 % for a
+      reader whose preference *is* a viewpoint, at the same 0.90 floor. The standard costs most
+      where it serves most, which is precisely where the objection will be raised.
+
     The three corrections that led here are kept below, in the order they occurred.
 
 **Measure.** Require very large online platforms to keep the [index](ide.en.md) of
@@ -364,7 +375,7 @@ data, moving from 5 to 20 impressions per cell shifts the estimated severity by 
 | resistance of the index to gaming | **done, and negative** — an EDI floor saturates at zero cost ([adversarial test](gaming.en.md)); the measurement must be made on Rao's entropy |
 | calibration of the **position-entropy** floor | no procedure — the adversarial test establishes the form of the standard, not its level |
 | choice of the **exposure target** | an unsettled political question, which a divergence measure makes explicit instead of burying |
-| cost in perceived relevance of an index floor | not evaluated |
+| cost in perceived relevance of an index floor | **quantified in simulation** — 0 to 17 % depending on the floor and on the alignment between relevance and viewpoint ([baselines](lignes-de-base.en.md)); never measured on a real feed |
 | counterfactual evaluation on a public dataset | **done, and negative** — [MIND](mind.en.md) does not retain display rank: exposure is not identifiable there, and estimating it anyway returns five incompatible severities |
 | requiring the **served rank** in supplied logs | proposed here, not instrumented on the regulator's side — but [a public dataset already meets it](rang-servi.en.md) |
 | value of $\eta$ to adopt for a news feed | **measured elsewhere, not transportable**: 1.10 on a results page, 0.04 to 0.11 on a three-thumbnail banner |

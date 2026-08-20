@@ -67,6 +67,18 @@ pas par le contenu pris un à un. Ce sont ces paramètres qu'il faut rendre obse
     d'un jeu de données portant à la fois le rang servi et une étiquette de point de vue.
     → [demande au titre de l'article 40](article-40.md)
 
+    **Deux objections anticipées, et ce que la mesure en dit** :
+
+    * *« il faudrait refondre nos moteurs »* — **non**. Une heuristique de diversification
+      publiée en 1998 tient un plancher de 0,80 sans perte mesurable d'engagement, et le
+      classement par pertinence reste le cas limite à coefficient nul. Ce que la norme exige est
+      de **mesurer**, pas de reconstruire. → [lignes de base](lignes-de-base.md) ;
+    * *« le coût sera prohibitif »* — **cela dépend du lecteur**, et il faut l'admettre : de
+      3,8 % d'engagement pour un lecteur dont les intérêts traversent les points de vue à 17,1 %
+      pour un lecteur dont la préférence *est* un point de vue, au même plancher de 0,90. La
+      norme coûte le plus cher là où elle sert le plus, ce qui est précisément l'endroit où
+      l'objection sera formulée.
+
     Le détail des trois corrections qui ont conduit là est conservé ci-dessous, dans l'ordre où
     elles sont survenues.
 
@@ -382,7 +394,7 @@ Ces manques sont réels et il serait malhonnête de les taire :
 | résistance de l'index au *gaming* | **fait, et négatif** — un plancher d'IDE se sature à coût nul ([test adverse](gaming.md)) ; la mesure doit porter sur l'entropie de Rao |
 | calibration du plancher d'**entropie de position** | aucune procédure — le test adverse établit la forme de la norme, pas son niveau |
 | choix de la **cible d'exposition** | question politique non tranchée, que la mesure par divergence rend explicite au lieu de l'enfouir |
-| coût en pertinence perçue d'un plancher d'IDE | non évalué |
+| coût en pertinence perçue d'un plancher d'IDE | **chiffré en simulation** — 0 à 17 % selon le plancher et selon l'alignement entre pertinence et point de vue ([lignes de base](lignes-de-base.md)) ; jamais mesuré sur un fil réel |
 | évaluation contrefactuelle sur un jeu de données public | **fait, et négatif** — [MIND](mind.md) ne conserve pas le rang d'affichage : l'exposition n'y est pas identifiable, et l'estimation qu'on y mène quand même renvoie cinq sévérités incompatibles |
 | exigence de publication du **rang servi** dans les journaux transmis | proposée ici, non instrumentée côté régulateur — mais [un jeu public la satisfait déjà](rang-servi.md) |
 | valeur de $\eta$ à retenir pour un fil d'actualité | **mesurée ailleurs, non transportable** : 1,10 sur une page de résultats, 0,04 à 0,11 sur un bandeau de trois vignettes |

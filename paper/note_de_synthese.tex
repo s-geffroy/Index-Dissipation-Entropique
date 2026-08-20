@@ -487,6 +487,48 @@ le chiffre de la \S\ref{sec:adverse} : un plancher conscient du rang coûte $10{
 $20{,}9\,\%$ d'engagement selon la mesure retenue, sur des fils de huit positions énumérés
 exhaustivement.
 
+\subsection{Ce qu'il vaut, comparé à des lignes de base}
+\label{sec:lignesdebase}
+
+Un filtre ne se juge pas contre le classement par pertinence, dont il diffère par construction,
+mais contre ce qu'un praticien ferait sans théorie. Nous le comparons donc à quatre lignes de
+base --- servir les points de vue à tour de rôle, la diversification \emph{maximal marginal
+relevance} \citep{carbonell1998}, un tirage de Boltzmann sur la pertinence, et le tirage au sort
+--- et surtout à la \textbf{frontière exacte} du plan (diversité exposée, engagement), obtenue
+en énumérant les $151\,200$ arrangements ordonnés de six contenus tirés d'un vivier de dix.
+
+Sur $150$ viviers, à plancher fixé, le manque à gagner médian est le suivant.
+
+\begin{center}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+\textbf{Méthode} & $0{,}50$ & $0{,}60$ & $0{,}70$ & $0{,}80$ & $0{,}90$ \\
+\midrule
+Tour de rôle & $0{,}0\,\%$ & $0{,}0\,\%$ & $0{,}0\,\%$ & $3{,}8\,\%$ & $4{,}8\,\%$ \\
+MMR & $0{,}0\,\%$ & $0{,}0\,\%$ & $0{,}0\,\%$ & $\mathbf{0{,}0\,\%}$ & $\mathbf{0{,}2\,\%}$ \\
+Boltzmann & $0{,}0\,\%$ & $0{,}0\,\%$ & $0{,}1\,\%$ & $1{,}2\,\%$ & $3{,}7\,\%$ \\
+Filtre \eqref{eq:score} & $0{,}0\,\%$ & $0{,}0\,\%$ & $0{,}0\,\%$ & $\mathbf{0{,}0\,\%}$ & $\mathbf{1{,}0\,\%}$ \\
+Tirage au sort & $9{,}3\,\%$ & $9{,}8\,\%$ & $11{,}0\,\%$ & $12{,}9\,\%$ & $19{,}1\,\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Le filtre se tient donc sur la frontière --- ce qui n'était pas acquis, le tirage au sort
+atteignant les mêmes diversités en laissant un cinquième de l'engagement sur la table --- mais
+\textbf{il n'y est pas seul}. Une heuristique publiée en 1998 y est aussi, et le devance en duel
+direct au plancher $0{,}80$. Le filtre ne s'en détache qu'à l'exigence haute : au plancher
+$0{,}90$, MMR ne trouve aucun réglage conforme dans $47\,\%$ des viviers, contre $12\,\%$ pour
+lui, parce qu'il optimise la grandeur contrainte là où MMR optimise un substitut qui sature.
+
+\paragraph{Le prix de la norme dépend du lecteur.} La comparaison ci-dessus tire la pertinence
+indépendamment du point de vue. En faisant varier cet \emph{alignement}, le coût du plancher
+$0{,}90$ passe de $3{,}8\,\%$ d'engagement --- lecteur dont les intérêts traversent les points de
+vue --- à $17{,}1\,\%$ --- lecteur dont la préférence \emph{est} un point de vue. La norme coûte
+donc le plus cher exactement là où elle sert le plus, ce qui prédit où portera l'objection. Cette
+dépendance réconcilie les chiffres de \S\ref{sec:adverse}, où la pertinence était attachée au
+point de vue, avec ceux de ce paragraphe.
+
+
 \part{Le modèle d'arrière-plan}
 \label{part:modele}
 

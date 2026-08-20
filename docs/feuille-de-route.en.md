@@ -345,5 +345,9 @@ what independent judges would produce. It is the last methodological reservation
 computation lifts. It would not change the conclusion, though: blind annotation **eliminated** the
 register gap, and four independent measurements find no trace of it.
 
-**Tuned baselines** — MMR, random re-ranking, popularity. The oldest debt of the evaluation
-programme, and it requires no new data.
+~~**Tuned baselines** — MMR, random re-ranking, popularity.~~ → **[done](lignes-de-base.en.md)**,
+with a mixed verdict: the repository's filter holds the exact frontier, but MMR — published in
+1998 — holds it too, and beats it at floor 0.80. The filter only stands out at the high
+requirement, where it reaches the constraint four times more often. The measurement also isolated
+a dependence nobody had seen: **the price of the standard depends on the reader**, from 3.8 % to
+17.1 % according to whether their interests cut across viewpoints or coincide with one.
