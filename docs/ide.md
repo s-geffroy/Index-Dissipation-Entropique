@@ -52,6 +52,21 @@ Trois choix la distinguent de l'entropie qu'on écrirait spontanément, et chacu
 | $\mathrm{IDE} = 1$ | l'attention servie se répartit également entre les $k$ points de vue du catalogue |
 | $\mathrm{IDE} \to 0$ | bulle de filtres gelée : l'attention servie va à un seul point de vue |
 
+!!! tip "Publier l'indice en **nombre effectif de points de vue**"
+    Une entropie normalisée n'est pas linéaire en ce qu'on entend par « deux fois plus divers ».
+    Sa conversion $k^{\mathrm{IDE}}$ l'est : c'est le nombre de points de vue **également
+    servis** qui produirait la même entropie (Jost, 2006). Sur un catalogue de quatre, un
+    plancher de 0,70 vaut **2,6 points de vue effectifs**, et les 0,44 réellement exposés par le
+    fil enterrant en valent **1,9**. Le premier chiffre se comprend sans formation, le second
+    non. → `ide.entropy.effective_viewpoints`
+
+!!! warning "La remise $w_R$ doit être **mesurée**, pas conventionnelle"
+    Employer $1/R$ revient à poser $\eta = 1$. Or la sévérité de l'attention est une propriété
+    de la **surface** : environ 1,1 sur une page de résultats, 0,04 à 0,11 sur un bandeau de
+    trois vignettes. À attention plate, l'enterrement disparaît ; à attention très concentrée,
+    il devient presque gratuit. La remise fait donc partie de ce qu'un régulateur doit exiger
+    qu'on mesure. → [contre-expertise](contre-expertise.md)
+
 **Grandeur de contrôle associée.** L'écart entre la mesure **aveugle au rang** et la mesure
 **consciente du rang** du *même* fil vaut zéro pour une plateforme qui ne relègue pas, et croît
 avec l'enterrement. Contrairement aux autres diagnostics du dépôt, il compare une mesure à

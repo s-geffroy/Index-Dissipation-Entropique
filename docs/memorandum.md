@@ -63,6 +63,20 @@ pas par le contenu pris un à un. Ce sont ces paramètres qu'il faut rendre obse
     la population sous le seuil, pas la moyenne), et le niveau du seuil — qu'aucun calcul de ce
     dépôt ne détermine.
 
+    **Ce que le régulateur doit faire mesurer, et non fixer** : la **remise d'attention** de la
+    surface. Elle vaut environ 1,1 sur une page de résultats et un dixième de cela sur un
+    bandeau de trois vignettes, et de sa valeur dépend l'existence même de l'échappatoire par
+    enterrement. Une remise conventionnelle imposée à toutes les surfaces serait fausse pour
+    la plupart. → [contre-expertise](contre-expertise.md)
+
+    **Ce qui compte moins qu'on ne l'a écrit** : le choix de la mesure de diversité. À diversité
+    réellement exposée égale, entropie et divergence à une cible coûtent la même chose. Ce sont
+    le **niveau** et la **conscience du rang** qui font la norme.
+
+    **Comment publier le chiffre** : en **nombre effectif de points de vue** ($k^{\mathrm{IDE}}$)
+    plutôt qu'en entropie normalisée. « 2,6 points de vue effectifs sur 4 » est intelligible ;
+    « 0,70 » ne l'est pas.
+
     **Ce qui reste non vérifié** : cette forme n'a jamais été mesurée sur un fil réel, faute
     d'un jeu de données portant à la fois le rang servi et une étiquette de point de vue.
     → [demande au titre de l'article 40](article-40.md)

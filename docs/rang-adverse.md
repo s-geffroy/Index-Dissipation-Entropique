@@ -1,10 +1,16 @@
 # Rang adverse et sévérité : ce qu'une norme aveugle laisse passer
 
-!!! failure "Une plateforme certifiée à 0,70 n'expose que 0,36"
+!!! failure "Une plateforme certifiée à 0,70 n'expose que 0,36 — sous attention concentrée"
     Jugées sur des fils **ordonnés** plutôt que sur des compositions, les quatre mesures du
     [test adverse](gaming.md) certifient toutes une diversité que le lecteur ne reçoit pas.
     L'entropie de Rao certifie 0,750 pour une diversité exposée de **0,355** ; l'entropie de
     position, 0,774 pour **0,443**.
+
+    **Restriction apportée depuis.** Ces chiffres valent pour une remise d'attention en $1/R$.
+    La [contre-expertise](contre-expertise.md) montre que l'enterrement **disparaît** quand
+    l'attention est plate — 0,747 exposé pour 0,774 affiché à $\eta = 0{,}1$, la sévérité
+    mesurée sur un bandeau de trois vignettes — et empire quand elle est concentrée. La remise
+    doit être **mesurée sur la surface**, non conventionnelle.
 
 !!! success "Un plancher conscient du rang le ferme — et il coûte"
     La diversité exposée atteint alors le plancher, les contenus divergents remontant dans le
@@ -161,6 +167,15 @@ Pour l'[évaluation contrefactuelle](evaluation.md), une quatrième exigence s'a
 déjà posées : **$\eta$ doit être estimé et son incertitude propagée**, et l'exploration du jeu
 de données doit être vérifiée avant toute chose — c'est elle qui décide si l'estimation est
 possible.
+
+!!! failure "Conclusion retirée : « la proximité à la cible résiste le mieux »"
+    Cette page comparait les quatre mesures **au même plancher nominal de 0,70**. Elles ne
+    vivent pas sur la même échelle : un plancher de 0,70 sur la proximité à la cible n'exige pas
+    la même chose qu'un plancher de 0,70 sur l'entropie.
+
+    Comparées à **diversité réellement exposée égale**, les deux mesures coûtent la même chose,
+    à moins de 0,6 % de la borne exacte. Ce qui compte n'est pas le choix de la mesure mais le
+    **niveau** exigé et la **conscience du rang**. → [contre-expertise](contre-expertise.md)
 
 ## Les hypothèses qui restent
 

@@ -7,7 +7,7 @@ journée, par accumulation d'analogies. Cette méthode produit des intuitions ju
 et des raccourcis qui ne tiennent pas. Publier le fil tel quel exposerait
 l'ensemble à être écarté sur un détail, alors que l'intuition de départ mérite mieux.
 
-Dix-sept points sont documentés. Chacun suit la même structure : ce que le fil affirmait, pourquoi
+Dix-neuf points sont documentés. Chacun suit la même structure : ce que le fil affirmait, pourquoi
 c'est un problème, et la formulation retenue. Les corrections sont **traçables** :
 chacune est implémentée dans `src/`, vérifiée dans `tests/`, et illustrée dans un
 notebook.
@@ -457,6 +457,46 @@ les rangs servis un par un lorsque l'hypothèse tombe. Un test fige les deux cas
 sur les données, et elle doit être traitée comme telle. La garde qui l'a attrapée n'est pas une
 relecture : c'est la règle, posée au chantier précédent, qu'un condensé doit être comparé au
 journal brut à chaque construction.
+
+
+### 18. Comparer deux mesures au même plancher nominal
+
+**Ce que ce dépôt avait publié.** Le [rang adverse](rang-adverse.md) a comparé quatre mesures de
+diversité **au même plancher de 0,70** et conclu que la « proximité à la cible » résistait le
+mieux à l'enterrement. La conclusion a été reprise dans le mémorandum et sur la page d'accueil.
+
+**Le problème.** Les quatre mesures ne vivent pas sur la même échelle. Un plancher de 0,70 sur la
+proximité à la cible n'exige pas la même diversité qu'un plancher de 0,70 sur l'entropie : à ce
+niveau, la première n'expose que 0,43 d'entropie, la seconde 0,70. Comparer leurs coûts à
+plancher égal, c'est comparer une norme exigeante à une norme lâche.
+
+**Retenu.** La comparaison se fait à **diversité réellement exposée égale**. Elle donne des coûts
+identiques à moins de 0,6 % de la borne exacte : le choix de la mesure ne compte presque pas, ce
+sont le **niveau** et la **conscience du rang** qui font la norme.
+
+**Ce que cet épisode enseigne sur la méthode.** Le dépôt disposait déjà de la bonne méthode et ne
+l'avait pas appliquée à ses propres mesures : la comparaison des [lignes de
+base](lignes-de-base.md) fixe le plancher précisément pour rendre les concurrents comparables.
+Une méthode acquise dans un chapitre ne se transporte pas toute seule dans les autres.
+
+### 19. Une remise d'attention conventionnelle donnée pour universelle
+
+**Ce que ce dépôt avait publié.** « Une plateforme certifiée à 0,70 n'expose que 0,36 », sans
+mention de la remise employée — $1/R$, c'est-à-dire une sévérité d'attention de 1.
+
+**Le problème.** Ce même dépôt a mesuré que la sévérité est une propriété de la **surface** :
+1,10 sur une page de résultats, 0,04 à 0,11 sur un bandeau de trois vignettes. Recalculé à
+sévérité 0,1, le fil « certifié à 0,70 » en expose **0,747** : l'enterrement disparaît. À
+sévérité 2, il n'en expose que 0,157 et l'échappatoire ne coûte plus que 2,7 %.
+
+**Retenu.** La remise doit être **mesurée sur la surface** et publiée avec le résultat. Le prix de
+la norme consciente du rang, lui, est stable — 20,8 à 24,1 % — ce qui est la seule chose que la
+convention permettait de dire sans risque.
+
+**Ce que cet épisode enseigne sur la méthode.** Une convention d'évaluation empruntée à un autre
+domaine — ici la remise du rang réciproque — entre dans un résultat comme une hypothèse, même
+quand elle n'est jamais énoncée. Le dépôt avait mesuré la grandeur qui la remplace **avant** de
+publier le résultat qui en dépendait.
 
 ---
 

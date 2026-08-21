@@ -160,6 +160,15 @@ For [counterfactual evaluation](evaluation.en.md), a fourth requirement joins th
 set: **$\eta$ must be estimated and its uncertainty propagated**, and the dataset's exploration
 must be checked first — it is what decides whether estimation is possible at all.
 
+!!! failure "Withdrawn conclusion: \"target proximity resists best\""
+    This page compared the four measures **at the same nominal floor of 0.70**. They do not live
+    on the same scale: a 0.70 floor on target proximity does not demand what a 0.70 floor on
+    entropy demands.
+
+    Compared at **equal actually exposed diversity**, both measures cost the same, within 0.6 %
+    of the exact bound. What matters is not the choice of measure but the **level** required and
+    **rank-awareness**. → [counter-expertise](contre-expertise.en.md)
+
 ## The assumptions that remain
 
 The form $e(R) = R^{-\eta}$ is **posited**, and only its severity estimated. An examination model

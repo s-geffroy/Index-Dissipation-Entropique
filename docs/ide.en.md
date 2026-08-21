@@ -52,6 +52,21 @@ Three choices distinguish it from the entropy one would write spontaneously, and
 | $\mathrm{EDI} = 1$ | served attention is spread evenly across the catalogue's $k$ viewpoints |
 | $\mathrm{EDI} \to 0$ | frozen filter bubble: served attention goes to a single viewpoint |
 
+!!! tip "Publish the index as an **effective number of viewpoints**"
+    A normalised entropy is not linear in what we mean by "twice as diverse". Its conversion
+    $k^{\mathrm{EDI}}$ is: the number of **equally served** viewpoints that would produce the
+    same entropy (Jost, 2006). On a catalogue of four, a floor of 0.70 is **2.6 effective
+    viewpoints**, and the 0.44 actually exposed by the burying feed is **1.9**. The first is
+    understandable without training; the second is not.
+    → `ide.entropy.effective_viewpoints`
+
+!!! warning "The discount $w_R$ must be **measured**, not conventional"
+    Using $1/R$ amounts to positing $\eta = 1$. But attention severity is a property of the
+    **surface**: about 1.1 on a results page, 0.04 to 0.11 on a three-thumbnail banner. With
+    flat attention burial disappears; with very concentrated attention it becomes nearly free.
+    The discount is therefore part of what a regulator must require to be measured.
+    → [counter-expertise](contre-expertise.en.md)
+
 **Associated control quantity.** The gap between the **rank-blind** and the **rank-aware**
 measure of the *same* feed is zero for a platform that does not relegate, and grows with burial.
 Unlike the repository's other diagnostics, it compares a measure with itself: it is therefore

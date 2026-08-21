@@ -47,6 +47,7 @@ from collections.abc import Iterable, Sequence
 import numpy as np
 
 __all__ = [
+    "effective_viewpoints",
     "label_diversity_index",
     "shannon_entropy",
     "shannon_entropy_from_counts",
@@ -188,6 +189,35 @@ def von_neumann_entropy(density_matrix: np.ndarray, base: float = np.e) -> float
     populations = np.clip(eigenvalues, 0.0, None)
 
     return shannon_entropy(populations, base=base)
+
+
+def effective_viewpoints(index: float, catalogue_size: int) -> float:
+    """Traduit un indice normalisé en **nombre effectif de points de vue**.
+
+    Une entropie normalisée n'est pas une diversité : elle n'est pas linéaire en ce qu'on
+    entend intuitivement par « deux fois plus divers ». Sa conversion en nombre effectif ---
+    le nombre de points de vue **également servis** qui produirait la même entropie --- l'est,
+    et c'est la forme sous laquelle un régulateur peut lire un seuil (Jost, *Entropy and
+    diversity*, 2006 ; nombres de Hill).
+
+    .. math:: {}^{1}\\!D = 2^{H} = k^{\\,\\mathrm{IDE}}
+
+    Examples:
+        Un plancher de 0,70 sur un catalogue de quatre points de vue :
+
+        >>> round(effective_viewpoints(0.70, 4), 2)
+        2.64
+
+        Ce que la même plateforme expose réellement lorsqu'elle enterre les divergents :
+
+        >>> round(effective_viewpoints(0.36, 4), 2)
+        1.65
+    """
+    if catalogue_size < 2:
+        raise ValueError("un catalogue doit offrir au moins deux points de vue")
+    if not 0.0 <= index <= 1.0:
+        raise ValueError("un indice normalisé vit dans [0, 1]")
+    return float(catalogue_size**index)
 
 
 def label_diversity_index(

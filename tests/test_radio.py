@@ -176,3 +176,24 @@ class TestTheFiveReferences:
     def test_a_reference_of_null_mass_is_refused(self) -> None:
         with pytest.raises(ValueError, match="masse nulle"):
             radio_divergence(np.array([0, 1]), np.zeros(2), category_count=2)
+
+
+def test_la_remise_accepte_une_severite_mesuree():
+    """La remise n'est pas une convention : elle doit pouvoir porter la sévérité mesurée.
+
+    À sévérité 1, elle rend exactement la remise du rang réciproque ; à sévérité nulle, une
+    attention uniforme. Entre les deux, elle décrit une surface réelle.
+    """
+    assert rank_weights(5, discount=1.0) == pytest.approx(rank_weights(5, discount="mrr"))
+    assert rank_weights(5, discount=0.0) == pytest.approx(rank_weights(5, discount="none"))
+
+    flat = rank_weights(5, discount=0.1)
+    steep = rank_weights(5, discount=2.0)
+    # plus la sévérité est grande, plus l'attention se concentre en tête
+    assert flat[-1] / flat[0] > steep[-1] / steep[0]
+
+
+def test_une_severite_negative_est_refusee():
+    with pytest.raises(ValueError, match="ne peut être négative"):
+        rank_weights(5, discount=-0.5)
+

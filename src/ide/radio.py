@@ -90,23 +90,39 @@ __all__ = [
 DISCOUNTS: tuple[str, ...] = ("mrr", "log", "none")
 
 
-def rank_weights(length: int, discount: str = "mrr") -> np.ndarray:
+def rank_weights(length: int, discount: str | float = "mrr") -> np.ndarray:
     """Poids d'attention accordés à chaque rang d'un fil.
 
     Args:
         length: nombre de positions du fil.
         discount: ``"mrr"`` pour :math:`1/R`, ``"log"`` pour :math:`1/\\log_2(R+1)`,
-            ``"none"`` pour une attention uniforme.
+            ``"none"`` pour une attention uniforme --- ou un **nombre**, interprété comme la
+            sévérité :math:`\\eta` d'une remise :math:`R^{-\\eta}`.
+
+    .. warning::
+        Les remises nommées sont des conventions d'évaluation de classement, pas des mesures.
+        Or la sévérité de l'attention est une propriété de la **surface** : elle vaut environ
+        :math:`1{,}1` sur une page de résultats et un dixième de cela sur un bandeau de trois
+        vignettes (voir :mod:`ide.exposure`). Employer ``"mrr"`` --- c'est-à-dire
+        :math:`\\eta = 1` --- sur un bandeau surpondère la tête d'un ordre de grandeur. Passer
+        la sévérité **mesurée** est donc le choix par défaut dès qu'elle est connue.
 
     Returns:
         Les poids, non normalisés, du premier au dernier rang.
     """
     if length < 1:
         raise ValueError("un fil comporte au moins une position")
-    if discount not in DISCOUNTS:
-        raise ValueError(f"remise inconnue : {discount!r}")
 
     ranks = np.arange(1, length + 1, dtype=float)
+
+    if not isinstance(discount, str):
+        severity = float(discount)
+        if severity < 0.0:
+            raise ValueError("une sévérité d'attention ne peut être négative")
+        return ranks ** (-severity)
+
+    if discount not in DISCOUNTS:
+        raise ValueError(f"remise inconnue : {discount!r}")
     if discount == "mrr":
         return 1.0 / ranks
     if discount == "log":

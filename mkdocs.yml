@@ -78,6 +78,8 @@ plugins:
             Journaux qui enregistrent le rang: Logs that record the rank
             Demande au titre de l'article 40: Article 40 data request
             Lignes de base: Baselines
+            Contre-expertise: Counter-expertise
+            Bibliographie: Bibliography
             Mémorandum de régulation: Regulatory memorandum
             Réserves: Caveats
             Audit critique et limites: Critical audit and limitations
@@ -138,11 +140,13 @@ nav:
       - Journaux qui enregistrent le rang: rang-servi.md
       - Demande au titre de l'article 40: article-40.md
       - Lignes de base: lignes-de-base.md
+      - Contre-expertise: contre-expertise.md
       - Mémorandum de régulation: memorandum.md
   - Réserves:
       - Audit critique et limites: limites.md
       - Feuille de route: feuille-de-route.md
       - Errata: errata.md
+      - Bibliographie: bibliographie.md
       - Appel à relecture: relecture.md
   - Notebooks:
       - 01 — Entropie et pureté: notebooks/01_entropie_et_purete.ipynb
@@ -164,3 +168,4 @@ nav:
       - 17 — Rang servi: notebooks/17_rang_servi.ipynb
       - 18 — Demande article 40: notebooks/18_demande_article_40.ipynb
       - 19 — Lignes de base: notebooks/19_lignes_de_base.ipynb
+      - 20 — Contre-expertise: notebooks/20_contre_expertise.ipynb

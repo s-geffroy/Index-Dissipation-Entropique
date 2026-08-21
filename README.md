@@ -5,7 +5,7 @@
 [![Licence : MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Documentation : CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS)
 [![Champ : sociophysique](https://img.shields.io/badge/champ-sociophysique-8a2be2.svg)](https://s-geffroy.github.io/Indice-Diversite-Exposee/)
-[![Tests : 572](https://img.shields.io/badge/tests-572-brightgreen.svg)](tests/)
+[![Tests : 582](https://img.shields.io/badge/tests-582-brightgreen.svg)](tests/)
 
 📖 **[Documentation complète](https://s-geffroy.github.io/Indice-Diversite-Exposee/)**
 · [English](https://s-geffroy.github.io/Indice-Diversite-Exposee/en/)
@@ -50,6 +50,11 @@ publié comme tel.
   d'engagement sur la table — mais **MMR, publié en 1998, fait aussi bien**. Et le prix de la
   norme dépend du lecteur : **3,8 %** quand ses intérêts traversent les points de vue, **17,1 %**
   quand sa préférence *est* un point de vue. → **[Lignes de base](docs/lignes-de-base.md)**
+- **Une contre-expertise de ses propres instruments.** Confronté à la littérature, le dépôt
+  **retire** une conclusion publiée — « la proximité à la cible résiste le mieux » était un
+  artefact d'échelle —, en **restreint** une autre — l'enterrement dépend de la concentration de
+  l'attention et disparaît sur une surface plate — et **élargit** son incertitude sur $\eta$.
+  → **[Contre-expertise](docs/contre-expertise.md)** · **[Bibliographie](docs/bibliographie.md)**
 - **Une demande d'accès aux données qui se vérifie au lieu de se plaider.** Quatre tableaux
   agrégés, sans donnée personnelle, prouvés suffisants — 95 fois moins de lignes que le journal.
   → **[Article 40](docs/article-40.md)**
@@ -72,7 +77,7 @@ l'étiquetage ; un plancher d'index [se sature à coût nul](docs/gaming.md) ; l
 
 ## À lire d'abord : ce que le travail ne prétend pas
 
-L'**[audit critique](docs/limites.md)** recense **dix-sept corrections** apportées au
+L'**[audit critique](docs/limites.md)** recense **dix-neuf corrections** apportées au
 raisonnement d'origine — dont **cinq formules invalides**, et une découverte en tentant de
 mesurer — et énumère les limites qui subsistent, y compris celles qui touchent à l'usage
 réglementaire de l'index : il est manipulable, sa discrétisation en points de vue est un choix
@@ -99,7 +104,7 @@ Tout s'exécute en conteneur. Rien n'est installé sur la machine hôte.
 git clone git@github.com:s-geffroy/Indice-Diversite-Exposee.git
 cd Indice-Diversite-Exposee
 
-docker compose run --rm test          # 572 tests, dont les exemples de docstrings
+docker compose run --rm test          # 582 tests, dont les exemples de docstrings
 docker compose run --rm lint          # ruff
 docker compose run --rm notebooks     # régénère les 11 figures de la note
 docker compose up lab                 # JupyterLab      → http://localhost:8888
@@ -137,8 +142,8 @@ src/ide/            noyau scientifique — modules purs, graines explicites
 ├── baselines.py    lignes de base réglées et frontière exacte (diversité, engagement)
 └── abm/            modèle à agents « compas politique »
 
-tests/              572 tests — validation physique, numérique et statistique
-notebooks/          01 à 19, un par bloc théorique, exécutables
+tests/              582 tests — validation physique, numérique et statistique
+notebooks/          01 à 20, un par bloc théorique, exécutables
 data/pageviews/     464 séries de consultation, versionnées pour la reproductibilité
 data/catalogue.json manifeste pré-enregistré du corpus étendu (440 sujets)
 data/mind_digest.npz  condensé de MIND-small (1,5 Mo) — le jeu brut n'est pas versionné
@@ -176,7 +181,7 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
 
 ## Contenu du dépôt
 
-- [`docs/limites.md`](docs/limites.md) — **audit critique** : les dix-sept corrections et les
+- [`docs/limites.md`](docs/limites.md) — **audit critique** : les dix-neuf corrections et les
   limites qui subsistent.
 - [`docs/calibration.md`](docs/calibration.md) — **la mesure de $\gamma\alpha/\lambda$** sur
   données publiques, ses trois enseignements et ses réserves.
@@ -201,6 +206,10 @@ la porte, elle, l'est — et c'est là que se joue la crédibilité du travail :
   une spécification : quatre tableaux agrégés, et la preuve qu'ils suffisent.
 - [`docs/lignes-de-base.md`](docs/lignes-de-base.md) — **le filtre jugé contre la frontière
   exacte** et quatre concurrents, dont une heuristique de 1998 qui fait aussi bien.
+- [`docs/contre-expertise.md`](docs/contre-expertise.md) — **ce que la littérature reproche à ce
+  travail** : une conclusion retirée, une restreinte, une incertitude élargie.
+- [`docs/bibliographie.md`](docs/bibliographie.md) — **toutes les références**, avec ce que
+  chacune sert ici ; page dérivée de `paper/refs.bib` et verrouillée par un test.
 - [`docs/feuille-de-route.md`](docs/feuille-de-route.md) — comment combler ces limites,
   classé par rapport valeur/effort.
 - [`docs/memorandum.md`](docs/memorandum.md) — recommandations techniques et éthiques pour

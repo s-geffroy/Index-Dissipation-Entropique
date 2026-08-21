@@ -142,6 +142,12 @@ vaut zéro pour une plateforme qui ne relègue pas, et croît avec l'enterrement
 seule grandeur de ce travail qui compare une mesure \emph{à elle-même}, et donc la seule qui
 se seuille sans référence extérieure.
 
+\paragraph{Comment publier le chiffre.} Une entropie normalisée n'est pas une diversité : elle
+n'est pas linéaire en ce qu'on entend par « deux fois plus divers ». Sa conversion en
+\textbf{nombre effectif de points de vue}, ${}^{1}\!D = k^{\mathrm{IDE}}$, l'est
+\citep{jost2006} : un plancher de $0{,}70$ sur un catalogue de quatre vaut $2{,}6$ points de vue
+effectifs, et les $0{,}44$ réellement exposés par le fil enterrant en valent $1{,}9$.
+
 \paragraph{Protocole.} L'unité est le contenu \emph{servi}, non le contenu consulté : c'est
 la plateforme qui est auditée, pas le lecteur. L'indice se calcule par lecteur sur une
 fenêtre glissante, puis s'agrège ; la grandeur réglementaire est la \emph{part de la
@@ -976,6 +982,47 @@ l'opération que \S\ref{sec:journaux} déconseille.
 seule dont ce jeu contienne un seau. Rien n'assure que la pondération d'importance se comporte
 aussi bien pour une cible plus éloignée de la politique d'enregistrement --- au contraire, la
 taille d'échantillon effective y serait plus faible encore.
+
+
+\subsection{Ce que la contre-expertise a retiré ou restreint}
+\label{sec:contreexpertise}
+
+Les instruments de mesure ont été confrontés à la littérature du domaine et à quatre
+contre-épreuves. Trois résultats de cette note en sortent modifiés.
+
+\paragraph{Une conclusion retirée.} La comparaison des quatre mesures de diversité
+(\S\ref{sec:adverse}) était menée \emph{au même plancher nominal}. Les mesures ne vivant pas sur
+la même échelle, cette comparaison n'a pas de sens : à diversité réellement exposée égale, les
+deux mesures retenues coûtent la même chose, à moins de $0{,}6\,\%$ de la borne exacte.
+L'affirmation selon laquelle la proximité à une cible « résisterait mieux » à l'enterrement est
+un artefact d'échelle. Ce qui fait la norme est le \textbf{niveau} exigé et la \textbf{conscience
+du rang}, non le choix de la mesure.
+
+\paragraph{Une conclusion restreinte.} Le chiffre « certifiée à $0{,}70$, elle expose $0{,}36$ »
+suppose une remise d'attention en $1/R$, c'est-à-dire $\eta = 1$. Recalculé avec la sévérité
+\emph{mesurée} d'un bandeau de trois vignettes ($\eta \approx 0{,}1$), le même fil expose
+$0{,}747$ : l'enterrement disparaît. À $\eta = 2$ il n'expose que $0{,}157$, et l'échappatoire ne
+coûte plus que $2{,}7\,\%$ au lieu de $20{,}8\,\%$. La remise d'attention doit donc être
+\textbf{mesurée sur la surface}, et le prix stable est celui de la norme consciente du rang ---
+$20{,}8$ à $24{,}1\,\%$ selon la surface.
+
+\paragraph{Une incertitude élargie.} L'estimateur de \S\ref{sec:exposition} suppose un modèle de
+clic multiplicatif. La littérature en documente un \emph{affine}, où le lecteur clique par
+confiance sur des contenus non pertinents en tête de fil \citep{vardasbi2020}, et démontre que la
+pondération par l'inverse de la propension ne peut pas le corriger. Sous ce modèle, la sévérité
+estimée dérive de $+12{,}8\,\%$ sans que l'erreur type ne le signale. C'est bien moins grave que
+de poser $\eta$ au jugé, mais l'intervalle publié est trop étroit.
+
+\paragraph{Une recommandation confirmée.} L'estimateur doublement robuste fait \emph{moins bien}
+que la pondération simple sur l'Open Bandit Dataset ($-4{,}9\,\%$ contre $+2{,}5\,\%$), et la
+taille d'échantillon effective ne bouge pas : elle ne dépend que des poids d'importance. Aucun
+estimateur ne remplace l'exploration.
+
+\paragraph{Et une mise en garde de la littérature.} Sur Baidu-ULTR --- le jeu même où cette note
+mesure $\hat\eta = 1{,}10$ --- \citet{hager2024} constatent que les corrections de biais de
+position améliorent la prédiction des clics \emph{sans} améliorer la qualité du classement jugée
+par des annotateurs experts. La présence du biais est confirmée par quatre méthodes concordantes,
+ce qui corrobore notre chiffre ; l'étape suivante, elle, ne suit pas mécaniquement.
 
 \subsection{Sur le modèle}
 

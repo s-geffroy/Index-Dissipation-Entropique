@@ -139,6 +139,12 @@ platform that does not relegate, and grows with burial. It is the only quantity 
 that compares a measure \emph{with itself}, and hence the only one that thresholds without an
 external reference.
 
+\paragraph{How to publish the figure.} A normalised entropy is not a diversity: it is not linear
+in what we mean by "twice as diverse". Its conversion into an \textbf{effective number of
+viewpoints}, ${}^{1}\!D = k^{\mathrm{EDI}}$, is \citep{jost2006}: a floor of $0.70$ on a catalogue
+of four is $2.6$ effective viewpoints, and the $0.44$ actually exposed by the burying feed is
+$1.9$.
+
 \paragraph{Protocol.} The unit is the item \emph{served}, not the item consulted: the platform
 is audited, not the reader. The index is computed per reader over a sliding window and then
 aggregated; the regulatory quantity is the \emph{share of the population below the threshold},
@@ -944,6 +950,44 @@ against.
 dataset has a bucket for. Nothing guarantees importance weighting behaves as well for a target
 further from the logging policy --- on the contrary, the effective sample size would be smaller
 still.
+
+
+\subsection{What the counter-expertise withdrew or restricted}
+\label{sec:counterexpertise}
+
+The measuring instruments were confronted with the field's literature and with four
+counter-tests. Three results of this note come out modified.
+
+\paragraph{A withdrawn conclusion.} The comparison of the four diversity measures
+(\S\ref{sec:adversarial}) was carried out \emph{at the same nominal floor}. Since the measures do
+not live on the same scale, that comparison is meaningless: at equal actually exposed diversity,
+the two retained measures cost the same, within $0.6\%$ of the exact bound. The claim that
+proximity to a target "resists" burial better is a scale artefact. What makes the standard is the
+\textbf{level} required and \textbf{rank-awareness}, not the choice of measure.
+
+\paragraph{A restricted conclusion.} The figure "certified at $0.70$, it exposes $0.36$" assumes a
+$1/R$ attention discount, i.e. $\eta = 1$. Recomputed with the \emph{measured} severity of a
+three-thumbnail banner ($\eta \approx 0.1$), the same feed exposes $0.747$: burial disappears. At
+$\eta = 2$ it exposes only $0.157$, and the loophole costs $2.7\%$ instead of $20.8\%$. The
+attention discount must therefore be \textbf{measured on the surface}, and the stable price is
+that of the rank-aware standard --- $20.8$ to $24.1\%$ depending on the surface.
+
+\paragraph{A widened uncertainty.} The estimator of \S\ref{sec:exposure} assumes a multiplicative
+click model. The literature documents an \emph{affine} one, where readers click out of trust on
+irrelevant top-ranked items \citep{vardasbi2020}, and proves that inverse propensity weighting
+cannot correct it. Under that model the estimated severity drifts by $+12.8\%$ without the
+standard error signalling it. Far less severe than positing $\eta$ blindly, but the published
+interval is too narrow.
+
+\paragraph{A confirmed recommendation.} The doubly robust estimator does \emph{worse} than plain
+weighting on the Open Bandit Dataset ($-4.9\%$ against $+2.5\%$), and the effective sample size
+does not move: it depends only on the importance weights. No estimator replaces exploration.
+
+\paragraph{And a caution from the literature.} On Baidu-ULTR --- the very dataset where this note
+measures $\hat\eta = 1.10$ --- \citet{hager2024} find that position-bias corrections improve click
+prediction \emph{without} improving ranking quality as judged by expert annotators. The presence
+of the bias is confirmed by four concordant methods, which corroborates our figure; the next step
+does not follow mechanically.
 
 \subsection{On the model}
 

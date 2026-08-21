@@ -62,6 +62,20 @@ observable.
     the population below the threshold, not the mean), and the level of the threshold — which no
     computation here determines.
 
+    **What the regulator must have measured rather than fix**: the surface's **attention
+    discount**. It is about 1.1 on a results page and a tenth of that on a three-thumbnail
+    banner, and on its value depends the very existence of the burial loophole. A conventional
+    discount imposed on every surface would be wrong for most.
+    → [counter-expertise](contre-expertise.en.md)
+
+    **What matters less than was written**: the choice of diversity measure. At equal actually
+    exposed diversity, entropy and divergence-to-target cost the same. It is the **level** and
+    **rank-awareness** that make the standard.
+
+    **How to publish the figure**: as an **effective number of viewpoints**
+    ($k^{\mathrm{EDI}}$) rather than a normalised entropy. "2.6 effective viewpoints out of 4"
+    is intelligible; "0.70" is not.
+
     **What remains unverified**: this form has never been measured on a real feed, for want of a
     dataset carrying both the served rank and a viewpoint label.
     → [Article 40 request](article-40.en.md)

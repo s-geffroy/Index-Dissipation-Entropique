@@ -7,7 +7,7 @@ analogies. That method produces sound intuitions alongside shortcuts that do not
 Publishing the thread as-is would expose the whole to being dismissed over a detail,
 when the starting intuition deserves better.
 
-Seventeen points are documented. Each follows the same structure: what the thread claimed, why it is a
+Nineteen points are documented. Each follows the same structure: what the thread claimed, why it is a
 problem, and the formulation adopted. Every correction is **traceable** — implemented in
 `src/`, verified in `tests/`, illustrated in a notebook.
 
@@ -390,6 +390,46 @@ ranks one by one when the assumption fails. A test locks both cases.
 **What this episode teaches about method.** A storage optimisation is an assumption about the
 data and must be treated as one. What caught it was not a re-reading: it was the rule, laid down
 at the previous stage, that a digest must be compared against the raw log at every build.
+
+
+### 18. Comparing two measures at the same nominal floor
+
+**What this repository published.** [Adversarial rank](rang-adverse.en.md) compared four
+diversity measures **at the same 0.70 floor** and concluded that "target proximity" resisted
+burial best. The conclusion was carried into the memorandum and the landing page.
+
+**The problem.** The four measures do not live on the same scale. A 0.70 floor on target
+proximity does not demand the diversity a 0.70 floor on entropy demands: at that level the former
+exposes only 0.43 of entropy, the latter 0.70. Comparing their costs at equal floor compares a
+demanding standard with a lax one.
+
+**Adopted.** The comparison is made at **equal actually exposed diversity**. It yields identical
+costs, within 0.6 % of the exact bound: the choice of measure barely matters; it is the **level**
+and **rank-awareness** that make the standard.
+
+**What this episode teaches about method.** The repository already had the right method and had
+not applied it to its own measures: the [baselines](lignes-de-base.en.md) comparison fixes the
+floor precisely to make competitors comparable. A method acquired in one chapter does not
+transport itself into the others.
+
+### 19. A conventional attention discount passed off as universal
+
+**What this repository published.** "A platform certified at 0.70 exposes only 0.36", with no
+mention of the discount used — $1/R$, i.e. an attention severity of 1.
+
+**The problem.** That same repository measured severity to be a property of the **surface**: 1.10
+on a results page, 0.04 to 0.11 on a three-thumbnail banner. Recomputed at severity 0.1, the feed
+"certified at 0.70" exposes **0.747**: burial disappears. At severity 2 it exposes 0.157 and the
+loophole costs only 2.7 %.
+
+**Adopted.** The discount must be **measured on the surface** and published with the result. The
+price of the rank-aware standard is stable — 20.8 to 24.1 % — which is the only thing the
+convention allowed one to say safely.
+
+**What this episode teaches about method.** An evaluation convention borrowed from another field
+— here the reciprocal-rank discount — enters a result as an assumption, even when never stated.
+The repository had measured the quantity that replaces it **before** publishing the result that
+depended on it.
 
 ---
 

@@ -7,6 +7,60 @@ versionnement respecte [Semantic Versioning](https://semver.org/lang/fr/).
 
 ## [Non publié]
 
+### Ajouté — contre-expertise des instruments, et bibliographie publiée
+
+Les chapitres précédents attaquaient l'index, la norme, les jeux de données et l'algorithme.
+Aucun n'avait attaqué **les instruments de mesure eux-mêmes**, ni confronté les choix du dépôt à
+la littérature du domaine. Détail : [`docs/contre-expertise.md`](docs/contre-expertise.md) et le
+[notebook 20](notebooks/20_contre_expertise.ipynb).
+
+- **`ide.radio.rank_weights`** accepte désormais une **sévérité mesurée** en plus des remises
+  nommées : $w_R = R^{-\eta}$. Les remises nommées sont des conventions d'évaluation, et le
+  dépôt a lui-même montré que la sévérité est une propriété de la surface.
+- **`ide.entropy.effective_viewpoints`** — conversion de l'indice en **nombre effectif de points
+  de vue** (Jost, 2006), la seule forme sous laquelle un seuil se lit sans formation.
+- **`docs/bibliographie.md`** et sa version anglaise — **toutes les références du travail**, avec
+  ce que chacune sert ici, **dérivées** de `paper/refs.bib` par
+  `scripts/build_bibliography.py`. Un test échoue si les deux divergent.
+- **`notebooks/20_contre_expertise.ipynb`**, `paper/figures/fig20_contre_expertise.png` et 10
+  tests supplémentaires (582 au total). Neuf références nouvelles au fichier BibTeX.
+
+### Corrigé — une conclusion retirée, une restreinte, une incertitude élargie
+
+- **Retirée : « la proximité à la cible résiste le mieux à l'enterrement ».** Les quatre mesures
+  étaient comparées **au même plancher nominal**, alors qu'elles ne vivent pas sur la même
+  échelle. À diversité **réellement exposée** égale, les deux mesures retenues coûtent la même
+  chose, à moins de 0,6 % de la borne exacte. Ce qui fait la norme est le **niveau** et la
+  **conscience du rang**. Dix-huitième entrée de l'[audit](docs/limites.md).
+- **Restreinte : « certifiée à 0,70, elle expose 0,36 ».** Le chiffre suppose une remise en
+  $1/R$. À la sévérité **mesurée** d'un bandeau de trois vignettes ($\eta \approx 0{,}1$), le
+  même fil expose **0,747** — l'enterrement disparaît ; à $\eta = 2$ il n'expose que **0,157** et
+  l'échappatoire ne coûte plus que 2,7 %. Seul le prix de la norme consciente du rang est stable,
+  20,8 à 24,1 %. Dix-neuvième entrée de l'audit.
+- **Élargie : l'incertitude sur $\hat\eta$.** Sous le modèle de clic **affine** documenté par
+  Vardasbi *et al.* (2020) — clics de confiance sur des contenus non pertinents en tête —
+  l'estimateur dérive de **+12,8 %** sans que son erreur type de 0,013 ne le signale. Bien moins
+  grave que poser $\eta$ au jugé (+179 %), mais l'intervalle publié est trop étroit.
+- **Confirmée : l'exploration ne se remplace pas.** L'estimateur doublement robuste fait *moins
+  bien* que l'IPS simple sur données réelles (−4,9 % contre +2,5 %), et la taille d'échantillon
+  effective ne bouge pas : elle ne dépend que des poids d'importance.
+
+### Modifié — ce que la littérature ajoute
+
+- **Hager *et al.* (SIGIR 2024)** sur Baidu-ULTR, le jeu même où ce dépôt mesure
+  $\hat\eta = 1{,}10$ : les corrections de biais de position améliorent la prédiction des clics
+  **sans** améliorer la qualité du classement jugée par des experts. La présence du biais est
+  corroborée ; l'étape suivante ne suit pas mécaniquement.
+- **van Drunen & Vrijenhoek (2025)** établissent **avant ce dépôt** que les jeux publics sont le
+  goulot d'étranglement et que le droit européen est la voie d'accès. Nous corroborons, nous ne
+  découvrons pas.
+- **Vrijenhoek *et al.* (2022)** : l'indice n'occupe qu'une des cinq dimensions de la diversité
+  normative, et aucune mesure automatique ne distingue la pluralité de la fausse balance.
+- [`docs/ide.md`](docs/ide.md), [`docs/memorandum.md`](docs/memorandum.md) et
+  [`docs/rang-adverse.md`](docs/rang-adverse.md) portent les avertissements correspondants ; les
+  deux notes LaTeX reçoivent la sous-section *ce que la contre-expertise a retiré ou restreint*
+  et sont recompilées (22 et 21 pages).
+
 ### Ajouté — le filtre jugé contre des lignes de base et contre la frontière exacte
 
 La dette la plus ancienne du programme d'évaluation : le filtre n'avait jamais été comparé qu'au

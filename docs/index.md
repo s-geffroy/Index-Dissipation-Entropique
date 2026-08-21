@@ -10,7 +10,7 @@ Un **instrument** — une mesure de la diversité qu'un fil d'actualité expose 
 lecteur, calculable sans accès au code de la plateforme — et la **méthode adverse** qui l'a
 mis à l'épreuve : chaque proposition y est attaquée, et ce qui tombe est publié comme tel.
 
-Il en reste dix-neuf notebooks exécutables, 572 tests, dix-sept corrections consignées, et un
+Il en reste vingt notebooks exécutables, 582 tests, dix-neuf corrections consignées, et un
 état des lieux qui ne ressemble pas à ce que le projet annonçait.
 
 ![Une plateforme certifiée à 0,70 par une mesure aveugle au rang n'expose que 0,36 de
@@ -60,6 +60,13 @@ taille d'échantillon effective de 1 513 pour 4 millions d'impressions.
 **0,0 à 1,0 %** d'engagement sur la table — mais MMR, publié en 1998, fait aussi bien. Et le prix
 de la norme dépend du lecteur : **3,8 %** quand ses intérêts traversent les points de vue,
 **17,1 %** quand sa préférence *est* un point de vue. → [Lignes de base](lignes-de-base.md)
+
+**Une contre-expertise de ses propres instruments.** Confronté à la littérature du domaine, le
+dépôt retire une conclusion — « la proximité à la cible résiste le mieux » était un artefact
+d'échelle —, en restreint une autre — l'enterrement dépend de la concentration de l'attention,
+et **disparaît** sur une surface plate — et élargit son incertitude sur $\eta$ : le biais de
+confiance la gonfle de **+12,8 %** sans que l'erreur type ne le voie.
+→ [Contre-expertise](contre-expertise.md) · [Bibliographie](bibliographie.md)
 
 **Une demande d'accès aux données qui se vérifie au lieu de se plaider.** Quatre tableaux
 agrégés, sans aucune donnée personnelle, dont il est prouvé qu'ils recalculent les mesures **à
@@ -129,7 +136,7 @@ d'énergie libre. Figure régénérée par
 
 ## Explorer
 
-Les dix-neuf notebooks sont exécutables et produisent l'intégralité des figures de la
+Les vingt notebooks sont exécutables et produisent l'intégralité des figures de la
 note. Chacun se lit indépendamment.
 
 | Notebook | Ce qu'il montre |
@@ -153,6 +160,7 @@ note. Chacun se lit indépendamment.
 | [17 — Rang servi](notebooks/17_rang_servi.ipynb) | deux journaux qui enregistrent le rang, et un estimateur jugé contre la vérité |
 | [18 — Demande article 40](notebooks/18_demande_article_40.ipynb) | quatre tableaux agrégés qui suffisent, et la preuve qu'ils suffisent |
 | [19 — Lignes de base](notebooks/19_lignes_de_base.ipynb) | le filtre jugé contre quatre concurrents et contre la frontière exacte |
+| [20 — Contre-expertise](notebooks/20_contre_expertise.ipynb) | cinq contre-épreuves, dont une qui retire une conclusion publiée |
 
 ## Reproduire
 
@@ -162,7 +170,7 @@ Tout s'exécute en conteneur. Aucune dépendance n'est installée sur la machine
 git clone git@github.com:s-geffroy/Indice-Diversite-Exposee.git
 cd Indice-Diversite-Exposee
 
-docker compose run --rm test          # 572 tests
+docker compose run --rm test          # 582 tests
 docker compose run --rm notebooks     # régénère les figures
 docker compose up lab                 # JupyterLab sur :8888
 docker compose up site                # cette documentation sur :8000

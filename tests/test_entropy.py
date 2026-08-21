@@ -152,3 +152,29 @@ class TestEntropicDissipationIndex:
     def test_catalogue_smaller_than_observation_is_rejected(self) -> None:
         with pytest.raises(ValueError, match="inférieur"):
             label_diversity_index(["a", "b", "c"], catalogue_size=2)
+
+
+def test_le_nombre_effectif_de_points_de_vue_est_lineaire_en_diversite():
+    """Ce que l'entropie normalisée ne dit pas, et que sa conversion dit (Jost, 2006).
+
+    Un fil parfaitement équilibré sur k points de vue en expose k ; un fil gelé n'en expose
+    qu'un. Entre les deux, le nombre effectif se lit sans formation, l'entropie non.
+    """
+    from ide.entropy import effective_viewpoints
+
+    assert effective_viewpoints(1.0, 4) == pytest.approx(4.0)
+    assert effective_viewpoints(0.0, 4) == pytest.approx(1.0)
+    assert effective_viewpoints(0.5, 4) == pytest.approx(2.0)
+    # le plancher proposé et ce que le fil enterrant expose réellement
+    assert effective_viewpoints(0.70, 4) == pytest.approx(2.64, abs=0.01)
+    assert effective_viewpoints(0.44, 4) == pytest.approx(1.85, abs=0.01)
+
+
+def test_un_indice_hors_bornes_ou_un_catalogue_degenere_sont_refuses():
+    from ide.entropy import effective_viewpoints
+
+    with pytest.raises(ValueError, match="au moins deux points de vue"):
+        effective_viewpoints(0.5, 1)
+    with pytest.raises(ValueError, match=r"\[0, 1\]"):
+        effective_viewpoints(1.5, 4)
+
